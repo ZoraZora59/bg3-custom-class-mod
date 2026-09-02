@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="331"/>
+  <region id="ClassDescriptions">
+    <node id="root">
+      <children>
+        <!-- 基础职业：字段来自官方教程与原版 Barbarian 条目（docs/02 §3.1） -->
+        <node id="ClassDescription">
+          <attribute id="BaseHp" type="int32" value="10"/>
+          <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8"/>
+          <attribute id="ClassEquipment" type="FixedString" value="EQP_CC_ExampleClass"/>
+          <attribute id="ClassHotbarColumns" type="int32" value="5"/>
+          <attribute id="CommonHotbarColumns" type="int32" value="9"/>
+          <attribute id="ItemsHotbarColumns" type="int32" value="2"/>
+          <attribute id="Description" type="TranslatedString" handle="hExampleClassDescription" version="1"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="hExampleClassDisplayName" version="1"/>
+          <attribute id="HpPerLevel" type="int32" value="6"/>
+          <attribute id="LearningStrategy" type="uint8" value="1"/>
+          <attribute id="Name" type="FixedString" value="ExampleClass"/>
+          <attribute id="PrimaryAbility" type="uint8" value="2"/>
+          <attribute id="ProgressionTableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="SoundClassType" type="FixedString" value="Fighter"/>
+          <attribute id="SpellCastingAbility" type="uint8" value="5"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000002"/>
+        </node>
+        <!-- 子职业：ParentGuid 指向基础职业；自己的进阶表 -->
+        <node id="ClassDescription">
+          <attribute id="CharacterCreationPose" type="guid" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8"/>
+          <attribute id="Description" type="TranslatedString" handle="hExampleSubclassADescription" version="1"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="hExampleSubclassADisplayName" version="1"/>
+          <attribute id="ShortName" type="TranslatedString" handle="hExampleSubclassAShortName" version="1"/>
+          <attribute id="LearningStrategy" type="uint8" value="1"/>
+          <attribute id="Name" type="FixedString" value="ExampleSubclassA"/>
+          <attribute id="ParentGuid" type="guid" value="00000000-0000-4000-8000-000000000002"/>
+          <attribute id="PrimaryAbility" type="uint8" value="2"/>
+          <attribute id="ProgressionTableUUID" type="guid" value="00000000-0000-4000-8000-000000000011"/>
+          <attribute id="SoundClassType" type="FixedString" value="Fighter"/>
+          <attribute id="SpellCastingAbility" type="uint8" value="5"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000003"/>
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

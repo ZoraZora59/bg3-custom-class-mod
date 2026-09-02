@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+  <content contentuid="hExampleClassDisplayName" version="1">示例职业</content>
+  <content contentuid="hExampleClassDescription" version="1">用于验证 mod 流水线的骨架职业。发布前请替换全部文本、handle 与 UUID。</content>
+  <content contentuid="hExampleSubclassADisplayName" version="1">示例之道</content>
+  <content contentuid="hExampleSubclassAShortName" version="1">示例</content>
+  <content contentuid="hExampleSubclassADescription" version="1">3 级解锁的骨架子职业。</content>
+  <content contentuid="hExampleClassPassiveFocusName" version="1">专注</content>
+  <content contentuid="hExampleClassPassiveFocusDesc" version="1">移动速度提高 25%。</content>
+  <content contentuid="hExampleClassPassiveStrikeName" version="1">专注打击</content>
+  <content contentuid="hExampleClassPassiveStrikeDesc" version="1">你的近战武器攻击额外造成 [1]。</content>
+</contentList>

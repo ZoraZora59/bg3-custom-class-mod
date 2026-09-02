@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="331"/>
+  <region id="Progressions">
+    <node id="root">
+      <children>
+        <!-- ===== 基础职业 ExampleClass：TableUUID …0010，1..12 级 ===== -->
+        <node id="Progression">
+          <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(SimpleWeapons);ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Wisdom)"/>
+          <attribute id="Level" type="uint8" value="1"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="PassivesAdded" type="LSString" value="ExampleClass_Passive_Focus"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="Selectors" type="LSString" value="SelectSkills(00000000-0000-4000-8000-000000000020,2);SelectAbilityBonus(00000000-0000-4000-8000-000000000021,AbilityBonus,2,1)"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000101"/>
+        </node>
+        <!-- 多职业进入用的 1 级节点：只保留多职业应得的熟练 -->
+        <node id="Progression">
+          <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(SimpleWeapons)"/>
+          <attribute id="IsMulticlass" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="1"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="PassivesAdded" type="LSString" value="ExampleClass_Passive_Focus"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000100"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="2"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="PassivesAdded" type="LSString" value="ExampleClass_Passive_Strike"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000102"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="3"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000103"/>
+          <children>
+            <node id="SubClasses">
+              <children>
+                <node id="SubClass">
+                  <attribute id="Object" type="guid" value="00000000-0000-4000-8000-000000000003"/>
+                </node>
+              </children>
+            </node>
+          </children>
+        </node>
+        <node id="Progression">
+          <attribute id="AllowImprovement" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="4"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000104"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="5"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000105"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="6"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000106"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="7"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000107"/>
+        </node>
+        <node id="Progression">
+          <attribute id="AllowImprovement" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="8"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000108"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="9"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000109"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="10"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000110"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="11"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000111"/>
+        </node>
+        <node id="Progression">
+          <attribute id="AllowImprovement" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="12"/>
+          <attribute id="Name" type="LSString" value="ExampleClass"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000010"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000112"/>
+        </node>
+        <!-- ===== 子职业 ExampleSubclassA：TableUUID …0011，从 3 级开始 ===== -->
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="3"/>
+          <attribute id="Name" type="LSString" value="ExampleSubclassA"/>
+          <attribute id="PassivesAdded" type="LSString" value="ExampleClass_Passive_Strike"/>
+          <attribute id="ProgressionType" type="uint8" value="1"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000011"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000203"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="6"/>
+          <attribute id="Name" type="LSString" value="ExampleSubclassA"/>
+          <attribute id="ProgressionType" type="uint8" value="1"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000011"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000206"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="10"/>
+          <attribute id="Name" type="LSString" value="ExampleSubclassA"/>
+          <attribute id="ProgressionType" type="uint8" value="1"/>
+          <attribute id="TableUUID" type="guid" value="00000000-0000-4000-8000-000000000011"/>
+          <attribute id="UUID" type="guid" value="00000000-0000-4000-8000-000000000210"/>
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

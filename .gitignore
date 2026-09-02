@@ -1,0 +1,9 @@
+# 构建产物与版权资产
+build/
+*.pak
+reference/
+# 系统与工具
+.DS_Store
+__pycache__/
+*.pyc
+.vscode/settings.json

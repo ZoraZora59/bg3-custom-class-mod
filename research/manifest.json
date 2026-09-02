@@ -1,0 +1,89 @@
+{
+  "task": "博德之门3 mod 开发方式调研（为自创职业 mod 做准备）",
+  "created": "2026-09-02",
+  "routing": "cs-research fallback (no specialist signal matched)",
+  "output_language": "zh-CN",
+  "agents": [
+    {
+      "id": "A-tooling-pipeline",
+      "file": "research/A-tooling-pipeline.md",
+      "scope": "官方 Toolkit / LSLib / Multitool / BG3MM / Script Extender / 文件格式 / 发布渠道(mod.io & Nexus) / 2026-09 现状"
+    },
+    {
+      "id": "B-class-mod-anatomy",
+      "file": "research/B-class-mod-anatomy.md",
+      "scope": "新职业与子职业 mod 的数据结构：ClassDescriptions/Progressions/Lists/Stats txt/Localization/Icons/多职业/角色创建，教程与官方文档"
+    },
+    {
+      "id": "C-case-studies",
+      "file": "research/C-case-studies.md",
+      "scope": "职业类 mod 与基础框架 mod 案例（Artificer/Blood Hunter/Mystic/CF/CL/ImprovedUI/SCF/MCM 等）、开源仓库、中文社区资料"
+    },
+    {
+      "id": "D-pitfalls",
+      "file": "research/D-pitfalls.md",
+      "scope": "踩坑记录：UUID/Version64/meta.lsx/图标/本地化/存档/加载顺序/补丁破坏/mod.io 审核与 IP 授权/多人联机"
+    },
+    {
+      "id": "E-scripting-infra",
+      "file": "research/E-scripting-infra.md",
+      "scope": "Stats 函数式 DSL(Boosts/Functors/Conditions)、Osiris、BG3SE Lua API、何时需要 SE、编辑器/调试/CI 打包/仓库结构等研发基建"
+    },
+    {
+      "id": "F-team-workflow",
+      "file": "research/F-team-workflow.md",
+      "scope": "mod 团队职能分工与设计工作流：成熟 mod 团队组成、5e 自制职业设计与平衡方法、测试矩阵、本地化协作、发布与社区运营"
+    },
+    {
+      "id": "G-official-docs-browser",
+      "file": "research/G-official-docs-browser.md",
+      "scope": "主控补充：内置浏览器直读 Larian 官方 Toolkit 文档 + mod.io 官方准则 + LSLib csproj 核实（填补 A/B/D/F 的 403 缺口）",
+      "owner": "main"
+    }
+  ],
+  "status": "reconciled",
+  "reconciliation": "扇出结束后对比 agents[].file 与实际文件，只补派缺失项；文件集对齐之前不得开始合成",
+  "reconciled_at": "2026-09-02",
+  "result": {
+    "launched": 7,
+    "succeeded": 7,
+    "missing": []
+  },
+  "followups": [
+    {
+      "task": "给他人 mod 做汉化：直接改原 mod vs 独立汉化 mod（流程/工具/游戏行为/社区规范）",
+      "created": "2026-09-02",
+      "output_language": "zh-CN",
+      "agents": [
+        {
+          "id": "H-loca-format-and-tools",
+          "file": "research/H-loca-format-and-tools.md",
+          "scope": ".loca 二进制格式（LSLib 源码）/ loca↔xml 转换工具（Divine、ConverterApp、Multitool 命名约定）/ 跨平台或 Python 的 loca 与 pak 工具 / 翻译辅助工具（LocaHelper、Localization Helper、Auto Translator、LocalizationMerger）"
+        },
+        {
+          "id": "I-translation-mod-semantics",
+          "file": "research/I-translation-mod-semantics.md",
+          "scope": "游戏行为：缺失 handle 回退 / 多 pak 同语言 loca 合并与覆盖 / 加载顺序（翻译放原 mod 之下）/ version 语义 / xml 还是 loca / 翻译 pak 是否需要 meta.lsx 与 Dependencies / 游戏内管理器 / 联机 / SE Ext.Loca 与 MCM 本地化 / IMGUI 硬编码文本"
+        },
+        {
+          "id": "J-community-practice-policy",
+          "file": "research/J-community-practice-policy.md",
+          "scope": "社区惯例与政策：Nexus 中文汉化 mod 的结构与命名、Nexus 翻译权限与 'translation of' 关联、mod.io 翻译规则与主机、Larian 准则、3DM/贴吧/B 站汉化教程、原 mod 更新后的跟进方式、术语对照（原版中文 loca）"
+        },
+        {
+          "id": "K-browser-direct-read",
+          "file": "research/K-browser-direct-read.md",
+          "owner": "main",
+          "scope": "主控用内置浏览器直读：bg3.wiki Modding:Localization、Nexus 文章 643 / mod 7288 / 若干 CHS 汉化 mod 页面、mod.io 准则翻译条款、LSLib LocaFormat 源码核对"
+        }
+      ],
+      "status": "reconciled",
+      "reconciled_at": "2026-09-02",
+      "result": {
+        "launched": 4,
+        "succeeded": 4,
+        "missing": []
+      }
+    }
+  ]
+}

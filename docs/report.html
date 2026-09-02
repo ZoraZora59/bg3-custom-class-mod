@@ -1,0 +1,376 @@
+<title>博德之门3 自创职业 Mod 调研</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#EEF1F4; --paper:#FFFFFF; --ink:#1F252B; --ink-2:#4A5560; --ink-3:#7A8590;
+  --line:#D5DBE2; --accent:#5B3FA6; --accent-ink:#3F2B7A; --accent-soft:#E9E3F7;
+  --ok:#2E7D5B; --ok-soft:#DDF0E6; --warn:#A6631F; --warn-soft:#F7EAD8; --bad:#B23A48; --bad-soft:#F6DFE2;
+  --code-bg:#F4F1FA; --shadow:0 1px 2px rgba(31,37,43,.06),0 8px 24px rgba(31,37,43,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14171C; --paper:#1C2027; --ink:#E6E9EE; --ink-2:#B4BCC6; --ink-3:#7F8A96;
+    --line:#2E353E; --accent:#A48CF0; --accent-ink:#C5B5F7; --accent-soft:#2A2440;
+    --ok:#6FCF9A; --ok-soft:#1E3328; --warn:#E3A45C; --warn-soft:#3A2C1A; --bad:#F08A96; --bad-soft:#3E2227;
+    --code-bg:#22252F; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14171C; --paper:#1C2027; --ink:#E6E9EE; --ink-2:#B4BCC6; --ink-3:#7F8A96;
+  --line:#2E353E; --accent:#A48CF0; --accent-ink:#C5B5F7; --accent-soft:#2A2440;
+  --ok:#6FCF9A; --ok-soft:#1E3328; --warn:#E3A45C; --warn-soft:#3A2C1A; --bad:#F08A96; --bad-soft:#3E2227;
+  --code-bg:#22252F; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans","Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a:hover,a:focus-visible{border-bottom-color:var(--accent);outline:none}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code,pre,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+code{background:var(--code-bg);padding:.08em .38em;border-radius:4px;font-size:.88em;color:var(--accent-ink)}
+pre{background:var(--code-bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px;overflow-x:auto;font-size:.82em;line-height:1.5;margin:14px 0}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px 80px}
+header.hero{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:"Fraunces","Noto Sans SC",serif;font-weight:700;font-size:clamp(2rem,4vw,2.9rem);line-height:1.15;margin:.35em 0 .4em;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-size:1.08rem;color:var(--ink-2);max-width:66ch;margin:0 0 18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.86rem;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:600}
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;padding-top:32px}
+nav.toc{position:sticky;top:20px;align-self:start;font-size:.86rem}
+nav.toc .t{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;font-weight:600}
+nav.toc a{display:block;padding:5px 0 5px 12px;border-left:2px solid var(--line);color:var(--ink-2);border-bottom:none}
+nav.toc a:hover{border-left-color:var(--accent);color:var(--ink)}
+main{min-width:0}
+section{margin:0 0 56px}
+h2{font-family:"Fraunces","Noto Sans SC",serif;font-weight:600;font-size:1.65rem;margin:0 0 6px;letter-spacing:-.01em;text-wrap:balance}
+h2 .n{font-family:"IBM Plex Mono",monospace;font-size:.85rem;color:var(--accent);margin-right:10px;font-weight:500;vertical-align:.15em}
+h3{font-size:1.05rem;margin:26px 0 8px;font-weight:600}
+.sub{color:var(--ink-2);margin:0 0 18px;max-width:70ch}
+p{max-width:72ch}
+ul,ol{padding-left:1.3em;max-width:74ch}
+li{margin:.35em 0}
+li b{font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;box-shadow:var(--shadow)}
+.card h4{margin:0 0 6px;font-size:.98rem;font-weight:600}
+.card p{margin:0;color:var(--ink-2);font-size:.92rem}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--paper);box-shadow:var(--shadow);margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600;background:transparent}
+tr:last-child td{border-bottom:none}
+td.k{white-space:nowrap;font-weight:600}
+.pill{display:inline-block;font-size:.74rem;font-weight:600;padding:2px 9px;border-radius:999px;line-height:1.6;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.acc{background:var(--accent-soft);color:var(--accent-ink)}
+.diagram{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
+.box{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;font-size:.88rem}
+.box .f{font-family:"IBM Plex Mono",monospace;font-weight:500;color:var(--accent-ink);display:block;margin-bottom:4px;font-size:.84rem}
+.box .r{color:var(--ink-2)}
+.rail{display:flex;gap:0;overflow-x:auto;margin:18px 0;padding-bottom:6px}
+.stage{flex:1 0 150px;position:relative;padding:12px 12px 12px 14px;border:1px solid var(--line);background:var(--paper);border-radius:8px;margin-right:10px;font-size:.85rem}
+.stage:last-child{margin-right:0}
+.stage .num{font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:.78rem;font-weight:500}
+.stage .name{font-weight:600;display:block;margin:2px 0 4px}
+.stage .gate{color:var(--ink-2);font-size:.8rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.callout{background:var(--accent-soft);border-radius:10px;padding:14px 18px;margin:18px 0;max-width:80ch}
+.callout b{color:var(--accent-ink)}
+.small{font-size:.86rem;color:var(--ink-3)}
+footer{border-top:1px solid var(--line);padding-top:22px;font-size:.86rem;color:var(--ink-3)}
+footer p{max-width:80ch}
+@media (max-width:820px){.layout{grid-template-columns:1fr;gap:0}nav.toc{position:static;margin-bottom:24px;display:grid;grid-template-columns:repeat(2,1fr)}nav.toc .t{grid-column:1/-1}}
+@media (prefers-reduced-motion: no-preference){a{transition:border-color .15s}}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Research brief · 2026-09-02</div>
+  <h1>博德之门3 自创职业 Mod 调研</h1>
+  <p class="lede">为"把幻想里的新职业做进 Baldur's Gate 3"准备的一页式综述：开发方式与工具链现状、职业 mod 的数据结构、案例与踩坑、Mac + Windows 双机基建，以及每个 mod 需要哪些职能与怎样的工作流。</p>
+  <div class="meta">
+    <span><b>范围</b> 11 份研究报告（职业 mod 7 份 + 汉化专题 4 份）· 约 245 次检索 · 约 260 次抓取 · 21 页官方/社区文档浏览器直读</span>
+    <span><b>游戏版本基线</b> Patch 8（2025-04，官方最后一次大补丁）</span>
+    <span><b>开发机</b> Mac（编辑/设计）+ Windows（Toolkit / Script Extender / 验证）</span>
+  </div>
+</header>
+
+<div class="layout">
+<nav class="toc" aria-label="目录">
+  <div class="t">目录</div>
+  <a href="#s1">一页结论</a>
+  <a href="#s2">开发路线</a>
+  <a href="#s3">工具链现状</a>
+  <a href="#s4">职业 mod 的结构</a>
+  <a href="#s5">发布渠道与规则</a>
+  <a href="#s6">踩坑清单</a>
+  <a href="#s7">双机环境与基建</a>
+  <a href="#s8">职能与工作流</a>
+  <a href="#s9">待决策与验证</a>
+  <a href="#s10">资料索引</a>
+  <a href="#s11">汉化别人的 mod</a>
+</nav>
+
+<main>
+<section id="s1">
+  <h2><span class="n">01</span>一页结论</h2>
+  <ul>
+    <li><b>自创职业是官方明确支持的 mod 类型。</b>Larian 的 Toolkit 文档有逐步教程《Adding Classes and Subclasses》，mod.io 官方准则把 "Classes and Subclasses：Create new class types" 列为支持项。</li>
+    <li><b>职业 mod 的主体不需要 Script Extender。</b>进阶表、被动、法术、资源、反应全部由纯数据（<code>.lsx</code> 表 + stats <code>.txt</code>）驱动；官方 41 个 Functor 与 Stats 表达式（含 <code>ClassLevel(&lt;class&gt;)</code>）足够表达绝大多数职业特性。SE 留给运行时逻辑与自定义 UI，做成可选模块。</li>
+    <li><b>骨架只有两个文件。</b><code>ClassDescriptions.lsx</code>（职业是什么）与 <code>Progressions.lsx</code>（每级得到什么）通过 <code>TableUUID</code> 关联；再加本地化 xml 与 300×300 类图标即可出现在角色创建界面。</li>
+    <li><b>第一个 mod 做"全新职业"。</b>零进阶冲突、可上主机；给原版职业加子职业才涉及 Patch 7 合并节点与 Compatibility Framework（依赖 SE）。</li>
+    <li><b>工具链在 2026 年仍然活跃但有门槛。</b>Toolkit 仅 Windows，官方门槛 32 GB 内存 / 8 GB 显存 / 约 160 GB 磁盘；LSLib 1.20.4、Multitool 0.10.6、BG3MM 1.0.12.9、BG3SE v32（2026-06，支持 Patch 8）。ModFixer 已不需要，类图标已不依赖 ImprovedUI，Vortex 不推荐。</li>
+    <li><b>最贵的坑都在元数据与顺序上。</b><code>meta.lsx</code> 的 Folder / Name / 目录名不一致、UUID 复用、Version64 不更新、先填 DisplayName 后建本地化、两个 mod 管理器混用、子职业整节点覆盖、缺 13–20 级节点导致黑屏。</li>
+    <li><b>法务上完全自创最安全。</b>借用 SRD 机制附 CC-BY-4.0 署名即可；Artificer、Tasha's 子职业、Blood Hunter 都不在 SRD。mod.io 官方页称启用任何 mod 后成就会被禁用。</li>
+    <li><b>多语言从架构上就是免费的。</b>所有玩家可见文本只经 handle 引用，同一 handle 在官方 15 种语言目录里复用；支持一种新语言 = 多一个 <code>Localization/&lt;Language&gt;/</code> 目录和一份同 handle 的 xml。方案：英文为源，简/繁中文人工维护，其余 12 种随包发布（<code>loca_sync.py</code> 占位 → 机翻初稿 → 社区校对），"无裸 handle"作为发布门槛。</li>
+    <li><b>1–2 人就能跑通。</b>头部职业 mod 多为极小团队；每个 mod 的必需职能是所有者、设计/平衡、数据实现、兼容性、图标（可用 CC 素材）、测试、社区/文档，脚本、VFX、多语言可选。</li>
+  </ul>
+</section>
+
+<section id="s2">
+  <h2><span class="n">02</span>开发路线</h2>
+  <p class="sub">三条路线生产的是同一种东西——一个 <code>.pak</code> 包里的 Larian 数据文件；区别只在用什么工具生产。</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>路线</th><th>工具</th><th>适合</th><th>平台</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td class="k">① 官方 Toolkit</td><td>Steam "Tools" 免费应用 + BG3 Toolkit Data DLC（GOG 亦有）</td><td>建表、Stats、图集、图标转换、Osiris、本地打包、mod.io 发布；有官方职业教程</td><td>仅 Windows</td><td>唯一能进游戏内 Mod 管理器 / 主机的通道；也可 Publish Local 只出 pak</td></tr>
+      <tr><td class="k">② 纯文本 + 社区工具</td><td>VS Code 手写 <code>.lsx</code>/<code>.txt</code>/<code>.xml</code>，LSLib Divine 或 Multitool 打包</td><td>与 Toolkit 产出完全相同的数据；适合 git 协作与脚本校验</td><td>编辑任意平台；打包工具为 Windows 程序</td><td>本项目 Mac 侧的主要方式</td></tr>
+      <tr><td class="k">③ Script Extender</td><td>Norbyte 的 <code>DWrite.dll</code> 注入 + Lua/Osiris API</td><td>跨回合状态机、IMGUI/MCM 界面、运行时改数值、跨 mod 注入</td><td>Windows；Linux 需 DLL override；Mac 原生无官方 SE</td><td>依赖 SE 的 mod 进不了主机目录；社区惯例发 Nexus</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><b>建议：</b>核心职业包用 ①/② 做成纯数据；SE 功能拆成独立可选模块。Mac 上写数据与脚本，Windows 上用 Toolkit 校验与打包发布。</div>
+</section>
+
+<section id="s3">
+  <h2><span class="n">03</span>工具链现状（2026-09）</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>工具</th><th>状态</th><th>版本 / 日期</th><th>作用与备注</th></tr></thead>
+    <tbody>
+      <tr><td class="k">BG3 Toolkit</td><td><span class="pill ok">活跃</span></td><td>Patch 8 数据已并入；文档 2025-05 / 2025-10 更新</td><td>需 Larian + mod.io 账号绑定；32 GB 内存 / 8 GB 显存 / ~160 GB</td></tr>
+      <tr><td class="k">LSLib / Divine</td><td><span class="pill ok">可用</span></td><td>v1.20.4 · 2026-01-24（GitHub Releases API）· .NET 8</td><td>解/打包、lsf↔lsx、loca↔xml；loca 代码为纯托管，但 Divine 在 macOS/Linux 上有路径校验 bug（issue #220 未修）</td></tr>
+      <tr><td class="k">Modder's Multitool</td><td><span class="pill warn">已迁移</span></td><td>v0.13.4 · 2025-06；GitHub 仓库 2026 年中消失，现居 GitLab</td><td>索引式解包、搜索、一键打包、UUID/handle 生成；<code>x.loca.xml</code>/<code>x.lsf.lsx</code> 打包时自动转回；source-available</td></tr>
+      <tr><td class="k">BG3 Mod Manager</td><td><span class="pill ok">可用</span></td><td>1.0.12.9 · 2025-05 · .NET 8</td><td>与游戏内管理器写同一个 modsettings.lsx，二选一</td></tr>
+      <tr><td class="k">Script Extender</td><td><span class="pill ok">活跃</span></td><td>启动器 v32 · 2026-06-21 · 支持 Patch 8</td><td>本体自动更新；补丁日有失效期</td></tr>
+      <tr><td class="k">Compatibility Framework</td><td><span class="pill ok">活跃</span></td><td>2.8.2.0；SCF 已并入</td><td>运行时注入子职业/列表/专长；≥2.6.5.8 自动注入子职业；依赖 SE；放加载顺序最底</td></tr>
+      <tr><td class="k">ImprovedUI</td><td><span class="pill warn">停更 / 有 P8 fork</span></td><td>原仓库无维护计划；ImpUI_P8_Fork</td><td>Patch 7 起类图标不再需要它；仅自定义行动资源图标仍依赖</td></tr>
+      <tr><td class="k">Community Library</td><td><span class="pill ok">活跃</span></td><td>MIT · 23 个仓库</td><td>公共法术/被动/脚本、Building a Class Mod wiki、Sample-Template</td></tr>
+      <tr><td class="k">MCM</td><td><span class="pill ok">活跃</span></td><td>AGPL-3.0 · 需 SE v18+</td><td>游戏内设置界面；IMGUI 中文字形支持不确定</td></tr>
+      <tr><td class="k">ModFixer</td><td><span class="pill bad">不再需要</span></td><td>Patch 7 起</td><td>新 mod 不要捆绑</td></tr>
+      <tr><td class="k">Vortex</td><td><span class="pill bad">不推荐</span></td><td>Patch 7 后一度失效</td><td>bg3.wiki 明确不推荐</td></tr>
+      <tr><td class="k">bg3se-macos</td><td><span class="pill warn">非官方</span></td><td>v0.42.0 · 社区逆向重写</td><td>Mac 原生跑 SE mod 的参考，不能替代 Windows 验证</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s4">
+  <h2><span class="n">04</span>职业 mod 的数据结构</h2>
+  <p class="sub">官方教程与社区手写教程指向同一套文件；Toolkit 的 UUID Object Editor 本质上是这些表的表格视图。</p>
+  <div class="diagram">
+    <div class="box"><span class="f">Mods/&lt;Mod&gt;/meta.lsx</span><span class="r">Folder = Name = 目录名；UUID 终身不变；Version64 每版重算</span></div>
+    <div class="box"><span class="f">Public/&lt;Mod&gt;/ClassDescriptions/ClassDescriptions.lsx</span><span class="r">职业与子职业各一条：Name、UUID、ParentGuid（子职业）、ProgressionTableUUID、PrimaryAbility、BaseHp/HpPerLevel、ClassEquipment、热键栏列数之和 = 16</span></div>
+    <div class="box"><span class="f">Public/&lt;Mod&gt;/Progressions/Progressions.lsx</span><span class="r">同 TableUUID 的 1..12 级节点：Boosts、PassivesAdded、Selectors（SelectSpells / AddSpells / SelectPassives / SelectSkills / SelectAbilityBonus）、AllowImprovement、SubClasses、IsMulticlass 行</span></div>
+    <div class="box"><span class="f">Public/&lt;Mod&gt;/Lists/*.lsx</span><span class="r">SpellLists / PassiveLists / SkillLists / AbilityLists，Selectors 按 UUID 引用；可复用原版列表</span></div>
+    <div class="box"><span class="f">Public/&lt;Mod&gt;/Stats/Generated/Data/*.txt</span><span class="r">Passive.txt / Spell_*.txt / Status_*.txt / Interrupt.txt：new entry / type / using / data；被动三件套 StatsFunctorContext + Conditions + StatsFunctors</span></div>
+    <div class="box"><span class="f">Mods/&lt;Mod&gt;/Localization/&lt;Lang&gt;/*.xml</span><span class="r">contentuid = handle（任意无空格字母数字串），English / Chinese / ChineseTraditional；先建文件再填 DisplayName</span></div>
+    <div class="box"><span class="f">Mods/&lt;Mod&gt;/GUI/Assets/ClassIcons/&lt;Name&gt;.DDS</span><span class="r">300×300 PNG 经 Convert UI Assets 转 DDS；文件名 = Name；hotbar/ 子目录放小图；Patch 7 起不需要 ImpUI</span></div>
+    <div class="box"><span class="f">Public/&lt;Mod&gt;/Stats/Generated/Equipment.txt</span><span class="r">EQP_CC_&lt;Mod&gt; 起始装备，填进 ClassEquipment</span></div>
+  </div>
+  <h3>官方 Toolkit 流程要点</h3>
+  <ul>
+    <li>Progressions：每级一行，UUID 唯一、TableUUID 共享，<code>ProgressionType</code> 0 = class / 1 = subclass / 2 = race；子职业在父职业解锁级行的 SubClasses 列登记。</li>
+    <li>ClassDescriptions：<code>LearningStrategy = AllChildren</code>，<code>CharacterCreationPose = 0f07ec6e-4ef0-434e-9a51-1353260ccff8</code>，多职业行 <code>IsMulticlass = Yes</code>。改完保存并重启 Editor。</li>
+    <li>快速测试：加载 <code>Basic_Level_A</code> → Game Mode → 悬停头像 <code>Ctrl+Shift+L</code> 升级 → Add Class；<code>Ctrl+Shift+F11</code> 调试台 <code>addDebugSpell</code>、<code>reloadLoca</code>。</li>
+    <li>数值表达式：<code>ClassLevel(&lt;class&gt;)</code>、<code>ProficiencyBonus</code>、<code>SpellCastingAbility</code>、<code>ResourceRoll()</code>、<code>foreach()</code>、<code>max()</code>；Functor 列表 41 个（ApplyStatus、DealDamage、RestoreResource、UseActionResource、Summon、CreateSurface、UseSpell、ResetCooldowns…）。</li>
+    <li>Boosts / Conditions 没有官方参考页；权威来源是社区 wiki 与解包的原版 Stats 文本。</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <h2><span class="n">05</span>发布渠道与规则</h2>
+  <div class="two">
+    <div class="card"><h4>mod.io（官方管线）</h4><p>Toolkit → Project Settings → Authenticate → Publish → 自动扫描 → Go live。覆盖 PC / PS5 / Xbox / Mac / GeForce NOW；主机需人工审核并排除 .exe/.dll/.zip、新可玩种族、shader 改动、增加裸露暴力。依赖要在 Toolkit 与 mod.io 各设一次；可声明 Conflicts 让游戏自动禁用冲突 mod。</p></div>
+    <div class="card"><h4>Nexus Mods</h4><p>网页上传 pak/zip；后续版本可用官方 upload-action 自动化（Upload API 仍是 beta，只支持更新既有 mod）。SE 依赖的 mod 走这里。两平台 UUID 相同、Version64 同步，否则玩家联机会因版本不一致失败。</p></div>
+    <div class="card"><h4>官方硬规则</h4><p>原创或已授权；不得与可识别的第三方品牌、角色相似；不得解锁付费或成就物品；缩略图不得裸露；AI 生图需遵守服务条款；未获许可不得把他人 mod 扩展/翻译后署原作者。</p></div>
+    <div class="card"><h4>玩家侧事实</h4><p>启用任何 mod 后成就自动禁用（mod.io 官方准则页）；联机所有人需相同 mod；两 mod 改同一 ID 条目时加载顺序靠后者胜出；Larian 声明除关键修复外无长期支持能力。</p></div>
+  </div>
+</section>
+
+<section id="s6">
+  <h2><span class="n">06</span>踩坑清单（精选）</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>症状</th><th>原因</th><th>解决 / 预防</th></tr></thead>
+    <tbody>
+      <tr><td>mod 能启用但内容全不生效</td><td><code>meta.lsx</code> 的 Folder 与 <code>Mods/&lt;Folder&gt;</code>、<code>Public/&lt;Folder&gt;</code> 不一致</td><td>三处逐字一致（<code>check_mod.py</code> E2）</td></tr>
+      <tr><td>装了你的 mod 后别的 mod 消失</td><td>UUID 复制自模板未改</td><td>每个 mod 一个 v4 UUID，终身不变</td></tr>
+      <tr><td>发新版没人看到更新</td><td>Version64 未重算</td><td><code>(Major&lt;&lt;55)|(Minor&lt;&lt;47)|(Revision&lt;&lt;31)|Build</code>；<code>version64.py</code></td></tr>
+      <tr><td>mod 莫名不加载</td><td>Name 含 "-b"（社区记录的 loader 限制）</td><td>命名避开</td></tr>
+      <tr><td>角色创建看不到职业</td><td>ProgressionTableUUID ↔ TableUUID 没接上；缺 Level 1 节点；子职业不在 SubClasses</td><td>核对三处引用（E4/E5）</td></tr>
+      <tr><td>文本显示 "Not Found"、回退成英文，或 stats 里出现 <code>s_HandleUnknown</code></td><td>handle 在任何语言池都找不到（改坏 contentuid、xml 未转 loca）；该语言缺条目回退英文；先填 DisplayName 后建本地化；语言目录名不对</td><td>先建 Localization；目录用官方语言名；<code>loca_convert.py check</code>；<code>reloadLoca</code></td></tr>
+      <tr><td>启动后 mod 被清空</td><td>游戏内管理器与 BG3MM 同写 modsettings.lsx；某 mod 出错触发清空；Steam Cloud 回滚</td><td>只用一个管理器；二分排查；关云同步</td></tr>
+      <tr><td>子职业互斥 / Patch 8 新子职业消失</td><td>整节点覆盖原版 Progression</td><td>合并节点（新 UUID + 原版 TableUUID）或 CF 注入</td></tr>
+      <tr><td>12→13 级黑屏</td><td>玩家装了 UnlockLevelCurve，职业缺 13–20 级节点</td><td>补空节点或声明不兼容</td></tr>
+      <tr><td>自定义资源没图标 / 反应界面红星</td><td>资源图标仍依赖已停更的 ImpUI</td><td>复用原版资源或隐藏资源</td></tr>
+      <tr><td>更新当天 SE mod 全挂</td><td>SE 只服务最新版本，自动更新有窗口期</td><td>补丁日 SOP：先关全部 mod → 等 SE → 只开 SE → 逐个恢复 → 72 小时内烟测</td></tr>
+      <tr><td>玩家卸载后存档报错</td><td>mod 被"烤进"存档，职业类最难安全移除</td><td>页面写明"勿中途移除；卸载前 Withers 重置"</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s7">
+  <h2><span class="n">07</span>双机环境与基建</h2>
+  <div class="two">
+    <div class="card"><h4>Mac：编辑 / 设计 / 脚本</h4><p>VS Code + bg3-mod-helper / bg3txt-formatter / SE 片段 + LuaLS（<code>ExtIdeHelpers.lua</code>）；Python 脚本生成 UUID / handle / Version64、静态校验；图标源图；git 仓库是唯一事实源。可选实验：.NET 8 跑 Divine（工程引用 C++/CLI 原生库，未验证）。</p></div>
+    <div class="card"><h4>Windows：工具 / 验证 / 发布</h4><p>BG3 + Toolkit Data DLC + Toolkit；LSLib 1.20.4；Multitool；BG3MM；Script Extender（控制台 + VS Code 调试器）。pull → 打包（Divine / Toolkit Publish Local）→ 部署到 <code>%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\Mods</code> → 游戏内按测试矩阵验证 → 结果回流 issue。先核对硬件是否达 Toolkit 门槛。</p></div>
+  </div>
+  <h3>仓库布局与规范</h3>
+  <pre><code>Baldur's-Gate-Mod/
+├── docs/ research/ templates/ scripts/
+├── mods/&lt;ModName&gt;/Source/{Mods,Public}/&lt;ModName&gt;/   # Divine create-package 的源根
+├── assets-src/      # 图标源图（可 LFS）
+├── build/           # .pak 产物（.gitignore）
+└── reference/       # 解包的原版数据（.gitignore，不入库）</code></pre>
+  <ul>
+    <li><code>.gitattributes</code> 固定行尾（lsx/txt/xml/lua = LF），pak/lsf/dds/gr2/loca 标 binary；pak 不入库，走 Releases。</li>
+    <li>版本：git tag <code>vX.Y.Z</code> ↔ Version64；官方建议 Major = 新内容，Minor = 修复，Revision = 微调，Build 自动递增并用于联机版本匹配。</li>
+    <li>CI 先不做；稳定后用 windows-latest + LSLib + Nexus upload-action；mod.io 只能经 Toolkit 发布。</li>
+    <li>测试存档集（1/3/5/12 级 + Withers 可用）随 Releases 分发给测试者。</li>
+  </ul>
+</section>
+
+<section id="s8">
+  <h2><span class="n">08</span>职能与工作流</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>角色</th><th>必需性</th><th>主要交付物</th><th>介入阶段</th></tr></thead>
+    <tbody>
+      <tr><td class="k">项目所有者 / 维护者</td><td><span class="pill acc">必需</span></td><td>Issues、Releases、所有权与授权 fork 说明</td><td>全程</td></tr>
+      <tr><td class="k">设计 / 平衡</td><td><span class="pill acc">必需</span></td><td>职业设计单、逐级对比表、平衡表</td><td>概念 → 纸面平衡 → 迭代</td></tr>
+      <tr><td class="k">数据实现</td><td><span class="pill acc">必需</span></td><td>ClassDescriptions / Progressions / Lists / Stats / meta.lsx / pak</td><td>技术拆解 → 实现 → 维护</td></tr>
+      <tr><td class="k">兼容性 / 框架集成</td><td><span class="pill acc">必需</span></td><td>依赖与 Conflicts 声明、加载顺序、CF 配置</td><td>拆解 → 发布 → 维护</td></tr>
+      <tr><td class="k">图标 / 2D 美术</td><td><span class="pill acc">必需（可 CC 素材）</span></td><td>类图标 ×2、技能图标 ×3 尺寸、页面图</td><td>实现中后期</td></tr>
+      <tr><td class="k">测试 / QA</td><td><span class="pill acc">必需</span></td><td>测试矩阵、bug 列表、回归记录</td><td>内测 → 封闭测试 → 每次补丁</td></tr>
+      <tr><td class="k">社区 / 文档</td><td><span class="pill acc">必需</span></td><td>页面、README、changelog、bug 模板、Discord 支持</td><td>发布 → 维护</td></tr>
+      <tr><td class="k">脚本（SE Lua / Osiris）</td><td><span class="pill warn">可选</span></td><td>Lua、Config.json、CF 集成</td><td>拆解 → 实现</td></tr>
+      <tr><td class="k">VFX / 模型</td><td><span class="pill warn">可选</span></td><td>MEI、EffectBank 引用、VFX 库依赖</td><td>实现后期</td></tr>
+      <tr><td class="k">本地化</td><td><span class="pill warn">建议</span></td><td>English + Chinese 自维护，其余交社区</td><td>实现末 → 维护</td></tr>
+    </tbody>
+  </table></div>
+  <h3>八个阶段与进入下一阶段的判据</h3>
+  <div class="rail">
+    <div class="stage"><span class="num">0</span><span class="name">概念</span><span class="gate">幻想一句话；影子基线；SE 与平台决策已做</span></div>
+    <div class="stage"><span class="num">1</span><span class="name">设计单</span><span class="gate">1–12 级逐级特性；每条都 justify；无 grit 型特性</span></div>
+    <div class="stage"><span class="num">2</span><span class="name">纸面平衡</span><span class="gate">DPR / 资源 / 动作经济落在基线附近；复杂度 opt-in</span></div>
+    <div class="stage"><span class="num">3</span><span class="name">技术拆解</span><span class="gate">特性→数据文件映射；风险分级；依赖与图标清单</span></div>
+    <div class="stage"><span class="num">4</span><span class="name">实现</span><span class="gate">1–5 级纵切片先通；新档升到 12 不崩；check_mod 通过</span></div>
+    <div class="stage"><span class="num">5</span><span class="name">测试矩阵</span><span class="gate">新档/旧档/多职业/重置/联机/难度/共存；阻断 = 0</span></div>
+    <div class="stage"><span class="num">6</span><span class="name">封闭测试</span><span class="gate">Discord 测试者反馈收敛</span></div>
+    <div class="stage"><span class="num">7</span><span class="name">发布</span><span class="gate">Nexus + mod.io；页面清单完整；翻译源随包</span></div>
+    <div class="stage"><span class="num">8</span><span class="name">维护</span><span class="gate">补丁后 72 小时烟测；所有权与授权清晰</span></div>
+  </div>
+  <p class="small">设计方法论：先职业幻想后机制（WotC）；与官方职业逐级比较并 justify（Leuku）；复杂度 opt-in、crunch 多 grit 少（KibblesTasty）；BG3 特有约束——12 级上限、Patch 8 的完成度参照、影子基线可直接从解包数据量化、UI 承载力、SE 决定平台。</p>
+</section>
+
+<section id="s9">
+  <h2><span class="n">09</span>待决策与首周验证</h2>
+  <div class="two">
+    <div class="card"><h4>需要拍板（D1–D7）</h4><p>D1 全新职业 vs 子职业（建议全新）· D2 是否依赖 SE（建议核心纯数据）· D3 平台与渠道（建议双轨）· D4 是否支持 13–20 级（v1 只做 12 并声明）· D5 许可证（建议 MIT + 素材许可清单）· D6 语言（已确认要支持各种语言：英 + 简 + 繁人工维护，其余 12 种随包发布）· D7 团队规模（先 1–2 人跑通纵切片）</p></div>
+    <div class="card"><h4>Windows 首周验证（V1–V16）</h4><p>硬件门槛与 Toolkit 安装 · 按官方教程做一遍职业 · 骨架打包并被游戏识别 · 核对 6 处来源分歧（属性枚举、Lists 分隔符、目录名等）· 类图标尺寸 · 中文本地化显示 · Divine 在 Mac 的可用性 · 真实路径与日志 · mod.io 直传与成就 · 自定义资源图标 · hotfix 影响 · Withers / Tag / 多职业法术位 · <b>汉化专题四项</b>：<code>loca_convert.py</code> 产物与 LSLib 字节一致 · 英文-only mod 在简中客户端的显示 · 汉化 pak 的覆盖顺序 · Mac 原生打包工具能否出可加载的 pak</p></div>
+  </div>
+</section>
+
+<section id="s10">
+  <h2><span class="n">10</span>资料索引（精选）</h2>
+  <div class="two">
+    <div>
+      <h3>官方</h3>
+      <ul>
+        <li><a href="https://docs.baldursgate3.game/index.php?title=Adding_Classes_and_Subclasses">Adding Classes and Subclasses</a>（官方职业教程）</li>
+        <li><a href="https://docs.baldursgate3.game/index.php?title=Getting_Started:_Publishing_a_Mod">Publishing a Mod</a> · <a href="https://docs.baldursgate3.game/index.php?title=Getting_Started:_Best_Practices">Best Practices</a> · <a href="https://docs.baldursgate3.game/index.php?title=Getting_Started:_Creating_a_New_Mod">Creating a New Mod</a></li>
+        <li><a href="https://docs.baldursgate3.game/index.php?title=Adding_Localisation">Adding Localisation</a> · <a href="https://docs.baldursgate3.game/index.php?title=Adding_Skill_and_Item_Icons">Adding Skill and Item Icons</a></li>
+        <li><a href="https://docs.baldursgate3.game/index.php?title=Functors">Functors</a> · <a href="https://docs.baldursgate3.game/index.php?title=Stats_Expressions">Stats Expressions</a></li>
+        <li><a href="https://mod.io/g/baldursgate3/r/modding-guidelines">mod.io Modding Guidelines &amp; FAQ</a></li>
+        <li><a href="https://docs.baldursgate3.game/index.php?title=Adding_Localisation">Adding Localisation</a>（15 种语言目录名、handle 规则、性别语法）</li>
+        <li><a href="https://mod.io/g/baldursgate3/r/translation-mod-conversion-guide">Translation MOD conversion guide</a>（把翻译 mod 发上 mod.io 的 Toolkit 流程）· <a href="https://help.nexusmods.com/article/28-file-submission-guidelines">Nexus File Submission Guidelines</a>（翻译只能作为附加文件）</li>
+      </ul>
+      <h3>工具</h3>
+      <ul>
+        <li><a href="https://github.com/Norbyte/lslib">LSLib</a> · <a href="https://github.com/Norbyte/bg3se">Script Extender</a>（<a href="https://github.com/Norbyte/bg3se/blob/main/Docs/API.md">API</a>）</li>
+        <li><a href="https://github.com/ShinyHobo/BG3-Modders-Multitool">Modder's Multitool</a> · <a href="https://github.com/LaughingLeader/BG3ModManager">BG3 Mod Manager</a></li>
+        <li><a href="https://www.nexusmods.com/baldursgate3/mods/6574">bg3-mod-helper（VS Code）</a></li>
+        <li><a href="https://github.com/Norbyte/lslib/blob/master/LSLib/LS/Localization.cs">LSLib Localization.cs</a>（.loca 二进制布局的一手来源）· <a href="https://github.com/CyberDeco/MacPak">MacPak / maclarian</a>（Mac 原生 pak/loca，未实测）· <a href="https://github.com/YiYan129600/bg3-mod-ai-translator-zh">bg3-mod-ai-translator-zh</a>（AI 汉化初稿）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>社区教程与框架</h3>
+      <ul>
+        <li><a href="https://wiki.bg3.community/Tutorials/Classes/Basic-Class-Creation">Basic Class Creation</a>（手写 lsx 建职业）</li>
+        <li><a href="https://wiki.bg3.community/Tutorials/General/setting-up-a-dev-environment">Dev Environment Set-up</a> · <a href="https://wiki.bg3.community/Tutorials/Mod-Frameworks/compatibility-framework">Compatibility Framework Usage</a></li>
+        <li><a href="https://github.com/BG3-Community-Library-Team/BG3-Community-Library/wiki/Building-a-Class-Mod">Building a Class Mod</a>（Community Library wiki）</li>
+        <li><a href="https://github.com/BG3-Community-Library-Team/BG3-Compatibility-Framework">Compatibility Framework</a> · <a href="https://github.com/BG3-Community-Library-Team/CF-Example-Mods">CF-Example-Mods</a> · <a href="https://github.com/BG3-Community-Library-Team/Sample-Template">Sample-Template</a></li>
+        <li><a href="https://bg3.wiki/wiki/Modding:Creating_meta.lsx">bg3.wiki：Creating meta.lsx</a> · <a href="https://bg3.wiki/wiki/Modding:Localization">Localization</a> · <a href="https://bg3.wiki/wiki/Guide:Unpacking_and_Converting_Files">Unpacking and Converting Files</a></li>
+        <li><a href="https://mod.io/g/baldursgate3/r/compatibility-changes-in-patch-7">Compatibility Changes in Patch 7 &amp; 8: Merging</a></li>
+        <li><a href="https://bg3.wiki/wiki/Modding:Installing_mods">bg3.wiki：Installing mods</a>（加载顺序方向）· <a href="https://bbs.3dmgame.com/thread-6464902-1-1.html">3DM：制作独立汉化 mod 教程（第二版）</a> · <a href="https://bbs.3dmgame.com/thread-6461116-1-1.html">3DM：mod 汉化教程（第一版）</a></li>
+      </ul>
+      <h3>案例与设计</h3>
+      <ul>
+        <li><a href="https://github.com/Kidel/BG3_Artificer">Artificer（源码）</a> · <a href="https://github.com/doombubbles/bg3-mods">doombubbles/bg3-mods（含 CI）</a> · <a href="https://github.com/Celestro/5eSpells">5e Spells（数据）</a></li>
+        <li><a href="https://leukudndhomebrew.wordpress.com/2020/03/09/leukus-guide-to-balancing/">Leuku's Guide to Balancing</a> · <a href="https://www.kthomebrew.com/kibblesblog/opt-in-complexity-amp-5e-design">Opt In Complexity &amp; 5e Design</a></li>
+        <li><a href="https://www.dndbeyond.com/srd">D&amp;D SRD 5.2.1（CC-BY-4.0）</a></li>
+        <li><a href="https://www.bilibili.com/video/BV1Ch4y1w73Z/">B 站：从 0 开始制作一个新的子职业（14 集，Patch 7 前）</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s11">
+  <h2><span class="n">11</span>汉化别人的 mod：改原 mod，还是做独立汉化 mod？</h2>
+  <p class="sub">2026-09-02 追加的专题。问题只有一个：想给自己喜欢的 mod 做中文，是直接改那个 mod，还是另做一个 mod。</p>
+  <div class="callout"><b>结论：做独立汉化 mod。</b>一个只含 <code>Localization/Chinese/&lt;名字&gt;.loca</code> 和 <code>Mods/&lt;Folder&gt;/meta.lsx</code> 的小 pak，放在原 mod <b>之下（更晚）</b>加载。bg3.wiki、Nexus 提交规则、Larian/mod.io 准则、3DM 中文教程第二版和 N 网上的 CHS 条目都指向这一种做法。直接改原 mod 只适合"自己玩不分发"，或者把译文交给作者合并进原 mod。</div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>维度</th><th>直接改原 mod（解包 → 加中文 → 重打包）</th><th>独立汉化 mod</th></tr></thead>
+    <tbody>
+      <tr><td class="k">原 mod 更新后</td><td>每次重新解包整个新版、重放译文、重打包</td><td>只翻新增/变更的 handle；原 mod 没加文本就不用动</td></tr>
+      <tr><td class="k">许可与平台规则</td><td>等于再分发他人全部资产；Nexus 规定翻译只能作为与原文件配合的附加文件，未获许可可被删除；mod.io 要求翻译前取得许可</td><td>只含你的译文与原 mod 的 handle；Nexus 上传时直接标记为已有 mod 的翻译，出现在原页的 Translations 区</td></tr>
+      <tr><td class="k">身份与联机</td><td>同名 pak / 同 UUID 会互相顶替、被当成另一版本；联机时全员都得用你改的版本</td><td>新 UUID、新 Folder；全员多装一个小 mod 即可，对英文客户端无副作用</td></tr>
+      <tr><td class="k">主机</td><td>不可能</td><td>经官方 Toolkit 发到 mod.io 并过审才可能</td></tr>
+      <tr><td class="k">不走 loca 的文本（Lua / JSON 硬编码、贴图）</td><td>可以直接改文件</td><td>覆盖不到；只能请作者改用 handle 或 MCM Handles</td></tr>
+      <tr><td class="k">社区观感</td><td>2023 年早期教程的做法，现被视为过渡形态</td><td>主流</td></tr>
+    </tbody>
+  </table></div>
+  <h3>引擎层面必须知道的六件事</h3>
+  <ul>
+    <li><b>缺 handle 不会显示裸 handle。</b>引擎带回退池，查不到时回退到另一池（基础游戏实证为英文），全部池都没有才显示 "Not Found"。"只带 English 的 mod 在简中客户端显示英文"是高置信推断、无一手明文——所以汉化是体验问题，不是能不能玩的问题。</li>
+    <li><b>多个 pak 的同语言文本按 handle 逐条合并，后加载者覆盖；同路径同名文件则整体替换。</b>"翻译补丁放在原 mod 之下" = 更晚加载 = 优先级更高。汉化 pak 排在原 mod 之后，且 loca 文件名与原 mod 不同。</li>
+    <li><b><code>contentuid</code> 与 <code>version</code> 原样保留。</b>引擎查表只比较 handle、忽略 version；覆盖靠加载顺序，不靠抬 version。</li>
+    <li><b>手工打包的 pak 里必须是 <code>.loca</code>。</b>xml 只是 Toolkit 项目的源格式；Multitool 会自动把 <code>x.loca.xml</code> 转回，但会合并多个 xml。</li>
+    <li><b>目录名固定：</b>简体 <code>Localization/Chinese/</code>，繁体 <code>Localization/ChineseTraditional/</code>。</li>
+    <li><b>Script Extender 的 Lua 硬编码字符串、无 Handles 的 MCM 界面、贴图上的字</b>都不走 loca；SE 的 <code>Ext.Loca.UpdateTranslatedString</code> 能运行时替换但只写内存。</li>
+  </ul>
+  <h3>流程（Mac 编辑 + Windows 验证）</h3>
+  <div class="rail">
+    <div class="stage"><span class="num">0</span><span class="name">要许可</span><span class="gate">看 Nexus Permissions；私信作者；留档</span></div>
+    <div class="stage"><span class="num">1</span><span class="name">解包取 loca</span><span class="gate">只要 Localization/English；记下原 mod 的 UUID/Folder/Version64</span></div>
+    <div class="stage"><span class="num">2</span><span class="name">loca → xml</span><span class="gate">Mac：scripts/loca_convert.py；Win：Divine convert-loca</span></div>
+    <div class="stage"><span class="num">3</span><span class="name">建工程</span><span class="gate">Localization/Chinese/&lt;Mod&gt;_CHS.xml + Mods/&lt;Mod&gt;_CHS/meta.lsx（新 UUID）</span></div>
+    <div class="stage"><span class="num">4</span><span class="name">翻译</span><span class="gate">只改 &gt;…&lt; 之间；保留 &amp;lt;LSTag&amp;gt; 与 [1] 占位；术语对齐官方简中</span></div>
+    <div class="stage"><span class="num">5</span><span class="name">转 loca、打包</span><span class="gate">只留 .loca；Win 用 Divine / Toolkit；不与原 mod 同名</span></div>
+    <div class="stage"><span class="num">6</span><span class="name">游戏内验证</span><span class="gate">语言切简中；汉化排在原 mod 之下；查 Not Found 与折行</span></div>
+    <div class="stage"><span class="num">7</span><span class="name">发布</span><span class="gate">Nexus 标记翻译、语言 Mandarin；mod.io 经 Toolkit + translation tag</span></div>
+    <div class="stage"><span class="num">8</span><span class="name">跟更新</span><span class="gate">loca_sync.py diff 找新增 handle；版本号跟原 mod</span></div>
+  </div>
+  <div class="two">
+    <div class="card"><h4>Mac 上能做什么</h4><p>文本层全部：<code>scripts/loca_convert.py</code>（纯 Python 的 loca↔xml，按 LSLib 源码实现，已做字节级往返自测，尚未用游戏真实文件验证）、<code>loca_sync.py</code> 做新旧版本 diff。解包/打包目前仍交 Windows；Rust 的 maclarian 与 Python 的 bg3-forge 声称能在 Mac 原生解/打包，均为 2026 年新项目，未实测。</p></div>
+    <div class="card"><h4>Windows 上的工具</h4><p>LSLib ConverterApp / Divine（事实标准）、Multitool（已迁至 GitLab）、官方 Toolkit（mod.io 发布必经）。3DM 教程用的 BG3 LocaHelper 源码已于 2024-01 被 DMCA 下架，仍能用但无维护。AI 初稿工具：bg3-mod-ai-translator-zh（跨平台）、BG3ModTranslation、Icosa、Gemini 版 BG3 Mod Translator（均需人工校对）。</p></div>
+  </div>
+  <p class="small">汉化专用坑：目录名不是 Chinese、xml 没转 loca、游戏语言没切、汉化排在原 mod 之上被其自带的 Chinese 覆盖、与原 mod 同名/同 UUID、没有 meta.lsx 的 override 型 pak（Patch 7 后失效）、xml 里把 &amp;lt;LSTag&amp;gt; 还原成真实标签、只有一个人装汉化导致联机不匹配。完整对比、步骤命令与来源见仓库 <code>docs/09-translating-existing-mods.md</code> 与 <code>research/H–K</code>。</p>
+</section>
+
+<footer>
+  <p><b>方法与局限。</b>研究分两轮：第一轮 6 个并行子课题（工具链、结构、案例、踩坑、脚本与基建、团队工作流）加主控补读官方文档，共 7 份报告、322 条引用条目；第二轮"汉化别人的 mod"3 个子课题（loca 格式与工具、引擎行为、社区惯例与政策）加主控浏览器直读，共 4 份报告、约 180 条引用条目（跨报告有重叠）。Nexus 在内置浏览器里也被人机验证拦下，未绕过。Nexus 页面对抓取工具返回 403、mod.io 与社区 wiki 为 JS 渲染，因此推荐数、依赖列表、Credits 多来自搜索摘要；官方 Toolkit 文档与 mod.io 准则已用浏览器直读核对。所有"游戏内行为"类结论尚未在游戏内验证，对应的验证清单见第 09 节。完整报告与来源表在项目仓库的 <code>docs/</code> 与 <code>research/</code>。</p>
+</footer>
+</main>
+</div>
+</div>

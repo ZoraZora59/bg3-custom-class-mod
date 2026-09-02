@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+  <content contentuid="hExampleClassDisplayName" version="1">Example Class</content>
+  <content contentuid="hExampleClassDescription" version="1">A skeleton class used to validate the mod pipeline. Replace every string, handle and UUID before shipping.</content>
+  <content contentuid="hExampleSubclassADisplayName" version="1">Example Path</content>
+  <content contentuid="hExampleSubclassAShortName" version="1">Path</content>
+  <content contentuid="hExampleSubclassADescription" version="1">A skeleton subclass unlocked at level 3.</content>
+  <content contentuid="hExampleClassPassiveFocusName" version="1">Focus</content>
+  <content contentuid="hExampleClassPassiveFocusDesc" version="1">Your movement speed is increased by 25%.</content>
+  <content contentuid="hExampleClassPassiveStrikeName" version="1">Focused Strike</content>
+  <content contentuid="hExampleClassPassiveStrikeDesc" version="1">Your melee weapon attacks deal an additional [1].</content>
+</contentList>
