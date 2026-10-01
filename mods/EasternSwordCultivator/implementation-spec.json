@@ -1,0 +1,1246 @@
+{
+  "module": "6560ea02-fe1e-5fdb-8631-b41a2e53af90",
+  "folder": "EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90",
+  "version64": 36028797018963971,
+  "publishHandle": 6417135,
+  "capacities": [
+    0,
+    6,
+    10,
+    14,
+    18,
+    24,
+    26,
+    28,
+    30,
+    40,
+    44,
+    50
+  ],
+  "resource": "ff9884b7-6054-595d-8ff5-2d39bbb41dd2",
+  "flightResource": "f0dc2f3c-f7a6-51a1-b7a2-d4b5d19b1e39",
+  "chainMoveResource": "a230e407-432b-5ec7-85fa-5bc7d97e3984",
+  "chainStatuses": {
+    "liancheng": "ESC_CHAIN_LIANCHENG",
+    "wusheng": "ESC_CHAIN_WUSHENG"
+  },
+  "opportunityResource": "17d017a5-9e66-587f-a9e5-00ff1d769190",
+  "classes": {
+    "common": "2d547dfc-fee1-5c5f-9a61-eb3dc4b73602",
+    "taixuan": "2cc45280-035c-5523-9e8b-50fd34d3f715",
+    "tianqing": "08bd6eb2-da48-5c58-ab78-05c434ebe621",
+    "xueyan": "02e3091f-f90f-5e61-a8a5-54c9e91df87d",
+    "xingge": "50110376-79c3-523e-bcf2-03146b103e4a"
+  },
+  "branches": {
+    "taixuan": {
+      "name": "太玄",
+      "english": "Taixuan",
+      "hp": 1.8,
+      "attack": 6,
+      "ac": 6,
+      "reduction": 20
+    },
+    "tianqing": {
+      "name": "天倾",
+      "english": "Tianqing",
+      "hp": 2.5,
+      "attack": 4,
+      "ac": 2,
+      "reduction": 35
+    },
+    "xueyan": {
+      "name": "血魇",
+      "english": "Xueyan",
+      "hp": 1.6,
+      "attack": 3,
+      "ac": 2,
+      "reduction": 20
+    },
+    "xingge": {
+      "name": "行歌",
+      "english": "Xingge",
+      "hp": 1.1,
+      "attack": 1,
+      "ac": 1,
+      "reduction": 0
+    }
+  },
+  "spells": {
+    "yujian": {
+      "key": "yujian",
+      "level": 1,
+      "kind": "attack",
+      "cost": 0,
+      "range": 18,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "WQ",
+      "action": "sword",
+      "branch": "common",
+      "stat": "Projectile_ESC_yujian"
+    },
+    "sword_strike": {
+      "key": "sword_strike",
+      "level": 1,
+      "kind": "attack",
+      "cost": 0,
+      "range": 3,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "WQ",
+      "action": "sword",
+      "branch": "common",
+      "stat": "Target_ESC_sword_strike"
+    },
+    "tiaoxi": {
+      "key": "tiaoxi",
+      "level": 2,
+      "kind": "recover",
+      "cost": 0,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "sword",
+      "branch": "common",
+      "stat": "Shout_ESC_tiaoxi"
+    },
+    "qi_guard": {
+      "key": "qi_guard",
+      "level": 2,
+      "kind": "guard",
+      "cost": 2,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "common",
+      "stat": "Shout_ESC_qi_guard"
+    },
+    "sword_flight": {
+      "key": "sword_flight",
+      "level": 5,
+      "kind": "flight",
+      "cost": 0,
+      "range": 24,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "common",
+      "stat": "Shout_ESC_sword_flight"
+    },
+    "recall_sword": {
+      "key": "recall_sword",
+      "level": 3,
+      "kind": "recall",
+      "cost": 0,
+      "range": 18,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "common",
+      "stat": "Target_ESC_recall_sword"
+    },
+    "qi_sword": {
+      "key": "qi_sword",
+      "level": 3,
+      "kind": "mode",
+      "cost": 0,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "free",
+      "branch": "common",
+      "stat": "Shout_ESC_qi_sword"
+    },
+    "control_release": {
+      "key": "control_release",
+      "level": 5,
+      "kind": "release",
+      "cost": 4,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "common",
+      "stat": "Target_ESC_control_release"
+    },
+    "focus_target": {
+      "key": "focus_target",
+      "level": 9,
+      "kind": "focus",
+      "cost": 0,
+      "range": 18,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "free",
+      "branch": "common",
+      "stat": "Target_ESC_focus_target"
+    },
+    "taixuan_zhaoxi": {
+      "key": "taixuan_zhaoxi",
+      "level": 3,
+      "kind": "attack",
+      "cost": 0,
+      "range": 18,
+      "radius": 0,
+      "dice": "2d8",
+      "segments": 1,
+      "base": "WQ",
+      "action": "sword",
+      "branch": "taixuan",
+      "stat": "Projectile_ESC_taixuan_zhaoxi"
+    },
+    "taixuan_qinghui": {
+      "key": "taixuan_qinghui",
+      "level": 4,
+      "kind": "guard",
+      "cost": 4,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "taixuan",
+      "stat": "Shout_ESC_taixuan_qinghui"
+    },
+    "taixuan_jiuxiao": {
+      "key": "taixuan_jiuxiao",
+      "level": 8,
+      "kind": "area_save",
+      "cost": 4,
+      "range": 18,
+      "radius": 6,
+      "dice": "8d8",
+      "segments": 1,
+      "base": "Q",
+      "action": "sword",
+      "branch": "taixuan",
+      "stat": "Target_ESC_taixuan_jiuxiao"
+    },
+    "taixuan_liuguang": {
+      "key": "taixuan_liuguang",
+      "level": 6,
+      "kind": "attack",
+      "cost": 10,
+      "range": 18,
+      "radius": 0,
+      "dice": "4d8",
+      "segments": 4,
+      "base": "Q",
+      "action": "sword",
+      "branch": "taixuan",
+      "stat": "Projectile_ESC_taixuan_liuguang"
+    },
+    "taixuan_xinghe": {
+      "key": "taixuan_xinghe",
+      "level": 7,
+      "kind": "self_area_save",
+      "cost": 10,
+      "range": 0,
+      "radius": 6,
+      "dice": "10d8",
+      "segments": 1,
+      "base": "Q",
+      "action": "sword",
+      "branch": "taixuan",
+      "hitControl": {
+        "ability": "Strength",
+        "push": 3,
+        "duration": 1,
+        "marker": "ESC_SAVEFAIL_TAIXUAN_XINGHE"
+      },
+      "stat": "Shout_ESC_taixuan_xinghe"
+    },
+    "taixuan_taiqing": {
+      "key": "taixuan_taiqing",
+      "level": 9,
+      "kind": "domain",
+      "cost": 10,
+      "range": 0,
+      "radius": 6,
+      "dice": "2d8",
+      "segments": 1,
+      "base": "Q",
+      "action": "sword",
+      "branch": "taixuan",
+      "stat": "Shout_ESC_taixuan_taiqing"
+    },
+    "taixuan_yixiantian": {
+      "key": "taixuan_yixiantian",
+      "level": 12,
+      "kind": "piercing_line",
+      "cost": 20,
+      "range": 30,
+      "radius": 2,
+      "dice": "36d8",
+      "segments": 1,
+      "base": "Q",
+      "action": "sword",
+      "branch": "taixuan",
+      "stat": "Zone_ESC_taixuan_yixiantian"
+    },
+    "taixuan_guiyuan": {
+      "key": "taixuan_guiyuan",
+      "level": 4,
+      "kind": "heal",
+      "cost": 6,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "taixuan",
+      "stat": "Target_ESC_taixuan_guiyuan"
+    },
+    "tianqing_nifeng": {
+      "key": "tianqing_nifeng",
+      "level": 3,
+      "kind": "cone_attack",
+      "cost": 0,
+      "range": 12,
+      "radius": 2,
+      "dice": "3d8",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Strength",
+        "push": 2,
+        "duration": 1,
+        "marker": "ESC_SAVEFAIL_TIANQING_NIFENG"
+      },
+      "stat": "Zone_ESC_tianqing_nifeng"
+    },
+    "tianqing_wanjun": {
+      "key": "tianqing_wanjun",
+      "level": 4,
+      "kind": "area_attack",
+      "cost": 4,
+      "range": 18,
+      "radius": 6,
+      "dice": "6d8",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Constitution",
+        "slow": 0.5,
+        "attack": -2,
+        "duration": 2,
+        "marker": "ESC_SAVEFAIL_TIANQING_WANJUN"
+      },
+      "stat": "Target_ESC_tianqing_wanjun"
+    },
+    "tianqing_lietian": {
+      "key": "tianqing_lietian",
+      "level": 8,
+      "kind": "attack",
+      "cost": 4,
+      "range": 18,
+      "radius": 0,
+      "dice": "12d8",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Strength",
+        "ac": -3,
+        "duration": 3,
+        "marker": "ESC_SAVEFAIL_TIANQING_LIETIAN"
+      },
+      "stat": "Projectile_ESC_tianqing_lietian"
+    },
+    "tianqing_tianbeng": {
+      "key": "tianqing_tianbeng",
+      "level": 6,
+      "kind": "cone_attack",
+      "cost": 10,
+      "range": 12,
+      "radius": 0,
+      "dice": "18d8",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Strength",
+        "push": 3,
+        "ac": -3,
+        "duration": 3,
+        "mainOnly": true,
+        "marker": "ESC_SAVEFAIL_TIANQING_TIANBENG"
+      },
+      "stat": "Zone_ESC_tianqing_tianbeng"
+    },
+    "tianqing_tianfeng": {
+      "key": "tianqing_tianfeng",
+      "level": 7,
+      "kind": "dash_attack",
+      "cost": 10,
+      "range": 18,
+      "radius": 3,
+      "dice": "22d8",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Strength",
+        "push": 3,
+        "prone": 1,
+        "attack": -3,
+        "duration": 2,
+        "marker": "ESC_SAVEFAIL_TIANQING_TIANFENG"
+      },
+      "stat": "Rush_ESC_tianqing_tianfeng"
+    },
+    "tianqing_tianjian": {
+      "key": "tianqing_tianjian",
+      "level": 9,
+      "kind": "leap_area_save",
+      "cost": 10,
+      "range": 24,
+      "radius": 9,
+      "dice": "26d8",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Strength",
+        "prone": 1,
+        "slow": 0.5,
+        "ac": -4,
+        "duration": 3,
+        "marker": "ESC_SAVEFAIL_TIANQING_TIANJIAN"
+      },
+      "stat": "Projectile_ESC_tianqing_tianjian"
+    },
+    "tianqing_bafang": {
+      "key": "tianqing_bafang",
+      "level": 12,
+      "kind": "self_area_save",
+      "cost": 20,
+      "range": 0,
+      "radius": 18,
+      "dice": "44d8",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Strength",
+        "push": 6,
+        "prone": 1,
+        "ac": -5,
+        "duration": 3,
+        "marker": "ESC_SAVEFAIL_TIANQING_BAFANG"
+      },
+      "stat": "Shout_ESC_tianqing_bafang"
+    },
+    "tianqing_tiandi": {
+      "key": "tianqing_tiandi",
+      "level": 12,
+      "kind": "area_attack",
+      "cost": 20,
+      "range": 24,
+      "radius": 9,
+      "dice": "14d8",
+      "segments": 3,
+      "base": "W",
+      "action": "sword",
+      "branch": "tianqing",
+      "hitControl": {
+        "ability": "Strength",
+        "prone": 1,
+        "slow": 0.5,
+        "ac": -5,
+        "duration": 3,
+        "marker": "ESC_SAVEFAIL_TIANQING_TIANDI"
+      },
+      "stat": "Target_ESC_tianqing_tiandi"
+    },
+    "tianqing_xushi": {
+      "key": "tianqing_xushi",
+      "level": 3,
+      "kind": "recover",
+      "cost": 0,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "sword",
+      "branch": "tianqing",
+      "stat": "Shout_ESC_tianqing_xushi"
+    },
+    "tianqing_nixi": {
+      "key": "tianqing_nixi",
+      "level": 3,
+      "kind": "heal",
+      "cost": 5,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "tianqing",
+      "stat": "Target_ESC_tianqing_nixi"
+    },
+    "xueyan_luexue": {
+      "key": "xueyan_luexue",
+      "level": 3,
+      "kind": "attack",
+      "cost": 0,
+      "range": 18,
+      "radius": 0,
+      "dice": "2d6",
+      "segments": 1,
+      "base": "WQ",
+      "action": "sword",
+      "branch": "xueyan",
+      "stat": "Projectile_ESC_xueyan_luexue"
+    },
+    "xueyan_chuanshen": {
+      "key": "xueyan_chuanshen",
+      "level": 4,
+      "kind": "dash_attack",
+      "cost": 4,
+      "range": 12,
+      "radius": 2,
+      "dice": "4d6",
+      "segments": 1,
+      "base": "WQ",
+      "action": "sword",
+      "branch": "xueyan",
+      "stat": "Rush_ESC_xueyan_chuanshen"
+    },
+    "xueyan_ranxue": {
+      "key": "xueyan_ranxue",
+      "level": 8,
+      "kind": "blood_cost",
+      "cost": 0,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "xueyan",
+      "stat": "Shout_ESC_xueyan_ranxue"
+    },
+    "xueyan_liancheng": {
+      "key": "xueyan_liancheng",
+      "level": 6,
+      "kind": "chain_attack",
+      "cost": 10,
+      "range": 24,
+      "radius": 0,
+      "dice": "1d6",
+      "segments": 4,
+      "base": "Q",
+      "action": "sword",
+      "branch": "xueyan",
+      "stat": "Shout_ESC_xueyan_liancheng"
+    },
+    "xueyan_nixue": {
+      "key": "xueyan_nixue",
+      "level": 7,
+      "kind": "self_area_save",
+      "cost": 10,
+      "range": 0,
+      "radius": 6,
+      "dice": "8d6",
+      "segments": 1,
+      "base": "Q",
+      "action": "sword",
+      "branch": "xueyan",
+      "stat": "Shout_ESC_xueyan_nixue"
+    },
+    "xueyan_xuehai": {
+      "key": "xueyan_xuehai",
+      "level": 9,
+      "kind": "domain",
+      "cost": 10,
+      "range": 0,
+      "radius": 6,
+      "dice": "2d6",
+      "segments": 1,
+      "base": "Q",
+      "action": "sword",
+      "branch": "xueyan",
+      "stat": "Shout_ESC_xueyan_xuehai"
+    },
+    "xueyan_wusheng": {
+      "key": "xueyan_wusheng",
+      "level": 12,
+      "kind": "attack",
+      "cost": 20,
+      "range": 24,
+      "radius": 0,
+      "dice": "",
+      "segments": 6,
+      "base": "Q",
+      "action": "sword",
+      "branch": "xueyan",
+      "stat": "Projectile_ESC_xueyan_wusheng"
+    },
+    "xueyan_huichao": {
+      "key": "xueyan_huichao",
+      "level": 4,
+      "kind": "heal",
+      "cost": 6,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "xueyan",
+      "stat": "Target_ESC_xueyan_huichao"
+    },
+    "xueyan_damage_mode": {
+      "key": "xueyan_damage_mode",
+      "level": 3,
+      "kind": "mode",
+      "cost": 0,
+      "range": 0,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "free",
+      "branch": "xueyan",
+      "stat": "Shout_ESC_xueyan_damage_mode"
+    },
+    "xingge_wenlu": {
+      "key": "xingge_wenlu",
+      "level": 3,
+      "kind": "attack",
+      "cost": 0,
+      "range": 18,
+      "radius": 0,
+      "dice": "1d4",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "xingge",
+      "stat": "Projectile_ESC_xingge_wenlu"
+    },
+    "xingge_huifeng": {
+      "key": "xingge_huifeng",
+      "level": 4,
+      "kind": "protect",
+      "cost": 4,
+      "range": 18,
+      "radius": 3,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "xingge",
+      "hitControl": {
+        "ability": "Dexterity",
+        "slow": 0.5,
+        "attack": -2,
+        "duration": 2,
+        "marker": "ESC_SAVEFAIL_XINGGE_HUIFENG"
+      },
+      "stat": "Target_ESC_xingge_huifeng"
+    },
+    "xingge_fuchen": {
+      "key": "xingge_fuchen",
+      "level": 8,
+      "kind": "release",
+      "cost": 4,
+      "range": 18,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "xingge",
+      "stat": "Target_ESC_xingge_fuchen"
+    },
+    "xingge_chengfeng": {
+      "key": "xingge_chengfeng",
+      "level": 6,
+      "kind": "rescue",
+      "cost": 10,
+      "range": 18,
+      "radius": 3,
+      "dice": "8d6",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "xingge",
+      "hitControl": {
+        "ability": "Strength",
+        "push": 2,
+        "duration": 1,
+        "marker": "ESC_SAVEFAIL_XINGGE_CHENGFENG"
+      },
+      "stat": "Target_ESC_xingge_chengfeng"
+    },
+    "xingge_tongzhou": {
+      "key": "xingge_tongzhou",
+      "level": 7,
+      "kind": "cooperate",
+      "cost": 10,
+      "range": 18,
+      "radius": 6,
+      "dice": "10d6",
+      "segments": 1,
+      "base": "W",
+      "action": "sword",
+      "branch": "xingge",
+      "stat": "Projectile_ESC_xingge_tongzhou"
+    },
+    "xingge_fengyu": {
+      "key": "xingge_fengyu",
+      "level": 9,
+      "kind": "share",
+      "cost": 10,
+      "range": 0,
+      "radius": 6,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "sword",
+      "branch": "xingge",
+      "stat": "Shout_ESC_xingge_fengyu"
+    },
+    "xingge_zhangjian": {
+      "key": "xingge_zhangjian",
+      "level": 12,
+      "kind": "resonance",
+      "cost": 20,
+      "range": 0,
+      "radius": 6,
+      "dice": "2d6",
+      "segments": 1,
+      "base": "Q",
+      "action": "sword",
+      "branch": "xingge",
+      "stat": "Shout_ESC_xingge_zhangjian"
+    },
+    "xingge_xiangfu": {
+      "key": "xingge_xiangfu",
+      "level": 3,
+      "kind": "heal",
+      "cost": 4,
+      "range": 18,
+      "radius": 0,
+      "dice": "",
+      "segments": 1,
+      "base": "",
+      "action": "bonus",
+      "branch": "xingge",
+      "stat": "Target_ESC_xingge_xiangfu"
+    }
+  },
+  "aliases": {
+    "Projectile_ESC_yujian_Main": {
+      "key": "yujian",
+      "hand": "main"
+    },
+    "Projectile_ESC_yujian_Off": {
+      "key": "yujian",
+      "hand": "off"
+    },
+    "Target_ESC_sword_strike_Main": {
+      "key": "sword_strike",
+      "hand": "main"
+    },
+    "Target_ESC_sword_strike_Off": {
+      "key": "sword_strike",
+      "hand": "off"
+    },
+    "Target_ESC_taixuan_zhaoxi_MeleeMain": {
+      "key": "taixuan_zhaoxi",
+      "hand": "main"
+    },
+    "Target_ESC_taixuan_zhaoxi_MeleeOff": {
+      "key": "taixuan_zhaoxi",
+      "hand": "off"
+    },
+    "Target_ESC_taixuan_zhaoxi_MeleeOff_Bonus": {
+      "key": "taixuan_zhaoxi",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Projectile_ESC_taixuan_zhaoxi_RangedMain": {
+      "key": "taixuan_zhaoxi",
+      "hand": "main"
+    },
+    "Projectile_ESC_taixuan_zhaoxi_RangedOff": {
+      "key": "taixuan_zhaoxi",
+      "hand": "off"
+    },
+    "Projectile_ESC_taixuan_zhaoxi_RangedOff_Bonus": {
+      "key": "taixuan_zhaoxi",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Zone_ESC_tianqing_nifeng_MeleeMain": {
+      "key": "tianqing_nifeng",
+      "hand": "main"
+    },
+    "Zone_ESC_tianqing_nifeng_MeleeOff": {
+      "key": "tianqing_nifeng",
+      "hand": "off"
+    },
+    "Zone_ESC_tianqing_nifeng_MeleeOff_Bonus": {
+      "key": "tianqing_nifeng",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Zone_ESC_tianqing_nifeng_RangedMain": {
+      "key": "tianqing_nifeng",
+      "hand": "main"
+    },
+    "Zone_ESC_tianqing_nifeng_RangedOff": {
+      "key": "tianqing_nifeng",
+      "hand": "off"
+    },
+    "Zone_ESC_tianqing_nifeng_RangedOff_Bonus": {
+      "key": "tianqing_nifeng",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Target_ESC_tianqing_wanjun_Main": {
+      "key": "tianqing_wanjun",
+      "hand": "main"
+    },
+    "Target_ESC_tianqing_wanjun_Off": {
+      "key": "tianqing_wanjun",
+      "hand": "off"
+    },
+    "Projectile_ESC_tianqing_lietian_Main": {
+      "key": "tianqing_lietian",
+      "hand": "main"
+    },
+    "Projectile_ESC_tianqing_lietian_Off": {
+      "key": "tianqing_lietian",
+      "hand": "off"
+    },
+    "Zone_ESC_tianqing_tianbeng_Main": {
+      "key": "tianqing_tianbeng",
+      "hand": "main"
+    },
+    "Zone_ESC_tianqing_tianbeng_Off": {
+      "key": "tianqing_tianbeng",
+      "hand": "off"
+    },
+    "Rush_ESC_tianqing_tianfeng_Main": {
+      "key": "tianqing_tianfeng",
+      "hand": "main"
+    },
+    "Rush_ESC_tianqing_tianfeng_Off": {
+      "key": "tianqing_tianfeng",
+      "hand": "off"
+    },
+    "Projectile_ESC_TianjianImpact": {
+      "key": "tianqing_tianjian",
+      "internal": true,
+      "impact": true,
+      "hand": "main"
+    },
+    "Projectile_ESC_tianqing_tianjian_Main": {
+      "key": "tianqing_tianjian",
+      "hand": "main"
+    },
+    "Projectile_ESC_TianjianImpact_Off": {
+      "key": "tianqing_tianjian",
+      "internal": true,
+      "impact": true,
+      "hand": "off"
+    },
+    "Projectile_ESC_tianqing_tianjian_Off": {
+      "key": "tianqing_tianjian",
+      "hand": "off"
+    },
+    "Shout_ESC_tianqing_bafang_Main": {
+      "key": "tianqing_bafang",
+      "hand": "main"
+    },
+    "Shout_ESC_tianqing_bafang_Off": {
+      "key": "tianqing_bafang",
+      "hand": "off"
+    },
+    "Target_ESC_tianqing_tiandi_Main": {
+      "key": "tianqing_tiandi",
+      "hand": "main"
+    },
+    "Target_ESC_tianqing_tiandi_Off": {
+      "key": "tianqing_tiandi",
+      "hand": "off"
+    },
+    "Target_ESC_xueyan_luexue_MeleeMain": {
+      "key": "xueyan_luexue",
+      "hand": "main"
+    },
+    "Target_ESC_xueyan_luexue_MeleeOff": {
+      "key": "xueyan_luexue",
+      "hand": "off"
+    },
+    "Target_ESC_xueyan_luexue_MeleeOff_Bonus": {
+      "key": "xueyan_luexue",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Projectile_ESC_xueyan_luexue_RangedMain": {
+      "key": "xueyan_luexue",
+      "hand": "main"
+    },
+    "Projectile_ESC_xueyan_luexue_RangedOff": {
+      "key": "xueyan_luexue",
+      "hand": "off"
+    },
+    "Projectile_ESC_xueyan_luexue_RangedOff_Bonus": {
+      "key": "xueyan_luexue",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Rush_ESC_xueyan_chuanshen_Main": {
+      "key": "xueyan_chuanshen",
+      "hand": "main"
+    },
+    "Rush_ESC_xueyan_chuanshen_Off": {
+      "key": "xueyan_chuanshen",
+      "hand": "off"
+    },
+    "Shout_ESC_xueyan_liancheng": {
+      "key": "xueyan_liancheng",
+      "chain": "liancheng",
+      "startChain": true
+    },
+    "Shout_ESC_xueyan_nixue_F0": {
+      "key": "xueyan_nixue",
+      "spent": 0
+    },
+    "Shout_ESC_xueyan_nixue_F1": {
+      "key": "xueyan_nixue",
+      "spent": 1
+    },
+    "Shout_ESC_xueyan_nixue_F2": {
+      "key": "xueyan_nixue",
+      "spent": 2
+    },
+    "Shout_ESC_xueyan_nixue_F3": {
+      "key": "xueyan_nixue",
+      "spent": 3
+    },
+    "Shout_ESC_xueyan_nixue_F4": {
+      "key": "xueyan_nixue",
+      "spent": 4
+    },
+    "Shout_ESC_xueyan_nixue_F5": {
+      "key": "xueyan_nixue",
+      "spent": 5
+    },
+    "Shout_ESC_xueyan_nixue_F6": {
+      "key": "xueyan_nixue",
+      "spent": 6
+    },
+    "Shout_ESC_xueyan_nixue_F7": {
+      "key": "xueyan_nixue",
+      "spent": 7
+    },
+    "Shout_ESC_xueyan_nixue_F8": {
+      "key": "xueyan_nixue",
+      "spent": 8
+    },
+    "Shout_ESC_xueyan_nixue_F9": {
+      "key": "xueyan_nixue",
+      "spent": 9
+    },
+    "Shout_ESC_xueyan_nixue_F10": {
+      "key": "xueyan_nixue",
+      "spent": 10
+    },
+    "Shout_ESC_xueyan_nixue_F11": {
+      "key": "xueyan_nixue",
+      "spent": 11
+    },
+    "Shout_ESC_xueyan_nixue_F12": {
+      "key": "xueyan_nixue",
+      "spent": 12
+    },
+    "Shout_ESC_xueyan_nixue_F13": {
+      "key": "xueyan_nixue",
+      "spent": 13
+    },
+    "Shout_ESC_xueyan_nixue_F14": {
+      "key": "xueyan_nixue",
+      "spent": 14
+    },
+    "Shout_ESC_xueyan_nixue_F15": {
+      "key": "xueyan_nixue",
+      "spent": 15
+    },
+    "Projectile_ESC_xueyan_wusheng_F0": {
+      "key": "xueyan_wusheng",
+      "spent": 0,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F1": {
+      "key": "xueyan_wusheng",
+      "spent": 1,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F2": {
+      "key": "xueyan_wusheng",
+      "spent": 2,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F3": {
+      "key": "xueyan_wusheng",
+      "spent": 3,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F4": {
+      "key": "xueyan_wusheng",
+      "spent": 4,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F5": {
+      "key": "xueyan_wusheng",
+      "spent": 5,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F6": {
+      "key": "xueyan_wusheng",
+      "spent": 6,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F7": {
+      "key": "xueyan_wusheng",
+      "spent": 7,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F8": {
+      "key": "xueyan_wusheng",
+      "spent": 8,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F9": {
+      "key": "xueyan_wusheng",
+      "spent": 9,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F10": {
+      "key": "xueyan_wusheng",
+      "spent": 10,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F11": {
+      "key": "xueyan_wusheng",
+      "spent": 11,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F12": {
+      "key": "xueyan_wusheng",
+      "spent": 12,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F13": {
+      "key": "xueyan_wusheng",
+      "spent": 13,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F14": {
+      "key": "xueyan_wusheng",
+      "spent": 14,
+      "chain": "wusheng"
+    },
+    "Projectile_ESC_xueyan_wusheng_F15": {
+      "key": "xueyan_wusheng",
+      "spent": 15,
+      "chain": "wusheng"
+    },
+    "Target_ESC_xueyan_huichao_Yuan": {
+      "key": "xueyan_huichao"
+    },
+    "Target_ESC_xueyan_huichao_Frenzy": {
+      "key": "xueyan_huichao",
+      "spent": 3,
+      "noYuan": true
+    },
+    "Target_ESC_xingge_wenlu_MeleeMain": {
+      "key": "xingge_wenlu",
+      "hand": "main"
+    },
+    "Target_ESC_xingge_wenlu_MeleeOff": {
+      "key": "xingge_wenlu",
+      "hand": "off"
+    },
+    "Target_ESC_xingge_wenlu_MeleeOff_Bonus": {
+      "key": "xingge_wenlu",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Projectile_ESC_xingge_wenlu_RangedMain": {
+      "key": "xingge_wenlu",
+      "hand": "main"
+    },
+    "Projectile_ESC_xingge_wenlu_RangedOff": {
+      "key": "xingge_wenlu",
+      "hand": "off"
+    },
+    "Projectile_ESC_xingge_wenlu_RangedOff_Bonus": {
+      "key": "xingge_wenlu",
+      "hand": "off",
+      "offhand": true,
+      "bonusOnly": true
+    },
+    "Target_ESC_xingge_chengfeng_Main": {
+      "key": "xingge_chengfeng",
+      "hand": "main"
+    },
+    "Target_ESC_xingge_chengfeng_Off": {
+      "key": "xingge_chengfeng",
+      "hand": "off"
+    },
+    "Projectile_ESC_xingge_tongzhou_Main": {
+      "key": "xingge_tongzhou",
+      "hand": "main"
+    },
+    "Projectile_ESC_xingge_tongzhou_Off": {
+      "key": "xingge_tongzhou",
+      "hand": "off"
+    },
+    "Target_ESC_TaiqingPulse": {
+      "key": "internal_taiqing_pulse",
+      "internal": true,
+      "attackBonus": 0
+    },
+    "Target_ESC_BloodPulse": {
+      "key": "internal_blood_pulse",
+      "internal": true,
+      "attackBonus": 0
+    },
+    "Target_ESC_Counter2": {
+      "key": "internal_counter2",
+      "internal": true,
+      "attackBonus": 2
+    },
+    "Target_ESC_Counter3": {
+      "key": "internal_counter3",
+      "internal": true,
+      "attackBonus": 3
+    },
+    "Target_ESC_Resonance": {
+      "key": "internal_resonance",
+      "internal": true,
+      "attackBonus": 0
+    },
+    "Target_ESC_Aftershock": {
+      "key": "internal_aftershock",
+      "internal": true,
+      "attackBonus": 0
+    },
+    "Target_ESC_TiandiStage": {
+      "key": "internal_tiandi_stage",
+      "internal": true,
+      "parent": "tianqing_tiandi"
+    },
+    "Target_ESC_TianbengMain": {
+      "key": "internal_tianbeng_main",
+      "internal": true,
+      "parent": "tianqing_tianbeng"
+    },
+    "Target_ESC_ChengfengBurst": {
+      "key": "internal_chengfeng_burst",
+      "internal": true,
+      "parent": "xingge_chengfeng",
+      "hand": "main"
+    },
+    "Target_ESC_ChengfengBurst_Off": {
+      "key": "internal_chengfeng_burst",
+      "internal": true,
+      "parent": "xingge_chengfeng",
+      "hand": "off"
+    },
+    "Target_ESC_HuifengControl": {
+      "key": "internal_huifeng_control",
+      "internal": true,
+      "parent": "xingge_huifeng",
+      "hand": "main"
+    },
+    "Target_ESC_TiandiStage_Off": {
+      "key": "internal_tiandi_stage",
+      "internal": true,
+      "parent": "tianqing_tiandi",
+      "hand": "off"
+    },
+    "Target_ESC_TianbengMain_Off": {
+      "key": "internal_tianbeng_main",
+      "internal": true,
+      "parent": "tianqing_tianbeng",
+      "hand": "off"
+    },
+    "Target_ESC_liancheng_ContinueMelee": {
+      "key": "xueyan_liancheng",
+      "chain": "liancheng",
+      "continuation": true
+    },
+    "Projectile_ESC_liancheng_ContinueRanged": {
+      "key": "xueyan_liancheng",
+      "chain": "liancheng",
+      "continuation": true
+    },
+    "Target_ESC_wusheng_ContinueMelee": {
+      "key": "xueyan_wusheng",
+      "chain": "wusheng",
+      "continuation": true
+    },
+    "Projectile_ESC_wusheng_ContinueRanged": {
+      "key": "xueyan_wusheng",
+      "chain": "wusheng",
+      "continuation": true
+    },
+    "Projectile_ESC_FlightMove": {
+      "key": "internal_flight_move",
+      "internal": true
+    },
+    "Projectile_ESC_ChainMove": {
+      "key": "internal_chain_move",
+      "internal": true
+    }
+  },
+  "design_sha256": {
+    "20-eastern-sword-cultivator-gdd.md": "a54e91cc4c3e2365d5c49530698f7f3adaba59a30bc3995767222847d2488e95",
+    "21-player-facing-skill-text-draft.md": "7dd528c16bf06bbace18b9966a6e415aa8534e8095e0c525db5fc8ccf2f31813"
+  }
+}

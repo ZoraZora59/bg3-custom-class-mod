@@ -1,0 +1,802 @@
+[
+  {
+    "id": "badge_sword_cultivator",
+    "alpha_bbox_64": [
+      4,
+      3,
+      60,
+      61
+    ],
+    "visible_pixels_over_32": 930
+  },
+  {
+    "id": "skill_yujian",
+    "alpha_bbox_64": [
+      9,
+      3,
+      64,
+      62
+    ],
+    "visible_pixels_over_32": 1445
+  },
+  {
+    "id": "skill_sword_strike",
+    "alpha_bbox_64": [
+      5,
+      2,
+      61,
+      62
+    ],
+    "visible_pixels_over_32": 1165
+  },
+  {
+    "id": "skill_tiaoxi",
+    "alpha_bbox_64": [
+      0,
+      3,
+      58,
+      61
+    ],
+    "visible_pixels_over_32": 1726
+  },
+  {
+    "id": "skill_qi_guard",
+    "alpha_bbox_64": [
+      4,
+      4,
+      63,
+      61
+    ],
+    "visible_pixels_over_32": 2149
+  },
+  {
+    "id": "skill_sword_flight",
+    "alpha_bbox_64": [
+      1,
+      2,
+      61,
+      58
+    ],
+    "visible_pixels_over_32": 1650
+  },
+  {
+    "id": "skill_recall_sword",
+    "alpha_bbox_64": [
+      4,
+      3,
+      63,
+      61
+    ],
+    "visible_pixels_over_32": 1218
+  },
+  {
+    "id": "skill_qi_sword",
+    "alpha_bbox_64": [
+      14,
+      0,
+      51,
+      64
+    ],
+    "visible_pixels_over_32": 1090
+  },
+  {
+    "id": "skill_control_release",
+    "alpha_bbox_64": [
+      5,
+      2,
+      59,
+      58
+    ],
+    "visible_pixels_over_32": 1671
+  },
+  {
+    "id": "skill_focus_target",
+    "alpha_bbox_64": [
+      5,
+      5,
+      64,
+      58
+    ],
+    "visible_pixels_over_32": 1455
+  },
+  {
+    "id": "passive_sword_heart",
+    "alpha_bbox_64": [
+      6,
+      1,
+      64,
+      61
+    ],
+    "visible_pixels_over_32": 1371
+  },
+  {
+    "id": "passive_basic_defense",
+    "alpha_bbox_64": [
+      5,
+      1,
+      59,
+      61
+    ],
+    "visible_pixels_over_32": 1963
+  },
+  {
+    "id": "passive_continuous_strikes",
+    "alpha_bbox_64": [
+      3,
+      6,
+      64,
+      61
+    ],
+    "visible_pixels_over_32": 1332
+  },
+  {
+    "id": "passive_control_resist",
+    "alpha_bbox_64": [
+      7,
+      0,
+      57,
+      61
+    ],
+    "visible_pixels_over_32": 1775
+  },
+  {
+    "id": "passive_auto_release",
+    "alpha_bbox_64": [
+      0,
+      1,
+      61,
+      61
+    ],
+    "visible_pixels_over_32": 1921
+  },
+  {
+    "id": "status_control_resistance",
+    "alpha_bbox_64": [
+      5,
+      1,
+      59,
+      56
+    ],
+    "visible_pixels_over_32": 1662
+  },
+  {
+    "id": "resource_sword_yuan",
+    "alpha_bbox_64": [
+      9,
+      3,
+      55,
+      59
+    ],
+    "visible_pixels_over_32": 1454
+  },
+  {
+    "id": "badge_taixuan",
+    "alpha_bbox_64": [
+      6,
+      4,
+      58,
+      60
+    ],
+    "visible_pixels_over_32": 1233
+  },
+  {
+    "id": "skill_taixuan_zhaoxi",
+    "alpha_bbox_64": [
+      4,
+      2,
+      61,
+      59
+    ],
+    "visible_pixels_over_32": 1424
+  },
+  {
+    "id": "skill_taixuan_qinghui",
+    "alpha_bbox_64": [
+      0,
+      0,
+      64,
+      61
+    ],
+    "visible_pixels_over_32": 1966
+  },
+  {
+    "id": "skill_taixuan_jiuxiao",
+    "alpha_bbox_64": [
+      0,
+      1,
+      61,
+      61
+    ],
+    "visible_pixels_over_32": 1447
+  },
+  {
+    "id": "skill_taixuan_liuguang",
+    "alpha_bbox_64": [
+      1,
+      3,
+      62,
+      63
+    ],
+    "visible_pixels_over_32": 1524
+  },
+  {
+    "id": "skill_taixuan_xinghe",
+    "alpha_bbox_64": [
+      0,
+      2,
+      64,
+      62
+    ],
+    "visible_pixels_over_32": 1705
+  },
+  {
+    "id": "skill_taixuan_taiqing",
+    "alpha_bbox_64": [
+      3,
+      0,
+      61,
+      63
+    ],
+    "visible_pixels_over_32": 1642
+  },
+  {
+    "id": "skill_taixuan_yixiantian",
+    "alpha_bbox_64": [
+      5,
+      3,
+      62,
+      59
+    ],
+    "visible_pixels_over_32": 1746
+  },
+  {
+    "id": "skill_taixuan_guiyuan",
+    "alpha_bbox_64": [
+      0,
+      0,
+      64,
+      62
+    ],
+    "visible_pixels_over_32": 1561
+  },
+  {
+    "id": "passive_taixuan_breath",
+    "alpha_bbox_64": [
+      0,
+      2,
+      64,
+      62
+    ],
+    "visible_pixels_over_32": 1759
+  },
+  {
+    "id": "status_weakpoint",
+    "alpha_bbox_64": [
+      4,
+      4,
+      59,
+      62
+    ],
+    "visible_pixels_over_32": 1947
+  },
+  {
+    "id": "status_counter_ready",
+    "alpha_bbox_64": [
+      3,
+      1,
+      63,
+      64
+    ],
+    "visible_pixels_over_32": 1598
+  },
+  {
+    "id": "status_sword_domain",
+    "alpha_bbox_64": [
+      0,
+      2,
+      64,
+      62
+    ],
+    "visible_pixels_over_32": 1713
+  },
+  {
+    "id": "status_sword_domain_debuff",
+    "alpha_bbox_64": [
+      3,
+      0,
+      61,
+      64
+    ],
+    "visible_pixels_over_32": 2017
+  },
+  {
+    "id": "badge_tianqing",
+    "alpha_bbox_64": [
+      5,
+      3,
+      59,
+      61
+    ],
+    "visible_pixels_over_32": 1664
+  },
+  {
+    "id": "skill_tianqing_nifeng",
+    "alpha_bbox_64": [
+      2,
+      4,
+      64,
+      63
+    ],
+    "visible_pixels_over_32": 1714
+  },
+  {
+    "id": "skill_tianqing_wanjun",
+    "alpha_bbox_64": [
+      3,
+      1,
+      64,
+      63
+    ],
+    "visible_pixels_over_32": 1892
+  },
+  {
+    "id": "skill_tianqing_lietian",
+    "alpha_bbox_64": [
+      1,
+      0,
+      62,
+      61
+    ],
+    "visible_pixels_over_32": 2089
+  },
+  {
+    "id": "skill_tianqing_tianbeng",
+    "alpha_bbox_64": [
+      1,
+      1,
+      63,
+      63
+    ],
+    "visible_pixels_over_32": 1889
+  },
+  {
+    "id": "skill_tianqing_tianfeng",
+    "alpha_bbox_64": [
+      0,
+      0,
+      64,
+      63
+    ],
+    "visible_pixels_over_32": 2200
+  },
+  {
+    "id": "skill_tianqing_tianjian",
+    "alpha_bbox_64": [
+      1,
+      0,
+      62,
+      63
+    ],
+    "visible_pixels_over_32": 1737
+  },
+  {
+    "id": "skill_tianqing_bafang",
+    "alpha_bbox_64": [
+      0,
+      0,
+      63,
+      62
+    ],
+    "visible_pixels_over_32": 1989
+  },
+  {
+    "id": "skill_tianqing_tiandi",
+    "alpha_bbox_64": [
+      0,
+      0,
+      63,
+      63
+    ],
+    "visible_pixels_over_32": 2471
+  },
+  {
+    "id": "skill_tianqing_xushi",
+    "alpha_bbox_64": [
+      7,
+      0,
+      59,
+      61
+    ],
+    "visible_pixels_over_32": 1684
+  },
+  {
+    "id": "skill_tianqing_nixi",
+    "alpha_bbox_64": [
+      5,
+      2,
+      59,
+      61
+    ],
+    "visible_pixels_over_32": 1789
+  },
+  {
+    "id": "passive_tianqing_fortitude",
+    "alpha_bbox_64": [
+      2,
+      0,
+      61,
+      64
+    ],
+    "visible_pixels_over_32": 1797
+  },
+  {
+    "id": "status_armor_break",
+    "alpha_bbox_64": [
+      6,
+      0,
+      64,
+      62
+    ],
+    "visible_pixels_over_32": 2022
+  },
+  {
+    "id": "status_suppression",
+    "alpha_bbox_64": [
+      10,
+      0,
+      56,
+      62
+    ],
+    "visible_pixels_over_32": 1558
+  },
+  {
+    "id": "status_tianqing_might",
+    "alpha_bbox_64": [
+      6,
+      0,
+      61,
+      62
+    ],
+    "visible_pixels_over_32": 1931
+  },
+  {
+    "id": "status_tianqing_aftershock",
+    "alpha_bbox_64": [
+      1,
+      0,
+      62,
+      61
+    ],
+    "visible_pixels_over_32": 1600
+  },
+  {
+    "id": "badge_xueyan",
+    "alpha_bbox_64": [
+      6,
+      3,
+      58,
+      61
+    ],
+    "visible_pixels_over_32": 1256
+  },
+  {
+    "id": "skill_xueyan_luexue",
+    "alpha_bbox_64": [
+      5,
+      5,
+      62,
+      60
+    ],
+    "visible_pixels_over_32": 1381
+  },
+  {
+    "id": "skill_xueyan_chuanshen",
+    "alpha_bbox_64": [
+      4,
+      7,
+      62,
+      56
+    ],
+    "visible_pixels_over_32": 1510
+  },
+  {
+    "id": "skill_xueyan_ranxue",
+    "alpha_bbox_64": [
+      9,
+      0,
+      55,
+      64
+    ],
+    "visible_pixels_over_32": 1381
+  },
+  {
+    "id": "skill_xueyan_liancheng",
+    "alpha_bbox_64": [
+      8,
+      6,
+      56,
+      59
+    ],
+    "visible_pixels_over_32": 992
+  },
+  {
+    "id": "skill_xueyan_nixue",
+    "alpha_bbox_64": [
+      0,
+      1,
+      64,
+      60
+    ],
+    "visible_pixels_over_32": 1588
+  },
+  {
+    "id": "skill_xueyan_xuehai",
+    "alpha_bbox_64": [
+      0,
+      0,
+      64,
+      62
+    ],
+    "visible_pixels_over_32": 2308
+  },
+  {
+    "id": "skill_xueyan_wusheng",
+    "alpha_bbox_64": [
+      1,
+      0,
+      64,
+      61
+    ],
+    "visible_pixels_over_32": 1869
+  },
+  {
+    "id": "skill_xueyan_huichao",
+    "alpha_bbox_64": [
+      1,
+      1,
+      62,
+      63
+    ],
+    "visible_pixels_over_32": 2316
+  },
+  {
+    "id": "skill_xueyan_damage_mode",
+    "alpha_bbox_64": [
+      1,
+      0,
+      62,
+      64
+    ],
+    "visible_pixels_over_32": 1844
+  },
+  {
+    "id": "passive_xueyan_siphon",
+    "alpha_bbox_64": [
+      6,
+      0,
+      64,
+      63
+    ],
+    "visible_pixels_over_32": 1590
+  },
+  {
+    "id": "passive_xueyan_finish",
+    "alpha_bbox_64": [
+      13,
+      0,
+      54,
+      64
+    ],
+    "visible_pixels_over_32": 1352
+  },
+  {
+    "id": "passive_xueyan_unhindered",
+    "alpha_bbox_64": [
+      1,
+      1,
+      62,
+      64
+    ],
+    "visible_pixels_over_32": 1853
+  },
+  {
+    "id": "status_blood_robe",
+    "alpha_bbox_64": [
+      4,
+      0,
+      59,
+      64
+    ],
+    "visible_pixels_over_32": 1928
+  },
+  {
+    "id": "status_frenzy",
+    "alpha_bbox_64": [
+      7,
+      0,
+      61,
+      64
+    ],
+    "visible_pixels_over_32": 1690
+  },
+  {
+    "id": "status_dash_defense",
+    "alpha_bbox_64": [
+      5,
+      2,
+      63,
+      60
+    ],
+    "visible_pixels_over_32": 1553
+  },
+  {
+    "id": "resource_frenzy",
+    "alpha_bbox_64": [
+      8,
+      3,
+      58,
+      61
+    ],
+    "visible_pixels_over_32": 1506
+  },
+  {
+    "id": "badge_xingge",
+    "alpha_bbox_64": [
+      7,
+      4,
+      57,
+      61
+    ],
+    "visible_pixels_over_32": 1148
+  },
+  {
+    "id": "skill_xingge_wenlu",
+    "alpha_bbox_64": [
+      4,
+      3,
+      63,
+      56
+    ],
+    "visible_pixels_over_32": 1390
+  },
+  {
+    "id": "skill_xingge_huifeng",
+    "alpha_bbox_64": [
+      0,
+      6,
+      62,
+      62
+    ],
+    "visible_pixels_over_32": 1794
+  },
+  {
+    "id": "skill_xingge_fuchen",
+    "alpha_bbox_64": [
+      3,
+      4,
+      64,
+      58
+    ],
+    "visible_pixels_over_32": 2099
+  },
+  {
+    "id": "skill_xingge_chengfeng",
+    "alpha_bbox_64": [
+      3,
+      5,
+      64,
+      60
+    ],
+    "visible_pixels_over_32": 1890
+  },
+  {
+    "id": "skill_xingge_tongzhou",
+    "alpha_bbox_64": [
+      3,
+      1,
+      64,
+      60
+    ],
+    "visible_pixels_over_32": 2028
+  },
+  {
+    "id": "skill_xingge_fengyu",
+    "alpha_bbox_64": [
+      0,
+      1,
+      64,
+      60
+    ],
+    "visible_pixels_over_32": 2274
+  },
+  {
+    "id": "skill_xingge_zhangjian",
+    "alpha_bbox_64": [
+      0,
+      0,
+      61,
+      64
+    ],
+    "visible_pixels_over_32": 1707
+  },
+  {
+    "id": "skill_xingge_xiangfu",
+    "alpha_bbox_64": [
+      4,
+      1,
+      60,
+      63
+    ],
+    "visible_pixels_over_32": 1806
+  },
+  {
+    "id": "passive_xingge_sidebyside",
+    "alpha_bbox_64": [
+      0,
+      2,
+      62,
+      61
+    ],
+    "visible_pixels_over_32": 2147
+  },
+  {
+    "id": "passive_xingge_cooperation",
+    "alpha_bbox_64": [
+      1,
+      0,
+      63,
+      63
+    ],
+    "visible_pixels_over_32": 1967
+  },
+  {
+    "id": "status_followup",
+    "alpha_bbox_64": [
+      0,
+      1,
+      62,
+      61
+    ],
+    "visible_pixels_over_32": 1925
+  },
+  {
+    "id": "status_xingge_protection",
+    "alpha_bbox_64": [
+      4,
+      3,
+      60,
+      56
+    ],
+    "visible_pixels_over_32": 1897
+  },
+  {
+    "id": "status_escape",
+    "alpha_bbox_64": [
+      5,
+      2,
+      59,
+      61
+    ],
+    "visible_pixels_over_32": 1851
+  },
+  {
+    "id": "status_damage_share",
+    "alpha_bbox_64": [
+      1,
+      2,
+      63,
+      61
+    ],
+    "visible_pixels_over_32": 1704
+  },
+  {
+    "id": "status_team_resonance",
+    "alpha_bbox_64": [
+      5,
+      3,
+      62,
+      60
+    ],
+    "visible_pixels_over_32": 1362
+  }
+]

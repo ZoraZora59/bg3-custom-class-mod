@@ -1,0 +1,15 @@
+{
+  "complete": 82,
+  "total": 82,
+  "errors": [],
+  "selected_exports": 235,
+  "sources_match_snapshot": {
+    "17-bg3-art-style-guide.md": true,
+    "19-skill-specifications-draft.md": true,
+    "20-eastern-sword-cultivator-gdd.md": true,
+    "21-player-facing-skill-text-draft.md": true
+  },
+  "gallery_links_checked": 485,
+  "png_files_verified": 408,
+  "game_validation": "Not performed; PNG source assets only, no DDS or game bindings."
+}

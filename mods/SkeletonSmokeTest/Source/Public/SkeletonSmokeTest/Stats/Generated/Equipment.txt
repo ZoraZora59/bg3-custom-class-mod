@@ -1,0 +1,16 @@
+new equipment "EQP_CC_SkeletonSmokeTest"
+add initialweaponset "Melee"
+add equipmentgroup
+add equipment entry "WPN_Dagger"
+add equipmentgroup
+add equipment entry "ARM_Robe_Body"
+add equipmentgroup
+add equipment entry "ARM_Boots_Leather"
+add equipmentgroup
+add equipment entry "OBJ_Potion_Healing"
+add equipmentgroup
+add equipment entry "ARM_Camp_Body"
+add equipmentgroup
+add equipment entry "ARM_Camp_Shoes"
+add equipmentgroup
+add equipment entry "OBJ_Backpack_CampSupplies"

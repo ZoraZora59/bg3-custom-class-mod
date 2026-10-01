@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="3e76b74c-a5ae-4268-944a-aa9c31e2185e">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="28d79c0c-2092-5201-bd2d-5dfd8e37532b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_sword_heart" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1364a51agb104g5da1gb442gb937d6b46e2b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5bec1ae3gcb43g50f5gbec0gc70c84675997" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_sword_heart" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="27d61b51-771d-5a92-b19f-6b0fa2959eda" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_basic_defense" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1d7ce4a3ge28fg5a4dgb3d5g8f8066798fec" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h06b70466g55b9g502cg9bc5gef1095aec10b" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_basic_defense" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(not HasShieldEquipped() and not HasStatus('ESC_ARMOR_BLOCKED')):AC(1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="fddd636f-1fc3-5239-8b75-c91b760d1dc1" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_continuous_strikes" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5c3df14cg2823g5a62gb156g8f804435c369" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb74c2c91g9644g5247gbcdcg6cff901bebc2" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_continuous_strikes" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ae17d9a3-8bdf-5745-a710-39396b59ec9c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_control_resist" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd0c25bb2g38dcg562cg9c33g8e311d5b4590" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h184c4e59gac44g5f48gad99g3d60077a5445" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_control_resist" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7f06b805-6eac-5828-9707-6634ca380e85" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_auto_release" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h486e60cegec4bg58a9g8a3bg452af138288f" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6ba71457gd0d2g55baga1dage97089a16c51" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_auto_release" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b7fec877-7c8f-5d0b-b227-d65b1e2ffdc0" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_taixuan_breath" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h85c8a430gc057g5994g9aafg41509a9e325b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8a676beegdf15g5821g80bfgcef65684eeb9" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_taixuan_breath" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="aa58fd45-2700-5d76-8c42-09343ca397a5" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_tianqing_fortitude" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd6542697gcb2ag5c11g95e6gc953cc168219" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6fb2859cg91a2g5bb6gb07cg58592fa92f8b" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_tianqing_fortitude" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a50faf08-4b0f-5a40-84ac-ef684d10fbc6" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_xueyan_siphon" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h7e5af015g7450g553fg816cgfbe156b98ed4" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h2e494839g4ab0g50c0g8ff9gc91a966fb60b" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_xueyan_siphon" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="afb52256-f7c5-544d-bb56-d2bb7af68175" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_xueyan_finish" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h849bff0egad81g5855gad4dg60569d4c5de0" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h2d7ecc1cg2d92g54c8g8ee9g2acf74db6bec" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_xueyan_finish" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9bd9a619-f8a8-5ddc-949c-6d7cfe1cff7e" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_xueyan_unhindered" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h333ad9caga769g5ce1gaeb7gcb0741d64b5a" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h14cc8df0g6cceg5033g9a0fga79d11dc80b5" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_xueyan_unhindered" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IgnoreLeaveAttackRange()" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8e1797de-2e44-588a-b12d-3f2601171618" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_xingge_sidebyside" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb4c89730g868ag59f6gaf8bga20a29c9ef17" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc63eb48egbda7g5010g800bga72a620b4d08" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_xingge_sidebyside" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="2d1fc51c-816d-588a-ab35-eb1a52654386" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_xingge_cooperation" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1c579778gee78g535ag98c2gc3f35bb3d767" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h19c55f32ge182g5a53g9110g1d5c0ba08c0d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_xingge_cooperation" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="037c8d35-a4c3-5443-b661-e2d9f03f1ab3" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Branch_taixuan" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h01e011c8g5727g5aacg91b9g82472613730c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h02051974gdbceg5b15gb6dag01f1449c0f8a" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_badge_taixuan" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="1f61c71b-dd78-51d7-8735-52199dd70535" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Branch_tianqing" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3b4b5975g4134g5869g93f0g7dd415e462cf" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc8a6b669gaf6bg5872g9debg07627a509b2f" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_badge_tianqing" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b5dd8d98-3d86-545d-b2de-5732fec33c3a" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Branch_xueyan" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h14f42247g8674g5c1fg9b3ega184478b49ef" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h05feb012gc8cag5fcdg83fbg10411027e775" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_badge_xueyan" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b803f571-a3a1-5051-ba5b-f77b9ac7f1fe" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Branch_xingge" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5932af15g1c67g5868g8a88g0d188ba61121" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h12afa06fg61cfg59acg88fdgb9758f59059b" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_badge_xingge" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="40ac62ed-bc97-556b-a4c4-02893194f3ec" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_StarterSword" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Projectile_ESC_yujian)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="25a6943b-5d15-5562-9336-0fb2b5563699" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Level5" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="074e463d-53cf-50d3-82fa-7a467b01da54" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Level10" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="169aebc6-67c2-509e-9efe-3791047c82df" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Level11" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

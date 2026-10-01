@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+  <content contentuid="hfbf36dabgb8b7g4d15g8ba5gca7bb69bc1a6" version="1">Example Class</content>
+  <content contentuid="h90c3b1e8g92c0g4a94g97f9g97da7d27b681" version="1">A skeleton class used to validate the mod pipeline. Replace every string, handle and UUID before shipping.</content>
+  <content contentuid="hd3cec655gf570g4a85g9578gc33722602d72" version="1">Example Path</content>
+  <content contentuid="h1e06771bg9fc3g430aga5c6g5811c33e949e" version="1">Path</content>
+  <content contentuid="h0fca8fdfgdc6fg432cg9846g878feba0f2a3" version="1">A skeleton subclass unlocked at level 3.</content>
+  <content contentuid="ha70e7cb4gdbd3g4465g8b94gcc6082d19ab1" version="1">Focus</content>
+  <content contentuid="h90634544g482eg4aeegb44fgcac79cc0824b" version="1">Your movement speed is increased by 25%.</content>
+  <content contentuid="h6acbb951gb06bg4111g92a5g1993e866e273" version="1">Focused Strike</content>
+  <content contentuid="h24644312g4330g44abgbb7ag030f2ba5befd" version="1">Your melee weapon attacks deal an additional [1].</content>
+</contentList>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="a86b6e82-0a7f-47cb-bff1-a0a6d161fa30">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_ClassDescriptions_0" />
+        <field name="BaseHp" type="IntegerTableFieldDefinition" value="10" />
+        <field name="CharacterCreationPose" type="GuidTableFieldDefinition" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8" />
+        <field name="ClassEquipment" type="FixedStringTableFieldDefinition" value="EQP_CC_SkeletonToolkitTest" />
+        <field name="ClassHotbarColumns" type="IntegerTableFieldDefinition" value="5" />
+        <field name="CommonHotbarColumns" type="IntegerTableFieldDefinition" value="9" />
+        <field name="ItemsHotbarColumns" type="IntegerTableFieldDefinition" value="2" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h90c3b1e8g92c0g4a94g97f9g97da7d27b681" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfbf36dabgb8b7g4d15g8ba5gca7bb69bc1a6" version="1" />
+        <field name="HpPerLevel" type="IntegerTableFieldDefinition" value="6" />
+        <field name="LearningStrategy" type="EnumerationTableFieldDefinition" enumeration_type_name="LearningStrategy" value="1" />
+        <field name="NameFS" type="FixedStringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="PrimaryAbility" type="EnumerationTableFieldDefinition" enumeration_type_name="Ability" value="2" />
+        <field name="ProgressionTableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="SoundClassType" type="FixedStringTableFieldDefinition" value="Fighter" />
+        <field name="SpellCastingAbility" type="EnumerationTableFieldDefinition" enumeration_type_name="Ability" value="5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="43acbfad-8764-4a44-9103-7ab88b924891" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_ClassDescriptions_1" />
+        <field name="CharacterCreationPose" type="GuidTableFieldDefinition" value="0f07ec6e-4ef0-434e-9a51-1353260ccff8" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h0fca8fdfgdc6fg432cg9846g878feba0f2a3" version="1" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd3cec655gf570g4a85g9578gc33722602d72" version="1" />
+        <field name="ShortName" type="TranslatedStringTableFieldDefinition" handle="h1e06771bg9fc3g430aga5c6g5811c33e949e" version="1" />
+        <field name="LearningStrategy" type="EnumerationTableFieldDefinition" enumeration_type_name="LearningStrategy" value="1" />
+        <field name="NameFS" type="FixedStringTableFieldDefinition" value="ExampleSubclassA" />
+        <field name="ParentUUID" type="GuidObjectTableFieldDefinition" value="43acbfad-8764-4a44-9103-7ab88b924891" />
+        <field name="PrimaryAbility" type="EnumerationTableFieldDefinition" enumeration_type_name="Ability" value="2" />
+        <field name="ProgressionTableUUID" type="GuidTableFieldDefinition" value="86e7b495-2667-4025-badd-4da6e4ad5efd" />
+        <field name="SoundClassType" type="FixedStringTableFieldDefinition" value="Fighter" />
+        <field name="SpellCastingAbility" type="EnumerationTableFieldDefinition" enumeration_type_name="Ability" value="5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d64228e3-65d6-4e3e-9c32-4a9e2d0ad6c3" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

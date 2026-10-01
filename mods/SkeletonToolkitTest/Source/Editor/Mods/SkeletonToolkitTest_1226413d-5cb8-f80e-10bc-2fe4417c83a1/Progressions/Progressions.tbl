@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="53912403-fe14-4ce0-89aa-96acb1dee21a">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(SimpleWeapons);ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Wisdom)" />
+        <field name="Level" type="ByteTableFieldDefinition" value="1" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="SkeletonToolkitTest_Passive_Focus" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="SelectSkills(a568e02a-6279-457b-91ea-9999b858bcde,2);SelectAbilityBonus(019084c0-a287-48cc-a45a-ebf149579ff9,AbilityBonus,2,1)" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="1f1d8b1c-2ca5-446e-8729-5c6d9f45f6ea" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_1" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(SimpleWeapons)" />
+        <field name="IsMulticlass" type="BoolTableFieldDefinition" value="True" />
+        <field name="Level" type="ByteTableFieldDefinition" value="1" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="SkeletonToolkitTest_Passive_Focus" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="43dba2ff-55bf-4f94-950d-ea9f95b514f8" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_2" />
+        <field name="Level" type="ByteTableFieldDefinition" value="2" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="SkeletonToolkitTest_Passive_Strike" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="da45124c-e085-4ac7-8646-2531b78b8f2f" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_3" />
+        <field name="Level" type="ByteTableFieldDefinition" value="3" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="30e3f401-df67-4941-91d1-f9a493fffe81" />
+        <field name="SubClasses" type="GuidObjectListTableFieldDefinition" value="d64228e3-65d6-4e3e-9c32-4a9e2d0ad6c3" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_4" />
+        <field name="AllowImprovement" type="BoolTableFieldDefinition" value="True" />
+        <field name="Level" type="ByteTableFieldDefinition" value="4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="761a5b25-432c-49ba-ae14-96e8e594ce12" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_5" />
+        <field name="Level" type="ByteTableFieldDefinition" value="5" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="6e374a88-fe32-4d5d-9b36-387e06d44a5b" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_6" />
+        <field name="Level" type="ByteTableFieldDefinition" value="6" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d8176fd8-894b-48b4-ab75-23f41d268e4c" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_7" />
+        <field name="Level" type="ByteTableFieldDefinition" value="7" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="23e68629-f45e-403c-b54d-bc5be8a5574e" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_8" />
+        <field name="AllowImprovement" type="BoolTableFieldDefinition" value="True" />
+        <field name="Level" type="ByteTableFieldDefinition" value="8" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="f328c0bf-4488-44e0-a783-27bef70ca32a" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_9" />
+        <field name="Level" type="ByteTableFieldDefinition" value="9" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="7a41612c-e154-4e12-8fc5-50341e10cf08" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_10" />
+        <field name="Level" type="ByteTableFieldDefinition" value="10" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="232052cc-1faf-429d-be3a-c40b3c566da5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_11" />
+        <field name="Level" type="ByteTableFieldDefinition" value="11" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="6f157b7e-bd11-4379-9731-cfec8a9ae586" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_12" />
+        <field name="AllowImprovement" type="BoolTableFieldDefinition" value="True" />
+        <field name="Level" type="ByteTableFieldDefinition" value="12" />
+        <field name="FSName" type="StringTableFieldDefinition" value="SkeletonToolkitTest" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="b74361fe-0df8-451a-9e7e-1935d9568d97" />
+        <field name="UUID" type="IdTableFieldDefinition" value="7242617d-81f6-4912-b922-1ff3706672fe" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_13" />
+        <field name="Level" type="ByteTableFieldDefinition" value="3" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ExampleSubclassA" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="SkeletonToolkitTest_Passive_Strike" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="86e7b495-2667-4025-badd-4da6e4ad5efd" />
+        <field name="UUID" type="IdTableFieldDefinition" value="f93a2540-311e-4cc6-9e63-4aca2b28588b" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_14" />
+        <field name="Level" type="ByteTableFieldDefinition" value="6" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ExampleSubclassA" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="86e7b495-2667-4025-badd-4da6e4ad5efd" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c1f7339a-c4ed-438d-9ada-74052bdd3557" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="SkeletonToolkitTest_Progressions_15" />
+        <field name="Level" type="ByteTableFieldDefinition" value="10" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ExampleSubclassA" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="86e7b495-2667-4025-badd-4da6e4ad5efd" />
+        <field name="UUID" type="IdTableFieldDefinition" value="7d910863-4f5b-4e5a-927e-79649c63f01f" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

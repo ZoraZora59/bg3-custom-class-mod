@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="8" revision="0" build="500"/>
+    <region id="SkillLists">
+        <node id="root">
+            <children>
+                <node id="SkillList">
+                    <attribute id="Name" type="FixedString" value="SkeletonToolkitTest_SkillLists_0"/>
+                    <attribute id="Skills" type="LSString" value="Acrobatics,Athletics,Insight,Perception,Stealth,Survival"/>
+                    <attribute id="UUID" type="guid" value="a568e02a-6279-457b-91ea-9999b858bcde"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

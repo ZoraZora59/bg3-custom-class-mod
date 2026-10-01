@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="a452349f-7a4e-4f2d-a2b6-5b26a263d5fc">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_AbilityLists_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c33e9189-bc27-5eca-bbbb-2a9b821793e7" />
+        <field name="Abilities" type="StringTableFieldDefinition" value="Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

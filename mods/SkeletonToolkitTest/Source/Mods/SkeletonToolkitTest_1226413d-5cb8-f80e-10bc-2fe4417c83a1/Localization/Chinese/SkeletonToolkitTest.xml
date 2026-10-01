@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+  <content contentuid="hfbf36dabgb8b7g4d15g8ba5gca7bb69bc1a6" version="1">示例职业</content>
+  <content contentuid="h90c3b1e8g92c0g4a94g97f9g97da7d27b681" version="1">用于验证 mod 流水线的骨架职业。发布前请替换全部文本、handle 与 UUID。</content>
+  <content contentuid="hd3cec655gf570g4a85g9578gc33722602d72" version="1">示例之道</content>
+  <content contentuid="h1e06771bg9fc3g430aga5c6g5811c33e949e" version="1">示例</content>
+  <content contentuid="h0fca8fdfgdc6fg432cg9846g878feba0f2a3" version="1">3 级解锁的骨架子职业。</content>
+  <content contentuid="ha70e7cb4gdbd3g4465g8b94gcc6082d19ab1" version="1">专注</content>
+  <content contentuid="h90634544g482eg4aeegb44fgcac79cc0824b" version="1">移动速度提高 25%。</content>
+  <content contentuid="h6acbb951gb06bg4111g92a5g1993e866e273" version="1">专注打击</content>
+  <content contentuid="h24644312g4330g44abgbb7ag030f2ba5befd" version="1">你的近战武器攻击额外造成 [1]。</content>
+</contentList>

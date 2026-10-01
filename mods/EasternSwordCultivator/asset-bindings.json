@@ -1,0 +1,852 @@
+[
+  {
+    "asset": "badge_sword_cultivator",
+    "icon": "ESC_badge_sword_cultivator",
+    "selected": "masters/badge/badge_sword_cultivator.png",
+    "sha256": "5bc6cc35022a139e097db5822c30306a94331902084681171004b42057045c2d",
+    "outputs": {
+      "ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\EasternSwordCultivator.png",
+      "ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\EasternSwordCultivator.png",
+      "Assets/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ClassEasternSwordCultivator.DDS",
+      "AssetsLowRes/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\ClassEasternSwordCultivator.DDS",
+      "Assets/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ClassEasternSwordCultivator.DDS",
+      "AssetsLowRes/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\hotbar\\ClassEasternSwordCultivator.DDS",
+      "Assets/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_badge_sword_cultivator.dds",
+      "AssetsLowRes/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\Tooltips\\Icons\\ESC_badge_sword_cultivator.dds",
+      "Assets/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_badge_sword_cultivator.dds",
+      "AssetsLowRes/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ControllerUIIcons\\skills_png\\ESC_badge_sword_cultivator.dds"
+    }
+  },
+  {
+    "asset": "badge_taixuan",
+    "icon": "ESC_badge_taixuan",
+    "selected": "masters/badge/badge_taixuan.png",
+    "sha256": "e4818af556bee7a50b6da0aba369ba281f8d82b196f584ed04c06456673b429e",
+    "outputs": {
+      "ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ESC_Taixuan.png",
+      "ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ESC_Taixuan.png",
+      "Assets/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ClassESC_Taixuan.DDS",
+      "AssetsLowRes/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\ClassESC_Taixuan.DDS",
+      "Assets/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ClassESC_Taixuan.DDS",
+      "AssetsLowRes/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\hotbar\\ClassESC_Taixuan.DDS",
+      "Assets/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_badge_taixuan.dds",
+      "AssetsLowRes/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\Tooltips\\Icons\\ESC_badge_taixuan.dds",
+      "Assets/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_badge_taixuan.dds",
+      "AssetsLowRes/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ControllerUIIcons\\skills_png\\ESC_badge_taixuan.dds"
+    }
+  },
+  {
+    "asset": "badge_tianqing",
+    "icon": "ESC_badge_tianqing",
+    "selected": "masters/badge/badge_tianqing.png",
+    "sha256": "0d1fc6d5cd5cb02bc02ea2ac07a0772cc6e36cd5774e1c70ff5349e81b5fa740",
+    "outputs": {
+      "ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ESC_Tianqing.png",
+      "ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ESC_Tianqing.png",
+      "Assets/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ClassESC_Tianqing.DDS",
+      "AssetsLowRes/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\ClassESC_Tianqing.DDS",
+      "Assets/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ClassESC_Tianqing.DDS",
+      "AssetsLowRes/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\hotbar\\ClassESC_Tianqing.DDS",
+      "Assets/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_badge_tianqing.dds",
+      "AssetsLowRes/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\Tooltips\\Icons\\ESC_badge_tianqing.dds",
+      "Assets/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_badge_tianqing.dds",
+      "AssetsLowRes/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ControllerUIIcons\\skills_png\\ESC_badge_tianqing.dds"
+    }
+  },
+  {
+    "asset": "badge_xueyan",
+    "icon": "ESC_badge_xueyan",
+    "selected": "masters/badge/badge_xueyan.png",
+    "sha256": "7e1c19962a1c28be6b6c25e6657bafd425ac1e4024973578f4572e2425c676b5",
+    "outputs": {
+      "ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ESC_Xueyan.png",
+      "ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ESC_Xueyan.png",
+      "Assets/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ClassESC_Xueyan.DDS",
+      "AssetsLowRes/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\ClassESC_Xueyan.DDS",
+      "Assets/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ClassESC_Xueyan.DDS",
+      "AssetsLowRes/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\hotbar\\ClassESC_Xueyan.DDS",
+      "Assets/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_badge_xueyan.dds",
+      "AssetsLowRes/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\Tooltips\\Icons\\ESC_badge_xueyan.dds",
+      "Assets/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_badge_xueyan.dds",
+      "AssetsLowRes/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ControllerUIIcons\\skills_png\\ESC_badge_xueyan.dds"
+    }
+  },
+  {
+    "asset": "badge_xingge",
+    "icon": "ESC_badge_xingge",
+    "selected": "masters/badge/badge_xingge.png",
+    "sha256": "3c45ebd81d7bd3fd4805706df55c2a62620ee7bc2a8438704a06fb60affaa2a9",
+    "outputs": {
+      "ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ESC_Xingge.png",
+      "ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ESC_Xingge.png",
+      "Assets/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\ClassESC_Xingge.DDS",
+      "AssetsLowRes/ClassIcons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\ClassESC_Xingge.DDS",
+      "Assets/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ClassIcons\\hotbar\\ClassESC_Xingge.DDS",
+      "AssetsLowRes/ClassIcons/hotbar": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ClassIcons\\hotbar\\ClassESC_Xingge.DDS",
+      "Assets/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_badge_xingge.dds",
+      "AssetsLowRes/Tooltips/Icons": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\Tooltips\\Icons\\ESC_badge_xingge.dds",
+      "Assets/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_badge_xingge.dds",
+      "AssetsLowRes/ControllerUIIcons/skills_png": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\AssetsLowRes\\ControllerUIIcons\\skills_png\\ESC_badge_xingge.dds"
+    }
+  },
+  {
+    "asset": "skill_yujian",
+    "icon": "ESC_skill_yujian",
+    "selected": "masters/skill/skill_yujian.png",
+    "sha256": "cdfc301150445f95602985c4979edf8140f72b425653ed03b5955cba3fa61241",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_yujian.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_yujian.dds"
+    }
+  },
+  {
+    "asset": "skill_sword_strike",
+    "icon": "ESC_skill_sword_strike",
+    "selected": "masters/skill/skill_sword_strike.png",
+    "sha256": "1985af7caf430f609a3f54ef02fa85fade68c669bf782a2681080fd143f19034",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_sword_strike.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_sword_strike.dds"
+    }
+  },
+  {
+    "asset": "skill_tiaoxi",
+    "icon": "ESC_skill_tiaoxi",
+    "selected": "masters/skill/skill_tiaoxi.png",
+    "sha256": "d65be707ef0397443a64cea3dd5670db9717b8ac9f7b250ae7aecc23ced9e49c",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tiaoxi.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tiaoxi.dds"
+    }
+  },
+  {
+    "asset": "skill_qi_guard",
+    "icon": "ESC_skill_qi_guard",
+    "selected": "masters/skill/skill_qi_guard.png",
+    "sha256": "abc0036c5067fae05208bfe7aea641b9585a51efa1599d40a3477adf0d9937ba",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_qi_guard.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_qi_guard.dds"
+    }
+  },
+  {
+    "asset": "skill_sword_flight",
+    "icon": "ESC_skill_sword_flight",
+    "selected": "masters/skill/skill_sword_flight.png",
+    "sha256": "3e10d88c0c3c847d57dfb0425d49e60b5e29f15175eaa734a139b586d4ae611b",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_sword_flight.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_sword_flight.dds"
+    }
+  },
+  {
+    "asset": "skill_recall_sword",
+    "icon": "ESC_skill_recall_sword",
+    "selected": "masters/skill/skill_recall_sword.png",
+    "sha256": "9979dffbc87747cf759b35208e1c23a403b917810762ddb6b26d28a48310b732",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_recall_sword.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_recall_sword.dds"
+    }
+  },
+  {
+    "asset": "skill_qi_sword",
+    "icon": "ESC_skill_qi_sword",
+    "selected": "masters/skill/skill_qi_sword.png",
+    "sha256": "1fbfbbd04810376eceb653d4e34e11867fd0bda04d71a54e9ae46e718b76f739",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_qi_sword.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_qi_sword.dds"
+    }
+  },
+  {
+    "asset": "skill_control_release",
+    "icon": "ESC_skill_control_release",
+    "selected": "masters/skill/skill_control_release.png",
+    "sha256": "caaa2f437afe125133eedfea15f57c62ed006bc34ccae93ef9b62de39322f111",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_control_release.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_control_release.dds"
+    }
+  },
+  {
+    "asset": "skill_focus_target",
+    "icon": "ESC_skill_focus_target",
+    "selected": "masters/skill/skill_focus_target.png",
+    "sha256": "757e2f470d83ea35c56fd5a65a4cb08e6ca9f90d4a9bc71cc66dc1579e2fa3ec",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_focus_target.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_focus_target.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_zhaoxi",
+    "icon": "ESC_skill_taixuan_zhaoxi",
+    "selected": "masters/skill/skill_taixuan_zhaoxi.png",
+    "sha256": "e0f16ed2343d9c977aa608b087c6a234c88d9d4c85134dc0df7067c229633016",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_zhaoxi.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_zhaoxi.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_qinghui",
+    "icon": "ESC_skill_taixuan_qinghui",
+    "selected": "masters/skill/skill_taixuan_qinghui.png",
+    "sha256": "c13c1fcda81745a300d24ac3fe15192a299773c591553169752d193ea02a5557",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_qinghui.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_qinghui.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_jiuxiao",
+    "icon": "ESC_skill_taixuan_jiuxiao",
+    "selected": "masters/skill/skill_taixuan_jiuxiao.png",
+    "sha256": "f901e05c78cb0ba66f2c9df82e710c456c35f197841d5ac8aca017ba9bcc6f25",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_jiuxiao.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_jiuxiao.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_liuguang",
+    "icon": "ESC_skill_taixuan_liuguang",
+    "selected": "masters/skill/skill_taixuan_liuguang.png",
+    "sha256": "148d7a867dc6ea5385529fe0a52259d79f3e3ab71dcfd16f06aacee657cf65d0",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_liuguang.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_liuguang.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_xinghe",
+    "icon": "ESC_skill_taixuan_xinghe",
+    "selected": "masters/skill/skill_taixuan_xinghe.png",
+    "sha256": "2a1b925786ea8b3bdd07ae832339aae80d676114774be1aa96bf0da98be84625",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_xinghe.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_xinghe.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_taiqing",
+    "icon": "ESC_skill_taixuan_taiqing",
+    "selected": "masters/skill/skill_taixuan_taiqing.png",
+    "sha256": "5e320671ff78fae501031e90b4b82d0bcba451a050084c46ca269dd5b1e2c13d",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_taiqing.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_taiqing.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_yixiantian",
+    "icon": "ESC_skill_taixuan_yixiantian",
+    "selected": "masters/skill/skill_taixuan_yixiantian.png",
+    "sha256": "8fa28a4d4eb64440d556df75c1b1bd7cb2d51d55dfa4fe6883b47ec25eca3668",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_yixiantian.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_yixiantian.dds"
+    }
+  },
+  {
+    "asset": "skill_taixuan_guiyuan",
+    "icon": "ESC_skill_taixuan_guiyuan",
+    "selected": "masters/skill/skill_taixuan_guiyuan.png",
+    "sha256": "6d96ef3e37e02fd8eecf51ab27430f3c4225b1a21849ff9cd4ec2a0a6466deec",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_taixuan_guiyuan.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_taixuan_guiyuan.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_nifeng",
+    "icon": "ESC_skill_tianqing_nifeng",
+    "selected": "masters/skill/skill_tianqing_nifeng.png",
+    "sha256": "e119e96941557f270d4b0520f44a3119dd1e042732674a0fea53006ec61bf683",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_nifeng.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_nifeng.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_wanjun",
+    "icon": "ESC_skill_tianqing_wanjun",
+    "selected": "masters/skill/skill_tianqing_wanjun.png",
+    "sha256": "85c47c03768b70cd9d4f3252fc137f6a01bb4586105f4c7f6041e589d1ac9099",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_wanjun.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_wanjun.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_lietian",
+    "icon": "ESC_skill_tianqing_lietian",
+    "selected": "masters/skill/skill_tianqing_lietian.png",
+    "sha256": "8b7f67834dfdc4addcd15327bc0e05611a18d89b4571113ee5b825076961ec3c",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_lietian.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_lietian.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_tianbeng",
+    "icon": "ESC_skill_tianqing_tianbeng",
+    "selected": "masters/skill/skill_tianqing_tianbeng.png",
+    "sha256": "625a4693f7ac253d12dbda884596878d95374b7bcf461a98d5ae4406dc2bf1e2",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_tianbeng.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_tianbeng.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_tianfeng",
+    "icon": "ESC_skill_tianqing_tianfeng",
+    "selected": "masters/skill/skill_tianqing_tianfeng.png",
+    "sha256": "cd02e0fec5d19782352bb5b8e319884fd214d7a3664a839e89d8e18f24bd363a",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_tianfeng.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_tianfeng.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_tianjian",
+    "icon": "ESC_skill_tianqing_tianjian",
+    "selected": "masters/skill/skill_tianqing_tianjian.png",
+    "sha256": "62e0479fb5a170b2c52dbfc7b8247c05e042d32fb289cb287c1a83d8e702be3b",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_tianjian.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_tianjian.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_bafang",
+    "icon": "ESC_skill_tianqing_bafang",
+    "selected": "masters/skill/skill_tianqing_bafang.png",
+    "sha256": "10d55a310aa5497ca7a5bfc9026e240ddc8e2c78a31777f91de81e4fa5a049f1",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_bafang.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_bafang.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_tiandi",
+    "icon": "ESC_skill_tianqing_tiandi",
+    "selected": "masters/skill/skill_tianqing_tiandi.png",
+    "sha256": "9bafad269237d233874e1392ec04b3c3c845afe747f5e0bab835c7dce50a37d6",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_tiandi.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_tiandi.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_xushi",
+    "icon": "ESC_skill_tianqing_xushi",
+    "selected": "masters/skill/skill_tianqing_xushi.png",
+    "sha256": "98e0b1a960801149a15adebc29089a18492f65999d8bd652ef1f5ef4567d62ff",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_xushi.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_xushi.dds"
+    }
+  },
+  {
+    "asset": "skill_tianqing_nixi",
+    "icon": "ESC_skill_tianqing_nixi",
+    "selected": "masters/skill/skill_tianqing_nixi.png",
+    "sha256": "13c709014cc9bc1a90fc74986e1fe0d8ad501de037a3980a10f536ca329ab136",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_tianqing_nixi.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_tianqing_nixi.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_luexue",
+    "icon": "ESC_skill_xueyan_luexue",
+    "selected": "masters/skill/skill_xueyan_luexue.png",
+    "sha256": "6ff93504a464b70705f4da6cfd81f4a152a8cdeda7a2f7349798de7911cbfd10",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_luexue.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_luexue.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_chuanshen",
+    "icon": "ESC_skill_xueyan_chuanshen",
+    "selected": "masters/skill/skill_xueyan_chuanshen.png",
+    "sha256": "0cd0c324f314208b90d49c7eb3c0146db4f3a17a033296aa87b31122bd2cce95",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_chuanshen.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_chuanshen.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_ranxue",
+    "icon": "ESC_skill_xueyan_ranxue",
+    "selected": "masters/skill/skill_xueyan_ranxue.png",
+    "sha256": "60071cce637a9efc868f93fbe8991243a8e4c59e47432e635be3f07a698b38b1",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_ranxue.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_ranxue.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_liancheng",
+    "icon": "ESC_skill_xueyan_liancheng",
+    "selected": "masters/skill/skill_xueyan_liancheng-v2.png",
+    "sha256": "80f9f8cb88ff296cde5cc2db03fde6956c071a34bdd20bb47bf41fa10d9648d7",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_liancheng.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_liancheng.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_nixue",
+    "icon": "ESC_skill_xueyan_nixue",
+    "selected": "masters/skill/skill_xueyan_nixue.png",
+    "sha256": "1562182baf85a7c120644c554a06dcfcf109583d3e1fae8bc4976e9ac601a374",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_nixue.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_nixue.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_xuehai",
+    "icon": "ESC_skill_xueyan_xuehai",
+    "selected": "masters/skill/skill_xueyan_xuehai.png",
+    "sha256": "f0e944574e7ef7b2f8d98660afa5084b420bbd4e2bc002c54ef79efa4aaebcef",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_xuehai.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_xuehai.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_wusheng",
+    "icon": "ESC_skill_xueyan_wusheng",
+    "selected": "masters/skill/skill_xueyan_wusheng.png",
+    "sha256": "7dac29302690298f222db94f02cc8444b89dab704b370703fbcc31f7cd4a20f5",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_wusheng.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_wusheng.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_huichao",
+    "icon": "ESC_skill_xueyan_huichao",
+    "selected": "masters/skill/skill_xueyan_huichao.png",
+    "sha256": "7636e4a9e2baa50df36e2730bd2963bad9d69ad27f09facb7bcbc4fa77b749c2",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_huichao.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_huichao.dds"
+    }
+  },
+  {
+    "asset": "skill_xueyan_damage_mode",
+    "icon": "ESC_skill_xueyan_damage_mode",
+    "selected": "masters/skill/skill_xueyan_damage_mode.png",
+    "sha256": "6245df268ed273fe45faaad21c65f78d5440999da97fe587033b245fe68b84e2",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xueyan_damage_mode.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xueyan_damage_mode.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_wenlu",
+    "icon": "ESC_skill_xingge_wenlu",
+    "selected": "masters/skill/skill_xingge_wenlu.png",
+    "sha256": "c39c18e7ff0c755ab9e85b1b20ac8ef5916fe0f88432544b93864cf4c3d26ed1",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_wenlu.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_wenlu.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_huifeng",
+    "icon": "ESC_skill_xingge_huifeng",
+    "selected": "masters/skill/skill_xingge_huifeng.png",
+    "sha256": "83c5f27a91c4b5bdcacd597ea6dd045c61faf1576ade732dd5da8c0c98a7fa60",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_huifeng.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_huifeng.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_fuchen",
+    "icon": "ESC_skill_xingge_fuchen",
+    "selected": "masters/skill/skill_xingge_fuchen.png",
+    "sha256": "53de6325079e634ee36d87b1e283b3b7e56c7f112953ecf301c965072dee06fe",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_fuchen.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_fuchen.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_chengfeng",
+    "icon": "ESC_skill_xingge_chengfeng",
+    "selected": "masters/skill/skill_xingge_chengfeng.png",
+    "sha256": "28053bccef54590bb6374f2110c7f7121fb903b75a87ee403edad5969a7b9f70",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_chengfeng.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_chengfeng.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_tongzhou",
+    "icon": "ESC_skill_xingge_tongzhou",
+    "selected": "masters/skill/skill_xingge_tongzhou.png",
+    "sha256": "096e604b539247564fd5bab546e816c137eb774dea57d4d490c0537bd6714f84",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_tongzhou.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_tongzhou.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_fengyu",
+    "icon": "ESC_skill_xingge_fengyu",
+    "selected": "masters/skill/skill_xingge_fengyu.png",
+    "sha256": "cd2b4d2a28f5fbc4a9e0b86c24a60173a462f9eb177f5e8dcc90f81629895e1f",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_fengyu.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_fengyu.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_zhangjian",
+    "icon": "ESC_skill_xingge_zhangjian",
+    "selected": "masters/skill/skill_xingge_zhangjian.png",
+    "sha256": "e03bf5618c3093f706a8de26cc6cf48001014a20d793b9fd0cb8e994fd5ef96c",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_zhangjian.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_zhangjian.dds"
+    }
+  },
+  {
+    "asset": "skill_xingge_xiangfu",
+    "icon": "ESC_skill_xingge_xiangfu",
+    "selected": "masters/skill/skill_xingge_xiangfu.png",
+    "sha256": "efe641f31ad2240dc59d3a8a99bdf3620033a0e2828d7b8316d88126e9e9a049",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_xingge_xiangfu.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_xingge_xiangfu.dds"
+    }
+  },
+  {
+    "asset": "passive_sword_heart",
+    "icon": "ESC_passive_sword_heart",
+    "selected": "masters/passive/passive_sword_heart.png",
+    "sha256": "f0f7118ca582ccba2d96d28d18fd134367ce4782b85a1bf26e0a4170e5af5bc5",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_sword_heart.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_sword_heart.dds"
+    }
+  },
+  {
+    "asset": "passive_basic_defense",
+    "icon": "ESC_passive_basic_defense",
+    "selected": "masters/passive/passive_basic_defense.png",
+    "sha256": "f26b793a7fe27208d94fd0b45c5b4d7dc6d1ce08e83a6da67b9377cfa3333347",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_basic_defense.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_basic_defense.dds"
+    }
+  },
+  {
+    "asset": "passive_continuous_strikes",
+    "icon": "ESC_passive_continuous_strikes",
+    "selected": "masters/passive/passive_continuous_strikes.png",
+    "sha256": "90f881a0ec899be979daffcbf5f27275ba0584e2152cef8eb4d6c71ccbacdced",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_continuous_strikes.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_continuous_strikes.dds"
+    }
+  },
+  {
+    "asset": "passive_control_resist",
+    "icon": "ESC_passive_control_resist",
+    "selected": "masters/passive/passive_control_resist.png",
+    "sha256": "b7ba2c13a92f9714fb97e3c68c8aa9626257b005b66c49366828512a0c9aa388",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_control_resist.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_control_resist.dds"
+    }
+  },
+  {
+    "asset": "passive_auto_release",
+    "icon": "ESC_passive_auto_release",
+    "selected": "masters/passive/passive_auto_release.png",
+    "sha256": "2a365ea0367d40610c2a84bb7072a505bb8b03d6d1793066f3be53703c9016fa",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_auto_release.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_auto_release.dds"
+    }
+  },
+  {
+    "asset": "passive_taixuan_breath",
+    "icon": "ESC_passive_taixuan_breath",
+    "selected": "masters/passive/passive_taixuan_breath.png",
+    "sha256": "232ce4c9d53da23c0c1f2ae9dd9ecef56380edef54616be56cff8aa66dd31489",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_taixuan_breath.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_taixuan_breath.dds"
+    }
+  },
+  {
+    "asset": "passive_tianqing_fortitude",
+    "icon": "ESC_passive_tianqing_fortitude",
+    "selected": "masters/passive/passive_tianqing_fortitude.png",
+    "sha256": "b35fe2bac590cc76489dd3fc6fd8655e3fbce0580361de90142981ca23502cea",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_tianqing_fortitude.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_tianqing_fortitude.dds"
+    }
+  },
+  {
+    "asset": "passive_xueyan_siphon",
+    "icon": "ESC_passive_xueyan_siphon",
+    "selected": "masters/passive/passive_xueyan_siphon.png",
+    "sha256": "18918f45ad1797f114e98f52390c43591234a55f96c44bdc97ea8987e46b630c",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_xueyan_siphon.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_xueyan_siphon.dds"
+    }
+  },
+  {
+    "asset": "passive_xueyan_finish",
+    "icon": "ESC_passive_xueyan_finish",
+    "selected": "masters/passive/passive_xueyan_finish.png",
+    "sha256": "8865c27c1302de011b5ef8c7260325b98d7f38189e35c17c1ac79bd55c0af664",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_xueyan_finish.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_xueyan_finish.dds"
+    }
+  },
+  {
+    "asset": "passive_xueyan_unhindered",
+    "icon": "ESC_passive_xueyan_unhindered",
+    "selected": "masters/passive/passive_xueyan_unhindered.png",
+    "sha256": "fcc2da5e0ad198b56840b33ca1b7739f05196610151dde1cde69250d653812a8",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_xueyan_unhindered.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_xueyan_unhindered.dds"
+    }
+  },
+  {
+    "asset": "passive_xingge_sidebyside",
+    "icon": "ESC_passive_xingge_sidebyside",
+    "selected": "masters/passive/passive_xingge_sidebyside.png",
+    "sha256": "2e6152727e06cd1175f2ee8a28df1107a522c0fe1ea93ddf15330b9c46c54217",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_xingge_sidebyside.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_xingge_sidebyside.dds"
+    }
+  },
+  {
+    "asset": "passive_xingge_cooperation",
+    "icon": "ESC_passive_xingge_cooperation",
+    "selected": "masters/passive/passive_xingge_cooperation.png",
+    "sha256": "d643a509cfc0a7278796728ad1f0fbe98481af7e4bba00f5de97f9d2f3cdca8e",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_passive_xingge_cooperation.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_passive_xingge_cooperation.dds"
+    }
+  },
+  {
+    "asset": "status_weakpoint",
+    "icon": "ESC_status_weakpoint",
+    "selected": "masters/status/status_weakpoint.png",
+    "sha256": "b47ac005da89692fb8e11e0763302f7241eac8b6bd340a829c20af59ea0eef27",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_weakpoint.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_weakpoint.dds"
+    }
+  },
+  {
+    "asset": "status_followup",
+    "icon": "ESC_status_followup",
+    "selected": "masters/status/status_followup.png",
+    "sha256": "8084c80854e8fe77f5f83f232931f744d565a8469c677818b6b09557744ee80a",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_followup.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_followup.dds"
+    }
+  },
+  {
+    "asset": "status_control_resistance",
+    "icon": "ESC_status_control_resistance",
+    "selected": "masters/status/status_control_resistance.png",
+    "sha256": "8732018207093445d4922abfc16f23331c875e17f3c8591a031fb77a81b18234",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_control_resistance.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_control_resistance.dds"
+    }
+  },
+  {
+    "asset": "status_blood_robe",
+    "icon": "ESC_status_blood_robe",
+    "selected": "masters/status/status_blood_robe.png",
+    "sha256": "8aa9fc031261f522a85605863cf79aaa189a87673b3ce9498abb53b63a1d2204",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_blood_robe.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_blood_robe.dds"
+    }
+  },
+  {
+    "asset": "status_frenzy",
+    "icon": "ESC_status_frenzy",
+    "selected": "masters/status/status_frenzy.png",
+    "sha256": "ac027754e0a2869914cea0bb161ba8dd22515ab9425bfb445db45bfa22495f84",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_frenzy.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_frenzy.dds"
+    }
+  },
+  {
+    "asset": "status_armor_break",
+    "icon": "ESC_status_armor_break",
+    "selected": "masters/status/status_armor_break.png",
+    "sha256": "7f8f3368626d731fb4835c6d9ae77be2e284bd59431e50cc067c0ccae53ac87a",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_armor_break.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_armor_break.dds"
+    }
+  },
+  {
+    "asset": "status_suppression",
+    "icon": "ESC_status_suppression",
+    "selected": "masters/status/status_suppression.png",
+    "sha256": "ab49933d916be79b3863026a77d2f344e04fe21081cda1672f15dbdb53dcad71",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_suppression.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_suppression.dds"
+    }
+  },
+  {
+    "asset": "status_counter_ready",
+    "icon": "ESC_status_counter_ready",
+    "selected": "masters/status/status_counter_ready.png",
+    "sha256": "ec42daa45f1996d41d4e33ca88a5a2c40aa6c7e0865fb4d5092e940895902cbd",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_counter_ready.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_counter_ready.dds"
+    }
+  },
+  {
+    "asset": "status_sword_domain",
+    "icon": "ESC_status_sword_domain",
+    "selected": "masters/status/status_sword_domain.png",
+    "sha256": "7b27a3a5595a569f1b833e353d6694066b8faba727d6e72df9ce68272debf254",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_sword_domain.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_sword_domain.dds"
+    }
+  },
+  {
+    "asset": "status_sword_domain_debuff",
+    "icon": "ESC_status_sword_domain_debuff",
+    "selected": "masters/status/status_sword_domain_debuff.png",
+    "sha256": "51ff8a2729cfc924241c5d0b8f84a85664d126385cd0711686f0db925c874783",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_sword_domain_debuff.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_sword_domain_debuff.dds"
+    }
+  },
+  {
+    "asset": "status_tianqing_might",
+    "icon": "ESC_status_tianqing_might",
+    "selected": "masters/status/status_tianqing_might.png",
+    "sha256": "e3581b348f555be3f7b00cf7512a59567c6570c82f8c6f12cc47b6c5854f3e0a",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_tianqing_might.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_tianqing_might.dds"
+    }
+  },
+  {
+    "asset": "status_tianqing_aftershock",
+    "icon": "ESC_status_tianqing_aftershock",
+    "selected": "masters/status/status_tianqing_aftershock.png",
+    "sha256": "1d636a8c546be881a89c131a1124c6aa95fc49be70b1d00f45e49f53046ee681",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_tianqing_aftershock.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_tianqing_aftershock.dds"
+    }
+  },
+  {
+    "asset": "status_dash_defense",
+    "icon": "ESC_status_dash_defense",
+    "selected": "masters/status/status_dash_defense.png",
+    "sha256": "d17f403177b985a043834872307370d1d2b2d50315731d26c7f3293d924a53f2",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_dash_defense.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_dash_defense.dds"
+    }
+  },
+  {
+    "asset": "status_xingge_protection",
+    "icon": "ESC_status_xingge_protection",
+    "selected": "masters/status/status_xingge_protection.png",
+    "sha256": "7766bbc6307536ab7a7528840de9606ab4756aef80a70be912d0d693d18a02f7",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_xingge_protection.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_xingge_protection.dds"
+    }
+  },
+  {
+    "asset": "status_escape",
+    "icon": "ESC_status_escape",
+    "selected": "masters/status/status_escape.png",
+    "sha256": "d94d5711bdabfa0a80cd97054cec625f24c8accb67f0ca72b383f48f8b8128cf",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_escape.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_escape.dds"
+    }
+  },
+  {
+    "asset": "status_damage_share",
+    "icon": "ESC_status_damage_share",
+    "selected": "masters/status/status_damage_share.png",
+    "sha256": "91b6593b7bd92bfbdc65e5401fce2149bd864ef9ee31838bdc0096aa5d19d229",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_damage_share.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_damage_share.dds"
+    }
+  },
+  {
+    "asset": "status_team_resonance",
+    "icon": "ESC_status_team_resonance",
+    "selected": "masters/status/status_team_resonance.png",
+    "sha256": "3c06608879ec7945b7861e3b1058c11b935ee0c38759e86e474732bc1e3e0bfa",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_status_team_resonance.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_status_team_resonance.dds"
+    }
+  },
+  {
+    "asset": "resource_sword_yuan",
+    "icon": "ESC_resource_sword_yuan",
+    "selected": "masters/resource/resource_sword_yuan.png",
+    "sha256": "46b9568dd5190a4ce53c85e59e53cef37b0fd625e43f8b68a9f0940c11264f02",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_resource_sword_yuan.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_resource_sword_yuan.dds"
+    }
+  },
+  {
+    "asset": "resource_frenzy",
+    "icon": "ESC_resource_frenzy",
+    "selected": "masters/resource/resource_frenzy.png",
+    "sha256": "087a02d8bc7bcd81e74f46775257cda4f76e2d1e2bec80c983f7fd5e44eb5bcc",
+    "outputs": {
+      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_resource_frenzy.dds",
+      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_resource_frenzy.dds"
+    }
+  },
+  {
+    "asset": "cover_lineage",
+    "icon": "ESC_cover_lineage",
+    "illustration": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Illustrations\\ESC_cover_lineage.png"
+  },
+  {
+    "asset": "background_founder",
+    "icon": "ESC_background_founder",
+    "illustration": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Illustrations\\ESC_background_founder.png"
+  }
+]

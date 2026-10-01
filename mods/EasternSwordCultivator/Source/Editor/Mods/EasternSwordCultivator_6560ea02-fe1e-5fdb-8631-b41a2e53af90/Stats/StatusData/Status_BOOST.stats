@@ -1,0 +1,1093 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="e2a8d59b-0e34-4a7c-bf5f-db7a2bb34cde">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="331d9c57-8b23-576f-9562-efed41f52e5b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_YUJIAN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h03600e6cg47f6g5faeg9448gb43097ec9474" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_yujian" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_YUJIAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c4ff934f-2c69-5aac-af62-86726cc0f6b4" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_SWORD_STRIKE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hcd2d9f78g8558g5aaag850cg85caaf4605ee" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_sword_strike" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_SWORD_STRIKE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e2768c70-da8f-50fa-98eb-5fa9e7331927" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIAOXI" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h35d7ee95g562cg5c9dgb182gb985b6d05076" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tiaoxi" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIAOXI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e70b0a93-6ebf-564f-951c-05340e3c833c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_QI_GUARD" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h165eacc2g526bg599eg81e4g960af8c57a8d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_qi_guard" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_QI_GUARD" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6a644aee-8a28-5b41-94de-c628a39d5285" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_SWORD_FLIGHT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9228485eg468cg58c0g82degb0f8260324a4" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_sword_flight" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_SWORD_FLIGHT" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a1ccc379-c4a0-5f72-885b-501c70d017aa" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_RECALL_SWORD" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8ea89266g58dfg5a98g9459g05d2d914db23" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_recall_sword" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_RECALL_SWORD" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="855e8f7f-279e-5bd4-ad93-aebd216030c6" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_QI_SWORD" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfe097f3eg6376g5c8bgaa96gbd1b32d5066d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_qi_sword" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_QI_SWORD" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7a9e913e-48d4-59ed-beca-0f76db89d3a7" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_CONTROL_RELEASE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h7ccab59fg31b6g5a52g9a5fge0c1c46d7a06" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_control_release" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_CONTROL_RELEASE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="87e4d747-17d8-5f1c-920f-cd3be195fa57" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_FOCUS_TARGET" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd8ca0927g3911g532cgb489ge2a57df57f5f" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_focus_target" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_FOCUS_TARGET" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="870db665-35cf-5ef6-8f5f-4111d64b36e6" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_ZHAOXI" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hebe1a804g19b8g5052g8f88gfd78948b9462" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_zhaoxi" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_ZHAOXI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7f3b293e-8e68-5bb3-ab3b-bce91607defd" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_QINGHUI" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h839edb9egd93eg5196gb5e9g1a6e3809bdf0" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_qinghui" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_QINGHUI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8ed7f1db-dfca-5211-8ba7-3bf8bdefede8" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_JIUXIAO" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h67a2bc2egd90bg5801gb7cdg9a04bb72ca58" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_jiuxiao" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_JIUXIAO" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8965ff78-84be-5e4b-91bd-60ef247be47a" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_LIUGUANG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hcdfb8aeagabbfg5d09g9623g529e5f8a4925" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_liuguang" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_LIUGUANG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c15c7568-0681-5a27-abc8-920a007e36b8" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_XINGHE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6b67bdaeg2208g54aag83d7gf33e0cb2505d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_xinghe" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_XINGHE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="acde7de9-c52f-571b-baa9-ae624a7fd78c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_TAIQING" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfc1bc61fg3fbag5d86g986fg623a7f565208" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_taiqing" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_TAIQING" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="eae52dc6-8858-5d76-8993-0b7f0b23dc23" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_YIXIANTIAN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5286b825g48fcg5b68g8438g34b70efb997c" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_yixiantian" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_YIXIANTIAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="718c6f6b-0e88-59f2-9529-f410e27177f2" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TAIXUAN_GUIYUAN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h72bf4347g5cdeg5e77g94dbg413ddddba5dc" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_guiyuan" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TAIXUAN_GUIYUAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8eeb6a13-0f43-5a2f-bae0-9f597b1078f5" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_NIFENG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4a71d06agb2dbg5e91gba3fg475eec4d7b3a" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_nifeng" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_NIFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6b9e5e5b-e3e8-5a0b-ba75-e6981a049676" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_WANJUN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h72cd0563g739fg5089ga8b2g74a1b678416e" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_wanjun" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_WANJUN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="fd224053-5812-5d41-9a7d-89eec5cc3b0a" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_LIETIAN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h21da4d76g5ff6g5b85g80a3g3b4838b2bb62" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_lietian" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_LIETIAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="530413e3-6cc5-5ff9-a718-29cbbcf675a2" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_TIANBENG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h11dd84b4gd668g565fgb3a9gbdee83565a76" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_tianbeng" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_TIANBENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b8e9f616-075e-5dd0-a9b8-d25ebfb8ced9" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_TIANFENG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5e19e87eg2299g5dd7gbacdgaa1811cd951a" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_tianfeng" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_TIANFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a2872691-4f2f-5ee6-9249-9af203c5ecc6" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_TIANJIAN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2de3c37cg5e73g55b1g82dcg16add1bf40ce" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_tianjian" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_TIANJIAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6de8871e-4eeb-53ce-9e58-5e8d34224df1" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_BAFANG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he5e87ff2g3b88g5a3fg8423gd3ea4599c01a" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_bafang" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_BAFANG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4cc09705-5867-5ec3-a1de-e4ff6a9d7f5b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_TIANDI" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h255cbf19g95bbg5d1bg8e03g15214c3cff5f" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_tiandi" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_TIANDI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0268c6c7-f94f-5f2a-91d0-f6bb517af1eb" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_XUSHI" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb266089egb8d0g54c9ga5b1g7ae34b3e8502" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_xushi" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_XUSHI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="77d6264e-eac1-5a10-977b-c00ae1665e70" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_TIANQING_NIXI" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h2be2b84bgd38bg5302g8f1ag8dd0af091ec4" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_nixi" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_TIANQING_NIXI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a49bcee1-1384-5d7a-a83c-5edf6e190d40" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_LUEXUE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hae7245b4gcb2bg58aag937bg49a8c9aadd22" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_luexue" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_LUEXUE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="5f126fc2-cc92-5b1e-9b34-aa2f1fe387ff" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_CHUANSHEN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hdd7b84c1g1a5ag53a0ga6ccg0d27f644b88e" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_chuanshen" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_CHUANSHEN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="261bfb85-0769-5b85-93db-68cc9b87e341" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_RANXUE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9a7e179ega8b6g56afg94c1gc8f5a4efd744" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_ranxue" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_RANXUE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b7a8bc94-42b7-5769-937e-0010ea66f31c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_LIANCHENG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha03e5909g7a90g56f6g990bgeeb84efa1143" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_liancheng" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_LIANCHENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3c7d3720-3f2e-5f77-819b-22b860ed9fab" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_NIXUE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h05492671g48f0g5687ga0deg2ce6e08be1af" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_NIXUE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6d684e1d-741a-50cb-9b7f-dc433832a89d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_XUEHAI" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9c9b2f7fgf9f7g5eecga123g561b44d25e78" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_xuehai" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_XUEHAI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="aff367bd-222e-5df6-bc27-bc88e1f55f6b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_WUSHENG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h65d7fa10g5521g5f8fg9445ga0154806990c" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_wusheng" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_WUSHENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c9caf608-4bf4-5632-ae27-1b6d86581450" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_HUICHAO" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h19653ec0g1540g5a78g9c36g16ee5d420a69" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_huichao" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_HUICHAO" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="88eb3929-b0ed-5300-93d6-eadd49832d19" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XUEYAN_DAMAGE_MODE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb1ecd2ddg00f0g5d21g81c3gf46c5984e721" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_damage_mode" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XUEYAN_DAMAGE_MODE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c751f561-8ec5-5e94-bc74-08f732c09d7d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_WENLU" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h774f1f2bg664fg5d83g9e58g2318d813726f" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_wenlu" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_WENLU" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="685469d1-db10-50d2-b0f8-2a6174915173" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_HUIFENG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0125919bg8ed0g5c62gb2d2g525f45423806" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_huifeng" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_HUIFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="49cbbc53-35e9-59e1-abce-731d82b4dd12" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_FUCHEN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h275ececcg1cfbg5d5agbf5fga37b343fd048" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_fuchen" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_FUCHEN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="2589cf10-af19-5300-b454-65e1b97b353f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_CHENGFENG" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h485be4dag52e4g5fbdg925cgbaf300a1f754" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_chengfeng" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_CHENGFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b5672ad7-0013-5ea8-ae61-c4a8d3e75365" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_TONGZHOU" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0933f626g8328g5b3cg854dg8d9bb993e096" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_tongzhou" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_TONGZHOU" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ed562b78-b15a-5c1f-892e-a116dd00b051" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_FENGYU" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h42103336g1790g5397gbaa0g9b43b9bb2f24" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_fengyu" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_FENGYU" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="2aeb0737-209c-505b-9b94-337a14c291df" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_ZHANGJIAN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1bd261a8g1a2cg5aa7gb8d0gbd17c817de2b" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_zhangjian" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_ZHANGJIAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d6965f42-9983-5397-a64e-baa6337c7fd1" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_XINGGE_XIANGFU" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1b890c74gd6c3g5741g9c6fg6ec6297f6a63" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_xiangfu" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_XINGGE_XIANGFU" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f40d9acd-713b-52f2-8b42-83ad9efd4ec7" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_WEAKPOINT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="habbd909bge23bg5858ga978gee521c50da44" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd722b191gcdcfg5d46gbf83g0968c4b57d16" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_weakpoint" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_WEAKPOINT" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4715e4ea-a2c5-54d0-bc02-687b7c1b056f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FOLLOWUP" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h375c6085g9451g5b62gbb7ag53dd1dd7dd05" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h02937807gec67g57a8gbcd0g1b29ebfdec16" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_followup" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FOLLOWUP" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7f645760-2e99-5df3-bba7-b991d7e4b009" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CONTROL_RESISTANCE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h53df8a50gcbd7g5ee6gac12g4a842c4fd040" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h890afb23gc959g5690gac20gbd380b3a331c" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_control_resistance" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CONTROL_RESISTANCE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8ae4578d-6811-5be9-9bbb-010cf62b68d1" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_BLOOD_ROBE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4ba22a6dgfb60g527agae2fg6099b5a5cbfe" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7536a0d8g6f37g5a29gbacbgc71c704ffd00" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_blood_robe" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_BLOOD_ROBE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="32bcb435-c6ba-5613-8102-05afb8883d7b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc148ccadg838ag58ddg9c2ag969ac9c95492" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd3615830gea3dg573ag83d7gee38fe371f28" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_frenzy" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="01276007-ce87-5804-a4af-495cccf7fa0d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_ARMOR_BREAK" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h7c824d53ga892g5060g9a33ga0ca403dbabd" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf25a3252g863cg56cbg8436g5a2960369eb7" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_armor_break" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_ARMOR_BREAK" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="aa7420a4-b070-575d-aacc-2ad0bf85130f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SUPPRESSION" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf34c6dc7g6750g5740g87dege8a9480625dc" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h62c72ceag6277g5879g8382g40c37e11f353" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_suppression" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SUPPRESSION" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="027befcf-2ce3-567c-aefe-cc2f6deda75b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_COUNTER_READY" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfd8c0b6bg1ea3g53deg9902gecf33a38f02f" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hdfa8b7c1ge393g52b0gb017g41ce6ad9916d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_counter_ready" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_READY" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="82a71a92-9b09-5660-80c3-b3b75077253b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SWORD_DOMAIN" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hadcf0a0cg6e94g5576g8f78gf0b6955ffc87" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb1224b70g8487g53e4g9f5eg4a9bfb9e477c" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_sword_domain" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SWORD_DOMAIN" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0ab16f49-390e-596e-b9c9-7a6aeb666cff" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SWORD_DOMAIN_DEBUFF" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h41ffe598gaa56g517cg9876gc2bc9cc4b4a2" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8c5c3743ga419g5a8agbf51g5104529bd499" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_sword_domain_debuff" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SWORD_DOMAIN_DEBUFF" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c87d48f8-919a-5f2d-9992-cd91900b5dcc" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_TIANQING_MIGHT" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd097fba1g98a0g54dfgb903g84aad5a12b43" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd499d315ge7e6g56c0gb70cgac7966b3dfef" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_tianqing_might" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_TIANQING_MIGHT" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c540e69d-17ea-5676-b3ce-d33c8f06c43e" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_TIANQING_AFTERSHOCK" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8ea3e3dbg163ag5ed8gb769gdf36c2633de6" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3b78cb97g89a2g501dg8ef8g6a69cc9db3de" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_tianqing_aftershock" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_TIANQING_AFTERSHOCK" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="015e1f12-9e1c-50b8-803e-9edbf33c7000" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_DASH_DEFENSE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h91cf9b95g233cg52b6g80cdgcfc1dea8b979" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h282be0fcg1074g5e7bg8da7gd1efba456855" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_dash_defense" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_DASH_DEFENSE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d58b6f39-9035-5999-b62b-b63c161d6d2a" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_XINGGE_PROTECTION" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h46c8b32dg78dcg5aedga590gba9d9b3ce678" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5a5d6da9g2522g5e32gb1e2gbca4a28f68f6" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_xingge_protection" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_XINGGE_PROTECTION" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="AC(2)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="006bce7e-9738-5f77-89a1-05092abc6666" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_ESCAPE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8f779033g4da6g5667g9297g4f89ad405b81" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6efe08d1g5de1g5e57g8d47g2d282346e2d8" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_escape" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_ESCAPE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8cbedc56-df27-500b-85a3-43bbe9f8f6fb" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_DAMAGE_SHARE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbeb63ab8g8233g5c3dg8231g7093b3f98452" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc7d6ae52g6c07g5e67g9a0fg4e6e8e048926" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_damage_share" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_DAMAGE_SHARE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3842a357-6027-56d0-8d7a-ab0fd053664d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_TEAM_RESONANCE" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0543921bgd816g575bg9fdbg11e9157e6194" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6aff6081g6987g5289gbaf4g645134604609" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_team_resonance" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_TEAM_RESONANCE" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="90bc8ae8-f569-5165-9b7d-a2dfcd0bba18" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_XINGGE_HUIFENG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_XINGGE_HUIFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="cc867fe7-1987-50b4-b839-85a97c8d7986" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TAIXUAN_XINGHE" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TAIXUAN_XINGHE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(3)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="81a5d4a0-7bee-5461-8d1f-d71027bfbf59" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_NIFENG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_NIFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(2)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3c03955c-e211-5043-8abd-0b340a0ab490" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_WANJUN" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_WANJUN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3176b62d-009c-5c20-95f6-c5ca35da1272" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_LIETIAN" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_LIETIAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6057c790-ada0-59d5-a4d2-a081e05cdb76" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANBENG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANBENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(3)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b58f7e90-a8d9-5b68-89da-5b749adbd735" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANFENG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(3)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e9bcab4a-7b06-565d-ac3e-e55885bb5a26" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANJIAN" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANJIAN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="504757b6-e25c-5115-bffe-eb904986c955" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_BAFANG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_BAFANG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(6)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="89a7f932-34db-5ab0-8b89-13c12486cd1c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANDI" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANDI" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="981e3949-ebfa-56b1-a5fd-9fb53f508560" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_XINGGE_CHENGFENG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_XINGGE_CHENGFENG" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(2)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b0dae708-b1a0-51ed-bb04-39cfd8ea43e9" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_HIT_MARKER" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_HIT_MARKER" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4ce34668-4146-53b4-a5d7-eda21f377d26" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CHAIN" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CHAIN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="87a63c83-54b0-507e-ad11-e9b9975ee0e2" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_GUARD" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_GUARD" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a8a2c628-248c-5582-a191-562a58c5a0f3" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_BASELINE" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_BASELINE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6da10db1-534e-56ef-a117-09aec3c0b4d9" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_WEAPON_WISDOM" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_WEAPON_WISDOM" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d0a71401-c559-58de-ad7d-965afc4feb01" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9e51c0e0-3781-508d-b91b-5354fdb545ce" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_2" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_2" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d9f120ce-bf8e-535a-be23-c16ac5cf45be" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_3" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_3" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4ace87c1-4a14-5a7f-bbfd-a96f3ab78589" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_4" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_4" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="94b9bff4-2c04-5850-98e7-f7fa5397714a" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_5" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_5" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="64c4a75e-49a2-5e0f-b4cb-18550c8e2a92" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_6" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_6" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a7cd513a-de5b-5821-a54c-921280480226" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_7" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_7" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7b5bdbb1-cfd6-514d-9129-08fdd568875e" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_8" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_8" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3fbd1b09-466c-5f6c-a665-750269f3a76c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_9" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_9" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d8895ebd-a383-5248-af71-93bcb3262ebd" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_10" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_10" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a606de62-0ba6-54b2-a29a-3e62dd13a32f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_11" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_11" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="323699df-2ecb-5f1e-9761-5b2fad851e61" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_12" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_12" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="2c2cda47-1d3d-5400-8e92-e097008b46ee" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_13" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_13" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="183f86d6-1f5b-5d0d-8899-417ed0bdc9ed" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_14" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_14" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b28b2573-b2b1-5912-afdd-39b557c598b0" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_15" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY_AT_LEAST_15" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="53a56c7a-c861-542a-bd72-bb227f3e989b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FORCE_MODE" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_FORCE_MODE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7fb7e5b1-45d0-5ec4-82d9-9459fa8bafa6" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_QI_MODE" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_QI_MODE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="12dfad24-a464-54f9-be92-4926e36e0dd1" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_0" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_0" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_yujian') or SpellId('Target_ESC_sword_strike') or SpellId('Shout_ESC_tiaoxi') or SpellId('Projectile_ESC_taixuan_zhaoxi') or SpellId('Target_ESC_taixuan_jiuxiao') or SpellId('Projectile_ESC_taixuan_liuguang') or SpellId('Shout_ESC_taixuan_xinghe') or SpellId('Shout_ESC_taixuan_taiqing') or SpellId('Zone_ESC_taixuan_yixiantian') or SpellId('Zone_ESC_tianqing_nifeng') or SpellId('Target_ESC_tianqing_wanjun') or SpellId('Projectile_ESC_tianqing_lietian'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="670efc9d-f04b-5847-a1b9-eee17f0eab4b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_1" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_1" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Zone_ESC_tianqing_tianbeng') or SpellId('Rush_ESC_tianqing_tianfeng') or SpellId('Projectile_ESC_tianqing_tianjian') or SpellId('Shout_ESC_tianqing_bafang') or SpellId('Target_ESC_tianqing_tiandi') or SpellId('Shout_ESC_tianqing_xushi') or SpellId('Projectile_ESC_xueyan_luexue') or SpellId('Rush_ESC_xueyan_chuanshen') or SpellId('Shout_ESC_xueyan_liancheng') or SpellId('Shout_ESC_xueyan_nixue') or SpellId('Shout_ESC_xueyan_xuehai') or SpellId('Projectile_ESC_xueyan_wusheng'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e869ea33-7f1e-5523-b426-3826ea79aa71" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_2" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_2" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_xingge_wenlu') or SpellId('Target_ESC_xingge_chengfeng') or SpellId('Projectile_ESC_xingge_tongzhou') or SpellId('Shout_ESC_xingge_fengyu') or SpellId('Shout_ESC_xingge_zhangjian') or SpellId('Projectile_ESC_yujian_Main') or SpellId('Projectile_ESC_yujian_Off') or SpellId('Target_ESC_sword_strike_Main') or SpellId('Target_ESC_sword_strike_Off') or SpellId('Target_ESC_taixuan_zhaoxi_MeleeMain') or SpellId('Target_ESC_taixuan_zhaoxi_MeleeOff') or SpellId('Projectile_ESC_taixuan_zhaoxi_RangedMain'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="4be1b95d-9d09-545c-b381-8c1798ac3f48" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_3" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_3" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_taixuan_zhaoxi_RangedOff') or SpellId('Zone_ESC_tianqing_nifeng_MeleeMain') or SpellId('Zone_ESC_tianqing_nifeng_MeleeOff') or SpellId('Zone_ESC_tianqing_nifeng_RangedMain') or SpellId('Zone_ESC_tianqing_nifeng_RangedOff') or SpellId('Target_ESC_tianqing_wanjun_Main') or SpellId('Target_ESC_tianqing_wanjun_Off') or SpellId('Projectile_ESC_tianqing_lietian_Main') or SpellId('Projectile_ESC_tianqing_lietian_Off') or SpellId('Zone_ESC_tianqing_tianbeng_Main') or SpellId('Zone_ESC_tianqing_tianbeng_Off') or SpellId('Rush_ESC_tianqing_tianfeng_Main'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="fbb86d0a-3d9d-58c6-ba62-d01dbd90d8df" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_4" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_4" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Rush_ESC_tianqing_tianfeng_Off') or SpellId('Projectile_ESC_tianqing_tianjian_Main') or SpellId('Projectile_ESC_tianqing_tianjian_Off') or SpellId('Shout_ESC_tianqing_bafang_Main') or SpellId('Shout_ESC_tianqing_bafang_Off') or SpellId('Target_ESC_tianqing_tiandi_Main') or SpellId('Target_ESC_tianqing_tiandi_Off') or SpellId('Target_ESC_xueyan_luexue_MeleeMain') or SpellId('Target_ESC_xueyan_luexue_MeleeOff') or SpellId('Projectile_ESC_xueyan_luexue_RangedMain') or SpellId('Projectile_ESC_xueyan_luexue_RangedOff') or SpellId('Rush_ESC_xueyan_chuanshen_Main'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="56ef73f8-5c48-57e8-8e36-83625510ab35" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_5" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_5" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Rush_ESC_xueyan_chuanshen_Off') or SpellId('Shout_ESC_xueyan_liancheng') or SpellId('Shout_ESC_xueyan_nixue_F0') or SpellId('Shout_ESC_xueyan_nixue_F1') or SpellId('Shout_ESC_xueyan_nixue_F2') or SpellId('Shout_ESC_xueyan_nixue_F3') or SpellId('Shout_ESC_xueyan_nixue_F4') or SpellId('Shout_ESC_xueyan_nixue_F5') or SpellId('Shout_ESC_xueyan_nixue_F6') or SpellId('Shout_ESC_xueyan_nixue_F7') or SpellId('Shout_ESC_xueyan_nixue_F8') or SpellId('Shout_ESC_xueyan_nixue_F9'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0e336e87-d4ac-5e77-afae-24c55f6bb6b8" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_6" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_6" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F10') or SpellId('Shout_ESC_xueyan_nixue_F11') or SpellId('Shout_ESC_xueyan_nixue_F12') or SpellId('Shout_ESC_xueyan_nixue_F13') or SpellId('Shout_ESC_xueyan_nixue_F14') or SpellId('Shout_ESC_xueyan_nixue_F15') or SpellId('Projectile_ESC_xueyan_wusheng_F0') or SpellId('Projectile_ESC_xueyan_wusheng_F1') or SpellId('Projectile_ESC_xueyan_wusheng_F2') or SpellId('Projectile_ESC_xueyan_wusheng_F3') or SpellId('Projectile_ESC_xueyan_wusheng_F4') or SpellId('Projectile_ESC_xueyan_wusheng_F5'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="f016b95c-425d-503f-9f88-8754fae71db0" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_7" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_7" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F6') or SpellId('Projectile_ESC_xueyan_wusheng_F7') or SpellId('Projectile_ESC_xueyan_wusheng_F8') or SpellId('Projectile_ESC_xueyan_wusheng_F9') or SpellId('Projectile_ESC_xueyan_wusheng_F10') or SpellId('Projectile_ESC_xueyan_wusheng_F11') or SpellId('Projectile_ESC_xueyan_wusheng_F12') or SpellId('Projectile_ESC_xueyan_wusheng_F13') or SpellId('Projectile_ESC_xueyan_wusheng_F14') or SpellId('Projectile_ESC_xueyan_wusheng_F15') or SpellId('Target_ESC_xingge_wenlu_MeleeMain') or SpellId('Target_ESC_xingge_wenlu_MeleeOff'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ed4f3602-7411-5765-9107-ad0712c365b5" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_8" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_8" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_xingge_wenlu_RangedMain') or SpellId('Projectile_ESC_xingge_wenlu_RangedOff') or SpellId('Target_ESC_xingge_chengfeng_Main') or SpellId('Target_ESC_xingge_chengfeng_Off') or SpellId('Projectile_ESC_xingge_tongzhou_Main') or SpellId('Projectile_ESC_xingge_tongzhou_Off'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="65b5e8a5-173e-5575-9f98-75e48aa81ce2" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(ESC_EXTRA_ATTACK_0,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_1,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_2,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_3,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_4,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_5,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_6,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_7,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_8,100,-1)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(ESC_EXTRA_ATTACK_0);RemoveStatus(ESC_EXTRA_ATTACK_1);RemoveStatus(ESC_EXTRA_ATTACK_2);RemoveStatus(ESC_EXTRA_ATTACK_3);RemoveStatus(ESC_EXTRA_ATTACK_4);RemoveStatus(ESC_EXTRA_ATTACK_5);RemoveStatus(ESC_EXTRA_ATTACK_6);RemoveStatus(ESC_EXTRA_ATTACK_7);RemoveStatus(ESC_EXTRA_ATTACK_8)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="aa32bf43-a32f-52b8-8d0b-61c88505eb2c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_IN_FLIGHT" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_IN_FLIGHT" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Projectile_ESC_FlightMove)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d1973dec-53b7-563a-8013-e788e03f0078" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CHAIN_LIANCHENG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CHAIN_LIANCHENG" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_ESC_liancheng_ContinueMelee);UnlockSpell(Projectile_ESC_liancheng_ContinueRanged);UnlockSpell(Projectile_ESC_ChainMove)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9baa47d5-c50f-5ae4-b113-10b861d92176" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CHAIN_WUSHENG" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CHAIN_WUSHENG" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_ESC_wusheng_ContinueMelee);UnlockSpell(Projectile_ESC_wusheng_ContinueRanged)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="15110fbd-2ddc-54bc-86e8-cf3a59a9de25" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_OFFHAND_SWORD" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_OFFHAND_SWORD" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9d6f30e9-ca57-5aa1-895c-0939bdf7c156" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_MAIN_SWORD" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_MAIN_SWORD" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="90452ac1-4738-5cb0-88a9-edfea3d34619" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_ARMOR_BLOCKED" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_ARMOR_BLOCKED" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e7f0a8f6-775d-5930-aef4-d3e755b5eddb" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_STARTING_SWORD_CHOSEN" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_STARTING_SWORD_CHOSEN" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="93cee78b-881d-5cae-981f-95b0491c2330" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_TIANDI_TARGET" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_TIANDI_TARGET" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="64d45e2f-8fa6-5d37-a108-914bca752bd3" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_TIANDI_FIRSTHIT" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_TIANDI_FIRSTHIT" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c72edd75-4a5a-5a3b-a7dd-c33c312c84ae" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_COUNTER_RANK2" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_RANK2" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_ESC_Counter2);IF(SpellId('Target_ESC_Counter2')):RollBonus(Attack,2)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d4a4b3e9-54fb-521e-97d3-3ff50099e4e4" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_COUNTER_RANK3" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_RANK3" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_ESC_Counter3);IF(SpellId('Target_ESC_Counter3')):RollBonus(Attack,3)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

@@ -1,0 +1,608 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="53912403-fe14-4ce0-89aa-96acb1dee21a">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="f7a2c225-3937-5557-b9d1-6043ec164a82" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="1" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="SelectSkills(a0e2abe7-a094-57ae-8eae-48bbb050fc61,2);AddSpells(5b89b04e-0c87-55af-acd4-e50d8904bbf3,,,,AlwaysPrepared)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars);ProficiencyBonus(SavingThrow,Wisdom);ProficiencyBonus(SavingThrow,Constitution)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="62cce976-30a4-5900-8ace-c66b472dfbeb" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="2" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(aab5d465-6b17-5f25-a079-6999661f6bbf,,,,AlwaysPrepared)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,6,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_2" />
+        <field name="UUID" type="IdTableFieldDefinition" value="438f3f58-e7e7-5c8c-9b17-62b812cca202" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="3" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,4,0)" />
+        <field name="SubClasses" type="GuidObjectListTableFieldDefinition" value="2cc45280-035c-5523-9e8b-50fd34d3f715;08bd6eb2-da48-5c58-ab78-05c434ebe621;02e3091f-f90f-5e61-a8a5-54c9e91df87d;50110376-79c3-523e-bcf2-03146b103e4a" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_3" />
+        <field name="UUID" type="IdTableFieldDefinition" value="2715896d-8321-5e27-a5a4-0cd4efc67546" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="4" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="AllowImprovement" type="BoolTableFieldDefinition" value="True" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,4,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="52ff50e0-3949-5034-b3d2-77960a2b5274" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="5" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(89ea958d-45c4-58bd-a71a-705c879c00a9,,,,AlwaysPrepared)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordOpportunity,3,0);ActionResource(ESC_SwordYuan,4,0);ActionResource(ESC_FlightMovement,24,0);ActionResource(ESC_ChainMovement,6,0)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_continuous_strikes;ESC_P_Level5" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="0e37531d-ff81-5a9d-9fff-0a0394d4e886" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="6" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,6,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_6" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d9d8cac2-c6e9-5bd7-80a6-8e60cd569c63" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="7" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,2,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_7" />
+        <field name="UUID" type="IdTableFieldDefinition" value="7bdadaf2-6225-5a74-8690-ffdef5a8d8e7" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="8" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="AllowImprovement" type="BoolTableFieldDefinition" value="True" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,2,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_8" />
+        <field name="UUID" type="IdTableFieldDefinition" value="934ffee5-bc5b-56e6-aae1-4695d17bd4f4" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="9" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,2,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_9" />
+        <field name="UUID" type="IdTableFieldDefinition" value="99b04234-3700-5ee6-bd66-5fb1b41f3f50" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="10" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,10,0)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_Level10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_10" />
+        <field name="UUID" type="IdTableFieldDefinition" value="3a7cdbe9-0f88-54d3-b7af-c4413307997a" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="11" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,4,0)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_Level11" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_11" />
+        <field name="UUID" type="IdTableFieldDefinition" value="1a5bd518-d36f-5c9a-af23-48765101d4b0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="12" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="AllowImprovement" type="BoolTableFieldDefinition" value="True" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordYuan,6,0)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_12" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5682da38-4bc5-5a6b-b21f-5377d9ea01c3" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="3" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(79822d36-e5b0-527a-a8e6-6c2901ce4707,,,,AlwaysPrepared)" />
+        <field name="PassivesRemoved" type="StringTableFieldDefinition" value="ESC_P_StarterSword" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_control_resist;ESC_P_taixuan_breath;ESC_P_Branch_taixuan" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_13" />
+        <field name="UUID" type="IdTableFieldDefinition" value="f2aa950d-ab7e-54f2-bed2-4c46c81140a4" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="4" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(938132db-5eb1-5df3-9b47-d46f7fe9b570,,,,AlwaysPrepared)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_auto_release" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_14" />
+        <field name="UUID" type="IdTableFieldDefinition" value="9d90a4a7-5284-5bf6-b6df-c2a0f3bbe85a" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="5" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(a13879b4-a57e-53a4-bfb0-2ecbd5b9c569,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_15" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5d7c2c14-8ca6-531e-a4c7-90bdbe1749f5" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="6" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(c7cb2a8b-3caa-5147-8111-677f3e5f0ef3,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_16" />
+        <field name="UUID" type="IdTableFieldDefinition" value="12cd3e77-b456-53ea-88c8-cedbad1c98dc" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="7" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(997c62f4-2c7c-5c90-9586-37eb57d5cf4b,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_17" />
+        <field name="UUID" type="IdTableFieldDefinition" value="33e08622-8440-5091-b542-b56537a7c546" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="8" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(920e49af-8c7a-59fa-b134-c1a45b8c8715,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_18" />
+        <field name="UUID" type="IdTableFieldDefinition" value="eba67992-0492-5d89-a27b-78dd6b843dc2" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="9" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(aab08b69-55f4-547c-a094-36c3855a3b01,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_19" />
+        <field name="UUID" type="IdTableFieldDefinition" value="1fb12eae-29d1-5041-a5e1-07270cf8795b" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="10" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_20" />
+        <field name="UUID" type="IdTableFieldDefinition" value="800c58ea-cfdf-5801-889e-679285b47a32" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="11" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_21" />
+        <field name="UUID" type="IdTableFieldDefinition" value="3979b6bd-33f7-52fe-9fb2-9bf8a52760b5" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="35754a46-16a3-57d7-b12e-580916be6367" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Taixuan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="12" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(ec38f414-74d8-5138-988b-08342fd61e14,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_22" />
+        <field name="UUID" type="IdTableFieldDefinition" value="97b636b3-87da-5dc6-a340-c961d284b6e2" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="3" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(a542e1af-85b4-5a64-a8ac-091d5030bccc,,,,AlwaysPrepared)" />
+        <field name="PassivesRemoved" type="StringTableFieldDefinition" value="ESC_P_StarterSword" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(MediumArmor);Proficiency(HeavyArmor)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_control_resist;ESC_P_tianqing_fortitude;ESC_P_Branch_tianqing" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_23" />
+        <field name="UUID" type="IdTableFieldDefinition" value="29bd31c9-3540-571e-a8be-f9cc59028d99" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="4" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(56139935-45e7-5495-aff0-302fa9ee9067,,,,AlwaysPrepared)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Target_ESC_tianqing_nixi'),ModifyUseCosts(Replace,ESC_SwordYuan,10,0,ESC_SwordYuan))" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_auto_release" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_24" />
+        <field name="UUID" type="IdTableFieldDefinition" value="fb16e2e4-ab5d-59c3-972b-1d3b9bac9d0e" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="5" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(62e96961-0b2a-5e63-8e22-04ab0d4c53ac,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_25" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c54610ec-48b3-5e83-a523-7b593db696c7" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="6" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(d5847348-4bd3-514b-99e3-8550fefbf373,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_26" />
+        <field name="UUID" type="IdTableFieldDefinition" value="0a8aa1b0-bcd7-540c-b076-a7316f83adb0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="7" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(def096b9-2f25-5d38-bbed-86d9190a0a1d,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_27" />
+        <field name="UUID" type="IdTableFieldDefinition" value="9ad05ec7-f425-5064-893b-0ff42b1aeb2d" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="8" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(ccbfbf5e-674d-5716-875d-963e48170547,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_28" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a245f053-f1a2-5cf6-acc3-e6be7a4b5929" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="9" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(226a993d-4639-56d5-a6b5-060e3d610ed5,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_29" />
+        <field name="UUID" type="IdTableFieldDefinition" value="4c1eed6c-2085-5ea0-b210-31a220f2bc4c" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="10" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_30" />
+        <field name="UUID" type="IdTableFieldDefinition" value="32d1553c-b0c3-5967-aa3b-d9c944a8bf87" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="11" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_31" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5c8a0029-1956-5984-8aae-a553bf8c1f2a" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Tianqing" />
+        <field name="Level" type="ByteTableFieldDefinition" value="12" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(46cd8ab6-417e-53a0-8135-3f6fd4b8bb74,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_32" />
+        <field name="UUID" type="IdTableFieldDefinition" value="80847283-0d45-527d-a9ad-bffbddaa299e" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="3" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(8b1aa091-4456-5b99-ad8f-eed9d1a82c1d,,,,AlwaysPrepared)" />
+        <field name="PassivesRemoved" type="StringTableFieldDefinition" value="ESC_P_StarterSword" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(MediumArmor);Proficiency(HeavyArmor)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_control_resist;ESC_P_xueyan_siphon;ESC_P_xueyan_finish;ESC_P_xueyan_unhindered;ESC_P_Branch_xueyan" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_33" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5cf6e398-5c97-5248-be90-e6632fea0a71" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="4" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(dde73df4-2600-5b4d-83d9-9fa0fd51bcd9,,,,AlwaysPrepared)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_auto_release" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_34" />
+        <field name="UUID" type="IdTableFieldDefinition" value="53ea8bbc-1fc8-5068-bb02-250cd05e6968" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="5" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(5c53975c-14e2-5c4f-b8fa-2e98c4fa1391,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_35" />
+        <field name="UUID" type="IdTableFieldDefinition" value="43024b21-c2e9-5150-a14d-9ca7f00ccb24" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="6" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(cc1f4b69-a6c1-5679-95b9-693752326eeb,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_36" />
+        <field name="UUID" type="IdTableFieldDefinition" value="4cf4d204-e986-5822-85c5-0dee1756787b" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="7" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(2bba5210-032c-50cb-825d-f3dcfcb11eb2,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_37" />
+        <field name="UUID" type="IdTableFieldDefinition" value="946db971-79c0-5acb-ad37-e1f68b58efde" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="8" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(4e90af2d-d986-5ec7-beb4-c4f08f989f54,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_38" />
+        <field name="UUID" type="IdTableFieldDefinition" value="639551c3-31f0-533d-9a54-80c138836052" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="9" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(804b0960-cac2-5116-86a9-1fae948b546b,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_39" />
+        <field name="UUID" type="IdTableFieldDefinition" value="f6adf16c-db55-5732-b661-1716bf99d835" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="10" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_40" />
+        <field name="UUID" type="IdTableFieldDefinition" value="b9ff8345-246e-553b-a6df-a582939ea701" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="11" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_41" />
+        <field name="UUID" type="IdTableFieldDefinition" value="8627b591-affa-5d26-8afd-a445a5d6ce4e" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xueyan" />
+        <field name="Level" type="ByteTableFieldDefinition" value="12" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(36a5a5e1-c45e-52b7-b2d7-626bc5faac1e,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_42" />
+        <field name="UUID" type="IdTableFieldDefinition" value="25e89ac2-cfe8-58fb-b1ce-bcb65706a5a1" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="3" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(2924dfe7-52b1-5a1f-9bd9-e1922da2f626,,,,AlwaysPrepared)" />
+        <field name="PassivesRemoved" type="StringTableFieldDefinition" value="ESC_P_StarterSword" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_xingge_sidebyside;ESC_P_xingge_cooperation;ESC_P_Branch_xingge" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_43" />
+        <field name="UUID" type="IdTableFieldDefinition" value="8cc40f02-082c-53fd-9684-2e91bf22f288" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="4" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(e7a7fb9f-1167-57cf-ab86-7e24dbbb401e,,,,AlwaysPrepared)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Target_ESC_xingge_xiangfu'),ModifyUseCosts(Replace,ESC_SwordYuan,6,0,ESC_SwordYuan))" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_44" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ca136f0b-79ef-5f0a-822c-adf532fd8be9" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="5" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_45" />
+        <field name="UUID" type="IdTableFieldDefinition" value="121805b9-2200-5b83-83ab-2b3c5c096c51" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="6" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(749a1074-ca74-56ba-ae46-4f4bc94b2891,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_46" />
+        <field name="UUID" type="IdTableFieldDefinition" value="4a3a83c1-a16b-594f-8e4e-7d0676304ea2" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="7" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(0ac024e7-5257-5d32-a1bb-6508c6108ea9,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_47" />
+        <field name="UUID" type="IdTableFieldDefinition" value="9d0ecac6-bfd7-5e55-aa31-45f7b6413348" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="8" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(e3cdf85f-3f9c-5172-b80a-a2669f72bdeb,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_48" />
+        <field name="UUID" type="IdTableFieldDefinition" value="b434f345-ba05-5e28-ae59-3e82e8a14029" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="9" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(8c6f5326-e1fc-5215-81ca-d5885e6b856c,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_49" />
+        <field name="UUID" type="IdTableFieldDefinition" value="37b029c1-d2f0-5dd1-8531-86482aa914c7" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="10" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_50" />
+        <field name="UUID" type="IdTableFieldDefinition" value="37ca0297-1044-5cbc-bd94-9c0f7704d366" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="11" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_51" />
+        <field name="UUID" type="IdTableFieldDefinition" value="6889e36f-c0d0-5de3-928a-7427abb371d0" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+        <field name="FSName" type="StringTableFieldDefinition" value="ESC_Xingge" />
+        <field name="Level" type="ByteTableFieldDefinition" value="12" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="1" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(22ff57a1-bcf7-5dda-a590-e852dbc15ccd,,,,AlwaysPrepared)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Progressions_52" />
+        <field name="UUID" type="IdTableFieldDefinition" value="b70c762c-4f22-5eaa-a1fe-b253f99de854" />
+        <field name="TableUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="FSName" type="StringTableFieldDefinition" value="EasternSwordCultivator" />
+        <field name="Level" type="ByteTableFieldDefinition" value="1" />
+        <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars)" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
+        <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(55b8cb7f-18cb-52fc-b351-25e2e8a52630,,,,AlwaysPrepared)" />
+        <field name="IsMulticlass" type="BoolTableFieldDefinition" value="True" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

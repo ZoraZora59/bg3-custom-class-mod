@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+    <version major="4" minor="8" revision="0" build="500" />
+    <region id="ActionResourceDefinitions">
+        <node id="root">
+            <children>
+                <node id="ActionResourceDefinition">
+                    <attribute id="UUID" type="guid" value="ff9884b7-6054-595d-8ff5-2d39bbb41dd2" />
+                    <attribute id="Name" type="FixedString" value="ESC_SwordYuan" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="ReplenishType" type="FixedString" value="Rest" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true" />
+                    <attribute id="IsSpellResource" type="bool" value="false" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h06595552g9750g59f2gbf55g847c0fedd38e" version="1" />
+                    <attribute id="Description" type="TranslatedString" handle="h2c5085c4gb9d5g5703g96fdg37b234583334" version="1" />
+                    <attribute id="Error" type="TranslatedString" handle="h2484b11ag1870g5dfcga77bg21355ab4e726" version="1" />
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="UUID" type="guid" value="17d017a5-9e66-587f-a9e5-00ff1d769190" />
+                    <attribute id="Name" type="FixedString" value="ESC_SwordOpportunity" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="ReplenishType" type="FixedString" value="Turn" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+                    <attribute id="IsSpellResource" type="bool" value="false" />
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="UUID" type="guid" value="f0dc2f3c-f7a6-51a1-b7a2-d4b5d19b1e39" />
+                    <attribute id="Name" type="FixedString" value="ESC_FlightMovement" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="ReplenishType" type="FixedString" value="Turn" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+                    <attribute id="IsSpellResource" type="bool" value="false" />
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="UUID" type="guid" value="a230e407-432b-5ec7-85fa-5bc7d97e3984" />
+                    <attribute id="Name" type="FixedString" value="ESC_ChainMovement" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="ReplenishType" type="FixedString" value="Turn" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+                    <attribute id="IsSpellResource" type="bool" value="false" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="331"/>
+  <region id="Progressions">
+    <node id="root">
+      <children>
+        <!-- ===== 基础职业 SkeletonSmokeTest：TableUUID …0010，1..12 级 ===== -->
+        <node id="Progression">
+          <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(SimpleWeapons);ProficiencyBonus(SavingThrow,Dexterity);ProficiencyBonus(SavingThrow,Wisdom)"/>
+          <attribute id="Level" type="uint8" value="1"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="PassivesAdded" type="LSString" value="SkeletonSmokeTest_Passive_Focus"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="Selectors" type="LSString" value="SelectSkills(a568e02a-6279-457b-91ea-9999b858bcde,2);SelectAbilityBonus(019084c0-a287-48cc-a45a-ebf149579ff9,AbilityBonus,2,1)"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="1f1d8b1c-2ca5-446e-8729-5c6d9f45f6ea"/>
+        </node>
+        <!-- 多职业进入用的 1 级节点：只保留多职业应得的熟练 -->
+        <node id="Progression">
+          <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(SimpleWeapons)"/>
+          <attribute id="IsMulticlass" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="1"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="PassivesAdded" type="LSString" value="SkeletonSmokeTest_Passive_Focus"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="43dba2ff-55bf-4f94-950d-ea9f95b514f8"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="2"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="PassivesAdded" type="LSString" value="SkeletonSmokeTest_Passive_Strike"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="da45124c-e085-4ac7-8646-2531b78b8f2f"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="3"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="30e3f401-df67-4941-91d1-f9a493fffe81"/>
+          <children>
+            <node id="SubClasses">
+              <children>
+                <node id="SubClass">
+                  <attribute id="Object" type="guid" value="d64228e3-65d6-4e3e-9c32-4a9e2d0ad6c3"/>
+                </node>
+              </children>
+            </node>
+          </children>
+        </node>
+        <node id="Progression">
+          <attribute id="AllowImprovement" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="4"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="761a5b25-432c-49ba-ae14-96e8e594ce12"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="5"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="6e374a88-fe32-4d5d-9b36-387e06d44a5b"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="6"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="d8176fd8-894b-48b4-ab75-23f41d268e4c"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="7"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="23e68629-f45e-403c-b54d-bc5be8a5574e"/>
+        </node>
+        <node id="Progression">
+          <attribute id="AllowImprovement" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="8"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="f328c0bf-4488-44e0-a783-27bef70ca32a"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="9"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="7a41612c-e154-4e12-8fc5-50341e10cf08"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="10"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="232052cc-1faf-429d-be3a-c40b3c566da5"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="11"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="6f157b7e-bd11-4379-9731-cfec8a9ae586"/>
+        </node>
+        <node id="Progression">
+          <attribute id="AllowImprovement" type="bool" value="true"/>
+          <attribute id="Level" type="uint8" value="12"/>
+          <attribute id="Name" type="LSString" value="SkeletonSmokeTest"/>
+          <attribute id="ProgressionType" type="uint8" value="0"/>
+          <attribute id="TableUUID" type="guid" value="b74361fe-0df8-451a-9e7e-1935d9568d97"/>
+          <attribute id="UUID" type="guid" value="7242617d-81f6-4912-b922-1ff3706672fe"/>
+        </node>
+        <!-- ===== 子职业 ExampleSubclassA：TableUUID …0011，从 3 级开始 ===== -->
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="3"/>
+          <attribute id="Name" type="LSString" value="ExampleSubclassA"/>
+          <attribute id="PassivesAdded" type="LSString" value="SkeletonSmokeTest_Passive_Strike"/>
+          <attribute id="ProgressionType" type="uint8" value="1"/>
+          <attribute id="TableUUID" type="guid" value="86e7b495-2667-4025-badd-4da6e4ad5efd"/>
+          <attribute id="UUID" type="guid" value="f93a2540-311e-4cc6-9e63-4aca2b28588b"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="6"/>
+          <attribute id="Name" type="LSString" value="ExampleSubclassA"/>
+          <attribute id="ProgressionType" type="uint8" value="1"/>
+          <attribute id="TableUUID" type="guid" value="86e7b495-2667-4025-badd-4da6e4ad5efd"/>
+          <attribute id="UUID" type="guid" value="c1f7339a-c4ed-438d-9ada-74052bdd3557"/>
+        </node>
+        <node id="Progression">
+          <attribute id="Level" type="uint8" value="10"/>
+          <attribute id="Name" type="LSString" value="ExampleSubclassA"/>
+          <attribute id="ProgressionType" type="uint8" value="1"/>
+          <attribute id="TableUUID" type="guid" value="86e7b495-2667-4025-badd-4da6e4ad5efd"/>
+          <attribute id="UUID" type="guid" value="7d910863-4f5b-4e5a-927e-79649c63f01f"/>
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

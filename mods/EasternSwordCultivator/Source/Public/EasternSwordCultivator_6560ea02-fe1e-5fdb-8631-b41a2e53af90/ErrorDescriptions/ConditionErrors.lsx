@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+    <version major="4" minor="8" revision="0" build="500" />
+    <region id="ConditionErrors">
+        <node id="root">
+            <children>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="3e78e957-d320-5c5c-8fc0-bd0d72a65546" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_ARMOR_BLOCKED_True" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h53bf236eg85b5g54a1gaed2gb69f1cb4e0bb" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="f89f6086-970d-5fb0-8eb5-0a3de6717de2" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_CHAIN_LIANCHENG_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h634ac25agc6f5g5cc0gbd07gfefbced5f31c" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="b84af227-4623-54af-bc52-23bd02ea7161" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_CHAIN_WUSHENG_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hb171ed31g9da6g5f8cg8c90g87f6d672d4d7" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="5f57cf37-4557-5fcd-b30a-f7777554aed7" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_1_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h577aecd9g1003g57e6g870fg1b02ae169afc" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="b894a337-185b-5ada-a178-37a4ddea0a3e" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_10_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hff3c3d39g5d44g5ed6gb57bg75207668bc57" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="a292c209-a876-5314-a88f-8385acfd2694" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_11_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hfc5c037bg6063g5752g9074g4aeaee3eac4b" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="6918d69a-5028-562e-84dd-5779cd44bfc2" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_12_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h93e4fce3ga46eg5101gabc3gfdaad9bf56a5" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="d379ef78-3ec2-5519-99b2-3632dbe5bcd8" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_13_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h7b49fca1g8ce0g5ab3g80eag8cf5e33935bb" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="314f635c-c299-5d46-9c41-d2d5349ca075" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_14_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h4ca4c3c2g16d5g567bga314g3348a5cf5c6c" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="5ab223eb-6365-56cb-a3e1-f7eeac9db7b4" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_15_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="ha7a7f783g5926g54begbc7dg373d513ef9ed" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="b760778d-5766-50b7-a40c-6700d0f70c2c" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_2_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h9ff18719g4b5fg5818g85a6g15d17dc57cd8" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="62319796-ed7d-5dcf-aa85-43d640401265" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_3_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hd99d2e4dgd439g5eddga6bdg7de38e210a24" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="df8eb830-0a7e-5a31-a453-c1f8793df4a8" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_4_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h541f2f7eg363dg5708gadb7geb6e18d28f65" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="c7a9d3de-120b-5e8d-bfc1-9d4d1b6b87b3" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_5_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hb811a384g56e3g5c71g9ee7gea28950c43a4" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="b3d59446-54c1-58ef-9233-ce0510a7b571" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_6_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h36a90f59g421fg5ff1ga1c4g716368156601" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="714d35bb-cf83-5b79-af15-1f8552cc40d6" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_7_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h022de9dfg4fa7g5281ga2f6g65f98170fad9" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="caa0c4ef-ee1d-570d-9851-83658d6c6c0a" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_8_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hbe3efad8g1f7eg5912gac84gdd06a4e9f070" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="d24e061c-f6e4-54ae-82b4-08516be4b1b4" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_FRENZY_AT_LEAST_9_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h4a4eb30ag4670g55f4g8893g3a2777fa90e6" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="3bd777fe-78f0-5335-97d6-3893eddf1731" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_IN_FLIGHT_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h170d134bg6f78g5bbdg86fcg818e1071d17a" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="db25de6a-fd8a-5586-b4ed-45d3a443aa5f" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_MAIN_SWORD_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h34e82002g5e51g5b7dgb55bg047bf56c2e3f" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="9a0f8cc9-8cef-5436-a6e6-76204c1a80f8" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_OFFHAND_SWORD_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h9307244eg51f5g5637g9d0ag3927d0f1029b" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="UUID" type="guid" value="17809da7-f14f-5aff-b41b-fd845e54f089" />
+                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_QI_MODE_False" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h729d551dgb906g5c8dg9f7eg817277bc77a1" version="1" />
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+    <version major="4" minor="8" revision="0" build="500" />
+    <region id="TextureBank">
+        <node id="TextureBank">
+            <children>
+                <node id="Resource">
+                    <attribute id="ID" type="FixedString" value="b7a5697a-ce9a-5536-aa45-886eb81beaa1" />
+                    <attribute id="Name" type="LSString" value="ESC_Icons" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Textures/Icons/ESC_Icons.dds" />
+                    <attribute id="SRGB" type="bool" value="false" />
+                    <attribute id="Streaming" type="bool" value="true" />
+                    <attribute id="Template" type="FixedString" value="ESC_Icons" />
+                    <attribute id="Type" type="int32" value="1" />
+                    <attribute id="Width" type="int32" value="1024" />
+                    <attribute id="Height" type="int32" value="1024" />
+                    <attribute id="Depth" type="int32" value="1" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

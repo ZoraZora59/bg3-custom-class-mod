@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="fdd75d80-796f-401a-ac7d-faf77bfe5464">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_AbilityDistributionPresets_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="bc872fe4-7941-519d-a848-31a723c27ce2" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="14" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_AbilityDistributionPresets_1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="0634cf5f-6d29-5100-a337-3e13e99472c6" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="2cc45280-035c-5523-9e8b-50fd34d3f715" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="14" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_AbilityDistributionPresets_2" />
+        <field name="UUID" type="IdTableFieldDefinition" value="637086b9-0c9b-5328-8992-7e6c49836f5c" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="08bd6eb2-da48-5c58-ab78-05c434ebe621" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="14" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_AbilityDistributionPresets_3" />
+        <field name="UUID" type="IdTableFieldDefinition" value="95b6862d-fa26-5bd6-9486-6b4a02a4e064" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="02e3091f-f90f-5e61-a8a5-54c9e91df87d" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="14" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_AbilityDistributionPresets_4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a6549650-6384-5950-b443-0e4012936063" />
+        <field name="ClassUUID" type="GuidObjectTableFieldDefinition" value="50110376-79c3-523e-bcf2-03146b103e4a" />
+        <field name="Strength" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Dexterity" type="IntegerTableFieldDefinition" value="14" />
+        <field name="Constitution" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Intelligence" type="IntegerTableFieldDefinition" value="8" />
+        <field name="Wisdom" type="IntegerTableFieldDefinition" value="15" />
+        <field name="Charisma" type="IntegerTableFieldDefinition" value="10" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

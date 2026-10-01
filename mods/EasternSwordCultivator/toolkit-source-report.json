@@ -1,0 +1,74 @@
+[
+  {
+    "file": "ClassDescriptions/ClassDescriptions.tbl",
+    "rows": 5
+  },
+  {
+    "file": "Progressions/Progressions.tbl",
+    "rows": 53
+  },
+  {
+    "file": "Lists/SkillLists.tbl",
+    "rows": 1
+  },
+  {
+    "file": "Lists/AbilityLists.tbl",
+    "rows": 1
+  },
+  {
+    "file": "Lists/SpellLists.tbl",
+    "rows": 35
+  },
+  {
+    "file": "ActionResourceDefinitions/ActionResourceDefinitions.tbl",
+    "rows": 4
+  },
+  {
+    "file": "CharacterCreationPresets/AbilityDistributionPresets.tbl",
+    "rows": 5
+  },
+  {
+    "file": "DefaultValues/Skills.tbl",
+    "rows": 1
+  },
+  {
+    "file": "ErrorDescriptions/ConditionErrors.tbl",
+    "rows": 22
+  },
+  {
+    "file": "Stats/Stats/Interrupt.stats",
+    "rows": 2
+  },
+  {
+    "file": "Stats/Stats/Passive.stats",
+    "rows": 20
+  },
+  {
+    "file": "Stats/SpellData/Projectile.stats",
+    "rows": 48
+  },
+  {
+    "file": "Stats/SpellData/Rush.stats",
+    "rows": 6
+  },
+  {
+    "file": "Stats/SpellData/Shout.stats",
+    "rows": 38
+  },
+  {
+    "file": "Stats/SpellData/Target.stats",
+    "rows": 48
+  },
+  {
+    "file": "Stats/SpellData/Zone.stats",
+    "rows": 11
+  },
+  {
+    "file": "Stats/StatusData/Status_BOOST.stats",
+    "rows": 115
+  },
+  {
+    "file": "Stats/Equipment/Equipment.stats",
+    "rows": 1
+  }
+]

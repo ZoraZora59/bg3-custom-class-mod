@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="3f5063e7-e02b-4849-a503-9ba01dc6e2e6">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5b89b04e-0c87-55af-acd4-e50d8904bbf3" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_sword_strike" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_1" />
+        <field name="UUID" type="IdTableFieldDefinition" value="aab5d465-6b17-5f25-a079-6999661f6bbf" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_tiaoxi;Shout_ESC_qi_guard" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_2" />
+        <field name="UUID" type="IdTableFieldDefinition" value="89ea958d-45c4-58bd-a71a-705c879c00a9" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_sword_flight" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_3" />
+        <field name="UUID" type="IdTableFieldDefinition" value="79822d36-e5b0-527a-a8e6-6c2901ce4707" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_qi_sword;Projectile_ESC_taixuan_zhaoxi;Shout_ESC_Offhand_taixuan_zhaoxi" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_4" />
+        <field name="UUID" type="IdTableFieldDefinition" value="938132db-5eb1-5df3-9b47-d46f7fe9b570" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_taixuan_qinghui;Target_ESC_taixuan_guiyuan" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_5" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a13879b4-a57e-53a4-bfb0-2ecbd5b9c569" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_control_release" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_6" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c7cb2a8b-3caa-5147-8111-677f3e5f0ef3" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_taixuan_liuguang" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_7" />
+        <field name="UUID" type="IdTableFieldDefinition" value="997c62f4-2c7c-5c90-9586-37eb57d5cf4b" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_taixuan_xinghe" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_8" />
+        <field name="UUID" type="IdTableFieldDefinition" value="920e49af-8c7a-59fa-b134-c1a45b8c8715" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_taixuan_jiuxiao" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_9" />
+        <field name="UUID" type="IdTableFieldDefinition" value="aab08b69-55f4-547c-a094-36c3855a3b01" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_focus_target;Shout_ESC_taixuan_taiqing" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_10" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ec38f414-74d8-5138-988b-08342fd61e14" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Zone_ESC_taixuan_yixiantian" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_11" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a542e1af-85b4-5a64-a8ac-091d5030bccc" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_recall_sword;Zone_ESC_tianqing_nifeng;Shout_ESC_tianqing_xushi;Target_ESC_tianqing_nixi;Shout_ESC_Offhand_tianqing_nifeng" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_12" />
+        <field name="UUID" type="IdTableFieldDefinition" value="56139935-45e7-5495-aff0-302fa9ee9067" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_tianqing_wanjun" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_13" />
+        <field name="UUID" type="IdTableFieldDefinition" value="62e96961-0b2a-5e63-8e22-04ab0d4c53ac" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_control_release" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_14" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d5847348-4bd3-514b-99e3-8550fefbf373" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Zone_ESC_tianqing_tianbeng" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_15" />
+        <field name="UUID" type="IdTableFieldDefinition" value="def096b9-2f25-5d38-bbed-86d9190a0a1d" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Rush_ESC_tianqing_tianfeng" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_16" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ccbfbf5e-674d-5716-875d-963e48170547" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_tianqing_lietian" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_17" />
+        <field name="UUID" type="IdTableFieldDefinition" value="226a993d-4639-56d5-a6b5-060e3d610ed5" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_tianqing_tianjian" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_18" />
+        <field name="UUID" type="IdTableFieldDefinition" value="46cd8ab6-417e-53a0-8135-3f6fd4b8bb74" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_tianqing_bafang;Target_ESC_tianqing_tiandi" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_19" />
+        <field name="UUID" type="IdTableFieldDefinition" value="8b1aa091-4456-5b99-ad8f-eed9d1a82c1d" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_qi_sword;Projectile_ESC_xueyan_luexue;Shout_ESC_xueyan_damage_mode;Shout_ESC_Offhand_xueyan_luexue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_20" />
+        <field name="UUID" type="IdTableFieldDefinition" value="dde73df4-2600-5b4d-83d9-9fa0fd51bcd9" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Rush_ESC_xueyan_chuanshen;Target_ESC_xueyan_huichao" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_21" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5c53975c-14e2-5c4f-b8fa-2e98c4fa1391" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_control_release" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_22" />
+        <field name="UUID" type="IdTableFieldDefinition" value="cc1f4b69-a6c1-5679-95b9-693752326eeb" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_liancheng" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_23" />
+        <field name="UUID" type="IdTableFieldDefinition" value="2bba5210-032c-50cb-825d-f3dcfcb11eb2" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_24" />
+        <field name="UUID" type="IdTableFieldDefinition" value="4e90af2d-d986-5ec7-beb4-c4f08f989f54" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_ranxue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_25" />
+        <field name="UUID" type="IdTableFieldDefinition" value="804b0960-cac2-5116-86a9-1fae948b546b" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_xuehai" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_26" />
+        <field name="UUID" type="IdTableFieldDefinition" value="36a5a5e1-c45e-52b7-b2d7-626bc5faac1e" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_xueyan_wusheng" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_27" />
+        <field name="UUID" type="IdTableFieldDefinition" value="2924dfe7-52b1-5a1f-9bd9-e1922da2f626" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_recall_sword;Projectile_ESC_xingge_wenlu;Target_ESC_xingge_xiangfu;Shout_ESC_Offhand_xingge_wenlu" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_28" />
+        <field name="UUID" type="IdTableFieldDefinition" value="e7a7fb9f-1167-57cf-ab86-7e24dbbb401e" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_xingge_huifeng" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_29" />
+        <field name="UUID" type="IdTableFieldDefinition" value="749a1074-ca74-56ba-ae46-4f4bc94b2891" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_xingge_chengfeng" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_30" />
+        <field name="UUID" type="IdTableFieldDefinition" value="0ac024e7-5257-5d32-a1bb-6508c6108ea9" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_xingge_tongzhou" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_31" />
+        <field name="UUID" type="IdTableFieldDefinition" value="e3cdf85f-3f9c-5172-b80a-a2669f72bdeb" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_xingge_fuchen" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_32" />
+        <field name="UUID" type="IdTableFieldDefinition" value="8c6f5326-e1fc-5215-81ca-d5885e6b856c" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_xingge_fengyu" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_33" />
+        <field name="UUID" type="IdTableFieldDefinition" value="22ff57a1-bcf7-5dda-a590-e852dbc15ccd" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_xingge_zhangjian" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_34" />
+        <field name="UUID" type="IdTableFieldDefinition" value="55b8cb7f-18cb-52fc-b351-25e2e8a52630" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_sword_strike" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

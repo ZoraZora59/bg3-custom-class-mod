@@ -1,0 +1,2073 @@
+{
+  "version": 1,
+  "created": "2026-09-29",
+  "generation_route": "built-in image_gen",
+  "sources_sha256": {
+    "17-bg3-art-style-guide.md": "eccb5002fd9e78a54f2902001766bae0adf0a164bd23396f167558781b167be1",
+    "19-skill-specifications-draft.md": "94cd859dd58f4c8b08cb5342db762f4d1754544bc591cd9b8e3f9e40044f1ea2",
+    "20-eastern-sword-cultivator-gdd.md": "d876bb0012c4f4698103ce82696a9c228a394c315391fbbcd7ee5b3f9e344b78",
+    "21-player-facing-skill-text-draft.md": "7dd528c16bf06bbace18b9966a6e415aa8534e8095e0c525db5fc8ccf2f31813"
+  },
+  "palette_status": "First art direction following docs/17; adjustable after visual review",
+  "assets": [
+    {
+      "id": "badge_sword_cultivator",
+      "name": "东方剑修",
+      "group": "common",
+      "kind": "badge",
+      "subject": "One dignified upward silver Chinese jian sword, a compact antique-gold circular sword-energy frame with four understated open arcs, pale jade inset; one lineage with four paths.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible in-game class heraldic emblem. Centered square transparent composition, compact silhouette occupying 78% of the image with ample transparent margin. Hand-painted antique-gold metal rim, recessed dark details, steel bevel highlights, selective colored jewel accents, inspired by vanilla BG3 fighter/wizard class badge material treatment. Central Chinese jian sword stays unmistakable. No text, number, watermark, square UI frame, photoreal product photography, checkerboard, dragon, yin-yang, deity sigil or invented faction. Subject: One dignified upward silver Chinese jian sword, a compact antique-gold circular sword-energy frame with four understated open arcs, pale jade inset; one lineage with four paths. Palette accents: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent.",
+      "transparent": true,
+      "exports": [
+        "class_300",
+        "class_hotbar_64"
+      ],
+      "status": "complete",
+      "master": "masters/badge/badge_sword_cultivator.png",
+      "attempts": 1,
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-8598508f-ebda-48ce-9aa8-f4581f33f934.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "id": "badge_taixuan",
+      "name": "太玄",
+      "group": "taixuan",
+      "kind": "badge",
+      "subject": "An upward slender silver Chinese jian sword with a pale jade jewel, sparse antique-gold closed circular cloud filigree, serene symmetrical negative space, fine restrained ray accents.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible in-game class heraldic emblem. Centered square transparent composition, compact silhouette occupying 78% of the image with ample transparent margin. Hand-painted antique-gold metal rim, recessed dark details, steel bevel highlights, selective colored jewel accents, inspired by vanilla BG3 fighter/wizard class badge material treatment. Central Chinese jian sword stays unmistakable. No text, number, watermark, square UI frame, photoreal product photography, checkerboard, dragon, yin-yang, deity sigil or invented faction. Subject: An upward slender silver Chinese jian sword with a pale jade jewel, sparse antique-gold closed circular cloud filigree, serene symmetrical negative space, fine restrained ray accents. Palette accents: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura.",
+      "transparent": true,
+      "exports": [
+        "class_300",
+        "class_hotbar_64"
+      ],
+      "status": "complete",
+      "master": "masters/badge/badge_taixuan.png",
+      "attempts": 1,
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-585d28df-5107-42ee-a4f7-7fa566e84767.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "id": "badge_tianqing",
+      "name": "天倾",
+      "group": "tianqing",
+      "kind": "badge",
+      "subject": "An upward broad powerful steel Chinese sword, antique-gold cracked radial frame split outward by the sword, heavy angular wedges and a small amber jewel; lucid defiant overwhelming strength, no fire.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible in-game class heraldic emblem. Centered square transparent composition, compact silhouette occupying 78% of the image with ample transparent margin. Hand-painted antique-gold metal rim, recessed dark details, steel bevel highlights, selective colored jewel accents, inspired by vanilla BG3 fighter/wizard class badge material treatment. Central Chinese jian sword stays unmistakable. No text, number, watermark, square UI frame, photoreal product photography, checkerboard, dragon, yin-yang, deity sigil or invented faction. Subject: An upward broad powerful steel Chinese sword, antique-gold cracked radial frame split outward by the sword, heavy angular wedges and a small amber jewel; lucid defiant overwhelming strength, no fire. Palette accents: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire.",
+      "transparent": true,
+      "exports": [
+        "class_300",
+        "class_hotbar_64"
+      ],
+      "status": "complete",
+      "master": "masters/badge/badge_tianqing.png",
+      "attempts": 1,
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-eb82acfb-8328-430b-b13a-942b5a7b2afe.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "id": "badge_xueyan",
+      "name": "血魇",
+      "group": "xueyan",
+      "kind": "badge",
+      "subject": "An upward sharp dark-steel Chinese sword, antique-gold angular broken ring with restrained inward hooks, three deep crimson jewel insets and sparse crimson vapor; ominous corrupted sword lineage, no Bhaal skull or religious symbol.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible in-game class heraldic emblem. Centered square transparent composition, compact silhouette occupying 78% of the image with ample transparent margin. Hand-painted antique-gold metal rim, recessed dark details, steel bevel highlights, selective colored jewel accents, inspired by vanilla BG3 fighter/wizard class badge material treatment. Central Chinese jian sword stays unmistakable. No text, number, watermark, square UI frame, photoreal product photography, checkerboard, dragon, yin-yang, deity sigil or invented faction. Subject: An upward sharp dark-steel Chinese sword, antique-gold angular broken ring with restrained inward hooks, three deep crimson jewel insets and sparse crimson vapor; ominous corrupted sword lineage, no Bhaal skull or religious symbol. Palette accents: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura.",
+      "transparent": true,
+      "exports": [
+        "class_300",
+        "class_hotbar_64"
+      ],
+      "status": "complete",
+      "master": "masters/badge/badge_xueyan.png",
+      "attempts": 1,
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-638ea7b5-e818-4202-9e9d-86d122790d08.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "id": "badge_xingge",
+      "name": "行歌",
+      "group": "xingge",
+      "kind": "badge",
+      "subject": "An upward elegant silver Chinese jian sword, two antique-gold open curved supporting arms forming a protective heraldic ring, small teal gemstone, paired graceful routes suggesting companionship; no musical instrument.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible in-game class heraldic emblem. Centered square transparent composition, compact silhouette occupying 78% of the image with ample transparent margin. Hand-painted antique-gold metal rim, recessed dark details, steel bevel highlights, selective colored jewel accents, inspired by vanilla BG3 fighter/wizard class badge material treatment. Central Chinese jian sword stays unmistakable. No text, number, watermark, square UI frame, photoreal product photography, checkerboard, dragon, yin-yang, deity sigil or invented faction. Subject: An upward elegant silver Chinese jian sword, two antique-gold open curved supporting arms forming a protective heraldic ring, small teal gemstone, paired graceful routes suggesting companionship; no musical instrument. Palette accents: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent.",
+      "transparent": true,
+      "exports": [
+        "class_300",
+        "class_hotbar_64"
+      ],
+      "status": "complete",
+      "master": "masters/badge/badge_xingge.png",
+      "attempts": 1,
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-14c75b65-de84-4953-83e6-fe495ecbf65d.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "id": "skill_yujian",
+      "name": "御剑术",
+      "group": "common",
+      "kind": "skill",
+      "subject": "One diagonal Chinese jian blade with a single sweeping outbound trail and a shorter returning arc; remotely flying sword returns to the hand; no hand needed.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One diagonal Chinese jian blade with a single sweeping outbound trail and a shorter returning arc; remotely flying sword returns to the hand; no hand needed.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_yujian.png",
+      "attempts": 1,
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-56c8170b-0552-4b21-8bed-b126970894fe.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "id": "skill_sword_strike",
+      "name": "近身剑术",
+      "group": "common",
+      "kind": "skill",
+      "subject": "One diagonal Chinese jian sword with one short sharp curved slash; unmistakably close sword attack, simpler than remote sword control.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One diagonal Chinese jian sword with one short sharp curved slash; unmistakably close sword attack, simpler than remote sword control.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_sword_strike.png",
+      "attempts": 1,
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-518d862e-d120-4baf-b0af-30b220c9a6e4.png",
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "id": "skill_tiaoxi",
+      "name": "调息",
+      "group": "common",
+      "kind": "skill",
+      "subject": "A minimal seated meditating human silhouette, one small sword upright at the torso and two inward flowing breath arcs gathering into the chest; no face details.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: A minimal seated meditating human silhouette, one small sword upright at the torso and two inward flowing breath arcs gathering into the chest; no face details.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tiaoxi.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-220a4aa9-e00c-4176-b341-339a85f66eca.png"
+    },
+    {
+      "id": "skill_qi_guard",
+      "name": "剑气护体",
+      "group": "common",
+      "kind": "skill",
+      "subject": "A simple upright human torso enclosed by one clean luminous sword-energy protective circle, a small diagonal incoming blade deflected off its edge.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: A simple upright human torso enclosed by one clean luminous sword-energy protective circle, a small diagonal incoming blade deflected off its edge.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_qi_guard.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-2b49e2a4-8171-4d12-9e2f-9819a23af64f.png"
+    },
+    {
+      "id": "skill_sword_flight",
+      "name": "御剑飞行",
+      "group": "common",
+      "kind": "skill",
+      "subject": "A simple standing human silhouette balanced with both feet on one horizontally flying Chinese jian sword, two clean airflow strokes beneath; sword supports person, not winged flight.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: A simple standing human silhouette balanced with both feet on one horizontally flying Chinese jian sword, two clean airflow strokes beneath; sword supports person, not winged flight.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_sword_flight.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-32be4a77-3ab9-475a-8851-591365240faa.png"
+    },
+    {
+      "id": "skill_recall_sword",
+      "name": "召剑",
+      "group": "common",
+      "kind": "skill",
+      "subject": "One sword flying hilt-first toward a clearly simplified open hand, with a single curved returning trail.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One sword flying hilt-first toward a clearly simplified open hand, with a single curved returning trail.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_recall_sword.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-735198f9-9a68-4515-885e-630b59502ed0.png"
+    },
+    {
+      "id": "skill_qi_sword",
+      "name": "凝气成剑",
+      "group": "common",
+      "kind": "skill",
+      "subject": "Several fine energy threads coalescing into one slender upright Chinese jian sword outline, unformed wisps at its base and a sharply defined tip.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: Several fine energy threads coalescing into one slender upright Chinese jian sword outline, unformed wisps at its base and a sharply defined tip.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_qi_sword.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-a32affb4-471a-44cf-aaaa-c622e6a86f77.png"
+    },
+    {
+      "id": "skill_control_release",
+      "name": "主动解控",
+      "group": "common",
+      "kind": "skill",
+      "subject": "One small upright sword cutting across a broken chain loop around a minimal torso; two separated chain ends open outward, unmistakable release from restraint.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One small upright sword cutting across a broken chain loop around a minimal torso; two separated chain ends open outward, unmistakable release from restraint.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_control_release.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-237186a6-0e2f-42c0-ab87-17f9996ace5d.png"
+    },
+    {
+      "id": "skill_focus_target",
+      "name": "改换重点目标",
+      "group": "common",
+      "kind": "skill",
+      "subject": "A single small faceless enemy silhouette selected by four open inward pointing sword tips, one simple targeting diamond; no numeral or crosshair UI border.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: A single small faceless enemy silhouette selected by four open inward pointing sword tips, one simple targeting diamond; no numeral or crosshair UI border.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_focus_target.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-0f151568-c58e-41a0-b28c-2e908d3376f1.png"
+    },
+    {
+      "id": "skill_taixuan_zhaoxi",
+      "name": "照隙",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "One fine diagonal spectral sword tip entering a narrow bright gap between two dark armor plate shapes; a single pinpoint opening, precision rather than explosion.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: One fine diagonal spectral sword tip entering a narrow bright gap between two dark armor plate shapes; a single pinpoint opening, precision rather than explosion.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_zhaoxi.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-b6fcb457-30f0-43fc-a1b5-9c1a512a011b.png"
+    },
+    {
+      "id": "skill_taixuan_qinghui",
+      "name": "清辉返照",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "One closed protective crescent ring around a slender upright sword; one small incoming arrow bounces off the ring and turns into one returning sword ray.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: One closed protective crescent ring around a slender upright sword; one small incoming arrow bounces off the ring and turns into one returning sword ray.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_qinghui.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-041e3935-6927-4f41-bee7-a994e0a28f31.png"
+    },
+    {
+      "id": "skill_taixuan_jiuxiao",
+      "name": "九霄剑雨",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "Five slender spectral swords descending together in a compact fan onto one shallow ground arc; instantaneous sword rain, no enclosing sustained domain circle.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: Five slender spectral swords descending together in a compact fan onto one shallow ground arc; instantaneous sword rain, no enclosing sustained domain circle.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_jiuxiao.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-055b8703-9122-46c8-92e3-5c429a4ea108.png"
+    },
+    {
+      "id": "skill_taixuan_liuguang",
+      "name": "流光追星",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "Exactly four slender spectral sword trajectories curve and converge on one small star-like impact point; clear four paths and a single concentrated target.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: Exactly four slender spectral sword trajectories curve and converge on one small star-like impact point; clear four paths and a single concentrated target.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_liuguang.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-8dd84232-b3dd-435d-a273-fc85037495a1.png"
+    },
+    {
+      "id": "skill_taixuan_xinghe",
+      "name": "星河倒悬",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "One tall upright central spectral sword within a stronger protective closed arc and three small outward repelling sword rays; defense with reversal, distinct from a rain of swords.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: One tall upright central spectral sword within a stronger protective closed arc and three small outward repelling sword rays; defense with reversal, distinct from a rain of swords.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_xinghe.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-d3131b37-9a9d-47d3-ac1e-6decdf6ee3fc.png"
+    },
+    {
+      "id": "skill_taixuan_taiqing",
+      "name": "太清剑域",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "A low elliptical domain boundary surrounding one tiny upright sword-bearing figure, three narrow swords descending inside the boundary; sustained mobile sword domain, clean center.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: A low elliptical domain boundary surrounding one tiny upright sword-bearing figure, three narrow swords descending inside the boundary; sustained mobile sword domain, clean center.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_taiqing.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-687aabd5-3c3b-41b3-a736-a8694df21825.png"
+    },
+    {
+      "id": "skill_taixuan_yixiantian",
+      "name": "玄极·一线天",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "Several fine curved spectral sword threads converge into ONE long perfectly straight piercing sword beam cutting across two offset dark armor fragments, one very bright first impact; no broad explosion.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: Several fine curved spectral sword threads converge into ONE long perfectly straight piercing sword beam cutting across two offset dark armor fragments, one very bright first impact; no broad explosion.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_yixiantian.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-46cc0286-5afd-43e7-ae17-d2b4349b890e.png"
+    },
+    {
+      "id": "skill_taixuan_guiyuan",
+      "name": "归元",
+      "group": "taixuan",
+      "kind": "skill",
+      "subject": "A minimal torso with two returning pale jade energy arcs gathering into a bright small center at the chest, one small upright sword below, restorative rejoining energy.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: A minimal torso with two returning pale jade energy arcs gathering into a bright small center at the chest, one small upright sword below, restorative rejoining energy.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_taixuan_guiyuan.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-78fc6ceb-5926-4bac-b702-926f7a300326.png"
+    },
+    {
+      "id": "skill_tianqing_nifeng",
+      "name": "逆锋",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One substantial diagonal sword with a single wide open sweeping arc and two small outward displaced silhouettes; forceful sweeping sword attack.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One substantial diagonal sword with a single wide open sweeping arc and two small outward displaced silhouettes; forceful sweeping sword attack.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_nifeng.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-816b02a8-614e-4b14-b609-87b12f70ccfc.png"
+    },
+    {
+      "id": "skill_tianqing_wanjun",
+      "name": "万钧剑势",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One broad vertical sword presses down over three tiny angular enemy silhouettes beneath a low heavy horizontal energy arc, visual compression and suppression, no rain of blades.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One broad vertical sword presses down over three tiny angular enemy silhouettes beneath a low heavy horizontal energy arc, visual compression and suppression, no rain of blades.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_wanjun.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-dbfbbb79-4629-4193-8228-759145cc8185.png"
+    },
+    {
+      "id": "skill_tianqing_lietian",
+      "name": "裂天一剑",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One enormous diagonal blade cleaves one clearly split armored plate in two, narrow separation and sharp pale impact line, single-target armor breaking.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One enormous diagonal blade cleaves one clearly split armored plate in two, narrow separation and sharp pale impact line, single-target armor breaking.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_lietian.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-87257148-5e3f-4290-b99b-0c215b551d38.png"
+    },
+    {
+      "id": "skill_tianqing_tianbeng",
+      "name": "天崩剑啸",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One broad forward-facing sword tip releases a powerful ninety-degree fan of three thick force arcs, a single central impact accent, wide frontal destruction.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One broad forward-facing sword tip releases a powerful ninety-degree fan of three thick force arcs, a single central impact accent, wide frontal destruction.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_tianbeng.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-6495e1bb-3c22-4162-8720-e13313131476.png"
+    },
+    {
+      "id": "skill_tianqing_tianfeng",
+      "name": "天锋破阵",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One thick horizontal giant sword rushes forward along a clear straight path, two angular enemy forms pushed sideways, heavy forward thrust rather than falling.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One thick horizontal giant sword rushes forward along a clear straight path, two angular enemy forms pushed sideways, heavy forward thrust rather than falling.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_tianfeng.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-e8415319-99c2-4442-8f19-eb3c4cddd266.png"
+    },
+    {
+      "id": "skill_tianqing_tianjian",
+      "name": "天剑坠世",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One enormous sword points vertically downward into one broad circular impact wave with a few broken ground shards; sword falling from above, decisive ground impact.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One enormous sword points vertically downward into one broad circular impact wave with a few broken ground shards; sword falling from above, decisive ground impact.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_tianjian.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-5c0bdb4a-9fd2-4d86-b226-884068289224.png"
+    },
+    {
+      "id": "skill_tianqing_bafang",
+      "name": "八方灭阵",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "Exactly eight strong sword blades arranged radially outward from one central point, readable eight-direction starburst, no downward falling swords.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: Exactly eight strong sword blades arranged radially outward from one central point, readable eight-direction starburst, no downward falling swords.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_bafang.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-be76548a-4875-4c74-9181-f59e1144c5a6.png"
+    },
+    {
+      "id": "skill_tianqing_tiandi",
+      "name": "天地剑劫",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "Exactly three enormous parallel sword blades descending toward one shared low elliptical impact area, compact grouping with clear three blade silhouettes.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: Exactly three enormous parallel sword blades descending toward one shared low elliptical impact area, compact grouping with clear three blade silhouettes.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_tiandi.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-f9cbb40e-dfda-49bf-bb00-b3a8c26156d0.png"
+    },
+    {
+      "id": "skill_tianqing_xushi",
+      "name": "蓄势",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One broad upright sword gathers two heavy inward spiraling energy arcs into the blade, compact held-back strength, no impact explosion.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One broad upright sword gathers two heavy inward spiraling energy arcs into the blade, compact held-back strength, no impact explosion.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_xushi.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-c1985cf0-f0a3-4bd7-9e62-2988b7d91cf7.png"
+    },
+    {
+      "id": "skill_tianqing_nixi",
+      "name": "逆息回生",
+      "group": "tianqing",
+      "kind": "skill",
+      "subject": "One bold split heart-like life core rejoins around an upright sword under two rising restorative arcs; vigorous self-healing, no cross medical sign.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One bold split heart-like life core rejoins around an upright sword under two rising restorative arcs; vigorous self-healing, no cross medical sign.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_tianqing_nixi.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-1271cb85-8b20-4356-8394-589570785e76.png"
+    },
+    {
+      "id": "skill_xueyan_luexue",
+      "name": "掠血",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "One thin crimson sword pierces one simplified target mark and draws a returning curved blood-energy thread toward the hilt; single-target life siphon, no gore.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One thin crimson sword pierces one simplified target mark and draws a returning curved blood-energy thread toward the hilt; single-target life siphon, no gore.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_luexue.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-db072c25-b907-4b7c-96df-930f2da4181d.png"
+    },
+    {
+      "id": "skill_xueyan_chuanshen",
+      "name": "血影穿身",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "One diagonal crimson sword with one long straight penetrating trail cutting through two small faceless silhouettes, a clear single continuous dash route.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One diagonal crimson sword with one long straight penetrating trail cutting through two small faceless silhouettes, a clear single continuous dash route.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_chuanshen.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-1dc9efe6-b731-4ea5-9a0c-ba8cf3e246a5.png"
+    },
+    {
+      "id": "skill_xueyan_ranxue",
+      "name": "燃血入狂",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "One small heart core feeds three sharp upward crimson energy spikes around an upright dark sword, deliberate self-sacrifice and rising frenzy; symbolic, no exposed organs.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One small heart core feeds three sharp upward crimson energy spikes around an upright dark sword, deliberate self-sacrifice and rising frenzy; symbolic, no exposed organs.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_ranxue.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-ba918025-baa9-4be3-b98a-a2c87bf5e231.png"
+    },
+    {
+      "id": "skill_xueyan_liancheng",
+      "name": "血影连城",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "Exactly four short sharp sword strokes connected by a clear zigzag path between three small target points; successive pursuit route, no arena circle.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Redesign this reference as ONE improved fantasy RPG ability icon for Blood Shadow Chain Pursuit. Preserve the reference's deep crimson and dark plum pigment wash, pale rose luminous hand-painted contours, worn brush edges and smooth transparent outer fade. The central glyph composition must be simplified and replaced: show EXACTLY FOUR complete small sword glyphs with plain short crossbar hilts, each sword clearly separated from the others. Place one in the upper left, one in the upper right, one in the lower left and one in the lower right. Connect their four separate attack points using ONE thin zigzag pursuit trail. Four little impact dots may anchor the four attacks, but no humanoid targets. Each mini-sword points along its local short attack direction. The icon must unmistakably contain FOUR sword attacks, not three. No fifth central sword, no extra slash glyphs, no figures, no full scene, no gore, no frame, no words or numbers. Use generous negative space and a comfortably inset silhouette occupying around 72 percent of the square. Keep simple bold luminous two-tone linework readable at 64 pixels. Transparent background, no opaque background plate, no checkerboard. This is an ability pictogram, not a weapon rendering or a metal class badge.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_liancheng-v2.png",
+      "attempts": 2,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-db5e1993-9c48-4424-a4e8-4886a25a3e5b.png",
+      "revision_history": [
+        {
+          "master": "masters/skill/skill_xueyan_liancheng.png",
+          "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: Exactly four short sharp sword strokes connected by a clear zigzag path between three small target points; successive pursuit route, no arena circle.",
+          "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-16dd9ef9-9b5c-4952-bd11-396bb197fb65.png",
+          "width": 1254,
+          "height": 1254,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "basename": "skill_xueyan_liancheng"
+        }
+      ],
+      "references": [
+        "masters/skill/skill_xueyan_liancheng.png"
+      ],
+      "basename": "skill_xueyan_liancheng-v2"
+    },
+    {
+      "id": "skill_xueyan_nixue",
+      "name": "逆血狂澜",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "Six sharp crimson sword rays burst outward around one central dark upright blade, followed by two small inward returning wisps; explosive backlash.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: Six sharp crimson sword rays burst outward around one central dark upright blade, followed by two small inward returning wisps; explosive backlash.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_nixue.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-1a3ccdd4-829f-49d7-ac80-2e04f4e1cef1.png"
+    },
+    {
+      "id": "skill_xueyan_xuehai",
+      "name": "血海噬灵",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "One elliptical crimson domain around a tiny upright sword-bearing figure, three inward hooked energy streams siphoning strength toward the center, sparse dark plum core.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One elliptical crimson domain around a tiny upright sword-bearing figure, three inward hooked energy streams siphoning strength toward the center, sparse dark plum core.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_xuehai.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-9056412b-6509-431b-8644-77be6574e5ae.png"
+    },
+    {
+      "id": "skill_xueyan_wusheng",
+      "name": "血魇·无生",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "Exactly three simple translucent sword-bearing shadow silhouettes close inward around one central target dot, two short slash accents for each shadow, iconic not detailed figures.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: Exactly three simple translucent sword-bearing shadow silhouettes close inward around one central target dot, two short slash accents for each shadow, iconic not detailed figures.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_wusheng.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-166ed457-3340-4048-a410-3601ad360dcb.png"
+    },
+    {
+      "id": "skill_xueyan_huichao",
+      "name": "回潮",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "Two curved crimson energy tides fold inward and rejoin one small split life core around an upright sword tip; restorative inward tide, no attack target.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: Two curved crimson energy tides fold inward and rejoin one small split life core around an upright sword tip; restorative inward tide, no attack target.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_huichao.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-b3d191fd-0685-4a51-b81c-92786ea0ec98.png"
+    },
+    {
+      "id": "skill_xueyan_damage_mode",
+      "name": "剑气伤害切换",
+      "group": "xueyan",
+      "kind": "skill",
+      "subject": "One upright sword divided into a crimson half and a pale neutral-ivory half, two small opposite curved arrows; choose necrotic or force energy, no extra resource or elemental fire.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One upright sword divided into a crimson half and a pale neutral-ivory half, two small opposite curved arrows; choose necrotic or force energy, no extra resource or elemental fire.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xueyan_damage_mode.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-df581c34-d56c-4cee-90f0-b764d24adf65.png"
+    },
+    {
+      "id": "skill_xingge_wenlu",
+      "name": "问路",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "One diagonal sword opens a small target diamond, a second thinner following sword route approaches the same point; creating a follow-up opportunity.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: One diagonal sword opens a small target diamond, a second thinner following sword route approaches the same point; creating a follow-up opportunity.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_wenlu.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-75c4d731-68c9-46ab-b211-0957300ceb43.png"
+    },
+    {
+      "id": "skill_xingge_huifeng",
+      "name": "回风解围",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "Two opposing curved sword-wind arcs open space around one small ally silhouette, a short protective arc shields the ally, no teleport portal.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: Two opposing curved sword-wind arcs open space around one small ally silhouette, a short protective arc shields the ally, no teleport portal.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_huifeng.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-9e03dc8e-1056-41c8-93e7-ab0c89137433.png"
+    },
+    {
+      "id": "skill_xingge_fuchen",
+      "name": "拂尘",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "One fine sword-guided airflow sweeps two broken chain links away from a simple ally torso, clear release from restraint with light feathered strokes, no broom.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: One fine sword-guided airflow sweeps two broken chain links away from a simple ally torso, clear release from restraint with light feathered strokes, no broom.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_fuchen.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-47d6515a-0fce-4ccd-b264-e7c1509abfae.png"
+    },
+    {
+      "id": "skill_xingge_chengfeng",
+      "name": "乘风破围",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "One small ally silhouette steps through a large open protective sword arc, a horizontal airflow path leads outward through the gap; rescue and escape movement.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: One small ally silhouette steps through a large open protective sword arc, a horizontal airflow path leads outward through the gap; rescue and escape movement.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_chengfeng.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-4565fb6f-8a00-41b3-ab3f-f75e953c5ee1.png"
+    },
+    {
+      "id": "skill_xingge_tongzhou",
+      "name": "同舟破浪",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "Three complementary sword paths from distinct directions converge on one enemy point at the same time, one leading sword slightly stronger; immediate coordinated attack, no literal boat.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: Three complementary sword paths from distinct directions converge on one enemy point at the same time, one leading sword slightly stronger; immediate coordinated attack, no literal boat.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_tongzhou.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-9b371760-fab7-4607-af2c-9d28c95a82c0.png"
+    },
+    {
+      "id": "skill_xingge_fengyu",
+      "name": "风雨同归",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "One central upright protective sword-bearing figure receives two curved incoming lines from two smaller ally silhouettes, a broad sheltering arc overhead; sharing allies damage, no healing cross.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: One central upright protective sword-bearing figure receives two curved incoming lines from two smaller ally silhouettes, a broad sheltering arc overhead; sharing allies damage, no healing cross.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_fengyu.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-9f9ad75b-7c6c-4de9-a7a9-639a49900eaa.png"
+    },
+    {
+      "id": "skill_xingge_zhangjian",
+      "name": "仗剑行歌",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "Four small glowing companion nodes linked by graceful sword-energy arcs, one flying sword follows a second leading sword stroke; sustained team offensive resonance, no music notes.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: Four small glowing companion nodes linked by graceful sword-energy arcs, one flying sword follows a second leading sword stroke; sustained team offensive resonance, no music notes.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_zhangjian.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-63ee3abe-2f84-4fed-bcec-ecac3ed3e225.png"
+    },
+    {
+      "id": "skill_xingge_xiangfu",
+      "name": "相扶",
+      "group": "xingge",
+      "kind": "skill",
+      "subject": "Two simple open hands facing one another support a small restored life core, one understated sword shape below, cooperative emergency healing.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: Two simple open hands facing one another support a small restored life core, one understated sword shape below, cooperative emergency healing.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/skill/skill_xingge_xiangfu.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-a7724a72-cc16-45ef-970e-80f97c7fd42d.png"
+    },
+    {
+      "id": "passive_sword_heart",
+      "name": "剑心／感知御剑",
+      "group": "common",
+      "kind": "passive",
+      "subject": "One upright sword piercing a small open eye-shaped perception motif, intuitive sword awareness, no realistic eyeball.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One upright sword piercing a small open eye-shaped perception motif, intuitive sword awareness, no realistic eyeball.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_sword_heart.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-f9a964b8-721a-4100-8d00-730d62011cd2.png"
+    },
+    {
+      "id": "passive_basic_defense",
+      "name": "入门防护",
+      "group": "common",
+      "kind": "passive",
+      "subject": "One small sword over a modest shield outline, exactly one clean protecting arc, understated foundation defense.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One small sword over a modest shield outline, exactly one clean protecting arc, understated foundation defense.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_basic_defense.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-9abaa6be-7ddb-4a80-a2dd-da3065e5bb77.png"
+    },
+    {
+      "id": "passive_continuous_strikes",
+      "name": "连贯出剑",
+      "group": "common",
+      "kind": "passive",
+      "subject": "Three clean offset short sword strokes connected by one uninterrupted flowing arc, consecutive attacks, no numbers.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: Three clean offset short sword strokes connected by one uninterrupted flowing arc, consecutive attacks, no numbers.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_continuous_strikes.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-7776f1e9-97b1-4ec8-9d53-a98f729cc0af.png"
+    },
+    {
+      "id": "passive_control_resist",
+      "name": "抗控基础",
+      "group": "common",
+      "kind": "passive",
+      "subject": "One calm open eye above a stable sword, broken knot outside an intact small protective circle, bodily and mental control resistance.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One calm open eye above a stable sword, broken knot outside an intact small protective circle, bodily and mental control resistance.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_control_resist.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-2f119dbb-c9a5-463f-989f-145aa8c62594.png"
+    },
+    {
+      "id": "passive_auto_release",
+      "name": "反应脱困",
+      "group": "common",
+      "kind": "passive",
+      "subject": "A chain loop splits at a bright sword tip with one short recoil ray, immediate prevention of disabling control.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: A chain loop splits at a bright sword tip with one short recoil ray, immediate prevention of disabling control.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_auto_release.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-7e70d10a-190c-432f-8552-46e01e5f2b92.png"
+    },
+    {
+      "id": "passive_taixuan_breath",
+      "name": "沟通天地／自愈",
+      "group": "taixuan",
+      "kind": "passive",
+      "subject": "A small calm torso and upright sword receive two thin downward flowing strands from a wide sky arc, stable breathing and natural recovery.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: A small calm torso and upright sword receive two thin downward flowing strands from a wide sky arc, stable breathing and natural recovery.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_taixuan_breath.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-98c33c06-b42b-4e4e-be57-63c28ea0b6e5.png"
+    },
+    {
+      "id": "passive_tianqing_fortitude",
+      "name": "深厚体魄",
+      "group": "tianqing",
+      "kind": "passive",
+      "subject": "A broad upright sword supports one heavy intact shield-shaped torso, thick sturdy silhouette, grounded endurance.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: A broad upright sword supports one heavy intact shield-shaped torso, thick sturdy silhouette, grounded endurance.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_tianqing_fortitude.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-bd59786c-35c5-4efb-8c6e-abe15d0218c4.png"
+    },
+    {
+      "id": "passive_xueyan_siphon",
+      "name": "饮血",
+      "group": "xueyan",
+      "kind": "passive",
+      "subject": "One small crimson droplet-like energy core follows a hook-shaped returning sword trail into a pale life point; symbolic life siphon without gore.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One small crimson droplet-like energy core follows a hook-shaped returning sword trail into a pale life point; symbolic life siphon without gore.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_xueyan_siphon.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-f32e118d-c71a-4c26-88df-b483e173d2f7.png"
+    },
+    {
+      "id": "passive_xueyan_finish",
+      "name": "斩杀回元",
+      "group": "xueyan",
+      "kind": "passive",
+      "subject": "One downward sword stroke severs a small dark target diamond and releases three small energy motes returning upward to the blade.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One downward sword stroke severs a small dark target diamond and releases three small energy motes returning upward to the blade.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_xueyan_finish.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-690e6b3a-88f6-403a-b559-56ba534f7cea.png"
+    },
+    {
+      "id": "passive_xueyan_unhindered",
+      "name": "无视借机攻击",
+      "group": "xueyan",
+      "kind": "passive",
+      "subject": "One diagonal sword glides through an open gap between two interrupted attack arcs, fast evasive passing, not teleportation.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One diagonal sword glides through an open gap between two interrupted attack arcs, fast evasive passing, not teleportation.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_xueyan_unhindered.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-85df6f5a-6352-4a55-a1a6-7df1d69a88a7.png"
+    },
+    {
+      "id": "passive_xingge_sidebyside",
+      "name": "并肩",
+      "group": "xingge",
+      "kind": "passive",
+      "subject": "Exactly two simple standing silhouettes shoulder to shoulder under one broad protective sword arc, mutual protection.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: Exactly two simple standing silhouettes shoulder to shoulder under one broad protective sword arc, mutual protection.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_xingge_sidebyside.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-4951665f-1d2c-4b09-87fb-f90b505def5f.png"
+    },
+    {
+      "id": "passive_xingge_cooperation",
+      "name": "协作回气",
+      "group": "xingge",
+      "kind": "passive",
+      "subject": "Two distinct sword strokes meet and release a small returning breath spiral toward one central life-energy point, teamwork restores energy.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: Two distinct sword strokes meet and release a small returning breath spiral toward one central life-energy point, teamwork restores energy.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/passive/passive_xingge_cooperation.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-de0703f6-0541-4e8b-b3f0-dce23dd7a6b3.png"
+    },
+    {
+      "id": "status_weakpoint",
+      "name": "破绽",
+      "group": "taixuan",
+      "kind": "status",
+      "subject": "Two angular armor plates with one small bright exposed gap marked by a fine sword-tip ray, target weakness debuff.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: Two angular armor plates with one small bright exposed gap marked by a fine sword-tip ray, target weakness debuff.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_weakpoint.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-c1a8f2ad-0ee8-4855-a619-7c54287087e0.png"
+    },
+    {
+      "id": "status_followup",
+      "name": "跟进机会",
+      "group": "xingge",
+      "kind": "status",
+      "subject": "One target point surrounded by two open arcs with a second slim sword approaching, ally follow-up marker.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: One target point surrounded by two open arcs with a second slim sword approaching, ally follow-up marker.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_followup.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-5d7e06c2-1704-4d13-8a5d-eddb3086bda5.png"
+    },
+    {
+      "id": "status_control_resistance",
+      "name": "解控后抵抗",
+      "group": "common",
+      "kind": "status",
+      "subject": "A small stable upright sword surrounded by an intact pale circle and two separated chain fragments outside, short resistance after release.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: A small stable upright sword surrounded by an intact pale circle and two separated chain fragments outside, short resistance after release.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_control_resistance.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-a2b7577c-a4e7-4343-b7d5-3f1fc954b606.png"
+    },
+    {
+      "id": "status_blood_robe",
+      "name": "血衣",
+      "group": "xueyan",
+      "kind": "status",
+      "subject": "A simple armored torso wrapped in a thin crimson protective coat-shaped outline, three small siphoned energy motes seal its edge, blood-energy shield.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: A simple armored torso wrapped in a thin crimson protective coat-shaped outline, three small siphoned energy motes seal its edge, blood-energy shield.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_blood_robe.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-e40a56a3-6d7c-4f10-bf5c-301f3b0858e8.png"
+    },
+    {
+      "id": "status_frenzy",
+      "name": "癫狂",
+      "group": "xueyan",
+      "kind": "status",
+      "subject": "One sharply tilted sword with a jagged split halo and three rising crimson spikes, building violent frenzy; no face or numerical layers.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One sharply tilted sword with a jagged split halo and three rising crimson spikes, building violent frenzy; no face or numerical layers.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_frenzy.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-9946afe4-c969-4739-b86e-c10f9b5809c6.png"
+    },
+    {
+      "id": "status_armor_break",
+      "name": "破甲",
+      "group": "tianqing",
+      "kind": "status",
+      "subject": "One thick sword tip breaks a clearly cracked shield into two separated angular halves, debuffed armor.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One thick sword tip breaks a clearly cracked shield into two separated angular halves, debuffed armor.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_armor_break.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-dced6950-d26c-44b3-8f5a-4d7e93a63f46.png"
+    },
+    {
+      "id": "status_suppression",
+      "name": "剑势镇压",
+      "group": "tianqing",
+      "kind": "status",
+      "subject": "Three descending heavy pressure bars above a small bent enemy silhouette, short sword tip above, pressure slows and weakens attacks.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: Three descending heavy pressure bars above a small bent enemy silhouette, short sword tip above, pressure slows and weakens attacks.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_suppression.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-49c388cb-d029-4d83-a552-e5779225a208.png"
+    },
+    {
+      "id": "status_counter_ready",
+      "name": "护体反击",
+      "group": "taixuan",
+      "kind": "status",
+      "subject": "One compact closed sword guard arc turns one incoming narrow ray back outward into a small sword arrow, readiness to counter.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: One compact closed sword guard arc turns one incoming narrow ray back outward into a small sword arrow, readiness to counter.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_counter_ready.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-3e90b5b9-9d7b-4b58-ad2b-cdc8ad66dca6.png"
+    },
+    {
+      "id": "status_sword_domain",
+      "name": "太清剑域增益",
+      "group": "taixuan",
+      "kind": "status",
+      "subject": "A small upright sword inside a clear elliptical field with three upward pale enhancing rays, domain aid for allies.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: A small upright sword inside a clear elliptical field with three upward pale enhancing rays, domain aid for allies.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_sword_domain.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-26d23ac5-5809-4083-bf25-17a1721d0c8b.png"
+    },
+    {
+      "id": "status_sword_domain_debuff",
+      "name": "太清剑域压制",
+      "group": "taixuan",
+      "kind": "status",
+      "subject": "A small dark target within an elliptical sword boundary pressed by three thin inward sword tips, domain suppression for enemies.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: cool pale jade, turquoise and moon-white luminous strokes, calm restrained aura. Subject: A small dark target within an elliptical sword boundary pressed by three thin inward sword tips, domain suppression for enemies.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_sword_domain_debuff.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-505900de-a9c3-4f2f-9dc7-88ca757b6869.png"
+    },
+    {
+      "id": "status_tianqing_might",
+      "name": "天倾攻势强化",
+      "group": "tianqing",
+      "kind": "status",
+      "subject": "A broad upright sword with two expanding strong upward arcs and a small white edge flare, temporary increased offense.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: A broad upright sword with two expanding strong upward arcs and a small white edge flare, temporary increased offense.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_tianqing_might.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-7100f95d-0d9f-489d-aa06-c8ebdc38b139.png"
+    },
+    {
+      "id": "status_tianqing_aftershock",
+      "name": "坠剑余威",
+      "group": "tianqing",
+      "kind": "status",
+      "subject": "One grounded downward sword stands inside two concentric low shockwave arcs, sustained nearby force aftermath.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: ochre gold, pale amber-white luminous strokes and charcoal contrast, force energy not fire. Subject: One grounded downward sword stands inside two concentric low shockwave arcs, sustained nearby force aftermath.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_tianqing_aftershock.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-6692043c-bb24-4297-8875-78000c75b34f.png"
+    },
+    {
+      "id": "status_dash_defense",
+      "name": "穿行保护",
+      "group": "xueyan",
+      "kind": "status",
+      "subject": "One moving diagonal sword wrapped in a short slanted protective arc with two trailing strokes, defense after actual movement.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One moving diagonal sword wrapped in a short slanted protective arc with two trailing strokes, defense after actual movement.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_dash_defense.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-3d774a2e-54fa-450f-85f0-56f32b1be332.png"
+    },
+    {
+      "id": "status_xingge_protection",
+      "name": "回风保护",
+      "group": "xingge",
+      "kind": "status",
+      "subject": "One ally torso supported by two graceful curved sword-wind brackets, short protective effect.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: One ally torso supported by two graceful curved sword-wind brackets, short protective effect.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_xingge_protection.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-b21fea71-e783-4ae1-bcf8-434eec0455fe.png"
+    },
+    {
+      "id": "status_escape",
+      "name": "破围脱险",
+      "group": "xingge",
+      "kind": "status",
+      "subject": "A small running silhouette exits a clean gap in a sword arc, two interrupted attack trails behind, safe movement.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: A small running silhouette exits a clean gap in a sword arc, two interrupted attack trails behind, safe movement.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_escape.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-9db8a482-7a1d-4c9f-a3be-f5022ae568c0.png"
+    },
+    {
+      "id": "status_damage_share",
+      "name": "分担伤害",
+      "group": "xingge",
+      "kind": "status",
+      "subject": "Two small ally points send curved streams to one larger guarded central point, clear incoming shared injury, no offensive arrow.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: Two small ally points send curved streams to one larger guarded central point, clear incoming shared injury, no offensive arrow.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_damage_share.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-210468f5-6fc6-4535-b5f3-1977e0996fc2.png"
+    },
+    {
+      "id": "status_team_resonance",
+      "name": "御剑呼应",
+      "group": "xingge",
+      "kind": "status",
+      "subject": "A small leading sword trail followed by one distinct flying sword, two linked luminous nodes, triggered follow-up.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep teal-green, pale warm ivory luminous strokes and a small old-gold accent. Subject: A small leading sword trail followed by one distinct flying sword, two linked luminous nodes, triggered follow-up.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/status/status_team_resonance.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-0d5a3ea1-4d13-4324-8c6b-f266d0b5dd0c.png"
+    },
+    {
+      "id": "resource_sword_yuan",
+      "name": "剑元",
+      "group": "common",
+      "kind": "resource",
+      "subject": "One simple slender vertical sword-energy crystal inside a small open breath ring, iconic reusable energy token, no numeral.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: muted jade teal with pale ivory luminous strokes and a tiny antique-gold accent. Subject: One simple slender vertical sword-energy crystal inside a small open breath ring, iconic reusable energy token, no numeral.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/resource/resource_sword_yuan.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-71f68361-de6f-4c38-a243-95080f1fd1d4.png"
+    },
+    {
+      "id": "resource_frenzy",
+      "name": "癫狂资源",
+      "group": "xueyan",
+      "kind": "resource",
+      "subject": "One compact jagged crimson three-point energy shard pierced by a short blade, accumulating frenzy token, no numeral.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create exactly ONE original Baldur's Gate 3 compatible fantasy RPG ability icon. Square composition, transparent background with a restrained semitransparent pigment aura fading smoothly to alpha at the edges. Visual language of vanilla BG3 spell icons: bold softly luminous hand-painted linework, slightly worn brush edges, variable stroke thickness, pale contrasting contours, simple symbolic shapes, generous negative space and only a few small decorative motes. Main silhouette occupies roughly 72% of square, comfortably inset. EVERY sword, hand and person is a SIMPLIFIED TWO-TONE LUMINOUS CONTOUR DRAWING, with hollow or flat pigment interiors. Sword hilts are plain short crossbars; do NOT draw ornate guards, gemstones, jewelry, decorative tassels, realistic steel shading or material bevels. Think glowing chalk rune drawn on a faded pigment wash, not a collectible weapon illustration. This is an iconic luminous pictogram, NOT a cinematic illustration, NOT a realistic product rendering, NOT a metallic class badge. No ornate border, no letter, no number, no readable text, no watermark, no checkerboard, no montage, no grid. Do not render detailed faces, full battle scenes, background landscapes or excessive smoke. Major symbol and action must read clearly at 64 pixels. Palette: deep crimson, pale rose luminous strokes and dark plum contrast, dangerous blood-energy aura. Subject: One compact jagged crimson three-point energy shard pierced by a short blade, accumulating frenzy token, no numeral.",
+      "transparent": true,
+      "exports": [
+        "hotbar_64",
+        "controller_144",
+        "tooltip_380"
+      ],
+      "status": "complete",
+      "master": "masters/resource/resource_frenzy.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-ff3f27cd-8d3c-427d-903a-da2cfe06949e.png"
+    },
+    {
+      "id": "cover_lineage",
+      "name": "一脉四途·Mod封面",
+      "group": "common",
+      "kind": "illustration",
+      "subject": "A lone faceless Eastern sword cultivator seen from behind, robes and a real straight sword, stands on a weathered Faerun stone ruin overlooking a misty landscape. Four subtly different sword-energy routes arc from one source: fine jade-white precision, broad ochre-gold force, crimson shadow, and paired teal-gold companion paths. A mysterious small distant unidentifiable doorway suggests crossing worlds, no literal key design, no gods, no logos. Square editorial fantasy cover, solitary dignity, grounded stone metal cloth textures, warm dusk and cool mist, clear central silhouette, no text.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create ONE original BG3-compatible painted fantasy background/promotional illustration. A lone faceless Eastern sword cultivator seen from behind, robes and a real straight sword, stands on a weathered Faerun stone ruin overlooking a misty landscape. Four subtly different sword-energy routes arc from one source: fine jade-white precision, broad ochre-gold force, crimson shadow, and paired teal-gold companion paths. A mysterious small distant unidentifiable doorway suggests crossing worlds, no literal key design, no gods, no logos. Square editorial fantasy cover, solitary dignity, grounded stone metal cloth textures, warm dusk and cool mist, clear central silhouette, no text.",
+      "transparent": false,
+      "exports": [
+        "illustration_master"
+      ],
+      "status": "complete",
+      "master": "masters/illustration/cover_lineage.png",
+      "attempts": 1,
+      "width": 1254,
+      "height": 1254,
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-25a1bc60-36f0-413b-a5d5-ccf87a806c32.png"
+    },
+    {
+      "id": "background_founder",
+      "name": "异乡传承·背景插画",
+      "group": "common",
+      "kind": "illustration",
+      "subject": "A solitary Eastern sword immortal viewed from behind, gender and age not visually specified, simple layered robes, one straight sword held lowered, standing before a weathered unfamiliar fantasy stone arch with a narrow luminous interworld opening. An alien but grounded Faerun landscape beyond, lonely cool atmosphere, one quiet lineage left in a foreign world, no followers crowd, no dragon, no invented key close-up, no text. Cinematic landscape wide illustration, restrained painterly realism.",
+      "source": "20-eastern-sword-cultivator-gdd.md",
+      "prompt": "Create ONE original BG3-compatible painted fantasy background/promotional illustration. A solitary Eastern sword immortal viewed from behind, gender and age not visually specified, simple layered robes, one straight sword held lowered, standing before a weathered unfamiliar fantasy stone arch with a narrow luminous interworld opening. An alien but grounded Faerun landscape beyond, lonely cool atmosphere, one quiet lineage left in a foreign world, no followers crowd, no dragon, no invented key close-up, no text. Cinematic landscape wide illustration, restrained painterly realism.",
+      "transparent": false,
+      "exports": [
+        "illustration_master"
+      ],
+      "status": "complete",
+      "master": "masters/illustration/background_founder.png",
+      "attempts": 1,
+      "width": 1672,
+      "height": 941,
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "source_generated_path": "C:\\Users\\Zora\\.codex\\generated_images\\01a0e8f1-c7be-7bc3-ad56-1cebc8f33f4f\\exec-0c3747fe-2e1f-4e3e-8db2-7db08ad14adc.png"
+    }
+  ]
+}

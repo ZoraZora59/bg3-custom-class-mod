@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="331"/>
+  <region id="SkillLists">
+    <node id="root">
+      <children>
+        <!-- 分隔符（逗号 vs 分号）存在来源分歧，见 docs/07 V4；此处沿用社区教程的逗号写法 -->
+        <node id="SkillList">
+          <attribute id="Comment" type="LSString" value="SkeletonSmokeTest skill choices"/>
+          <attribute id="Skills" type="LSString" value="Acrobatics,Athletics,Insight,Perception,Stealth,Survival"/>
+          <attribute id="UUID" type="guid" value="a568e02a-6279-457b-91ea-9999b858bcde"/>
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

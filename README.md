@@ -25,6 +25,17 @@
 | [docs/07-open-questions-and-next-steps.md](docs/07-open-questions-and-next-steps.md) | 待拍板决策 D1–D7、Windows 首周验证清单 V1–V12、信息缺口 |
 | [docs/08-localization-plan.md](docs/08-localization-plan.md) | 多语言支持方案：官方 15 种语言目录、社区做法、随包发布 + 机翻初稿 + 社区校对的流程与工具 |
 | [docs/09-translating-existing-mods.md](docs/09-translating-existing-mods.md) | 给别人的 mod 做汉化：独立汉化 mod vs 直接改原 mod 的对比、引擎回退/覆盖规则、Mac+Windows 流程、许可与发布、坑清单 |
+| [docs/10-eastern-sword-cultivator-design.md](docs/10-eastern-sword-cultivator-design.md) | 2026-09-28 职业设计记录：东方剑修背景；四支定位、持剑／御剑、共同资源、回气主循环、癫狂机制与待讨论细节 |
+| [docs/11-signature-techniques-draft.md](docs/11-signature-techniques-draft.md) | 招式记录：启蒙御剑术、分支常态、4／8级两门分支强化、癫狂即时增益与5级连贯／飞行；主要方向已确认，招名与细则待定 |
+| [docs/12-survival-and-teamwork-draft.md](docs/12-survival-and-teamwork-draft.md) | 生存与协作草案：四支护身、生命恢复、抗控与解控；无鲜血目标、团队恢复的关键选择与确认记录 |
+| [docs/13-attributes-and-equipment-draft.md](docs/13-attributes-and-equipment-draft.md) | 属性与装备记录：统一感知主属性、分支护甲方向、剑型范围、气剑／实体佩剑分工与待讨论细节 |
+| [docs/14-level-progression-draft.md](docs/14-level-progression-draft.md) | 成长记录：1—12级主要节点已确认；5级连贯出剑与御剑飞行、4／8级分支强化、6／7／9级常规绝技、10级绝技进阶与前三支四次出手、11级基础深化、12级终极 |
+| [docs/15-ultimate-techniques-expansion-draft.md](docs/15-ultimate-techniques-expansion-draft.md) | 绝技扩展记录：太玄／血魇／行歌各四门、天倾五门，共17门；6／7／9级常规、12级终极；四支分工已确认，记录主要效果与待定细则 |
+| [docs/16-actions-and-resources-draft.md](docs/16-actions-and-resources-draft.md) | 动作与资源记录：连贯出手、费用与容量；血魇结算、太玄反击／破绽、行歌跟进／合击／呼应、持续剑域，以及广泛抗控／反应保障／受控自救，附计数示例 |
+| [docs/18-numerical-framework-draft.md](docs/18-numerical-framework-draft.md) | 数值框架：已确认的逐级剑元容量、费用标准与回气；生命、防护、疗伤等后续初稿分别标明确认状态 |
+| [docs/19-skill-specifications-draft.md](docs/19-skill-specifications-draft.md) | 招式规格：已确认4／8级强化与17门绝技的数值、10级进阶；招名与共通结算记录见总稿 |
+| [docs/20-eastern-sword-cultivator-gdd.md](docs/20-eastern-sword-cultivator-gdd.md) | 职业设计总稿：当前阅读入口，汇总四支定位、1—12级成长、构筑与共通规则、正式招名及17门绝技，附出招示例与纸面伤害对照 |
+| [docs/21-player-facing-skill-text-draft.md](docs/21-player-facing-skill-text-draft.md) | 玩家技能说明草稿：按招名解释用途、费用、伤害与关键效果，方便审阅玩家实际读到的文字 |
 | `research/` | 11 份原始研究报告（A–G 职业 mod 调研；H–K 汉化他人 mod 调研），每条结论带来源、抓取方式与审计；`manifest.json` 记录扇出与对账 |
 | `templates/` | 职业设计单、测试矩阵、bug 报告模板、`mod-skeleton/`（结构骨架，**未在游戏内验证**） |
 | `scripts/` | `gen_ids.py`（UUID/handle 生成与占位替换）、`version64.py`（版本号互转）、`check_mod.py`（静态校验）、`loca_sync.py`（多语言同步/完成度/变更清单）、`loca_convert.py`（纯 Python `.loca`↔`.xml`，未在真实文件验证）、`build.ps1`（Windows 打包示意） |
@@ -44,6 +55,9 @@ python3 scripts/version64.py encode 1.0.0.0
 Windows 侧打包与部署见 [docs/05](docs/05-dev-environment.md) §6（`scripts/build.ps1` 为示意，首次运行后请把真实输出记回 docs/07）。
 
 ## 当前状态与注意
+- 2026-10-01 东方剑修已通过官方 Toolkit 上传至 [mod.io 私有测试页](https://mod.io/g/baldursgate3/m/easternswordcultivator)，列表封面与图库封面均已补齐，线上文件版本为1.0.0.2，仅Windows，完整机制需要Script Extender。后续构建已固化真实发布ID `6417135`；新版关联包111/111静态／模拟检查通过，但新版Toolkit与正式游戏验证仍待完成。已安装冻结6DD包保持不变，正式游戏实测由用户进行。证据边界及上传记录见[Toolkit实际记录](research/N-eastern-sword-toolkit-runs.md)。
+- 2026-09-29 用户已授权将确认设计和静态图片完整接入 Mod，并允许安装使用 Script Extender；正式工程为 [EasternSwordCultivator](mods/EasternSwordCultivator/README.md)。当前实现与验收进行中，顺序为源码/脚本验证、当前版本 Toolkit、正式客户端；[验证矩阵](research/M-eastern-sword-validation.md) 与 [Toolkit 实际记录](research/N-eastern-sword-toolkit-runs.md) 区分通过、失败和待检。
+- 2026-09-29 “东方剑修”的四支定位、1—12级成长、动作与资源循环、常态／强化及17门绝技数值初稿、10—11级进阶、装备与构筑、正式招名及背景基调已确认，本轮纸面审阅完成；用户决定后续在其他 session 细化。当前阅读入口为 [职业设计总稿](docs/20-eastern-sword-cultivator-gdd.md)，附[玩家技能说明草稿](docs/21-player-facing-skill-text-draft.md)；详细依据见 [数值框架](docs/18-numerical-framework-draft.md) 与 [招式规格](docs/19-skill-specifications-draft.md)。较早设计记录保留讨论过程；MVP 实现及游戏验证由另一个 session 进行。
 - 仓库已初始化，`.gitignore` / `.gitattributes` 按 docs/05 §4 配置（构建产物、`*.pak`、版权素材目录均不入库）。
 - 所有"游戏内行为"类结论均来自文档与社区资料，**尚未在游戏内验证**；docs/07 的 V1–V16 是第一批要在 Windows 上做的验证（V13–V16 来自汉化调研）。
 - 研究阶段的抓取限制：Nexus 页面 403 且内置浏览器也被人机验证拦下（只能靠搜索摘要）、mod.io 与社区 wiki 为 JS 渲染；官方文档、mod.io 准则/指南、bg3.wiki、3DM 教程已用内置浏览器直读（research/G、K）。

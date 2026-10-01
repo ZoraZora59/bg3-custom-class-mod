@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="db45b32f-877a-45bd-afb5-32e7d415d1e6">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Skills_0" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c7d843cb-73dc-5894-949d-09c45d6a37d1" />
+        <field name="ProgressionUUID" type="GuidTableFieldDefinition" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="1" />
+        <field name="DefaultValues" type="StringTableFieldDefinition" value="Insight;Perception;Athletics;Acrobatics;Survival;Medicine;Intimidation" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

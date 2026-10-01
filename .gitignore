@@ -2,6 +2,8 @@
 build/
 *.pak
 reference/
+# 美术交付压缩包；对应母版、导出图与生产源码仍入库
+art/*.zip
 # 系统与工具
 .DS_Store
 __pycache__/

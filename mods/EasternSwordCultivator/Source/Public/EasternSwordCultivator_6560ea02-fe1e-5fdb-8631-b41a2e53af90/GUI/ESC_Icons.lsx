@@ -1,0 +1,588 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+    <version major="4" minor="8" revision="0" build="500" />
+    <region id="IconUVList">
+        <node id="root">
+            <children>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_badge_sword_cultivator" />
+                    <attribute id="U1" type="float" value="0.00048828125" />
+                    <attribute id="U2" type="float" value="0.06201171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_badge_taixuan" />
+                    <attribute id="U1" type="float" value="0.06298828125" />
+                    <attribute id="U2" type="float" value="0.12451171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_badge_tianqing" />
+                    <attribute id="U1" type="float" value="0.12548828125" />
+                    <attribute id="U2" type="float" value="0.18701171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_badge_xueyan" />
+                    <attribute id="U1" type="float" value="0.18798828125" />
+                    <attribute id="U2" type="float" value="0.24951171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_badge_xingge" />
+                    <attribute id="U1" type="float" value="0.25048828125" />
+                    <attribute id="U2" type="float" value="0.31201171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_yujian" />
+                    <attribute id="U1" type="float" value="0.31298828125" />
+                    <attribute id="U2" type="float" value="0.37451171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_sword_strike" />
+                    <attribute id="U1" type="float" value="0.37548828125" />
+                    <attribute id="U2" type="float" value="0.43701171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tiaoxi" />
+                    <attribute id="U1" type="float" value="0.43798828125" />
+                    <attribute id="U2" type="float" value="0.49951171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_qi_guard" />
+                    <attribute id="U1" type="float" value="0.50048828125" />
+                    <attribute id="U2" type="float" value="0.56201171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_sword_flight" />
+                    <attribute id="U1" type="float" value="0.56298828125" />
+                    <attribute id="U2" type="float" value="0.62451171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_recall_sword" />
+                    <attribute id="U1" type="float" value="0.62548828125" />
+                    <attribute id="U2" type="float" value="0.68701171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_qi_sword" />
+                    <attribute id="U1" type="float" value="0.68798828125" />
+                    <attribute id="U2" type="float" value="0.74951171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_control_release" />
+                    <attribute id="U1" type="float" value="0.75048828125" />
+                    <attribute id="U2" type="float" value="0.81201171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_focus_target" />
+                    <attribute id="U1" type="float" value="0.81298828125" />
+                    <attribute id="U2" type="float" value="0.87451171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_zhaoxi" />
+                    <attribute id="U1" type="float" value="0.87548828125" />
+                    <attribute id="U2" type="float" value="0.93701171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_qinghui" />
+                    <attribute id="U1" type="float" value="0.93798828125" />
+                    <attribute id="U2" type="float" value="0.99951171875" />
+                    <attribute id="V1" type="float" value="0.00048828125" />
+                    <attribute id="V2" type="float" value="0.06201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_jiuxiao" />
+                    <attribute id="U1" type="float" value="0.00048828125" />
+                    <attribute id="U2" type="float" value="0.06201171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_liuguang" />
+                    <attribute id="U1" type="float" value="0.06298828125" />
+                    <attribute id="U2" type="float" value="0.12451171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_xinghe" />
+                    <attribute id="U1" type="float" value="0.12548828125" />
+                    <attribute id="U2" type="float" value="0.18701171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_taiqing" />
+                    <attribute id="U1" type="float" value="0.18798828125" />
+                    <attribute id="U2" type="float" value="0.24951171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_yixiantian" />
+                    <attribute id="U1" type="float" value="0.25048828125" />
+                    <attribute id="U2" type="float" value="0.31201171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_taixuan_guiyuan" />
+                    <attribute id="U1" type="float" value="0.31298828125" />
+                    <attribute id="U2" type="float" value="0.37451171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_nifeng" />
+                    <attribute id="U1" type="float" value="0.37548828125" />
+                    <attribute id="U2" type="float" value="0.43701171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_wanjun" />
+                    <attribute id="U1" type="float" value="0.43798828125" />
+                    <attribute id="U2" type="float" value="0.49951171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_lietian" />
+                    <attribute id="U1" type="float" value="0.50048828125" />
+                    <attribute id="U2" type="float" value="0.56201171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_tianbeng" />
+                    <attribute id="U1" type="float" value="0.56298828125" />
+                    <attribute id="U2" type="float" value="0.62451171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_tianfeng" />
+                    <attribute id="U1" type="float" value="0.62548828125" />
+                    <attribute id="U2" type="float" value="0.68701171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_tianjian" />
+                    <attribute id="U1" type="float" value="0.68798828125" />
+                    <attribute id="U2" type="float" value="0.74951171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_bafang" />
+                    <attribute id="U1" type="float" value="0.75048828125" />
+                    <attribute id="U2" type="float" value="0.81201171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_tiandi" />
+                    <attribute id="U1" type="float" value="0.81298828125" />
+                    <attribute id="U2" type="float" value="0.87451171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_xushi" />
+                    <attribute id="U1" type="float" value="0.87548828125" />
+                    <attribute id="U2" type="float" value="0.93701171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_tianqing_nixi" />
+                    <attribute id="U1" type="float" value="0.93798828125" />
+                    <attribute id="U2" type="float" value="0.99951171875" />
+                    <attribute id="V1" type="float" value="0.06298828125" />
+                    <attribute id="V2" type="float" value="0.12451171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_luexue" />
+                    <attribute id="U1" type="float" value="0.00048828125" />
+                    <attribute id="U2" type="float" value="0.06201171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_chuanshen" />
+                    <attribute id="U1" type="float" value="0.06298828125" />
+                    <attribute id="U2" type="float" value="0.12451171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_ranxue" />
+                    <attribute id="U1" type="float" value="0.12548828125" />
+                    <attribute id="U2" type="float" value="0.18701171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_liancheng" />
+                    <attribute id="U1" type="float" value="0.18798828125" />
+                    <attribute id="U2" type="float" value="0.24951171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_nixue" />
+                    <attribute id="U1" type="float" value="0.25048828125" />
+                    <attribute id="U2" type="float" value="0.31201171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_xuehai" />
+                    <attribute id="U1" type="float" value="0.31298828125" />
+                    <attribute id="U2" type="float" value="0.37451171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_wusheng" />
+                    <attribute id="U1" type="float" value="0.37548828125" />
+                    <attribute id="U2" type="float" value="0.43701171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_huichao" />
+                    <attribute id="U1" type="float" value="0.43798828125" />
+                    <attribute id="U2" type="float" value="0.49951171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xueyan_damage_mode" />
+                    <attribute id="U1" type="float" value="0.50048828125" />
+                    <attribute id="U2" type="float" value="0.56201171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_wenlu" />
+                    <attribute id="U1" type="float" value="0.56298828125" />
+                    <attribute id="U2" type="float" value="0.62451171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_huifeng" />
+                    <attribute id="U1" type="float" value="0.62548828125" />
+                    <attribute id="U2" type="float" value="0.68701171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_fuchen" />
+                    <attribute id="U1" type="float" value="0.68798828125" />
+                    <attribute id="U2" type="float" value="0.74951171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_chengfeng" />
+                    <attribute id="U1" type="float" value="0.75048828125" />
+                    <attribute id="U2" type="float" value="0.81201171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_tongzhou" />
+                    <attribute id="U1" type="float" value="0.81298828125" />
+                    <attribute id="U2" type="float" value="0.87451171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_fengyu" />
+                    <attribute id="U1" type="float" value="0.87548828125" />
+                    <attribute id="U2" type="float" value="0.93701171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_zhangjian" />
+                    <attribute id="U1" type="float" value="0.93798828125" />
+                    <attribute id="U2" type="float" value="0.99951171875" />
+                    <attribute id="V1" type="float" value="0.12548828125" />
+                    <attribute id="V2" type="float" value="0.18701171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_skill_xingge_xiangfu" />
+                    <attribute id="U1" type="float" value="0.00048828125" />
+                    <attribute id="U2" type="float" value="0.06201171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_sword_heart" />
+                    <attribute id="U1" type="float" value="0.06298828125" />
+                    <attribute id="U2" type="float" value="0.12451171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_basic_defense" />
+                    <attribute id="U1" type="float" value="0.12548828125" />
+                    <attribute id="U2" type="float" value="0.18701171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_continuous_strikes" />
+                    <attribute id="U1" type="float" value="0.18798828125" />
+                    <attribute id="U2" type="float" value="0.24951171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_control_resist" />
+                    <attribute id="U1" type="float" value="0.25048828125" />
+                    <attribute id="U2" type="float" value="0.31201171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_auto_release" />
+                    <attribute id="U1" type="float" value="0.31298828125" />
+                    <attribute id="U2" type="float" value="0.37451171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_taixuan_breath" />
+                    <attribute id="U1" type="float" value="0.37548828125" />
+                    <attribute id="U2" type="float" value="0.43701171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_tianqing_fortitude" />
+                    <attribute id="U1" type="float" value="0.43798828125" />
+                    <attribute id="U2" type="float" value="0.49951171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_xueyan_siphon" />
+                    <attribute id="U1" type="float" value="0.50048828125" />
+                    <attribute id="U2" type="float" value="0.56201171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_xueyan_finish" />
+                    <attribute id="U1" type="float" value="0.56298828125" />
+                    <attribute id="U2" type="float" value="0.62451171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_xueyan_unhindered" />
+                    <attribute id="U1" type="float" value="0.62548828125" />
+                    <attribute id="U2" type="float" value="0.68701171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_xingge_sidebyside" />
+                    <attribute id="U1" type="float" value="0.68798828125" />
+                    <attribute id="U2" type="float" value="0.74951171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_passive_xingge_cooperation" />
+                    <attribute id="U1" type="float" value="0.75048828125" />
+                    <attribute id="U2" type="float" value="0.81201171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_weakpoint" />
+                    <attribute id="U1" type="float" value="0.81298828125" />
+                    <attribute id="U2" type="float" value="0.87451171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_followup" />
+                    <attribute id="U1" type="float" value="0.87548828125" />
+                    <attribute id="U2" type="float" value="0.93701171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_control_resistance" />
+                    <attribute id="U1" type="float" value="0.93798828125" />
+                    <attribute id="U2" type="float" value="0.99951171875" />
+                    <attribute id="V1" type="float" value="0.18798828125" />
+                    <attribute id="V2" type="float" value="0.24951171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_blood_robe" />
+                    <attribute id="U1" type="float" value="0.00048828125" />
+                    <attribute id="U2" type="float" value="0.06201171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_frenzy" />
+                    <attribute id="U1" type="float" value="0.06298828125" />
+                    <attribute id="U2" type="float" value="0.12451171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_armor_break" />
+                    <attribute id="U1" type="float" value="0.12548828125" />
+                    <attribute id="U2" type="float" value="0.18701171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_suppression" />
+                    <attribute id="U1" type="float" value="0.18798828125" />
+                    <attribute id="U2" type="float" value="0.24951171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_counter_ready" />
+                    <attribute id="U1" type="float" value="0.25048828125" />
+                    <attribute id="U2" type="float" value="0.31201171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_sword_domain" />
+                    <attribute id="U1" type="float" value="0.31298828125" />
+                    <attribute id="U2" type="float" value="0.37451171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_sword_domain_debuff" />
+                    <attribute id="U1" type="float" value="0.37548828125" />
+                    <attribute id="U2" type="float" value="0.43701171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_tianqing_might" />
+                    <attribute id="U1" type="float" value="0.43798828125" />
+                    <attribute id="U2" type="float" value="0.49951171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_tianqing_aftershock" />
+                    <attribute id="U1" type="float" value="0.50048828125" />
+                    <attribute id="U2" type="float" value="0.56201171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_dash_defense" />
+                    <attribute id="U1" type="float" value="0.56298828125" />
+                    <attribute id="U2" type="float" value="0.62451171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_xingge_protection" />
+                    <attribute id="U1" type="float" value="0.62548828125" />
+                    <attribute id="U2" type="float" value="0.68701171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_escape" />
+                    <attribute id="U1" type="float" value="0.68798828125" />
+                    <attribute id="U2" type="float" value="0.74951171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_damage_share" />
+                    <attribute id="U1" type="float" value="0.75048828125" />
+                    <attribute id="U2" type="float" value="0.81201171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_status_team_resonance" />
+                    <attribute id="U1" type="float" value="0.81298828125" />
+                    <attribute id="U2" type="float" value="0.87451171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_resource_sword_yuan" />
+                    <attribute id="U1" type="float" value="0.87548828125" />
+                    <attribute id="U2" type="float" value="0.93701171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="ESC_resource_frenzy" />
+                    <attribute id="U1" type="float" value="0.93798828125" />
+                    <attribute id="U2" type="float" value="0.99951171875" />
+                    <attribute id="V1" type="float" value="0.25048828125" />
+                    <attribute id="V2" type="float" value="0.31201171875" />
+                </node>
+            </children>
+        </node>
+    </region>
+    <region id="TextureAtlasInfo">
+        <node id="root">
+            <children>
+                <node id="TextureAtlasIconSize">
+                    <attribute id="Height" type="int32" value="64" />
+                    <attribute id="Width" type="int32" value="64" />
+                </node>
+                <node id="TextureAtlasTextureSize">
+                    <attribute id="Height" type="int32" value="1024" />
+                    <attribute id="Width" type="int32" value="1024" />
+                </node>
+                <node id="TextureAtlasPath">
+                    <attribute id="Path" type="string" value="Assets/Textures/Icons/ESC_Icons.dds" />
+                    <attribute id="UUID" type="FixedString" value="b7a5697a-ce9a-5536-aa45-886eb81beaa1" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

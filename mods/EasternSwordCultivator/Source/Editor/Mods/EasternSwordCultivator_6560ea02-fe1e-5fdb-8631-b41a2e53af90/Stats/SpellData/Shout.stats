@@ -1,0 +1,1202 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="9fd4ac7a-fad7-424f-83df-0893eae93c38">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d021d5cf-5c6c-5be6-9b0f-0514046db334" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_tiaoxi" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h35d7ee95g562cg5c9dgb182gb985b6d05076" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h10809911g92b8g5c85g9d50gea9ea379793a" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tiaoxi" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TIAOXI,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e0cbf0f5-55d5-5741-a9c8-b3ff2b1bfddf" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_qi_guard" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h165eacc2g526bg599eg81e4g960af8c57a8d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf648a1bcga559g569eg9ac4g4a1d340900e8" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_qi_guard" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_QI_GUARD,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;ESC_SwordYuan:2" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b8cda3c6-42cc-5c93-87e6-2e56f381a480" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_sword_flight" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9228485eg468cg58c0g82degb0f8260324a4" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9707d139g8679g5a5cga44fg71d7c2b43b01" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_sword_flight" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_SWORD_FLIGHT,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d53a4688-6ba9-5a1f-b86a-e44c4f036434" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_qi_sword" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfe097f3eg6376g5c8bgaa96gbd1b32d5066d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3b235c05gda26g5c8agb3d5g6272edca506a" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_qi_sword" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_QI_SWORD,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="139f9e7e-0af5-57c7-b6aa-197d4c23481d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Offhand_taixuan_zhaoxi" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6791ac83gc23bg5460ga20ag71137c4d09d1" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_zhaoxi" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_ESC_taixuan_zhaoxi_MeleeOff_Bonus;Projectile_ESC_taixuan_zhaoxi_RangedOff_Bonus" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsLinkedSpellContainer;IgnoreSilence" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e3fb1a35-21b0-5a02-bcfa-f4bca05e68d7" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_taixuan_qinghui" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h839edb9egd93eg5196gb5e9g1a6e3809bdf0" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h15f8392eg5395g5b99g9657g88f81bb83472" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_qinghui" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TAIXUAN_QINGHUI,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;ESC_SwordYuan:4" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="6154f01c-f6de-50e5-8722-c7601b471112" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_taixuan_xinghe" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6b67bdaeg2208g54aag83d7gf33e0cb2505d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd8a257d6ga927g58adg9db0g0c0ab190e7a1" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_xinghe" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(10d8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((2d6+WisdomModifier)/2,Force,Magical);DealDamage((10d8)/2,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(10d8,Force,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e436c98a-c80e-5048-be6b-5fc5bf758466" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_taixuan_taiqing" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfc1bc61fg3fbag5d86g986fg623a7f565208" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h482a0268g5e85g557aga424ged174d9fec54" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_taiqing" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TAIXUAN_TAIQING,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="71350db8-b107-51c7-8b97-fc254c61d53d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Offhand_tianqing_nifeng" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9341aeb0g8413g5972g9826g1519e16d5031" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_nifeng" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Zone_ESC_tianqing_nifeng_MeleeOff_Bonus;Zone_ESC_tianqing_nifeng_RangedOff_Bonus" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsLinkedSpellContainer;IgnoreSilence" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="2ded491e-37b4-5e54-bc99-a18c0e5838da" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_tianqing_bafang_Main" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5c6bb831g125eg5aeaga4dcg7de92d3567cd" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5d7beeffgc417g54dcgbf53g6cecaf5982f4" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_bafang" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage(44d8,Force,Magical);IF(not Enemy()):DealDamage((MainMeleeWeapon)/4,MainMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/4,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);ExecuteWeaponFunctors(MainHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage((44d8)/2,Force,Magical);IF(not Enemy()):DealDamage((MainMeleeWeapon)/8,MainMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ExecuteWeaponFunctors(MainHand)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);DealDamage(44d8,Force,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:20" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source) and HasStatus('ESC_MAIN_SWORD',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_tianqing_bafang" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="39729a34-e757-5eba-af55-4d2ffc9208ba" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_tianqing_bafang_Off" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h05221b60g3202g5c5bg8678g5baf619c49d4" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5d7beeffgc417g54dcgbf53g6cecaf5982f4" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_bafang" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage(44d8,Force,Magical);IF(not Enemy()):DealDamage((OffhandMeleeWeapon)/4,OffhandMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/4,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage((44d8)/2,Force,Magical);IF(not Enemy()):DealDamage((OffhandMeleeWeapon)/8,OffhandMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ExecuteWeaponFunctors(OffHand)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);DealDamage(44d8,Force,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:20" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source) and HasStatus('ESC_OFFHAND_SWORD',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_tianqing_bafang" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="e5ff7df6-53bc-5653-9e0d-c761ca25c16c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_tianqing_bafang" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="he5e87ff2g3b88g5a3fg8423gd3ea4599c01a" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5d7beeffgc417g54dcgbf53g6cecaf5982f4" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_bafang" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);DealDamage(44d8,Force,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence;IsLinkedSpellContainer" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source) and (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Shout_ESC_tianqing_bafang_Main;Shout_ESC_tianqing_bafang_Off" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="be2c4021-f5fc-5b34-97bd-990fda2c48de" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_tianqing_xushi" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb266089egb8d0g54c9ga5b1g7ae34b3e8502" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h9cc2af13g8106g57aag9556g0ff1b649bfbf" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_xushi" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TIANQING_XUSHI,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="ea985031-95a5-5c0a-863f-cbd47f1bcb0f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Offhand_xueyan_luexue" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd309c2d4gade4g5e78gac43g55b8c029580d" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_luexue" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_ESC_xueyan_luexue_MeleeOff_Bonus;Projectile_ESC_xueyan_luexue_RangedOff_Bonus" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsLinkedSpellContainer;IgnoreSilence" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9a3c0812-3ad2-5be7-9544-c03ee9673fec" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_ranxue" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9a7e179ega8b6g56afg94c1gc8f5a4efd744" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h72b57bf8g89e6g5115gb7e9g148ea1637171" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_ranxue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XUEYAN_RANXUE,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="28e3a6fc-49e9-5919-bcdf-d63b7e58c551" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_liancheng" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="ha03e5909g7a90g56f6g990bgeeb84efa1143" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h071df240g7ca9g51dagacdcg3de8975f3960" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_liancheng" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XUEYAN_LIANCHENG,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="56674aa1-2323-5867-9478-f90f5ef47b3b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F0" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc8919607g0ad8g580fgad2eg9fea931b47cb" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="41ee9557-b361-5f6d-a44c-a44621001296" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F1" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbc798160ga60eg52c0g9bedg3c0d5e5e3c8d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_1',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b77e9b2b-bdcd-5454-aaae-c6d80e2a7f57" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F2" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf4e6107bg052fg555fg91d7g04eb177c0231" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_2',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="1584f3ca-eff3-5977-b818-dc99625221c6" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F3" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9afef6e0gb1c4g5e1bgb44dg3411d17a5898" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_3',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="70ceb204-5453-595f-a056-e7585aef2c7f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F4" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h46b1b630gb040g5ec1g8c36ge33be76338d3" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_4',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="79ecd384-f140-550c-b313-2ca42f62c230" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F5" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3d329dccg25c2g5b16gbdfdgfc90c53f70cd" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_5',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b59adcea-ef6a-55b5-9829-7eeca28cbe6e" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F6" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1c28fdbfg4a2ag5d1bg8e7eg2b74789ab6f4" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_6',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7c9d202f-3055-5043-8440-83275bf21188" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F7" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h3a496ba9gedcdg5bf5g8b61gdbf88866640d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_7',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d6b6d8fd-8ea6-5c2b-9e66-73281aad9a41" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F8" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h01dfe01fg9550g53c3gab9cgfc81346b6d0d" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_8',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="345172a5-4680-5455-8eb9-05881182313b" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F9" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h879dd2f3ga075g5300gb2d9g53213a3e6217" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_9',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d026957e-9194-5c20-abaa-181685fa9550" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F10" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb939e30ag7450g5085gbb6dgc2300c16daab" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_10',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9e6a212f-b72a-50d3-b4d5-80c9b09ea62d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F11" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbd588f03gc0e3g57c1gbddfg900d4f78bbb2" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_11',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7ac4aa69-088f-54cb-bfa6-2f388fbbb893" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F12" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfff92997gc082g522bgb316g939c2c70449e" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_12',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="935822ae-40d7-5886-bfeb-13954297ce61" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F13" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0843fcb1g53e0g52e4g9580g43fe8149e8e9" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_13',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7cf57024-d935-5a2a-bf8e-4724fffd92c9" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F14" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h6fa80cc6ge582g53fdgb28ag8f676bdeb311" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_14',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8ac6acfc-863e-564e-8ae3-780da160f6db" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue_F15" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb553282egcc60g597cga49eg1e256730f3cb" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_15',context.Source)" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3ec3b4b5-46b2-5b05-b8d0-6cab174d1ba2" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_nixue" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h05492671g48f0g5687ga0deg2ce6e08be1af" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h1a881772g9e4dg5da9ga627gab6d83010703" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_nixue" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Necrotic,Magical);DealDamage(8d6,Necrotic,Magical)" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="6" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence;IsLinkedSpellContainer" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue_F0;Shout_ESC_xueyan_nixue_F1;Shout_ESC_xueyan_nixue_F2;Shout_ESC_xueyan_nixue_F3;Shout_ESC_xueyan_nixue_F4;Shout_ESC_xueyan_nixue_F5;Shout_ESC_xueyan_nixue_F6;Shout_ESC_xueyan_nixue_F7;Shout_ESC_xueyan_nixue_F8;Shout_ESC_xueyan_nixue_F9;Shout_ESC_xueyan_nixue_F10;Shout_ESC_xueyan_nixue_F11;Shout_ESC_xueyan_nixue_F12;Shout_ESC_xueyan_nixue_F13;Shout_ESC_xueyan_nixue_F14;Shout_ESC_xueyan_nixue_F15" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8325180e-e29a-5cf2-91c3-b87ae43ffb23" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_xuehai" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9c9b2f7fgf9f7g5eecga123g561b44d25e78" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="haa0d3acbg4b79g579fgb8f9g9ccabdc41c93" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_xuehai" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XUEYAN_XUEHAI,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b967722a-a247-5352-ab21-936ecb8d27ab" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xueyan_damage_mode" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hb1ecd2ddg00f0g5d21g81c3gf46c5984e721" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h22286832g316cg5355g89c8g973db42409fa" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xueyan_damage_mode" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XUEYAN_DAMAGE_MODE,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d6940497-8e90-5318-ba47-e5433385975c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_Offhand_xingge_wenlu" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h07f6397age0acg5eebg8c6dg4b0f880cf66f" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_wenlu" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Target_ESC_xingge_wenlu_MeleeOff_Bonus;Projectile_ESC_xingge_wenlu_RangedOff_Bonus" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsLinkedSpellContainer;IgnoreSilence" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d6130bc1-03ca-5619-8786-107875025c82" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xingge_fengyu" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h42103336g1790g5397gbaa0g9b43b9bb2f24" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf4d9da41gc82ag537dg9854ge06a87c729d1" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_fengyu" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XINGGE_FENGYU,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a578a283-cb70-51ed-862e-17de99c15661" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_xingge_zhangjian" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h1bd261a8g1a2cg5aa7gb8d0gbd17c817de2b" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h99e757c4ga4d5g5bdcg8f86gda61fcb9eabb" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_xingge_zhangjian" />
+        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XINGGE_ZHANGJIAN,100,0)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Self()" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="0" />
+        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IgnoreSilence" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:20" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

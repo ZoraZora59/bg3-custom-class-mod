@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+    <version major="4" minor="8" revision="0" build="500" />
+    <region id="AbilityLists">
+        <node id="root">
+            <children>
+                <node id="AbilityList">
+                    <attribute id="Name" type="FixedString" value="ESC_AbilityLists_0" />
+                    <attribute id="UUID" type="guid" value="c33e9189-bc27-5eca-bbbb-2a9b821793e7" />
+                    <attribute id="Abilities" type="LSString" value="Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

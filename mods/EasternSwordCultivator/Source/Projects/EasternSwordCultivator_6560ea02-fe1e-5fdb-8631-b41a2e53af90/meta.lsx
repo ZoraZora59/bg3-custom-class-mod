@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+    <version major="4" minor="8" revision="0" build="500" />
+    <region id="MetaData">
+        <node id="root">
+            <children />
+            <attribute id="GameProject" type="LSString" value="" />
+            <attribute id="Module" type="LSString" value="6560ea02-fe1e-5fdb-8631-b41a2e53af90" />
+            <attribute id="Name" type="LSString" value="EasternSwordCultivator" />
+            <attribute id="UUID" type="LSString" value="c3bdd85d-d9b8-552b-adce-adf803ad544a" />
+            <attribute id="UpdatedDependencies" type="bool" value="true" />
+        </node>
+    </region>
+</save>

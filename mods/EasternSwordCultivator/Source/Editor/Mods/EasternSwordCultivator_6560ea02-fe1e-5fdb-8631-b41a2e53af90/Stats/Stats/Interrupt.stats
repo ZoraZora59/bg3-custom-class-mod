@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="c496009d-a970-44a3-b882-7ed3364dc271">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b48c3a20-5ef4-5dc3-9e87-b1eebab93f53" />
+        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_ESC_Counter2" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc8420098ged7cg5644ga457g18f5f58b1f2c" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h724749f2g05a6g5dd3gaf01gf6f4879c3548" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_qinghui" />
+        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="InterruptContext" value="OnCastHit" />
+        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" enumeration_type_name="InterruptContextScope" value="Self" />
+        <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="HasStatus('ESC_COUNTER_RANK2',context.Observer) and not HasShieldEquipped(context.Observer) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({'SG_Incapacitated','SG_Polymorph'},context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3')" />
+        <field name="Properties" type="StringTableFieldDefinition" value="UseSpell(SWAP,Target_ESC_Counter2,true,true,true)" />
+        <field name="Cost" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Stack" type="StringTableFieldDefinition" value="ESC_Counter" />
+        <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" enumeration_type_name="InterruptDefaultValue" value="Enabled;Ask" />
+        <field name="EnableContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatsFunctorContext" value="OnStatusApplied;OnStatusRemoved" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="893268d1-e6eb-5d53-bccd-2ea8713b5e57" />
+        <field name="Name" type="NameTableFieldDefinition" value="Interrupt_ESC_Counter3" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h094b000fg6873g5173g8abbg4d8138433f4f" version="1" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h64162b40g6d0bg5e89g8e5ag560c5adcc0e6" version="1" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_xinghe" />
+        <field name="InterruptContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="InterruptContext" value="OnCastHit" />
+        <field name="InterruptContextScope" type="EnumerationListTableFieldDefinition" enumeration_type_name="InterruptContextScope" value="Self" />
+        <field name="Container" type="StringTableFieldDefinition" value="YesNoDecision" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="HasStatus('ESC_COUNTER_RANK3',context.Observer) and not HasShieldEquipped(context.Observer) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({'SG_Incapacitated','SG_Polymorph'},context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3')" />
+        <field name="Properties" type="StringTableFieldDefinition" value="UseSpell(SWAP,Target_ESC_Counter3,true,true,true)" />
+        <field name="Cost" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Stack" type="StringTableFieldDefinition" value="ESC_Counter" />
+        <field name="InterruptDefaultValue" type="EnumerationListTableFieldDefinition" enumeration_type_name="InterruptDefaultValue" value="Enabled;Ask" />
+        <field name="EnableContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatsFunctorContext" value="OnStatusApplied;OnStatusRemoved" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>
