@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="932b7155-73a9-5665-bd53-206370809284" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Common_Projectile">
+    <EffectInfo UUID="68686ef2-5dc0-5b60-8ec7-13f310b22e99" EffectResourceGuid="709aba23-bbf9-55a5-b2b4-7666abc37dcc" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_Root" />
+</MultiEffectInfos>

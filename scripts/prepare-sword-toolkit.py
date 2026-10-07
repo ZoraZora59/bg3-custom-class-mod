@@ -51,7 +51,7 @@ def main():
     p.add_argument('--data',type=Path,default=Path('E:/SteamLibrary/steamapps/common/Baldurs Gate 3/Data'))
     args=p.parse_args()
     report=[]
-    for rel in ('ClassDescriptions/ClassDescriptions','Progressions/Progressions','Lists/SkillLists','Lists/AbilityLists','Lists/SpellLists','ActionResourceDefinitions/ActionResourceDefinitions','CharacterCreationPresets/AbilityDistributionPresets','DefaultValues/Skills','ErrorDescriptions/ConditionErrors'):
+    for rel in ('ClassDescriptions/ClassDescriptions','Progressions/Progressions','Progressions/ProgressionDescriptions','Lists/SkillLists','Lists/AbilityLists','Lists/SpellLists','ActionResourceDefinitions/ActionResourceDefinitions','CharacterCreationPresets/AbilityDistributionPresets','DefaultValues/Skills','ErrorDescriptions/ConditionErrors','Levelmaps/LevelMapValues'):
         definition,defs,_=schema(args.data,rel+'.tbl')
         root=ET.Element('stats',stat_object_definition_id=definition)
         rows=ET.SubElement(root,'stat_objects')
@@ -62,6 +62,8 @@ def main():
                 if rel.startswith('ClassDescriptions'): key={'Name':'NameFS','ParentGuid':'ParentUUID'}.get(key,key)
                 elif rel.startswith('ActionResourceDefinitions'): key='NameFS' if key=='Name' else key
                 elif rel.startswith('DefaultValues'): key={'Add':'DefaultValues','TableUUID':'ProgressionUUID'}.get(key,key)
+                elif rel.startswith('Levelmaps/'):
+                    key='PreferredClass' if key=='PreferredClassUUID' else key
                 elif rel.startswith('Lists/') and key=='Name':
                     expected=values['Name']
                     if a.get('value')!=expected:
@@ -107,7 +109,10 @@ def main():
                 field=defs.get(key)
                 if not field: raise ValueError(f'Unknown Toolkit stats field {txt.name}:{key}')
                 if field.get('type')=='TranslatedStringTableFieldDefinition':
-                    handle,version=value.rsplit(';',1);values[key]={'handle':handle,'version':version}
+                    if not value:
+                        values[key]={'clear_inherited_value':'true'}
+                    else:
+                        handle,version=value.rsplit(';',1);values[key]={'handle':handle,'version':version}
                 else: values[key]=value
             fields_for(ET.SubElement(rows,'stat_object',is_substat='false'),defs,values)
         save(SOURCE/'Editor/Mods'/FOLDER/relative,root)

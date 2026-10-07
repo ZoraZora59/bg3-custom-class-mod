@@ -61,7 +61,7 @@ function Ext.Entity.Get(id) return type(id)=='table' and id or F.entities[id] en
 function Ext.Entity.GetAllEntitiesWithComponent(component)
     local result={}
     for _,entity in pairs(F.entities) do
-        if entity.Uuid and (component~='Classes' or #entity.Classes.Classes>0) then result[#result+1]=entity end
+        if entity.Uuid and (component~='Classes' or entity.Classes~=nil) then result[#result+1]=entity end
     end
     return result
 end
@@ -136,6 +136,10 @@ function Osi.IsSummon(id) return F.entities[id]._summon and 1 or 0 end
 function Osi.CanSee(a,b) return F.entities[a]._cannotSee~=b and 1 or 0 end
 function Osi.HasLineOfSight(a,b) return F.entities[a]._blocked~=b and 1 or 0 end
 function Osi.HasPassive(id,name) return (F.entities[id]._passives or {})[name] and 1 or 0 end
+function Osi.RemovePassive(id,name)
+    record('RemovePassive',id,name)
+    if F.entities[id]._passives then F.entities[id]._passives[name]=nil end
+end
 function Osi.GetOwner(id) return F.entities[id]._owner end
 function Osi.IsEquipped(id) return F.entities[id]._equipped and 1 or 0 end
 function Osi.Equip(owner,item,addOnFail,notification,clearOwner)
@@ -143,9 +147,24 @@ function Osi.Equip(owner,item,addOnFail,notification,clearOwner)
 end
 function Osi.GetReservedUserID(id) return F.entities[id]._user end
 function Osi.HasSpell(id,spell) return (F.entities[id]._spells or {})[spell] and 1 or 0 end
+function Osi.AddSpell(id,spell,showNotification,addContainerSpells)
+    record('AddSpell',id,spell,showNotification,addContainerSpells)
+    local entity=F.entities[id];entity._spells=entity._spells or {};entity._spells[spell]=true
+    local children=F.stats[spell] and F.stats[spell].ContainerSpells
+    if addContainerSpells~=0 and type(children)=='string' then
+        for child in children:gmatch('[^;]+') do entity._spells[child]=true end
+    end
+end
 function Osi.RemoveSpell(id,spell,removeContainerSpells)
     record('RemoveSpell',id,spell,removeContainerSpells)
-    if F.entities[id]._spells then F.entities[id]._spells[spell]=nil end
+    local spells=F.entities[id]._spells
+    if spells then
+        spells[spell]=nil
+        local children=F.stats[spell] and F.stats[spell].ContainerSpells
+        if removeContainerSpells~=0 and type(children)=='string' then
+            for child in children:gmatch('[^;]+') do spells[child]=nil end
+        end
+    end
 end
 function Osi.UseSpell(source,spell,target,originator,withoutMove)
     record('UseSpell',source,spell,target,originator,withoutMove)

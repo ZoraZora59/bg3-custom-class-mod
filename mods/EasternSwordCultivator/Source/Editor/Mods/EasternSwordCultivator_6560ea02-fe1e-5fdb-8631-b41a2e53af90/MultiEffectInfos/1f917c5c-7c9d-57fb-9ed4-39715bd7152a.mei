@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="1f917c5c-7c9d-57fb-9ed4-39715bd7152a" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Taixuan_Projectile">
+    <EffectInfo UUID="85d6b27a-1268-55ed-ad42-0f78ed93ce23" EffectResourceGuid="0c32b8dc-2720-5f00-a142-7e3b055831d2" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_Root" />
+</MultiEffectInfos>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="4a61af47-eacb-5ca9-8a4d-278953ea45b3" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Xueyan_Projectile">
+    <EffectInfo UUID="da7cb8d3-0eb0-516d-a9e2-5ed860016da2" EffectResourceGuid="7133596e-3742-5cf3-a129-a54aa7809603" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_Root" />
+</MultiEffectInfos>

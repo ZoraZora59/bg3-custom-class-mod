@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="6b3aad3b-7ccb-5d88-8eb9-b79de2649c42" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Xingge_Impact">
+    <EffectInfo UUID="a23d393d-c284-5ee9-ae6e-e613a8de5484" EffectResourceGuid="e17ef193-d594-50ee-995c-d3a8b57e2ef4" DetachSource="true" DetachTarget="true" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_BodyFX" />
+</MultiEffectInfos>

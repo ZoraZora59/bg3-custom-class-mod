@@ -57,6 +57,9 @@ try {
         Get-ChildItem -LiteralPath (Join-Path $stageRoot $part) -Recurse -File | ForEach-Object {
             $relativePath = $_.FullName.Substring($stageRoot.Length + 1)
             if ($_.Extension -eq '.md') { return }
+            if ($_.Extension -eq '.lsx' -and
+                $relativePath -match '^Public\\[^\\]+\\(MultiEffectInfos|RootTemplates)\\' -and
+                (Test-Path -LiteralPath ([IO.Path]::ChangeExtension($_.FullName,'.lsf')))) { return }
             $target = Join-Path $packRoot $relativePath
             New-Item -ItemType Directory -Force -Path (Split-Path -Parent $target) | Out-Null
             if ($_.Extension -eq '.xml') {

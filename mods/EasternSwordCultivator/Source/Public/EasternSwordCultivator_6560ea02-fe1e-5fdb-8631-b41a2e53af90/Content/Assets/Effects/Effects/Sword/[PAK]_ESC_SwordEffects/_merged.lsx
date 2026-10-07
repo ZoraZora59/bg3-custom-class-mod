@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="EffectBank">
+        <node id="EffectBank">
+            <children>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-4 -4 -4" />
+                    <attribute id="BoundsMax" type="fvec3" value="4 4 4" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.0" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Common_Impact_01" />
+                    <attribute id="ID" type="FixedString" value="6c9c4098-b37e-501b-8c88-76dbac0af0cd" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Common_Impact_01" />
+                    <attribute id="Radius" type="float" value="6.928203230275509" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Common_Impact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5bd97f73-3a3e-a628-9af2-8a618e388f5a" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="e7b55705-01cd-edbd-7a8d-25321c31904d" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="eb4f4fd6-49e4-7c34-774b-e843647ed84e" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+                    <attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.2" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Common_Projectile_01" />
+                    <attribute id="ID" type="FixedString" value="709aba23-bbf9-55a5-b2b4-7666abc37dcc" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Common_Projectile_01" />
+                    <attribute id="Radius" type="float" value="5.196152422706632" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Common_Projectile_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="c1319fce-3d47-ac75-e502-a3e965500038" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="fb318905-c5c9-165b-2a28-1bec091aa3db" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+                    <attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="2.0" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Taixuan_Impact_01" />
+                    <attribute id="ID" type="FixedString" value="40bf0664-6b05-52d8-a7df-f173688f8e56" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Taixuan_Impact_01" />
+                    <attribute id="Radius" type="float" value="8.660254037844387" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Taixuan_Impact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="44192e18-75cf-4d16-1747-81ed534b8247" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="97b12629-982f-c7b4-7807-1ca4cd35e0aa" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+                    <attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.2" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Taixuan_Projectile_01" />
+                    <attribute id="ID" type="FixedString" value="0c32b8dc-2720-5f00-a142-7e3b055831d2" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Taixuan_Projectile_01" />
+                    <attribute id="Radius" type="float" value="5.196152422706632" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Taixuan_Projectile_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="c1319fce-3d47-ac75-e502-a3e965500038" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="fb318905-c5c9-165b-2a28-1bec091aa3db" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-10 -10 -10" />
+                    <attribute id="BoundsMax" type="fvec3" value="10 10 10" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="2.0" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Impact_01" />
+                    <attribute id="ID" type="FixedString" value="bf5408ee-1405-5a6d-9dce-a186182a5692" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Impact_01" />
+                    <attribute id="Radius" type="float" value="17.320508075688775" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Tianqing_Impact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5bd97f73-3a3e-a628-9af2-8a618e388f5a" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="e7b55705-01cd-edbd-7a8d-25321c31904d" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="eb4f4fd6-49e4-7c34-774b-e843647ed84e" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-9 -9 -9" />
+                    <attribute id="BoundsMax" type="fvec3" value="9 9 9" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.2" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Projectile_01" />
+                    <attribute id="ID" type="FixedString" value="0db22044-16d9-5c82-9633-651befed3716" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Projectile_01" />
+                    <attribute id="Radius" type="float" value="15.588457268119896" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Tianqing_Projectile_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="12f3193c-ce1a-5a69-1bf0-8537b9b606f9" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="fb318905-c5c9-165b-2a28-1bec091aa3db" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+                    <attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="2.0" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Xingge_Impact_01" />
+                    <attribute id="ID" type="FixedString" value="e17ef193-d594-50ee-995c-d3a8b57e2ef4" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Xingge_Impact_01" />
+                    <attribute id="Radius" type="float" value="8.660254037844387" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xingge_Impact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5bd97f73-3a3e-a628-9af2-8a618e388f5a" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="e7b55705-01cd-edbd-7a8d-25321c31904d" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="eb4f4fd6-49e4-7c34-774b-e843647ed84e" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+                    <attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.2" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Xingge_Projectile_01" />
+                    <attribute id="ID" type="FixedString" value="3953c772-1b76-5d0a-9d4b-c2a7b0b4ce02" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Xingge_Projectile_01" />
+                    <attribute id="Radius" type="float" value="5.196152422706632" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xingge_Projectile_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="c1319fce-3d47-ac75-e502-a3e965500038" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="fb318905-c5c9-165b-2a28-1bec091aa3db" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+                    <attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="2.0" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Xueyan_Impact_01" />
+                    <attribute id="ID" type="FixedString" value="e1ff9168-fa5b-524e-b8d2-f5cc8c4a15de" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Xueyan_Impact_01" />
+                    <attribute id="Radius" type="float" value="8.660254037844387" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xueyan_Impact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="4860ed23-afca-2745-f070-12da4f8bd239" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5bd97f73-3a3e-a628-9af2-8a618e388f5a" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="e7b55705-01cd-edbd-7a8d-25321c31904d" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="eb4f4fd6-49e4-7c34-774b-e843647ed84e" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+                    <attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="2.3000000000000003" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Xueyan_Projectile_01" />
+                    <attribute id="ID" type="FixedString" value="7133596e-3742-5cf3-a129-a54aa7809603" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Xueyan_Projectile_01" />
+                    <attribute id="Radius" type="float" value="5.196152422706632" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xueyan_Projectile_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="4860ed23-afca-2745-f070-12da4f8bd239" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="c1319fce-3d47-ac75-e502-a3e965500038" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="fb318905-c5c9-165b-2a28-1bec091aa3db" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

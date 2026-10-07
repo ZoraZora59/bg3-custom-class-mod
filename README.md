@@ -3,6 +3,14 @@
 调研日期：2026-09-02。目标：为"把自己幻想中的新职业做成 BG3 mod"准备好知识、环境、模板与工作流。
 开发机：Mac（编辑/设计/脚本）+ Windows（官方 Toolkit / Script Extender / 游戏内验证）双机分工。
 
+## 主分支与当前工程
+
+项目统一使用 **`main`**，本地 `main` 跟踪 `origin/main`，GitHub 默认分支也是 `main`。原 `master` 的提交历史已接入 `main`；`master` 仅保留历史引用，后续开发、合并和发布以 `main` 为准。功能分支从 `main` 创建，使用 `codex/` 前缀。
+
+当前正式工程为 [东方剑修](mods/EasternSwordCultivator/README.md)，完整机制依赖 BG3 Script Extender。设计以 [职业总稿](docs/20-eastern-sword-cultivator-gdd.md) 为准；玩家说明、原型特效和御剑速度记录见 [技能说明](docs/21-player-facing-skill-text-draft.md)、[特效接入](docs/22-skill-vfx-and-animation.md)、[原型验证](docs/23-vfx-prototype-validation.md)及[速度调整](docs/24-yujian-projectile-speed.md)。静态检查、Toolkit 验证和正式游戏验收分别记录；本地已安装的职业细节描述修复仍待界面复测。
+
+文档中的 `build/` 日志、截图、安装备份和 PAK 是本地验证证据，由 Git 忽略，远程仓库不包含这些文件。以下“一页结论”保留早期调研内容；当前实现和验证状态以正式工程文档及 [Toolkit 运行记录](research/N-eastern-sword-toolkit-runs.md) 为准。
+
 ## 一页结论
 1. **官方明确支持自创职业/子职业**：Toolkit（Patch 7 起）有官方逐步教程，mod.io 准则把 "Classes and Subclasses" 列为支持类型。
 2. **职业 mod 的主体不需要 Script Extender**：进阶表、被动、法术、资源、反应全部由纯数据（`.lsx` 表 + stats `.txt`）驱动；SE 留给运行时逻辑与 UI，拆成可选模块。这样核心包能上 mod.io/主机、补丁日风险最小。

@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats stat_object_definition_id="2d56f038-865d-492c-b434-c2b3e821cc13">
+  <stat_objects>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_BreathYuan" />
+        <field name="UUID" type="IdTableFieldDefinition" value="2f167b76-00d2-5fe9-b5db-40f84b745c29" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="20" />
+        <field name="Level1" type="StringTableFieldDefinition" value="20" />
+        <field name="Level2" type="StringTableFieldDefinition" value="20" />
+        <field name="Level3" type="StringTableFieldDefinition" value="20" />
+        <field name="Level4" type="StringTableFieldDefinition" value="20" />
+        <field name="Level5" type="StringTableFieldDefinition" value="20" />
+        <field name="Level6" type="StringTableFieldDefinition" value="20" />
+        <field name="Level7" type="StringTableFieldDefinition" value="20" />
+        <field name="Level8" type="StringTableFieldDefinition" value="20" />
+        <field name="Level9" type="StringTableFieldDefinition" value="20" />
+        <field name="Level10" type="StringTableFieldDefinition" value="20" />
+        <field name="Level11" type="StringTableFieldDefinition" value="25" />
+        <field name="Level12" type="StringTableFieldDefinition" value="25" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_BreathLife" />
+        <field name="UUID" type="IdTableFieldDefinition" value="e9630abc-7f68-5a03-a620-3d3dcb406113" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="5" />
+        <field name="Level1" type="StringTableFieldDefinition" value="5" />
+        <field name="Level2" type="StringTableFieldDefinition" value="5" />
+        <field name="Level3" type="StringTableFieldDefinition" value="5" />
+        <field name="Level4" type="StringTableFieldDefinition" value="5" />
+        <field name="Level5" type="StringTableFieldDefinition" value="5" />
+        <field name="Level6" type="StringTableFieldDefinition" value="5" />
+        <field name="Level7" type="StringTableFieldDefinition" value="5" />
+        <field name="Level8" type="StringTableFieldDefinition" value="5" />
+        <field name="Level9" type="StringTableFieldDefinition" value="5" />
+        <field name="Level10" type="StringTableFieldDefinition" value="5" />
+        <field name="Level11" type="StringTableFieldDefinition" value="6" />
+        <field name="Level12" type="StringTableFieldDefinition" value="6" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FortitudeReduction" />
+        <field name="UUID" type="IdTableFieldDefinition" value="ea36d0c9-808d-549a-8537-29eae4e649d8" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="35" />
+        <field name="Level1" type="StringTableFieldDefinition" value="35" />
+        <field name="Level2" type="StringTableFieldDefinition" value="35" />
+        <field name="Level3" type="StringTableFieldDefinition" value="35" />
+        <field name="Level4" type="StringTableFieldDefinition" value="35" />
+        <field name="Level5" type="StringTableFieldDefinition" value="35" />
+        <field name="Level6" type="StringTableFieldDefinition" value="35" />
+        <field name="Level7" type="StringTableFieldDefinition" value="35" />
+        <field name="Level8" type="StringTableFieldDefinition" value="35" />
+        <field name="Level9" type="StringTableFieldDefinition" value="35" />
+        <field name="Level10" type="StringTableFieldDefinition" value="35" />
+        <field name="Level11" type="StringTableFieldDefinition" value="40" />
+        <field name="Level12" type="StringTableFieldDefinition" value="40" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FortitudeRecovery" />
+        <field name="UUID" type="IdTableFieldDefinition" value="cc1fa4e1-9539-5d31-9184-22e5331e6c5a" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="60" />
+        <field name="Level1" type="StringTableFieldDefinition" value="60" />
+        <field name="Level2" type="StringTableFieldDefinition" value="60" />
+        <field name="Level3" type="StringTableFieldDefinition" value="60" />
+        <field name="Level4" type="StringTableFieldDefinition" value="60" />
+        <field name="Level5" type="StringTableFieldDefinition" value="60" />
+        <field name="Level6" type="StringTableFieldDefinition" value="60" />
+        <field name="Level7" type="StringTableFieldDefinition" value="60" />
+        <field name="Level8" type="StringTableFieldDefinition" value="60" />
+        <field name="Level9" type="StringTableFieldDefinition" value="60" />
+        <field name="Level10" type="StringTableFieldDefinition" value="60" />
+        <field name="Level11" type="StringTableFieldDefinition" value="70" />
+        <field name="Level12" type="StringTableFieldDefinition" value="70" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SiphonLife" />
+        <field name="UUID" type="IdTableFieldDefinition" value="f1e66688-491b-56ac-a86a-c05badfd45d6" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="20" />
+        <field name="Level1" type="StringTableFieldDefinition" value="20" />
+        <field name="Level2" type="StringTableFieldDefinition" value="20" />
+        <field name="Level3" type="StringTableFieldDefinition" value="20" />
+        <field name="Level4" type="StringTableFieldDefinition" value="20" />
+        <field name="Level5" type="StringTableFieldDefinition" value="20" />
+        <field name="Level6" type="StringTableFieldDefinition" value="20" />
+        <field name="Level7" type="StringTableFieldDefinition" value="20" />
+        <field name="Level8" type="StringTableFieldDefinition" value="20" />
+        <field name="Level9" type="StringTableFieldDefinition" value="20" />
+        <field name="Level10" type="StringTableFieldDefinition" value="20" />
+        <field name="Level11" type="StringTableFieldDefinition" value="25" />
+        <field name="Level12" type="StringTableFieldDefinition" value="25" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SiphonYuan" />
+        <field name="UUID" type="IdTableFieldDefinition" value="6cdc8c73-542d-5f1c-8141-83a35f91a75c" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="1" />
+        <field name="Level1" type="StringTableFieldDefinition" value="1" />
+        <field name="Level2" type="StringTableFieldDefinition" value="1" />
+        <field name="Level3" type="StringTableFieldDefinition" value="1" />
+        <field name="Level4" type="StringTableFieldDefinition" value="1" />
+        <field name="Level5" type="StringTableFieldDefinition" value="1" />
+        <field name="Level6" type="StringTableFieldDefinition" value="1" />
+        <field name="Level7" type="StringTableFieldDefinition" value="1" />
+        <field name="Level8" type="StringTableFieldDefinition" value="1" />
+        <field name="Level9" type="StringTableFieldDefinition" value="1" />
+        <field name="Level10" type="StringTableFieldDefinition" value="1" />
+        <field name="Level11" type="StringTableFieldDefinition" value="2" />
+        <field name="Level12" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_FinishYuan" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5ff7b684-7147-58bc-b786-0e16c7828d06" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="3" />
+        <field name="Level1" type="StringTableFieldDefinition" value="3" />
+        <field name="Level2" type="StringTableFieldDefinition" value="3" />
+        <field name="Level3" type="StringTableFieldDefinition" value="3" />
+        <field name="Level4" type="StringTableFieldDefinition" value="3" />
+        <field name="Level5" type="StringTableFieldDefinition" value="3" />
+        <field name="Level6" type="StringTableFieldDefinition" value="3" />
+        <field name="Level7" type="StringTableFieldDefinition" value="3" />
+        <field name="Level8" type="StringTableFieldDefinition" value="3" />
+        <field name="Level9" type="StringTableFieldDefinition" value="3" />
+        <field name="Level10" type="StringTableFieldDefinition" value="3" />
+        <field name="Level11" type="StringTableFieldDefinition" value="4" />
+        <field name="Level12" type="StringTableFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SideAC" />
+        <field name="UUID" type="IdTableFieldDefinition" value="2074585d-6974-51b2-b405-8f61a6ed60c7" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="1" />
+        <field name="Level1" type="StringTableFieldDefinition" value="1" />
+        <field name="Level2" type="StringTableFieldDefinition" value="1" />
+        <field name="Level3" type="StringTableFieldDefinition" value="1" />
+        <field name="Level4" type="StringTableFieldDefinition" value="1" />
+        <field name="Level5" type="StringTableFieldDefinition" value="1" />
+        <field name="Level6" type="StringTableFieldDefinition" value="1" />
+        <field name="Level7" type="StringTableFieldDefinition" value="1" />
+        <field name="Level8" type="StringTableFieldDefinition" value="1" />
+        <field name="Level9" type="StringTableFieldDefinition" value="1" />
+        <field name="Level10" type="StringTableFieldDefinition" value="1" />
+        <field name="Level11" type="StringTableFieldDefinition" value="2" />
+        <field name="Level12" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SideReduction" />
+        <field name="UUID" type="IdTableFieldDefinition" value="56f661ac-7b47-58a6-98e0-204f35576f37" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="10" />
+        <field name="Level1" type="StringTableFieldDefinition" value="10" />
+        <field name="Level2" type="StringTableFieldDefinition" value="10" />
+        <field name="Level3" type="StringTableFieldDefinition" value="10" />
+        <field name="Level4" type="StringTableFieldDefinition" value="10" />
+        <field name="Level5" type="StringTableFieldDefinition" value="10" />
+        <field name="Level6" type="StringTableFieldDefinition" value="10" />
+        <field name="Level7" type="StringTableFieldDefinition" value="10" />
+        <field name="Level8" type="StringTableFieldDefinition" value="10" />
+        <field name="Level9" type="StringTableFieldDefinition" value="10" />
+        <field name="Level10" type="StringTableFieldDefinition" value="10" />
+        <field name="Level11" type="StringTableFieldDefinition" value="15" />
+        <field name="Level12" type="StringTableFieldDefinition" value="15" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_NormalYuan" />
+        <field name="UUID" type="IdTableFieldDefinition" value="b08893b5-b541-544c-8bad-be171a433441" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="1" />
+        <field name="Level1" type="StringTableFieldDefinition" value="1" />
+        <field name="Level2" type="StringTableFieldDefinition" value="1" />
+        <field name="Level3" type="StringTableFieldDefinition" value="1" />
+        <field name="Level4" type="StringTableFieldDefinition" value="1" />
+        <field name="Level5" type="StringTableFieldDefinition" value="1" />
+        <field name="Level6" type="StringTableFieldDefinition" value="1" />
+        <field name="Level7" type="StringTableFieldDefinition" value="1" />
+        <field name="Level8" type="StringTableFieldDefinition" value="1" />
+        <field name="Level9" type="StringTableFieldDefinition" value="1" />
+        <field name="Level10" type="StringTableFieldDefinition" value="1" />
+        <field name="Level11" type="StringTableFieldDefinition" value="2" />
+        <field name="Level12" type="StringTableFieldDefinition" value="2" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_CooperationYuan" />
+        <field name="UUID" type="IdTableFieldDefinition" value="1e9f8a97-df7b-5c93-b25e-f36e69d87e31" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="2" />
+        <field name="Level1" type="StringTableFieldDefinition" value="2" />
+        <field name="Level2" type="StringTableFieldDefinition" value="2" />
+        <field name="Level3" type="StringTableFieldDefinition" value="2" />
+        <field name="Level4" type="StringTableFieldDefinition" value="2" />
+        <field name="Level5" type="StringTableFieldDefinition" value="2" />
+        <field name="Level6" type="StringTableFieldDefinition" value="2" />
+        <field name="Level7" type="StringTableFieldDefinition" value="2" />
+        <field name="Level8" type="StringTableFieldDefinition" value="2" />
+        <field name="Level9" type="StringTableFieldDefinition" value="2" />
+        <field name="Level10" type="StringTableFieldDefinition" value="2" />
+        <field name="Level11" type="StringTableFieldDefinition" value="3" />
+        <field name="Level12" type="StringTableFieldDefinition" value="3" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_ShareDamage" />
+        <field name="UUID" type="IdTableFieldDefinition" value="488e065b-0d3d-5786-aad3-482baa6a270e" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="40" />
+        <field name="Level1" type="StringTableFieldDefinition" value="40" />
+        <field name="Level2" type="StringTableFieldDefinition" value="40" />
+        <field name="Level3" type="StringTableFieldDefinition" value="40" />
+        <field name="Level4" type="StringTableFieldDefinition" value="40" />
+        <field name="Level5" type="StringTableFieldDefinition" value="40" />
+        <field name="Level6" type="StringTableFieldDefinition" value="40" />
+        <field name="Level7" type="StringTableFieldDefinition" value="40" />
+        <field name="Level8" type="StringTableFieldDefinition" value="40" />
+        <field name="Level9" type="StringTableFieldDefinition" value="40" />
+        <field name="Level10" type="StringTableFieldDefinition" value="45" />
+        <field name="Level11" type="StringTableFieldDefinition" value="45" />
+        <field name="Level12" type="StringTableFieldDefinition" value="45" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_ShareHealing" />
+        <field name="UUID" type="IdTableFieldDefinition" value="a93d1e6c-3bc7-5230-8b7f-04f4ce7d831a" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="50" />
+        <field name="Level1" type="StringTableFieldDefinition" value="50" />
+        <field name="Level2" type="StringTableFieldDefinition" value="50" />
+        <field name="Level3" type="StringTableFieldDefinition" value="50" />
+        <field name="Level4" type="StringTableFieldDefinition" value="50" />
+        <field name="Level5" type="StringTableFieldDefinition" value="50" />
+        <field name="Level6" type="StringTableFieldDefinition" value="50" />
+        <field name="Level7" type="StringTableFieldDefinition" value="50" />
+        <field name="Level8" type="StringTableFieldDefinition" value="50" />
+        <field name="Level9" type="StringTableFieldDefinition" value="50" />
+        <field name="Level10" type="StringTableFieldDefinition" value="75" />
+        <field name="Level11" type="StringTableFieldDefinition" value="75" />
+        <field name="Level12" type="StringTableFieldDefinition" value="75" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_NixiHealing" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5a79c93c-276c-5b4c-b7dd-fb1f35a7196a" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="35" />
+        <field name="Level1" type="StringTableFieldDefinition" value="35" />
+        <field name="Level2" type="StringTableFieldDefinition" value="35" />
+        <field name="Level3" type="StringTableFieldDefinition" value="35" />
+        <field name="Level4" type="StringTableFieldDefinition" value="75" />
+        <field name="Level5" type="StringTableFieldDefinition" value="75" />
+        <field name="Level6" type="StringTableFieldDefinition" value="75" />
+        <field name="Level7" type="StringTableFieldDefinition" value="75" />
+        <field name="Level8" type="StringTableFieldDefinition" value="75" />
+        <field name="Level9" type="StringTableFieldDefinition" value="75" />
+        <field name="Level10" type="StringTableFieldDefinition" value="75" />
+        <field name="Level11" type="StringTableFieldDefinition" value="80" />
+        <field name="Level12" type="StringTableFieldDefinition" value="80" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_XiangfuHealing" />
+        <field name="UUID" type="IdTableFieldDefinition" value="9f036880-8790-53cb-9be4-7d278f4ca9ae" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="15" />
+        <field name="Level1" type="StringTableFieldDefinition" value="15" />
+        <field name="Level2" type="StringTableFieldDefinition" value="15" />
+        <field name="Level3" type="StringTableFieldDefinition" value="15" />
+        <field name="Level4" type="StringTableFieldDefinition" value="30" />
+        <field name="Level5" type="StringTableFieldDefinition" value="30" />
+        <field name="Level6" type="StringTableFieldDefinition" value="30" />
+        <field name="Level7" type="StringTableFieldDefinition" value="30" />
+        <field name="Level8" type="StringTableFieldDefinition" value="30" />
+        <field name="Level9" type="StringTableFieldDefinition" value="30" />
+        <field name="Level10" type="StringTableFieldDefinition" value="30" />
+        <field name="Level11" type="StringTableFieldDefinition" value="30" />
+        <field name="Level12" type="StringTableFieldDefinition" value="30" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_SwordOpportunities" />
+        <field name="UUID" type="IdTableFieldDefinition" value="83a19573-c478-5ac2-a90f-7504e639e09b" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="1" />
+        <field name="Level1" type="StringTableFieldDefinition" value="1" />
+        <field name="Level2" type="StringTableFieldDefinition" value="1" />
+        <field name="Level3" type="StringTableFieldDefinition" value="1" />
+        <field name="Level4" type="StringTableFieldDefinition" value="1" />
+        <field name="Level5" type="StringTableFieldDefinition" value="3" />
+        <field name="Level6" type="StringTableFieldDefinition" value="3" />
+        <field name="Level7" type="StringTableFieldDefinition" value="3" />
+        <field name="Level8" type="StringTableFieldDefinition" value="3" />
+        <field name="Level9" type="StringTableFieldDefinition" value="3" />
+        <field name="Level10" type="StringTableFieldDefinition" value="4" />
+        <field name="Level11" type="StringTableFieldDefinition" value="4" />
+        <field name="Level12" type="StringTableFieldDefinition" value="4" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_ZhaoxiDamage" />
+        <field name="UUID" type="IdTableFieldDefinition" value="94599930-8486-5a3c-a192-918f681f3ee0" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="2d8" />
+        <field name="Level1" type="StringTableFieldDefinition" value="2d8" />
+        <field name="Level2" type="StringTableFieldDefinition" value="2d8" />
+        <field name="Level3" type="StringTableFieldDefinition" value="2d8" />
+        <field name="Level4" type="StringTableFieldDefinition" value="2d8" />
+        <field name="Level5" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level6" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level7" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level8" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level9" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level10" type="StringTableFieldDefinition" value="4d8" />
+        <field name="Level11" type="StringTableFieldDefinition" value="4d8" />
+        <field name="Level12" type="StringTableFieldDefinition" value="4d8" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_NifengDamage" />
+        <field name="UUID" type="IdTableFieldDefinition" value="d569df44-894f-5219-8a77-a33da4e9917a" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level1" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level2" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level3" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level4" type="StringTableFieldDefinition" value="3d8" />
+        <field name="Level5" type="StringTableFieldDefinition" value="4d8" />
+        <field name="Level6" type="StringTableFieldDefinition" value="4d8" />
+        <field name="Level7" type="StringTableFieldDefinition" value="4d8" />
+        <field name="Level8" type="StringTableFieldDefinition" value="4d8" />
+        <field name="Level9" type="StringTableFieldDefinition" value="4d8" />
+        <field name="Level10" type="StringTableFieldDefinition" value="5d8" />
+        <field name="Level11" type="StringTableFieldDefinition" value="5d8" />
+        <field name="Level12" type="StringTableFieldDefinition" value="5d8" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_LuexueDamage" />
+        <field name="UUID" type="IdTableFieldDefinition" value="c93d9858-292a-5235-a0cf-5db542e2120e" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="2d6" />
+        <field name="Level1" type="StringTableFieldDefinition" value="2d6" />
+        <field name="Level2" type="StringTableFieldDefinition" value="2d6" />
+        <field name="Level3" type="StringTableFieldDefinition" value="2d6" />
+        <field name="Level4" type="StringTableFieldDefinition" value="2d6" />
+        <field name="Level5" type="StringTableFieldDefinition" value="3d6" />
+        <field name="Level6" type="StringTableFieldDefinition" value="3d6" />
+        <field name="Level7" type="StringTableFieldDefinition" value="3d6" />
+        <field name="Level8" type="StringTableFieldDefinition" value="3d6" />
+        <field name="Level9" type="StringTableFieldDefinition" value="3d6" />
+        <field name="Level10" type="StringTableFieldDefinition" value="4d6" />
+        <field name="Level11" type="StringTableFieldDefinition" value="4d6" />
+        <field name="Level12" type="StringTableFieldDefinition" value="4d6" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_WenluDamage" />
+        <field name="UUID" type="IdTableFieldDefinition" value="5ca467dc-2371-56b8-aec6-3885afc57233" />
+        <field name="PreferredClass" type="GuidObjectTableFieldDefinition" value="2d547dfc-fee1-5c5f-9a61-eb3dc4b73602" />
+        <field name="FallbackValue" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level1" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level2" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level3" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level4" type="StringTableFieldDefinition" value="1d4" />
+        <field name="Level5" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level6" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level7" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level8" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level9" type="StringTableFieldDefinition" value="1d6" />
+        <field name="Level10" type="StringTableFieldDefinition" value="2d6" />
+        <field name="Level11" type="StringTableFieldDefinition" value="2d6" />
+        <field name="Level12" type="StringTableFieldDefinition" value="2d6" />
+      </fields>
+    </stat_object>
+  </stat_objects>
+</stats>

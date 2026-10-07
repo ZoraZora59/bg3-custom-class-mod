@@ -14,6 +14,10 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from PIL import Image
+from sword_spell_presentation import present_spell
+from sword_vfx_bindings import PHASES, STYLES, effect_name, set_enabled_phases
+from sword_vfx_resources import generate_resources as generate_vfx_resources
+from sword_tooltips import LEVEL_MAPS, spell_tooltip
 from sword_cultivator_spec import (
     BRANCHES, BRANCH_DESCRIPTIONS, CAPACITIES, CLASS_DESCRIPTION, FOLDER,
     HIT_CONTROLS, MOD, MODULE_UUID, PASSIVES, PUBLISH_HANDLE, SPELLS, VERSION64, guid, spells_at,
@@ -29,7 +33,23 @@ manifest = json.loads((ART / 'manifest.json').read_text(encoding='utf-8'))
 assets = {a['id']: a for a in manifest['assets']}
 loca = {}
 aliases = {}
+PLAYER_TEXT = json.loads((REPO / 'scripts/sword_player_text.json').read_text(encoding='utf-8'))
 QI_CONDITION = "HasStatus('ESC_QI_MODE',context.Source) and (HasPassive('ESC_P_Branch_taixuan',context.Source) or HasPassive('ESC_P_Branch_xueyan',context.Source))"
+SWORD_PROFICIENCIES = 'Longswords|Shortswords|Greatswords|Rapiers|Scimitars'
+
+
+def sword_condition(hand):
+    # Shillelagh uses these fixed melee slots, independently of the active set.
+    slot = 'MeleeMainHand' if hand == 'Main' else 'MeleeOffHand'
+    return f"IsWeaponOfProficiencyGroup('{SWORD_PROFICIENCIES}', GetItemInEquipmentSlot(EquipmentSlot.{slot}, context.Source))"
+
+
+def equipment_condition():
+    # Native Bladesong helpers; only Taixuan and Xingge forbid medium/heavy armor.
+    return ("not HasShieldEquipped(context.Source) and "
+            "((not HasPassive('ESC_P_Branch_taixuan',context.Source) and "
+            "not HasPassive('ESC_P_Branch_xingge',context.Source)) or "
+            "(not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))")
 
 
 def write(path, text):
@@ -66,6 +86,19 @@ def xml(path, root):
 
 
 def entry(name, typ, values, using=None):
+    if typ == 'SpellData':
+        conditions = values.get('RequirementConditions', '')
+        events = values.get('RequirementEvents', '').split(';') if values.get('RequirementEvents') else []
+        if any(condition in conditions for condition in (
+                'IsWeaponOfProficiencyGroup(', 'HasShieldEquipped(', 'HasHeavyArmor(', 'HasMediumArmor(')):
+            events.extend(('OnEquip', 'OnUnequip'))
+        if 'HasStatus(' in conditions:
+            # Native Target_Dig explicitly listens for both status transitions.
+            events.extend(('OnStatusApplied', 'OnStatusRemoved'))
+        if events:
+            values = dict(values)
+            values['RequirementEvents'] = ';'.join(dict.fromkeys(events))
+        values = present_spell(name, values, using)
     lines = [f'new entry "{name}"', f'type "{typ}"']
     if using:
         lines.append(f'using "{using}"')
@@ -87,6 +120,7 @@ def spellid(key):
     kind = SPELLS[key]['kind']
     if key == 'sword_flight': return 'Shout_ESC_sword_flight'
     if key == 'xueyan_liancheng': return 'Shout_ESC_xueyan_liancheng'
+    if key == 'tianqing_tianbeng': return 'Target_ESC_tianqing_tianbeng'
     if kind=='dash_attack': return f'Rush_ESC_{key}'
     if key=='tianqing_tianjian': return 'Projectile_ESC_tianqing_tianjian'
     prefix = ('Projectile' if kind in ('attack', 'chain_attack', 'cooperate', 'flight') and key != 'sword_strike'
@@ -174,6 +208,25 @@ def generate_classes():
     xml(PUBLIC / 'DefaultValues/Skills.lsx', root)
 
 
+def generate_progression_descriptions():
+    # Native classes register their name against the progression TABLE here.
+    # Without this row, CC's ClassProgression omits weapon/armour details even
+    # when the mechanical proficiency Boosts are present in Progressions.
+    root, rows = document('ProgressionDescriptions')
+    for key in ['common', *BRANCHES]:
+        n = ET.SubElement(rows, 'node', id='ProgressionDescription')
+        name = MOD if key == 'common' else 'ESC_' + BRANCHES[key]['english']
+        display = '东方剑修' if key == 'common' else BRANCHES[key]['name']
+        description = CLASS_DESCRIPTION if key == 'common' else BRANCH_DESCRIPTIONS[key]
+        attr(n, 'UUID', 'guid', guid('progression-description/' + key))
+        attr(n, 'Type', 'FixedString', name)
+        attr(n, 'ProgressionTableId', 'guid', guid('table/' + key))
+        attr(n, 'Hidden', 'bool', False)
+        attr(n, 'DisplayName', 'TranslatedString', handle('class/' + key, display))
+        attr(n, 'Description', 'TranslatedString', handle('class/' + key + '/description', description))
+    xml(PUBLIC / 'Progressions/ProgressionDescriptions.lsx', root)
+
+
 def generate_progressions():
     root, rows = document('Progressions')
     spell_root, spell_rows = document('SpellLists')
@@ -212,9 +265,6 @@ def generate_progressions():
             new_spells=[spellid(key) for key in spells_at(branch,level) if key!='yujian']
             if branch=='common' and level==5:
                 boosts += ['ActionResource(ESC_FlightMovement,24,0)','ActionResource(ESC_ChainMovement,6,0)']
-            if branch in BRANCHES and level==3:
-                normal={'taixuan':'taixuan_zhaoxi','tianqing':'tianqing_nifeng','xueyan':'xueyan_luexue','xingge':'xingge_wenlu'}[branch]
-                new_spells.append('Shout_ESC_Offhand_'+normal)
             if new_spells:
                 list_uuid=guid(f'spelllist/{branch}/{level}')
                 spell_list=ET.SubElement(spell_rows,'node',id='SpellList')
@@ -228,13 +278,16 @@ def generate_progressions():
             passives = [f'ESC_P_{key}' for key, (at, group) in PASSIVES.items()
                         if at == level and (group == branch or group == 'solo' and branch in ('taixuan', 'tianqing', 'xueyan'))]
             if branch == 'common' and level == 1:
-                passives.append('ESC_P_StarterSword')
+                passives.extend(['ESC_P_StarterSword','ESC_P_StarterMelee'])
+            if branch == 'common' and level == 2:
+                passives.append('ESC_P_StarterGuard')
+            if branch == 'taixuan' and level == 4:
+                attr(n, 'PassivesRemoved', 'LSString', 'ESC_P_StarterGuard')
             if branch == 'common' and level in (5, 10, 11):
                 passives.append(f'ESC_P_Level{level}')
             if branch != 'common' and level == 3:
                 passives.append('ESC_P_Branch_' + branch)
-                # Remove introductory sword casting only, preserving the shared melee button.
-                attr(n, 'PassivesRemoved', 'LSString', 'ESC_P_StarterSword')
+                attr(n, 'PassivesRemoved', 'LSString', 'ESC_P_StarterSword;ESC_P_StarterMelee')
             if boosts:
                 attr(n, 'Boosts', 'LSString', ';'.join(boosts))
             if passives:
@@ -249,11 +302,6 @@ def generate_progressions():
             a.set('value', ';'.join(x for x in a.get('value').split(';') if 'SavingThrow' not in x))
         elif a.get('id') == 'Selectors':
             multiclass.remove(a)
-    mc_list=ET.SubElement(spell_rows,'node',id='SpellList')
-    attr(mc_list,'Name','FixedString',f'ESC_SpellLists_{len(spell_rows)-1}')
-    attr(mc_list,'UUID','guid',guid('spelllist/multiclass/1'))
-    attr(mc_list,'Spells','LSString',spellid('sword_strike'))
-    attr(multiclass,'Selectors','LSString',f'AddSpells({guid("spelllist/multiclass/1")},,,,AlwaysPrepared)')
     attr(multiclass, 'IsMulticlass', 'bool', True)
     rows.append(multiclass)
     xml(PUBLIC / 'Progressions/Progressions.lsx', root)
@@ -291,29 +339,51 @@ def generate_resource():
     xml(PUBLIC / 'ActionResourceDefinitions/ActionResourceDefinitions.lsx', root)
 
 
+def generate_level_maps():
+    # Native SneakAttack uses a class-bound map. These series only supply UI
+    # parameters; combat continues to use the existing stats/Lua rules.
+    root, rows = document('LevelMapValues')
+    maps = {**PLAYER_TEXT.get('level_maps', {}), **LEVEL_MAPS}
+    for name, ranks in maps.items():
+        ranks = {int(level): value for level, value in ranks.items()}
+        node = ET.SubElement(rows, 'node', id='LevelMapSeries')
+        attr(node, 'UUID', 'guid', guid('tooltip-map/' + name))
+        attr(node, 'Name', 'FixedString', name)
+        attr(node, 'PreferredClassUUID', 'guid', guid('class/common'))
+        attr(node, 'FallbackValue', 'LSString', ranks[min(ranks)])
+        for level in range(1, 13):
+            rank = max(key for key in ranks if key <= level)
+            attr(node, 'Level' + str(level), 'LSString', ranks[rank])
+    xml(PUBLIC / 'Levelmaps/LevelMapValues.lsx', root)
+
+
+def apply_spell_tooltip(key, spec, values, suffix=''):
+    fields = spell_tooltip(key, spec)
+    text = fields.pop('extra_text')
+    values.update(fields)
+    values['ExtraDescription'] = (
+        handle('spell/' + key + '/damage' + suffix, text) + ';1' if text else '')
+    if key == 'taixuan_guiyuan' or key == 'xueyan_huichao':
+        values['TooltipDamageList'] = 'RegainHitPoints(MaxHP*0.4)'
+    if key == 'tianqing_nixi':
+        values['TooltipDamageList'] = 'RegainHitPoints(MaxHP*LevelMapValue(ESC_NixiHealing)/100)'
+    # Ally healing is a percentage of the TARGET's maximum HP. A static caster
+    # HP preview before selecting the ally would be wrong; its description
+    # therefore shows the current, class-bound percentage instead.
+
+
 def generate_passives():
     text = ''
-    descriptions = {
-        'sword_heart': '以感知驾驭剑道。实体剑使用感知或原武器属性中较高者；纯气剑使用感知。',
-        'basic_defense': '入门防护使护甲等级提高1。',
-        'continuous_strikes': '一个剑术动作提供当级整套出剑机会。5级起前三途3次、行歌2次；10级起前三途4次。',
-        'control_resist': '对已覆盖身体与心智控制的抵抗获得优势并额外+4。',
-        'auto_release': '每轮一次，在关键控制施加前消耗反应立即化解，不消耗剑元。',
-        'taixuan_breath': '自身回合开始回元20%、自愈5%；11级起分别为25%、6%。',
-        'tianqing_fortitude': '剑修成长生命乘2.5；主动蓄势回元60%，11级起70%。',
-        'xueyan_siphon': '实际伤害20%饮血，伤敌每段每敌回1元；11级起25%与2元。血衣累计至最大生命20%。',
-        'xueyan_finish': '每敌死亡奖励一次：恢复最大生命10%、3剑元及2层癫狂；11级起回4元。',
-        'xueyan_unhindered': '无视敌人的借机攻击。',
-        'xingge_sidebyside': '与3米内实际队友并肩时双方额外护甲等级+1、减伤10%；11级起+2与15%。',
-        'xingge_cooperation': '常态出剑每次回1元，成功协作每份回2元；11级起分别回2元与3元。',
-    }
+    descriptions = PLAYER_TEXT['passive_descriptions']
     for key in PASSIVES:
         name = assets['passive_' + key]['name']
         values = dict(DisplayName=handle('passive/' + key, name) + ';1',
                       Description=handle('passive/' + key + '/description', descriptions[key]) + ';1',
+                      DescriptionParams=PLAYER_TEXT.get('passive_description_params', {}).get(key, ''),
                       Icon=icon('passive_' + key), Properties='Highlighted')
         if key == 'basic_defense':
-            values['Boosts'] = "IF(not HasShieldEquipped() and not HasStatus('ESC_ARMOR_BLOCKED')):AC(1)"
+            values.update(Boosts='AC(1)', BoostConditions=equipment_condition(),
+                          BoostContext='OnEquip;OnCreate')
         if key == 'xueyan_unhindered':
             values['Boosts'] = 'IgnoreLeaveAttackRange()'
         text += entry('ESC_P_' + key, 'PassiveData', values)
@@ -323,6 +393,8 @@ def generate_passives():
             Description=handle('class/' + branch + '/description', BRANCH_DESCRIPTIONS[branch]) + ';1',
             Icon=icon('badge_' + branch), Properties='Highlighted'))
     text += entry('ESC_P_StarterSword', 'PassiveData', dict(Properties='IsHidden', Boosts=f'UnlockSpell({spellid("yujian")})'))
+    text += entry('ESC_P_StarterMelee', 'PassiveData', dict(Properties='IsHidden', Boosts=f'UnlockSpell({spellid("sword_strike")})'))
+    text += entry('ESC_P_StarterGuard', 'PassiveData', dict(Properties='IsHidden', Boosts=f'UnlockSpell({spellid("qi_guard")})'))
     for level in (5, 10, 11):
         text += entry(f'ESC_P_Level{level}', 'PassiveData', dict(Properties='IsHidden'))
     write(PUBLIC / 'Stats/Generated/Data/Passive.txt', text)
@@ -336,16 +408,11 @@ def generate_spells():
         name = assets['skill_' + key]['name']
         description = player_text(name)
         if not description:
-            description = {
-                'recall_sword': '附赠动作，不耗剑元。召回18米内属于自己的佩剑；墙与封闭门阻挡，不能夺取他人正在持用的剑。',
-                'qi_sword': '失去佩剑时仍可凝气施展剑术与御剑飞行。此选项切换实体佩剑与纯气剑。',
-                'control_release': '附赠动作，4剑元。清除已覆盖控制并获得2轮抵抗+2；受控时仍可发动自救。',
-                'focus_target': '免费选定太清剑域重点目标。每次落剑对该目标额外两道气剑。',
-                'xueyan_damage_mode': '切换坏死或力场剑气。此选项不消耗动作或剑元。',
-            }.get(key, name)
+            description = PLAYER_TEXT['fallback_descriptions'].get(key, name)
         values = dict(SpellType=typ, Level=0, SpellSchool='None',
                       DisplayName=handle('spell/' + key, name) + ';1',
                       Description=handle('spell/' + key + '/description', description) + ';1',
+                      DescriptionParams=PLAYER_TEXT.get('spell_description_params', {}).get(key, ''),
                       Icon=icon('skill_' + key), SpellStyleGroup='Class',
                       Cooldown='',
                       TooltipUpcastDescription='', TooltipUpcastDescriptionParams='',
@@ -400,7 +467,7 @@ def generate_spells():
                         "not HasPassive('ESC_P_Level5',context.Source)",
                         "HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)",
                         "HasPassive('ESC_P_Level10',context.Source)"],normal_dice[key]): elemental(dice,(condition,))
-                elif spec['dice']: elemental(spec['dice'])
+                elif spec['dice']: elemental('32d8' if key=='tianqing_tianbeng' else spec['dice'])
                 return ';'.join(parts)
             damage=damage_expression()
             half=damage_expression(2)
@@ -416,6 +483,10 @@ def generate_spells():
                           else 'DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical)')
             preview_extra=normal_dice.get(key,[spec['dice']])[0]
             values['TooltipDamageList']=preview_base+(';DealDamage('+preview_extra+','+preview_type+',Magical)' if preview_extra else '')
+            # A fixed opening-rank roll would mislead higher-level or Qi Sword
+            # characters. Show these variable rolls in the localized rules text.
+            if key in normal_dice or spec['base']=='WQ' or spec['branch']=='xueyan':
+                values['TooltipDamageList']=''
             if 'save' in spec['kind']:
                 values.update(SpellRoll='not SavingThrow(Ability.Dexterity,SourceSpellDC())', SpellSuccess=damage,
                               SpellFail=half)
@@ -431,8 +502,12 @@ def generate_spells():
                 if key=='tianqing_tiandi': values['SpellSuccess']+=';ApplyStatus(ESC_TIANDI_FIRSTHIT,100,1)'
                 if 'save' in spec['kind']: values['SpellFail']+=failed
             if key=='tianqing_tiandi': values['AmountOfTargets']=1
-            if spec['segments'] > 1 and key!='tianqing_tiandi':
+            if spec['segments'] > 1 and key not in ('tianqing_tiandi','taixuan_liuguang'):
                 values['AmountOfTargets'] = spec['segments']
+            if key in ('tianqing_tianbeng','taixuan_liuguang'):
+                values['AmountOfTargets']=1
+                values['ProjectileCount']=1
+                values['TooltipDamageList']=''
             if typ in ('Target', 'Shout') and spec['radius']:
                 values['AreaRadius'] = spec['radius']
                 if typ == 'Shout':
@@ -461,12 +536,16 @@ def generate_spells():
             # Callback marker spell has a real status, not a damaging placeholder.
             values['SpellProperties'] = f'ApplyStatus(ESC_CAST_{key.upper()},100,0)'
         values['SpellFlags'] += ';IgnoreSilence'
-        values['RequirementConditions']="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)"
-        if spec['base']=='W' and spec['action']=='sword': values['RequirementConditions']+=" and (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))"
+        values['RequirementConditions']=equipment_condition()
+        if spec['base']=='W' and spec['action']=='sword': values['RequirementConditions']+=' and ('+sword_condition('Main')+' or '+sword_condition('Off')+')'
         if key=='recall_sword': values['TargetConditions']='Item()'
-        if key in ('xingge_chengfeng','xingge_huifeng','xingge_xiangfu','xingge_fuchen'): values['TargetConditions']='Character() and not Enemy() and not Dead()'
+        if key in ('taixuan_guiyuan','tianqing_nixi','xueyan_huichao','control_release'):
+            values['TargetConditions']='Self() and not Dead()'
+        if key=='focus_target': values['TargetConditions']='Character() and Enemy() and not Dead()'
+        if key in ('xingge_chengfeng','xingge_huifeng','xingge_xiangfu','xingge_fuchen'): values['TargetConditions']='Character() and (Self() or Ally()) and not Dead()'
         if key=='xueyan_wusheng': values['AmountOfTargets']=1
         if key=='xueyan_liancheng': values.update(AmountOfTargets=1,TargetRadius=18)
+        apply_spell_tooltip(key, spec, values)
         if key in ('xueyan_nixue', 'xueyan_wusheng'):
             variants=[]
             for spent in range(16):
@@ -474,7 +553,7 @@ def generate_spells():
                 variants.append(variant)
                 variant_values=dict(values)
                 variant_values['SpellContainerID']=sid
-                variant_values['DisplayName']=handle('spell/'+key+'/spend/'+str(spent),name+' · 投入'+str(spent)+'层癫狂')+';1'
+                variant_values['DisplayName']=handle('spell/'+key+'/spend/'+str(spent),name+(' · 不消耗癫狂' if spent==0 else ' · 消耗'+str(spent)+'层癫狂'))+';1'
                 if spent:
                     variant_values['RequirementConditions']=f"not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_{spent}',context.Source)"
                 files[typ]=files.get(typ,'')+entry(variant,'SpellData',variant_values,base)
@@ -490,7 +569,7 @@ def generate_spells():
                 files[typ]=files.get(typ,'')+entry(variant,'SpellData',v,base)
             values.update(ContainerSpells=';'.join(choices),SpellProperties='',UseCosts='',SpellFlags=values['SpellFlags']+';IsLinkedSpellContainer')
         if key in ('taixuan_zhaoxi','tianqing_nifeng','xueyan_luexue','xingge_wenlu'):
-            variants=[];offhand=[]
+            variants=[]
             for melee in (True,False):
                 for hand in ('Main','Off'):
                     variant_type='Zone' if key=='tianqing_nifeng' else ('Target' if melee else 'Projectile')
@@ -498,32 +577,34 @@ def generate_spells():
                     v=dict(values);v['SpellType']=variant_type;v['TargetRadius']=3 if melee else 18
                     v['SpellRoll']=('Attack(AttackType.MeleeWeaponAttack)' if hand=='Main' else 'Attack(AttackType.MeleeOffHandWeaponAttack)') if melee else 'Attack(AttackType.RangedSpellAttack)'
                     if key=='tianqing_nifeng': v.update(Shape='Cone' if melee else 'Line',Range=6 if melee else 12,TargetRadius=6 if melee else 12,Base=6 if melee else 2,Angle=60)
-                    v['DisplayName']=handle('spell/'+key+'/'+('Melee' if melee else 'Ranged')+hand,name+' · '+('近战' if melee else '御剑')+('主手' if hand=='Main' else '副手'))+';1'
+                    form=('近战' if melee else '御剑')
+                    v['DisplayName']=handle('spell/'+key+'/'+('Melee' if melee else 'Ranged')+hand,name+' · '+form+('' if hand=='Main' else '（副手）'))+';1'
                     v['SpellContainerID']=sid
-                    for field in ('SpellSuccess','SpellFail','TooltipDamageList','SpellProperties'):
+                    for field in ('SpellSuccess','SpellFail','TooltipDamageList','SpellProperties','ExtraDescriptionParams'):
                         v[field]=v.get(field,'').replace('MainMeleeWeaponDamageType','OffhandMeleeWeaponDamageType').replace('MainMeleeWeapon','OffhandMeleeWeapon').replace('ExecuteWeaponFunctors(MainHand)','ExecuteWeaponFunctors(OffHand)') if hand=='Off' else v.get(field,'')
-                    gate="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)"
-                    if hand=='Off': v['RequirementConditions']=gate+" and HasStatus('ESC_OFFHAND_SWORD',context.Source)"
-                    else: v['RequirementConditions']=gate+(' and (('+QI_CONDITION+") or HasStatus('ESC_MAIN_SWORD',context.Source))" if spec['base']=='WQ' else " and HasStatus('ESC_MAIN_SWORD',context.Source)")
+                    gate=equipment_condition()
+                    if hand=='Off': v['RequirementConditions']=gate+' and '+sword_condition('Off')
+                    else: v['RequirementConditions']=gate+(' and (('+QI_CONDITION+') or '+sword_condition('Main')+')' if spec['base']=='WQ' else ' and '+sword_condition('Main'))
                     files[variant_type]=files.get(variant_type,'')+entry(variant,'SpellData',v,'Zone_Thunderwave' if key=='tianqing_nifeng' else ('Target_MainHandAttack' if melee else 'Projectile_MagicMissile'))
                     aliases[variant]=dict(key=key,hand=hand.lower(),**({'chain':'liancheng'} if key=='xueyan_liancheng' else {}));variants.append(variant)
                     if hand=='Off' and key!='xueyan_liancheng':
-                        bonus=variant+'_Bonus';bv=dict(v);bv['UseCosts']='BonusActionPoint:1';bv['SpellContainerID']='Shout_ESC_Offhand_'+key
-                        files[variant_type]+=entry(bonus,'SpellData',bv,'Zone_Thunderwave' if key=='tianqing_nifeng' else ('Target_MainHandAttack' if melee else 'Projectile_MagicMissile'));offhand.append(bonus)
+                        bonus=variant+'_Bonus';bv=dict(v);bv['UseCosts']='BonusActionPoint:1';bv['SpellContainerID']=sid
+                        bv['RequirementConditions']=gate+' and '+sword_condition('Main')+' and '+sword_condition('Off')
+                        bv['DisplayName']=handle('spell/'+key+'/bonus/'+form,name+' · 副手追加（'+form+'）')+';1'
+                        bv['Description']=handle('spell/'+key+'/bonus/'+form+'/description','用副手剑追加一次'+form+'攻击，触发'+name+'的效果。需要双持剑；不获得连贯出剑。')+';1'
+                        files[variant_type]+=entry(bonus,'SpellData',bv,'Zone_Thunderwave' if key=='tianqing_nifeng' else ('Target_MainHandAttack' if melee else 'Projectile_MagicMissile'));variants.append(bonus)
                         aliases[bonus]=dict(key=key,hand='off',offhand=True,bonusOnly=True)
             values.update(ContainerSpells=';'.join(variants),SpellProperties='',SpellSuccess='',SpellFail='',SpellRoll='',UseCosts='',SpellFlags=values['SpellFlags']+';IsLinkedSpellContainer')
-            if offhand:
-                files['Shout']=files.get('Shout','')+entry('Shout_ESC_Offhand_'+key,'SpellData',dict(SpellType='Shout',DisplayName=handle('spell/offhand/'+key,'副手'+name)+';1',Icon=values['Icon'],ContainerSpells=';'.join(offhand),SpellFlags='IsLinkedSpellContainer;IgnoreSilence',UseCosts='',SpellProperties='',SpellSuccess='',SpellFail='',SpellRoll='',TargetRadius=0),'Shout_SecondWind')
         if spec['base'] in ('W','WQ') and spec['action']=='sword' and key not in ('taixuan_zhaoxi','tianqing_nifeng','xueyan_luexue','xingge_wenlu','xueyan_liancheng','tianqing_tianjian'):
             choices=[]
             for hand in ('Main','Off'):
                 variant=sid+'_'+hand;choices.append(variant);v=dict(values)
                 v['SpellContainerID']=sid;v['DisplayName']=handle('spell/'+key+'/'+hand, name+' · '+('主手佩剑' if hand=='Main' else '副手佩剑'))+';1'
-                gate="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source)"
-                v['RequirementConditions']=gate+(' and (('+QI_CONDITION+") or HasStatus('ESC_MAIN_SWORD',context.Source))" if hand=='Main' and spec['base']=='WQ' else " and HasStatus('ESC_"+('MAIN' if hand=='Main' else 'OFFHAND')+"_SWORD',context.Source)")
+                gate=equipment_condition()
+                v['RequirementConditions']=gate+(' and (('+QI_CONDITION+') or '+sword_condition('Main')+')' if hand=='Main' and spec['base']=='WQ' else ' and '+sword_condition(hand))
                 if hand=='Off':
                     v['SpellRoll']=v.get('SpellRoll','').replace('AttackType.MeleeSpellAttack','AttackType.MeleeOffHandWeaponAttack').replace('AttackType.MeleeWeaponAttack','AttackType.MeleeOffHandWeaponAttack')
-                    for field in ('SpellSuccess','SpellFail','SpellProperties','TooltipDamageList'):
+                    for field in ('SpellSuccess','SpellFail','SpellProperties','TooltipDamageList','ExtraDescriptionParams'):
                         v[field]=v.get(field,'').replace('MainMeleeWeaponDamageType','OffhandMeleeWeaponDamageType').replace('MainMeleeWeapon','OffhandMeleeWeapon').replace('ExecuteWeaponFunctors(MainHand)','ExecuteWeaponFunctors(OffHand)')
                 files[typ]=files.get(typ,'')+entry(variant,'SpellData',v,base);aliases[variant]=dict(key=key,hand=hand.lower())
             values.update(ContainerSpells=';'.join(choices),SpellProperties='',SpellSuccess='',SpellFail='',SpellRoll='',UseCosts='',SpellFlags=values['SpellFlags']+';IsLinkedSpellContainer')
@@ -537,11 +618,14 @@ def generate_spells():
                 impact='Projectile_ESC_TianjianImpact'+('_Off' if hand=='Off' else '')
                 iv=dict(values);iv.update(UseCosts='',TargetRadius=0,AreaRadius=9,ExplodeRadius=9,SpellProperties='',TargetConditions='Character() and Enemy() and not Dead()')
                 if hand=='Off':
-                    for field in ('SpellSuccess','SpellFail','TooltipDamageList'):
+                    for field in ('SpellSuccess','SpellFail','TooltipDamageList','ExtraDescriptionParams'):
                         iv[field]=iv.get(field,'').replace('MainMeleeWeaponDamageType','OffhandMeleeWeaponDamageType').replace('MainMeleeWeapon','OffhandMeleeWeapon').replace('ExecuteWeaponFunctors(MainHand)','ExecuteWeaponFunctors(OffHand)')
                 files['Projectile']=files.get('Projectile','')+entry(impact,'SpellData',iv,'Projectile_Jump_Bulette_Spawn');aliases[impact]=dict(key=key,internal=True,impact=True,hand=hand.lower())
                 jump=sid+'_'+hand;choices.append(jump);v=dict(values)
-                v.update(SpellContainerID=sid,DisplayName=handle('spell/'+key+'/'+hand,name+' · '+('主手佩剑' if hand=='Main' else '副手佩剑'))+';1',SpellRoll='',SpellSuccess='',SpellFail='',SpellProperties='GROUND:CreateExplosion('+impact+')',TargetRadius=24,AddRangeFromAbility='',TargetConditions="not Surface('SurfaceChasm')",SpellFlags='IsJump;RangeIgnoreVerticalThreshold;CannotTargetCharacter;CannotTargetItems;IgnoreSilence',SpellJumpType='Jump',RequirementConditions="not HasShieldEquipped(context.Source) and not HasStatus('ESC_ARMOR_BLOCKED',context.Source) and HasStatus('ESC_"+('MAIN' if hand=='Main' else 'OFFHAND')+"_SWORD',context.Source)")
+                if hand=='Off':
+                    for field in ('TooltipDamageList', 'ExtraDescriptionParams'):
+                        v[field]=v.get(field,'').replace('MainMeleeWeaponDamageType','OffhandMeleeWeaponDamageType').replace('MainMeleeWeapon','OffhandMeleeWeapon')
+                v.update(SpellContainerID=sid,DisplayName=handle('spell/'+key+'/'+hand,name+' · '+('主手佩剑' if hand=='Main' else '副手佩剑'))+';1',SpellRoll='',SpellSuccess='',SpellFail='',SpellProperties='GROUND:CreateExplosion('+impact+')',TargetRadius=24,AddRangeFromAbility='',TargetConditions="not Surface('SurfaceChasm')",SpellFlags='IsJump;RangeIgnoreVerticalThreshold;CannotTargetCharacter;CannotTargetItems;IgnoreSilence',SpellJumpType='Jump',RequirementConditions=equipment_condition()+' and '+sword_condition(hand))
                 files['Projectile']+=entry(jump,'SpellData',v,'Projectile_Jump');aliases[jump]=dict(key=key,hand=hand.lower())
             values.update(ContainerSpells=';'.join(choices),SpellRoll='',SpellSuccess='',SpellFail='',SpellProperties='',UseCosts='',SpellFlags='IsLinkedSpellContainer;IgnoreSilence')
             base='Projectile_Jump'
@@ -569,6 +653,20 @@ def generate_spells():
     aliases['Target_ESC_TiandiStage']=dict(key='internal_tiandi_stage',internal=True,parent='tianqing_tiandi')
     files['Target']+=entry('Target_ESC_TianbengMain','SpellData',dict(SpellType='Target',UseCosts='',Cooldown='',SpellRoll='',SpellSuccess='',SpellFail='',SpellProperties='DealDamage(14d8,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)',TargetRadius=30,TargetConditions='Character() and Enemy() and not Dead()',SpellFlags='IsSpell;IsHarmful;IgnoreSilence',AmountOfTargets=1,Icon=icon('skill_tianqing_tianbeng')),'Target_HealingWord')
     aliases['Target_ESC_TianbengMain']=dict(key='internal_tianbeng_main',internal=True,parent='tianqing_tianbeng')
+    for suffix,key,parent,dice,weapon in [
+        ('LiuguangStage','internal_liuguang_stage','taixuan_liuguang','4d8',False),
+        ('TianbengCone','internal_tianbeng_cone','tianqing_tianbeng','18d8',True),
+    ]:
+        stage_damage=('DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical)' if weapon else 'DealDamage(2d6+WisdomModifier,Force,Magical)')+';DealDamage('+dice+',Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)'
+        if weapon:
+            stage_damage+=";TARGET:IF(not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_TIANBENG,100,0);ExecuteWeaponFunctors(MainHand)"
+        for hand in (('Main','Off') if weapon else ('Main',)):
+            stage='Target_ESC_'+suffix+('_Off' if hand=='Off' else '')
+            success=stage_damage
+            if hand=='Off':
+                success=success.replace('MainMeleeWeaponDamageType','OffhandMeleeWeaponDamageType').replace('MainMeleeWeapon','OffhandMeleeWeapon').replace('ExecuteWeaponFunctors(MainHand)','ExecuteWeaponFunctors(OffHand)')
+            files['Target']+=entry(stage,'SpellData',dict(SpellType='Target',UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.RangedSpellAttack)',SpellSuccess=success,SpellProperties='',SpellFail='',TargetRadius=18,TargetConditions='Character() and Enemy() and not Dead()',SpellFlags='IsSpell;IsHarmful;IgnoreSilence',AmountOfTargets=1,Icon=icon('skill_'+parent)),'Target_HealingWord')
+            aliases[stage]=dict(key=key,internal=True,parent=parent,hand=hand.lower())
     for suffix,damage_key,roll,damage,fail in [
         ('ChengfengBurst','xingge_chengfeng','not SavingThrow(Ability.Dexterity,SourceSpellDC())','DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);DealDamage(8d6,Force,Magical)','DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);DealDamage((8d6)/2,Force,Magical)'),
         ('HuifengControl','xingge_huifeng','not SavingThrow(Ability.Dexterity,SourceSpellDC())','',''),
@@ -596,10 +694,13 @@ def generate_spells():
             typ='Target' if melee else 'Projectile';sid=typ+'_ESC_'+chain+'_Continue'+('Melee' if melee else 'Ranged')
             damage="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical)"
             if chain=='liancheng':damage+=";IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(1d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(1d6,Force,Magical)"
-            v=dict(SpellType=typ,UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.MeleeSpellAttack)' if melee else 'Attack(AttackType.RangedSpellAttack)',SpellSuccess=damage+';ApplyStatus(ESC_HIT_MARKER,100,0)',SpellFail='',SpellProperties='',TargetRadius=3 if melee else (18 if chain=='liancheng' else 24),TargetConditions='Character() and Enemy() and not Dead()',RequirementConditions=f"HasStatus('ESC_CHAIN_{chain.upper()}',context.Source)",SpellFlags='IsSpell;IsHarmful;IgnoreSilence',AmountOfTargets=1,Icon=icon('skill_'+key),DisplayName=handle('spell/chain/'+chain+str(melee),assets['skill_'+key]['name']+' · 续剑'+('近战' if melee else '御剑'))+';1')
+            continuation_text=PLAYER_TEXT['ui_descriptions'][chain+'_continuation_description']
+            v=dict(SpellType=typ,UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.MeleeSpellAttack)' if melee else 'Attack(AttackType.RangedSpellAttack)',SpellSuccess=damage+';ApplyStatus(ESC_HIT_MARKER,100,0)',SpellFail='',SpellProperties='',TargetRadius=3 if melee else (18 if chain=='liancheng' else 24),TargetConditions='Character() and Enemy() and not Dead()',RequirementConditions=f"HasStatus('ESC_CHAIN_{chain.upper()}',context.Source)",SpellFlags='IsSpell;IsHarmful;IgnoreSilence',AmountOfTargets=1,Icon=icon('skill_'+key),DisplayName=handle('spell/chain/'+chain+str(melee),assets['skill_'+key]['name']+' · 续剑'+('近战' if melee else '御剑'))+';1',Description=handle('spell/chain/'+chain+str(melee)+'/description',continuation_text)+';1')
+            apply_spell_tooltip(key, {**SPELLS[key], 'segments': 1, 'continuation': True}, v, '/continuation')
             files[typ]=files.get(typ,'')+entry(sid,'SpellData',v,'Target_HealingWord' if melee else 'Projectile_MagicMissile');aliases[sid]=dict(key=key,chain=chain,continuation=True)
     for sid,key,resource,status,range_ in [('Projectile_ESC_FlightMove','internal_flight_move','ESC_FlightMovement','ESC_IN_FLIGHT',24),('Projectile_ESC_ChainMove','internal_chain_move','ESC_ChainMovement','ESC_CHAIN_LIANCHENG',6)]:
         v=dict(SpellType='Projectile',UseCosts=resource+':Distance',Cooldown='',TargetRadius=range_,AddRangeFromAbility='',TargetConditions="not Surface('SurfaceChasm')",RequirementConditions=f"HasStatus('{status}',context.Source)",SpellProperties='',SpellSuccess='',SpellFail='',SpellRoll='',AmountOfTargets=1,Icon=icon('skill_sword_flight' if key=='internal_flight_move' else 'skill_xueyan_liancheng'),DisplayName=handle('spell/move/'+key,'御剑飞移' if key=='internal_flight_move' else '连城移步')+';1',SpellFlags='IsJump;RangeIgnoreVerticalThreshold;CannotTargetCharacter;CannotTargetItems;NoAOEDamageOnLand;IgnoreSilence')
+        v['Description']=handle('spell/move/'+key+'/description',PLAYER_TEXT['ui_descriptions']['flight_move_description' if key=='internal_flight_move' else 'chain_move_description'])+';1'
         files['Projectile']=files.get('Projectile','')+entry(sid,'SpellData',v,'Projectile_Fly' if key=='internal_flight_move' else 'Projectile_Jump');aliases[sid]=dict(key=key,internal=True)
     for typ, text in files.items():
         write(PUBLIC / f'Stats/Generated/Data/Spell_{typ}.txt', text)
@@ -618,7 +719,8 @@ def generate_statuses():
         key = aid.removeprefix('status_')
         text += entry('ESC_' + key.upper(), 'StatusData', dict(
             StatusType='BOOST', DisplayName=handle('status/' + key, a['name']) + ';1',
-            Description=handle('status/' + key + '/description', a['name']) + ';1', Icon=icon(aid),
+            Description=handle('status/' + key + '/description', PLAYER_TEXT['status_descriptions'].get(key, a['name'])) + ';1',
+            DescriptionParams=PLAYER_TEXT.get('status_description_params', {}).get(key, ''), Icon=icon(aid),
             StackId='ESC_' + key.upper(), TickType='StartTurn', **({'Boosts':'AC(2)'} if key=='xingge_protection' else {})))
     for key in HIT_CONTROLS:
         text+=entry('ESC_SAVEFAIL_'+key.upper(),'StatusData',dict(StatusType='BOOST',StackId='ESC_SAVEFAIL_'+key.upper(),StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead',**({'OnApplyFunctors':f'Force({HIT_CONTROLS[key]["push"]})'} if HIT_CONTROLS[key].get('push') else {})))
@@ -652,7 +754,7 @@ def generate_statuses():
     write(PUBLIC / 'Stats/Generated/Data/Status_BOOST.txt', text)
     interrupts=''
     for rank in (2,3):
-        interrupts+=entry(f'Interrupt_ESC_Counter{rank}','InterruptData',dict(DisplayName=handle('counter/'+str(rank),'清辉反击' if rank==2 else '星河反击')+';1',Description=handle('counter/'+str(rank)+'/description','每个独立攻击段可选择反击。无需动作、反应或剑元。')+';1',Icon=icon('skill_taixuan_qinghui' if rank==2 else 'skill_taixuan_xinghe'),InterruptContext='OnCastHit',InterruptContextScope='Self',Container='YesNoDecision',Conditions=f"HasStatus('ESC_COUNTER_RANK{rank}',context.Observer) and not HasShieldEquipped(context.Observer) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({{'SG_Incapacitated','SG_Polymorph'}},context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3')",Properties=f'UseSpell(SWAP,Target_ESC_Counter{rank},true,true,true)',Cost='',Stack='ESC_Counter',InterruptDefaultValue='Enabled;Ask',EnableContext='OnStatusApplied;OnStatusRemoved'))
+        interrupts+=entry(f'Interrupt_ESC_Counter{rank}','InterruptData',dict(DisplayName=handle('counter/'+str(rank),'清辉反击' if rank==2 else '星河反击')+';1',Description=handle('counter/'+str(rank)+'/description','攻击落空或被剑气护体化解时，可用剑气反击18米内的攻击者。反击不消耗动作、反应或剑元。')+';1',Icon=icon('skill_taixuan_qinghui' if rank==2 else 'skill_taixuan_xinghe'),InterruptContext='OnCastHit',InterruptContextScope='Self',Container='YesNoDecision',Conditions=f"HasStatus('ESC_COUNTER_RANK{rank}',context.Observer) and not HasShieldEquipped(context.Observer) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({{'SG_Incapacitated','SG_Polymorph'}},context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3')",Properties=f'UseSpell(SWAP,Target_ESC_Counter{rank},true,true,true)',Cost='',Stack='ESC_Counter',InterruptDefaultValue='Enabled;Ask',EnableContext='OnStatusApplied;OnStatusRemoved'))
     write(PUBLIC/'Stats/Generated/Data/Interrupt.txt',interrupts)
 
 
@@ -847,6 +949,9 @@ def generate_condition_errors():
     for stacks in range(1, 16):
         descriptions[(f'ESC_FRENZY_AT_LEAST_{stacks}', 'False')] = (
             f'需要至少 {stacks} 层癫狂。', f'Requires at least {stacks} Frenzy stacks.')
+    for identifier, translations in PLAYER_TEXT['condition_descriptions'].items():
+        status, polarity = identifier.rsplit('_',1)
+        descriptions[(status,polarity)] = tuple(translations)
     required = set()
     for spell_file in sorted((PUBLIC / 'Stats/Generated/Data').glob('Spell_*.txt')):
         for conditions in re.findall(r'^data "RequirementConditions" "([^"]*)"$',
@@ -873,7 +978,22 @@ def main():
     parser.add_argument('--texconv', type=Path, default=Path('E:/SteamLibrary/steamapps/common/Baldurs Gate 3 Toolkit/texconv.exe'))
     parser.add_argument('--skip-art', action='store_true')
     args = parser.parse_args()
-    for generate in [generate_meta, generate_classes, generate_progressions, generate_resource, generate_passives,
+    compiled_vfx = PUBLIC / 'Assets/Effects/Effects_Banks/Sword'
+    authored = {(style, phase) for style in STYLES for phase in PHASES
+                if (compiled_vfx / (effect_name(style, phase) + '.lsfx')).is_file()}
+    if authored:
+        vfx = generate_vfx_resources(sorted({s for s, _ in authored}),
+                                     sorted({p for _, p in authored}), SOURCE)
+        enabled = {(style, phase) for style, phases in vfx['registered'].items()
+                   for phase in phases}
+        # A trajectory needs both a compiled trail and impact plus its template.
+        enabled = {pair for pair in enabled
+                   if pair[1] != 'projectile' or pair[0] in vfx['projectiles']}
+    else:
+        vfx, enabled = {'registered': {}, 'projectiles': {}}, set()
+    set_enabled_phases(enabled)
+    write(ROOT / 'vfx-bindings.json', json.dumps(vfx, ensure_ascii=False, indent=2) + '\n')
+    for generate in [generate_meta, generate_classes, generate_progressions, generate_progression_descriptions, generate_resource, generate_level_maps, generate_passives,
                      generate_spells, generate_statuses, generate_equipment, generate_condition_errors]:
         generate()
     if not args.skip_art:

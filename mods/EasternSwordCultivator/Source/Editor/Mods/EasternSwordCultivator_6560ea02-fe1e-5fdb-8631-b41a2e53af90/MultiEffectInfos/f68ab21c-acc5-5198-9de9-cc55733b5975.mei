@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="f68ab21c-acc5-5198-9de9-cc55733b5975" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Taixuan_Impact">
+    <EffectInfo UUID="02edc0bc-25df-5cad-bafe-bea6258baec1" EffectResourceGuid="40bf0664-6b05-52d8-a7df-f173688f8e56" DetachSource="true" DetachTarget="true" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_BodyFX" />
+</MultiEffectInfos>

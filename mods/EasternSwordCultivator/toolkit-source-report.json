@@ -8,6 +8,10 @@
     "rows": 53
   },
   {
+    "file": "Progressions/ProgressionDescriptions.tbl",
+    "rows": 5
+  },
+  {
     "file": "Lists/SkillLists.tbl",
     "rows": 1
   },
@@ -17,7 +21,7 @@
   },
   {
     "file": "Lists/SpellLists.tbl",
-    "rows": 35
+    "rows": 33
   },
   {
     "file": "ActionResourceDefinitions/ActionResourceDefinitions.tbl",
@@ -33,7 +37,11 @@
   },
   {
     "file": "ErrorDescriptions/ConditionErrors.tbl",
-    "rows": 22
+    "rows": 19
+  },
+  {
+    "file": "Levelmaps/LevelMapValues.tbl",
+    "rows": 20
   },
   {
     "file": "Stats/Stats/Interrupt.stats",
@@ -41,7 +49,7 @@
   },
   {
     "file": "Stats/Stats/Passive.stats",
-    "rows": 20
+    "rows": 22
   },
   {
     "file": "Stats/SpellData/Projectile.stats",
@@ -53,15 +61,15 @@
   },
   {
     "file": "Stats/SpellData/Shout.stats",
-    "rows": 38
+    "rows": 34
   },
   {
     "file": "Stats/SpellData/Target.stats",
-    "rows": 48
+    "rows": 54
   },
   {
     "file": "Stats/SpellData/Zone.stats",
-    "rows": 11
+    "rows": 8
   },
   {
     "file": "Stats/StatusData/Status_BOOST.stats",

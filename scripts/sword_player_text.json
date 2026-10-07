@@ -1,0 +1,169 @@
+{
+  "fallback_descriptions": {
+    "sword_strike": "以手中佩剑斩击一名敌人。",
+    "recall_sword": "召回自己的佩剑并重新握持，不能夺取他人持用的剑。墙与封闭门会阻挡召剑；御剑攻击后佩剑会自行归手。",
+    "qi_sword": "在佩剑与气剑之间切换，失去佩剑也能施展剑术与御剑飞行。气剑造成2d6＋感知伤害：太玄为力场，血魇沿用所选剑气类型。",
+    "control_release": "解除自身受到的控制、致盲与沉默。随后2轮抵抗控制的豁免检定＋2；无法行动时可通过自救选项施展。",
+    "focus_target": "指定太清剑域的重点目标，使其在落剑时额外受到两道气剑攻击。可在下次落剑前重选；目标须处于剑域内。",
+    "xueyan_damage_mode": "在坏死与力场剑气之间切换，影响气剑与血魇招式的额外剑气。实体佩剑的伤害类型不变。"
+  },
+  "passive_descriptions": {
+    "sword_heart": "佩剑攻击的命中与伤害采用感知或武器原属性中较高的调整值，气剑采用感知。持盾时暂停剑术与剑气防护。",
+    "basic_defense": "护甲等级＋1，持盾时失效。",
+    "continuous_strikes": "太玄、天倾、血魇每个动作可出剑[1]次，行歌可出剑2次。常态剑法、进攻强化、绝技与主动回气各占一次；副手追加不能连贯出剑。",
+    "control_resist": "抵抗行动、精神与移动控制，以及致盲、沉默时，豁免检定具有优势并额外＋4。持盾或穿着本分支不允许的护甲时失效。",
+    "auto_release": "每轮首次受到定身、眩晕、麻痹、沉睡、魅惑或支配时，自动消耗反应抵消控制，不耗剑元。反应不可用时无法触发。",
+    "taixuan_breath": "自身回合开始时恢复剑元上限的[1]%与最大生命值的[2]%。倒地待救或死亡时停止。",
+    "tianqing_fortitude": "剑修等级与体质提供的生命值提高至2.5倍，常态减伤[1]%；调息恢复剑元上限的[2]%。其他来源的额外生命值不受倍率影响。",
+    "xueyan_siphon": "剑术伤敌时，恢复伤害[1]%的生命，每剑每名受伤敌人恢复[2]剑元。伤害的10%化为血衣，最多吸收最大生命值20%的伤害，持续2轮；佩剑与额外剑气算同一剑。无鲜血敌人亦可触发。",
+    "xueyan_finish": "以剑术击杀敌人时，恢复最大生命值的10%、[1]剑元，获得2层癫狂。每名敌人只奖励一次。",
+    "xueyan_unhindered": "普通移动与剑术位移均不会引发借机攻击。",
+    "xingge_sidebyside": "与3米内队友并肩时，自己与这些队友护甲等级＋[1]、减伤[2]%，离开范围后失效。多个行歌的保护不叠加，召唤物不计作队友。",
+    "xingge_cooperation": "常态出剑恢复[1]剑元，落空亦可；保护、治疗、解控、接应队友，以及队友跟进、合击与御剑呼应，恢复[2]剑元。自用援护与被动并肩不触发协作回元。"
+  },
+  "status_descriptions": {
+    "weakpoint": "破绽暴露，施加者后续剑术对你命中＋2、伤害＋20%，并无视伤害抗性。免疫仍然有效；照隙再次命中会刷新持续时间。",
+    "followup": "行歌的队友对你命中＋2、伤害＋15%。每名队友首次命中会为行歌恢复剑元；问路再次命中会刷新持续时间与回元机会。",
+    "control_resistance": "抵抗行动、精神与移动控制，以及致盲、沉默时，豁免检定＋2。",
+    "blood_robe": "血衣吸收伤害，最多储存最大生命值的20%。再次取得会累积血衣并刷新持续时间；仅损失血衣不会增加受伤癫狂。",
+    "frenzy": "每满2层使剑术命中＋1，每层使剑招伤害＋5%、职业减伤增加2个百分点，最多15层。战斗外每6秒消退1层，倒地待救或死亡时清空。",
+    "armor_break": "护甲等级降低。不同剑术造成的破甲只取最强效果，各自保留持续时间；同一剑术重施会刷新持续时间，不叠加幅度。",
+    "suppression": "沉重剑势压制行动，使移动距离减半、攻击检定降低。同类压制不叠加，只保留较强效果。",
+    "counter_ready": "来袭攻击落空或被剑气减伤时，可以向18米内攻击者反击。反击不消耗动作、反应或剑元，也不会引发对方的护体反击。",
+    "sword_domain": "太清剑域中的清气助你破敌：命中＋2，伤害＋20%。离开剑域后失效，同名增益不叠加。",
+    "sword_domain_debuff": "受到太清剑域压制：移动距离减半、攻击检定－2、护甲等级－2。离开剑域后失效。",
+    "tianqing_might": "剑招伤害提高：天锋破阵＋30%，天剑坠世＋40%。各自独立计时。",
+    "tianqing_aftershock": "剑招伤害＋40%、受到的伤害额外减少25%。身周6米敌人在其回合开始时受到6d8力场伤害。",
+    "dash_defense": "护甲等级＋2。再次穿行刷新持续时间，不叠加护甲等级。",
+    "xingge_protection": "护甲等级＋2，受到的伤害减少20%。再次施展刷新持续时间。",
+    "escape": "本次获得额外6米移动距离，并暂时免疫借机攻击。",
+    "damage_share": "为6米内队友分担防护后剩余伤害的[1]%，离开范围后停止。自身额外减伤30%，获得的治疗提高[2]%。",
+    "team_resonance": "命中＋2、伤害＋30%。每人每轮可引发一次免费御剑呼应，飞剑命中造成2d6＋感知＋2d6力场伤害；次数在行歌回合开始时恢复。"
+  },
+  "ui_descriptions": {
+    "sword_yuan_description": "施展剑术所需的内在力量。常态剑法不消耗剑元，可通过调息、伤敌与分支特性恢复。",
+    "counter_description": "来袭攻击落空或被剑气减伤时，可向攻击者反击，不消耗动作、反应或剑元。",
+    "flight_move_description": "选择落点，本回合共可飞行24米，不消耗普通移动距离。墙与封闭门会阻挡飞行，终点须可落脚。",
+    "chain_move_description": "在下一次连城追斩前移动，最多6米，不消耗普通移动距离。每剑重新获得额度，整招最多移动24米。",
+    "liancheng_continuation_description": "继续血影连城的一次追斩，不再消耗动作或剑元。",
+    "wusheng_continuation_description": "继续血魇·无生的一剑，保留起招时的癫狂增幅，不再消耗动作或剑元。",
+    "offhand_bonus_description": "双持佩剑时，以副手施展一次常态剑法，照常获得分支效果。不能继续连贯出剑。",
+    "weapon_choice_note": "选择用于本次剑术的佩剑，每次只计算一把剑的伤害。",
+    "spend_frenzy_note": "消耗所选层数的癫狂，每层使本招伤害额外＋10%，保留消耗前层数带来的命中与增伤。"
+  },
+  "condition_descriptions": {
+    "ESC_ARMOR_BLOCKED_True": [
+      "穿着中甲或重甲时无法施展本分支剑术。",
+      "Cannot use this path's sword arts while wearing medium or heavy armor."
+    ],
+    "ESC_MAIN_SWORD_False": [
+      "请在主手装备一把剑。",
+      "Equip a sword in your main hand."
+    ],
+    "ESC_OFFHAND_SWORD_False": [
+      "此招需要双持佩剑，并在副手装备剑。",
+      "This form requires a sword in your off hand."
+    ],
+    "ESC_QI_MODE_False": [
+      "请先选择凝气成剑。",
+      "Activate Qi Sword first."
+    ],
+    "ESC_IN_FLIGHT_False": [
+      "请先施展御剑飞行。",
+      "Use Sword Flight first."
+    ],
+    "ESC_CHAIN_LIANCHENG_False": [
+      "请先施展血影连城。",
+      "Use Blood Shadow Pursuit first."
+    ],
+    "ESC_CHAIN_WUSHENG_False": [
+      "请先施展血魇·无生。",
+      "Use Blood Nightmare: Lifeless first."
+    ]
+  },
+  "level_maps": {
+    "ESC_BreathYuan": {
+      "1": "20",
+      "11": "25"
+    },
+    "ESC_BreathLife": {
+      "1": "5",
+      "11": "6"
+    },
+    "ESC_FortitudeReduction": {
+      "1": "35",
+      "11": "40"
+    },
+    "ESC_FortitudeRecovery": {
+      "1": "60",
+      "11": "70"
+    },
+    "ESC_SiphonLife": {
+      "1": "20",
+      "11": "25"
+    },
+    "ESC_SiphonYuan": {
+      "1": "1",
+      "11": "2"
+    },
+    "ESC_FinishYuan": {
+      "1": "3",
+      "11": "4"
+    },
+    "ESC_SideAC": {
+      "1": "1",
+      "11": "2"
+    },
+    "ESC_SideReduction": {
+      "1": "10",
+      "11": "15"
+    },
+    "ESC_NormalYuan": {
+      "1": "1",
+      "11": "2"
+    },
+    "ESC_CooperationYuan": {
+      "1": "2",
+      "11": "3"
+    },
+    "ESC_ShareDamage": {
+      "1": "40",
+      "10": "45"
+    },
+    "ESC_ShareHealing": {
+      "1": "50",
+      "10": "75"
+    },
+    "ESC_NixiHealing": {
+      "1": "35",
+      "4": "75",
+      "11": "80"
+    },
+    "ESC_XiangfuHealing": {
+      "1": "15",
+      "4": "30"
+    },
+    "ESC_SwordOpportunities": {
+      "1": "1",
+      "5": "3",
+      "10": "4"
+    }
+  },
+  "passive_description_params": {
+    "taixuan_breath": "LevelMapValue(ESC_BreathYuan);LevelMapValue(ESC_BreathLife)",
+    "tianqing_fortitude": "LevelMapValue(ESC_FortitudeReduction);LevelMapValue(ESC_FortitudeRecovery)",
+    "xueyan_siphon": "LevelMapValue(ESC_SiphonLife);LevelMapValue(ESC_SiphonYuan)",
+    "xueyan_finish": "LevelMapValue(ESC_FinishYuan)",
+    "xingge_sidebyside": "LevelMapValue(ESC_SideAC);LevelMapValue(ESC_SideReduction)",
+    "xingge_cooperation": "LevelMapValue(ESC_NormalYuan);LevelMapValue(ESC_CooperationYuan)",
+    "continuous_strikes": "LevelMapValue(ESC_SwordOpportunities)"
+  },
+  "spell_description_params": {
+    "tianqing_nixi": "LevelMapValue(ESC_NixiHealing)",
+    "xingge_xiangfu": "LevelMapValue(ESC_XiangfuHealing)",
+    "xingge_fengyu": "LevelMapValue(ESC_ShareDamage);LevelMapValue(ESC_ShareHealing)"
+  },
+  "status_description_params": {
+    "damage_share": "LevelMapValue(ESC_ShareDamage);LevelMapValue(ESC_ShareHealing)"
+  }
+}

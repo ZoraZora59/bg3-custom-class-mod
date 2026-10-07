@@ -14,7 +14,7 @@ def guid(key):
 
 MODULE_UUID = guid('module')
 FOLDER = f'{MOD}_{MODULE_UUID}'
-VERSION64 = (1 << 55) | 3
+VERSION64 = (1 << 55) | 7
 PUBLISH_HANDLE = 6417135
 CAPACITIES = [0, 6, 10, 14, 18, 24, 26, 28, 30, 40, 44, 50]
 BRANCHES = {
@@ -23,12 +23,12 @@ BRANCHES = {
     'xueyan': dict(name='血魇', english='Xueyan', hp=1.6, attack=3, ac=2, reduction=20),
     'xingge': dict(name='行歌', english='Xingge', hp=1.1, attack=1, ac=1, reduction=0),
 }
-CLASS_DESCRIPTION = '承自异乡的剑道，以剑心御动天地之气。持剑近战，御剑远击；修行者或一心求道，或弃道求力，或走火入魔，或与友同行。'
+CLASS_DESCRIPTION = '以剑心御动天地之气，持剑近战，御剑远击。'
 BRANCH_DESCRIPTIONS = {
-    'taixuan': '心照万法，剑通天地。凝气为锋，洞悉破绽，在从容护身与精准反击之间施展超然剑术。',
-    'tianqing': '舍道求力，逆锋不屈。以万钧剑势摧毁抵抗，御巨剑冲阵、坠击，凭深厚体魄与强力回生独自撑起战局。',
-    'xueyan': '剑心入魇，杀戮成狂。从伤口、鲜血与生命之力中重新站起，穿行猎杀；癫狂既强化常态剑术，也能投入绝技换取爆发。',
-    'xingge': '历经红尘，仍愿同行。以灵动剑术接应同伴，以合击与御剑呼应共同破敌；危难时承接伤势，与众人走出风雨。',
+    'taixuan': '心照万法，剑通天地。以剑气洞悉破绽，护身反击。持盾或穿着中甲、重甲时，剑术与剑气防护失效。',
+    'tianqing': '舍道求力，逆锋不屈。以沉重剑势摧破敌阵，凭强健体魄承受攻势。',
+    'xueyan': '剑心入魇，饮血成狂。在穿行与杀戮中夺取生命，越战越烈。',
+    'xingge': '仗剑同行，扶危解困。以灵动剑术接应同伴，共同破敌。持盾或穿着中甲、重甲时，剑术与剑气防护失效。',
 }
 
 # key, level, kind, cost, distance, radius/width, dice, segments, base, action
@@ -99,6 +99,9 @@ PASSIVES = {
 def spells_at(branch, level):
     result = []
     for key, spec in SPELLS.items():
+        # Retain legacy Stats IDs for saved references, without granting duplicate buttons.
+        if key in ('sword_strike', 'qi_guard', 'tianqing_xushi'):
+            continue
         if spec['level'] != level:
             continue
         if spec['branch'] == branch and key not in ('recall_sword', 'qi_sword', 'control_release', 'focus_target'):

@@ -11,7 +11,8 @@ local helpers={internal_taiqing_pulse='Target_ESC_TaiqingPulse',internal_blood_p
     internal_counter2='Target_ESC_Counter2',internal_counter3='Target_ESC_Counter3',
     internal_resonance='Target_ESC_Resonance',internal_aftershock='Target_ESC_Aftershock',
     internal_tiandi_stage='Target_ESC_TiandiStage',internal_tianbeng_main='Target_ESC_TianbengMain',
-    internal_chengfeng_burst='Target_ESC_ChengfengBurst',internal_huifeng_control='Target_ESC_HuifengControl'}
+    internal_chengfeng_burst='Target_ESC_ChengfengBurst',internal_huifeng_control='Target_ESC_HuifengControl',
+    internal_liuguang_stage='Target_ESC_LiuguangStage',internal_tianbeng_cone='Target_ESC_TianbengCone'}
 for key,spell in pairs(helpers) do keys[spell]=key end
 E.classSpellKeys=keys
 local basicSwordAttacks={Target_MainHandAttack=true,Target_OffHandAttack=true,
@@ -21,6 +22,7 @@ local watched,casts,contexts,pendingHelpers,stages={}, {}, {}, {}, {}
 local auraTargets,sequence,timerGeneration={},0,0
 local rescueRequests={}
 local cooperationRequests={}
+local pendingAvatarRefreshes={}
 local healingContexts={}
 local diagnostics={enabled=false,events={}}
 local function trace(phase,row)
@@ -55,7 +57,7 @@ local function offensiveKey(key)
     return row and row.base and row.base~='' or key=='internal_taiqing_pulse' or key=='internal_blood_pulse'
         or key=='internal_counter2' or key=='internal_counter3' or key=='internal_resonance'
         or key=='internal_aftershock' or key=='internal_tiandi_stage' or key=='internal_tianbeng_main'
-        or key=='internal_chengfeng_burst'
+        or key=='internal_chengfeng_burst' or key=='internal_liuguang_stage' or key=='internal_tianbeng_cone'
 end
 local function validDomain(id,key)
     local s=state(id);local d=s and s.domains[key]
@@ -211,6 +213,49 @@ local function weaponWisdom(id,s,allowed)
     -- An actor override would affect unrelated weapons and both hands together.
     E.setBoosts(id,'wisdom','')
 end
+local legacyStartingSpells={'Shout_ESC_StartingSword','Shout_ESC_StartingSword_longsword',
+    'Shout_ESC_StartingSword_greatsword','Shout_ESC_StartingSword_dualshorts'}
+local mergedOffhandContainers={'Shout_ESC_Offhand_taixuan_zhaoxi','Shout_ESC_Offhand_tianqing_nifeng',
+    'Shout_ESC_Offhand_xueyan_luexue','Shout_ESC_Offhand_xingge_wenlu'}
+local function removeKnownSpell(id,spell,removeChildren)
+    if Osi.HasSpell(id,spell)==1 then Osi.RemoveSpell(id,spell,removeChildren) end
+end
+local function removeKnownPassive(id,passive)
+    if Osi.HasPassive(id,passive)==1 then Osi.RemovePassive(id,passive) end
+end
+local function migrateSkillMenu(id,level,branch)
+    -- Only current sword cultivators own this migration. Check each grant on
+    -- refresh so old saves, levelling and respec all converge without a save flag.
+    if level<=0 then return end
+    for _,spell in ipairs(legacyStartingSpells) do removeKnownSpell(id,spell,1) end
+    -- The bonus children now belong to their regular technique's container.
+    -- Removing an old offhand parent must not remove those retained children.
+    for _,spell in ipairs(mergedOffhandContainers) do removeKnownSpell(id,spell,0) end
+    removeKnownSpell(id,'Shout_ESC_tianqing_xushi',0)
+    if level>=3 then
+        removeKnownPassive(id,'ESC_P_StarterSword')
+        removeKnownPassive(id,'ESC_P_StarterMelee')
+        for _,parent in ipairs({'Target_ESC_sword_strike','Projectile_ESC_yujian'}) do
+            for _,suffix in ipairs({'','_Main','_Off'}) do removeKnownSpell(id,parent..suffix,0) end
+        end
+    end
+    if branch=='taixuan' and level>=4 then
+        removeKnownPassive(id,'ESC_P_StarterGuard')
+        removeKnownSpell(id,'Shout_ESC_qi_guard',0)
+    end
+    if branch=='tianqing' and level>=6 then
+        local old=false
+        for _,suffix in ipairs({'','_Main','_Off'}) do
+            local spell='Zone_ESC_tianqing_tianbeng'..suffix
+            if Osi.HasSpell(id,spell)==1 then old=true;Osi.RemoveSpell(id,spell,0) end
+        end
+        -- Repair only an existing old grant. Native progression grants new
+        -- characters the new targeted root without a runtime unlock.
+        if old and Osi.HasSpell(id,'Target_ESC_tianqing_tianbeng')~=1 then
+            Osi.AddSpell(id,'Target_ESC_tianqing_tianbeng',0,1)
+        end
+    end
+end
 local function refresh(id)
     local level,branch=E.class(id)
     if level==0 and not watched[id] then return end
@@ -222,6 +267,7 @@ local function refresh(id)
         for _,status in ipairs({'ESC_MAIN_SWORD','ESC_OFFHAND_SWORD','ESC_ARMOR_BLOCKED','ESC_COUNTER_RANK2','ESC_COUNTER_RANK3','ESC_EXTRA_ATTACK','ESC_IN_FLIGHT','ESC_CHAIN_LIANCHENG','ESC_CHAIN_WUSHENG'}) do E.removeStatus(id,status,id) end
         return
     end
+    migrateSkillMenu(id,level,branch)
     local allowed=E.allowed(id,branch,false);local bonus=R.attackBonus(level,branch)
     for _,entry in ipairs({{'ESC_MAIN_SWORD',E.sword(id)~=nil},{'ESC_OFFHAND_SWORD',E.sword(id,true)~=nil},
         {'ESC_ARMOR_BLOCKED',not allowed and Osi.GetEquippedShield(id)==nil}}) do
@@ -377,11 +423,17 @@ local function pulse(id,key)
         if key=='taixuan_taiqing' and s.focus==target then helper(id,'internal_taiqing_pulse',target);helper(id,'internal_taiqing_pulse',target) end
     end
 end
+local function copyPosition(point) return point and {point[1],point[2],point[3]} or nil end
 local function beginCast(id,spell,action,target,position)
     local name=E.spellName(spell);local key=keyFor(name);local c=casts[action]
-    if c and c.id==id then c.target=target or c.target;c.position=position or c.position;return c end
+    if c and c.id==id then
+        c.target=target or c.target;c.position=position and copyPosition(position) or c.position
+        if target and not c.targetPosition then c.targetPosition=copyPosition(E.position(target)) end
+        return c
+    end
     if E.class(id)>0 then refresh(id);scopedBoosts(id,'cast_snapshot_',0,0);E.setBoosts(id,'cast_weapon_accuracy','') end
-    c={id=id,key=key,spell=name,target=target,position=position,action=action,targets={},rewards={},firstHits={},alias=aliases[name] or {},startPosition=E.position(id)}
+    c={id=id,key=key,spell=name,target=target,position=copyPosition(position),action=action,targets={},rewards={},firstHits={},
+        alias=aliases[name] or {},startPosition=copyPosition(E.position(id)),targetPosition=target and copyPosition(E.position(target))}
     local queue=pendingHelpers[id]
     if queue and queue[1] and queue[1].key==key then c.meta=table.remove(queue,1).meta end
     c.meta=c.meta or {};c.level,c.branch=E.class(id)
@@ -444,6 +496,29 @@ local function castEffect(c)
             local removed=clearControls(target,id);E.status(target,'ESC_CONTROL_RESISTANCE',2,id);if removed then cooperation(id,target) end
         end
     elseif key=='focus_target' then s.focus=target;save(id,s)
+    elseif key=='taixuan_liuguang' then
+        if c.target and E.entity(target) and E.enemy(id,target) then
+            for _=1,3 do helper(id,'internal_liuguang_stage',target,{parentAction=c.action}) end
+        end
+    elseif key=='tianqing_tianbeng' then
+        local start,finish=c.startPosition,c.targetPosition
+        if c.target and start and finish and E.enemy(id,target) then
+            local dx,dz=finish[1]-start[1],finish[3]-start[3]
+            local direction=math.sqrt(dx*dx+dz*dz)
+            if direction>0 then
+                for _,enemy in ipairs(E.nearby(id,12,E.enemy)) do
+                    local point=E.position(enemy)
+                    local x,y,z=point[1]-start[1],point[2]-start[2],point[3]-start[3]
+                    local planar=math.sqrt(x*x+z*z)
+                    -- Preserve the chosen facing even when the primary hit
+                    -- killed or pushed its target before CastedSpell arrives.
+                    if enemy~=target and planar>0 and x*x+y*y+z*z<=144+1e-9
+                        and (x*dx+z*dz)/(planar*direction)>=math.sqrt(.5)-1e-9 and E.visible(id,enemy) then
+                        helper(id,'internal_tianbeng_cone',enemy,{parentAction=c.action,hand=c.alias.hand})
+                    end
+                end
+            end
+        end
     elseif key=='xingge_huifeng' then
         if target==id or E.friend(id,target) and E.distance(id,target)<=18 then
             local t=state(target);t.protections['huifeng:'..id]={owner=id,kind='huifeng',expires=s.turn+2,reduction=.20};save(target,t)
@@ -709,7 +784,6 @@ local function hit(source,target,action)
     if not c.firstHits[target] then
         c.firstHits[target]=true
         if c.key=='taixuan_zhaoxi' then mark(target,'weakpoint',source) elseif c.key=='xingge_wenlu' then mark(target,'followup',source) end
-        if c.key=='tianqing_tianbeng' and c.target==target then helper(source,'internal_tianbeng_main',target,{parentAction=action,hand=c.alias.hand}) end
     end
     local rewards={}
     for owner in pairs(watched) do
@@ -834,23 +908,32 @@ end
 local function decay()
     for id in pairs(watched) do local _,branch=E.class(id);if branch=='xueyan' and not E.combat(id) then local s=state(id);if s.frenzy>0 then addFrenzy(id,-1) end end end
 end
-local legacyStartingSpells={'Shout_ESC_StartingSword','Shout_ESC_StartingSword_longsword',
-    'Shout_ESC_StartingSword_greatsword','Shout_ESC_StartingSword_dualshorts'}
-local function removeLegacyStartingSpells(id)
-    for _,spell in ipairs(legacyStartingSpells) do
-        if Osi.HasSpell(id,spell)==1 then Osi.RemoveSpell(id,spell,1) end
-    end
-end
-local function sessionLoaded()
-    rescueRequests={};cooperationRequests={}
+local function refreshClassActors(resetTransient)
     for _,entity in ipairs(Ext.Entity.GetAllEntitiesWithComponent('Classes')) do local id=E.uuid(entity);if id then
         refresh(id)
-        if E.class(id)>0 then
-            removeLegacyStartingSpells(id)
+        if resetTransient and E.class(id)>0 then
             scopedBoosts(id,'cast_snapshot_',0,0);E.setBoosts(id,'cast_weapon_accuracy','')
         end
     end end
+end
+local function refreshNewAvatar(avatar)
+    local id=E.uuid(E.entity(avatar));if not id then return end
+    refresh(id)
+    if pendingAvatarRefreshes[id] then return end
+    local pending={};pendingAvatarRefreshes[id]=pending
+    local generation=timerGeneration
+    -- A joining player's Classes/equipment may be published after its avatar
+    -- event. Retry once; repeated notifications share this bounded retry.
+    Ext.Timer.WaitFor(200,function()
+        if generation~=timerGeneration or pendingAvatarRefreshes[id]~=pending then return end
+        pendingAvatarRefreshes[id]=nil
+        if E.entity(id) then refresh(id) end
+    end)
+end
+local function sessionLoaded()
+    rescueRequests={};cooperationRequests={};pendingAvatarRefreshes={}
     timerGeneration=timerGeneration+1;local generation=timerGeneration
+    refreshClassActors(true)
     local function periodic()
         if generation~=timerGeneration then return end
         updateAuras();for id in pairs(watched) do if E.class(id)>0 then updateRescue(id) end end
@@ -962,6 +1045,10 @@ Ext.Osiris.RegisterListener('LeveledUp',1,'after',refresh)
 Ext.Osiris.RegisterListener('RespecCompleted',1,'after',refresh)
 Ext.Osiris.RegisterListener('Equipped',2,'after',function(item,id) refresh(id);updateAuras() end)
 Ext.Osiris.RegisterListener('Unequipped',2,'after',function(item,id) refresh(id);updateAuras() end)
+-- New-game character creation can finish after SessionLoaded and its initial
+-- equipment events. Discover the finalized actors when gameplay is ready.
+Ext.Osiris.RegisterListener('LevelGameplayReady',2,'after',function() refreshClassActors(false) end)
+Ext.Osiris.RegisterListener('UserAvatarCreated',3,'after',function(user,avatar,guardian) refreshNewAvatar(avatar) end)
 Ext.Events.SessionLoaded:Subscribe(sessionLoaded)
 Ext.Events.NetMessage:Subscribe(function(evt)
     if evt.Channel~='ESC_ControlRescueIntent' and evt.Channel~='ESC_CooperationIntent' then return end

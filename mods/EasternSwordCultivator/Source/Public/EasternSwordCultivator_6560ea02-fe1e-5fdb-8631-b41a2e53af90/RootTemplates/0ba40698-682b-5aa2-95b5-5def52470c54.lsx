@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="0ba40698-682b-5aa2-95b5-5def52470c54" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Common_Projectile_01_Pathfind_Template" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="713e09eb-e206-5eed-966f-c4b4eeca6152" />
+                    <attribute id="TrajectoryType" type="uint8" value="2" />
+                    <attribute id="Type" type="FixedString" value="projectile" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

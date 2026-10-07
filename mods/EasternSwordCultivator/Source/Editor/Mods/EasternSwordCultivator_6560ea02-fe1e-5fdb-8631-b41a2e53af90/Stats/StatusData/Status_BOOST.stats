@@ -447,6 +447,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_WEAKPOINT" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="habbd909bge23bg5858ga978gee521c50da44" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd722b191gcdcfg5d46gbf83g0968c4b57d16" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_weakpoint" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_WEAKPOINT" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -458,6 +459,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_FOLLOWUP" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h375c6085g9451g5b62gbb7ag53dd1dd7dd05" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h02937807gec67g57a8gbcd0g1b29ebfdec16" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_followup" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_FOLLOWUP" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -469,6 +471,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_CONTROL_RESISTANCE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h53df8a50gcbd7g5ee6gac12g4a842c4fd040" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h890afb23gc959g5690gac20gbd380b3a331c" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_control_resistance" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_CONTROL_RESISTANCE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -480,6 +483,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_BLOOD_ROBE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h4ba22a6dgfb60g527agae2fg6099b5a5cbfe" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h7536a0d8g6f37g5a29gbacbgc71c704ffd00" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_blood_robe" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_BLOOD_ROBE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -491,6 +495,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_FRENZY" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hc148ccadg838ag58ddg9c2ag969ac9c95492" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd3615830gea3dg573ag83d7gee38fe371f28" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_frenzy" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_FRENZY" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -502,6 +507,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_ARMOR_BREAK" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h7c824d53ga892g5060g9a33ga0ca403dbabd" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hf25a3252g863cg56cbg8436g5a2960369eb7" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_armor_break" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_ARMOR_BREAK" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -513,6 +519,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SUPPRESSION" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hf34c6dc7g6750g5740g87dege8a9480625dc" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h62c72ceag6277g5879g8382g40c37e11f353" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_suppression" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_SUPPRESSION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -524,6 +531,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_COUNTER_READY" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hfd8c0b6bg1ea3g53deg9902gecf33a38f02f" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hdfa8b7c1ge393g52b0gb017g41ce6ad9916d" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_counter_ready" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_READY" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -535,6 +543,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SWORD_DOMAIN" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hadcf0a0cg6e94g5576g8f78gf0b6955ffc87" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hb1224b70g8487g53e4g9f5eg4a9bfb9e477c" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_sword_domain" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_SWORD_DOMAIN" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -546,6 +555,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SWORD_DOMAIN_DEBUFF" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h41ffe598gaa56g517cg9876gc2bc9cc4b4a2" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h8c5c3743ga419g5a8agbf51g5104529bd499" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_sword_domain_debuff" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_SWORD_DOMAIN_DEBUFF" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -557,6 +567,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_TIANQING_MIGHT" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hd097fba1g98a0g54dfgb903g84aad5a12b43" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hd499d315ge7e6g56c0gb70cgac7966b3dfef" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_tianqing_might" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_TIANQING_MIGHT" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -568,6 +579,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_TIANQING_AFTERSHOCK" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8ea3e3dbg163ag5ed8gb769gdf36c2633de6" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h3b78cb97g89a2g501dg8ef8g6a69cc9db3de" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_tianqing_aftershock" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_TIANQING_AFTERSHOCK" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -579,6 +591,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_DASH_DEFENSE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h91cf9b95g233cg52b6g80cdgcfc1dea8b979" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h282be0fcg1074g5e7bg8da7gd1efba456855" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_dash_defense" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_DASH_DEFENSE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -590,6 +603,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_XINGGE_PROTECTION" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h46c8b32dg78dcg5aedga590gba9d9b3ce678" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5a5d6da9g2522g5e32gb1e2gbca4a28f68f6" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_xingge_protection" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_XINGGE_PROTECTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -602,6 +616,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_ESCAPE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8f779033g4da6g5667g9297g4f89ad405b81" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6efe08d1g5de1g5e57g8d47g2d282346e2d8" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_escape" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_ESCAPE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -613,6 +628,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_DAMAGE_SHARE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="hbeb63ab8g8233g5c3dg8231g7093b3f98452" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="hc7d6ae52g6c07g5e67g9a0fg4e6e8e048926" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="LevelMapValue(ESC_ShareDamage);LevelMapValue(ESC_ShareHealing)" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_damage_share" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_DAMAGE_SHARE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -624,6 +640,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_TEAM_RESONANCE" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h0543921bgd816g575bg9fdbg11e9157e6194" version="1" />
         <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h6aff6081g6987g5289gbaf4g645134604609" version="1" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_team_resonance" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_TEAM_RESONANCE" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
@@ -914,7 +931,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_1" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Zone_ESC_tianqing_tianbeng') or SpellId('Rush_ESC_tianqing_tianfeng') or SpellId('Projectile_ESC_tianqing_tianjian') or SpellId('Shout_ESC_tianqing_bafang') or SpellId('Target_ESC_tianqing_tiandi') or SpellId('Shout_ESC_tianqing_xushi') or SpellId('Projectile_ESC_xueyan_luexue') or SpellId('Rush_ESC_xueyan_chuanshen') or SpellId('Shout_ESC_xueyan_liancheng') or SpellId('Shout_ESC_xueyan_nixue') or SpellId('Shout_ESC_xueyan_xuehai') or SpellId('Projectile_ESC_xueyan_wusheng'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Target_ESC_tianqing_tianbeng') or SpellId('Rush_ESC_tianqing_tianfeng') or SpellId('Projectile_ESC_tianqing_tianjian') or SpellId('Shout_ESC_tianqing_bafang') or SpellId('Target_ESC_tianqing_tiandi') or SpellId('Shout_ESC_tianqing_xushi') or SpellId('Projectile_ESC_xueyan_luexue') or SpellId('Rush_ESC_xueyan_chuanshen') or SpellId('Shout_ESC_xueyan_liancheng') or SpellId('Shout_ESC_xueyan_nixue') or SpellId('Shout_ESC_xueyan_xuehai') or SpellId('Projectile_ESC_xueyan_wusheng'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -932,7 +949,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_3" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_3" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_taixuan_zhaoxi_RangedOff') or SpellId('Zone_ESC_tianqing_nifeng_MeleeMain') or SpellId('Zone_ESC_tianqing_nifeng_MeleeOff') or SpellId('Zone_ESC_tianqing_nifeng_RangedMain') or SpellId('Zone_ESC_tianqing_nifeng_RangedOff') or SpellId('Target_ESC_tianqing_wanjun_Main') or SpellId('Target_ESC_tianqing_wanjun_Off') or SpellId('Projectile_ESC_tianqing_lietian_Main') or SpellId('Projectile_ESC_tianqing_lietian_Off') or SpellId('Zone_ESC_tianqing_tianbeng_Main') or SpellId('Zone_ESC_tianqing_tianbeng_Off') or SpellId('Rush_ESC_tianqing_tianfeng_Main'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_taixuan_zhaoxi_RangedOff') or SpellId('Zone_ESC_tianqing_nifeng_MeleeMain') or SpellId('Zone_ESC_tianqing_nifeng_MeleeOff') or SpellId('Zone_ESC_tianqing_nifeng_RangedMain') or SpellId('Zone_ESC_tianqing_nifeng_RangedOff') or SpellId('Target_ESC_tianqing_wanjun_Main') or SpellId('Target_ESC_tianqing_wanjun_Off') or SpellId('Projectile_ESC_tianqing_lietian_Main') or SpellId('Projectile_ESC_tianqing_lietian_Off') or SpellId('Target_ESC_tianqing_tianbeng_Main') or SpellId('Target_ESC_tianqing_tianbeng_Off') or SpellId('Rush_ESC_tianqing_tianfeng_Main'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

@@ -1,7 +1,7 @@
 {
   "module": "6560ea02-fe1e-5fdb-8631-b41a2e53af90",
   "folder": "EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90",
-  "version64": 36028797018963971,
+  "version64": 36028797018963975,
   "publishHandle": 6417135,
   "capacities": [
     0,
@@ -392,7 +392,7 @@
         "mainOnly": true,
         "marker": "ESC_SAVEFAIL_TIANQING_TIANBENG"
       },
-      "stat": "Zone_ESC_tianqing_tianbeng"
+      "stat": "Target_ESC_tianqing_tianbeng"
     },
     "tianqing_tianfeng": {
       "key": "tianqing_tianfeng",
@@ -851,11 +851,11 @@
       "key": "tianqing_lietian",
       "hand": "off"
     },
-    "Zone_ESC_tianqing_tianbeng_Main": {
+    "Target_ESC_tianqing_tianbeng_Main": {
       "key": "tianqing_tianbeng",
       "hand": "main"
     },
-    "Zone_ESC_tianqing_tianbeng_Off": {
+    "Target_ESC_tianqing_tianbeng_Off": {
       "key": "tianqing_tianbeng",
       "hand": "off"
     },
@@ -1180,6 +1180,24 @@
       "internal": true,
       "parent": "tianqing_tianbeng"
     },
+    "Target_ESC_LiuguangStage": {
+      "key": "internal_liuguang_stage",
+      "internal": true,
+      "parent": "taixuan_liuguang",
+      "hand": "main"
+    },
+    "Target_ESC_TianbengCone": {
+      "key": "internal_tianbeng_cone",
+      "internal": true,
+      "parent": "tianqing_tianbeng",
+      "hand": "main"
+    },
+    "Target_ESC_TianbengCone_Off": {
+      "key": "internal_tianbeng_cone",
+      "internal": true,
+      "parent": "tianqing_tianbeng",
+      "hand": "off"
+    },
     "Target_ESC_ChengfengBurst": {
       "key": "internal_chengfeng_burst",
       "internal": true,
@@ -1240,7 +1258,7 @@
     }
   },
   "design_sha256": {
-    "20-eastern-sword-cultivator-gdd.md": "a54e91cc4c3e2365d5c49530698f7f3adaba59a30bc3995767222847d2488e95",
-    "21-player-facing-skill-text-draft.md": "7dd528c16bf06bbace18b9966a6e415aa8534e8095e0c525db5fc8ccf2f31813"
+    "20-eastern-sword-cultivator-gdd.md": "4b519dd6aa81ef7def2df55355bed4c315594d9e6ea68f3e38ff80a841d04387",
+    "21-player-facing-skill-text-draft.md": "1e6e1be699d0ae35ec95c8a021955a249af1c62382ff682d5c01176508dae4c6"
   }
 }

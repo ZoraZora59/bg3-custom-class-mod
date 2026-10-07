@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="e187e0ce-b767-5582-9bdf-14033f5330b9" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Xingge_Projectile">
+    <EffectInfo UUID="5244e715-8731-58ff-8d56-0bc799d4a97e" EffectResourceGuid="3953c772-1b76-5d0a-9d4b-c2a7b0b4ce02" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_Root" />
+</MultiEffectInfos>

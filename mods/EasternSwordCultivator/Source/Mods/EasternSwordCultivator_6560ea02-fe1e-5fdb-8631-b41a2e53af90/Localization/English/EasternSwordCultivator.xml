@@ -1,147 +1,162 @@
 <?xml version='1.0' encoding='utf-8'?>
 <contentList>
     <content contentuid="h0125919bg8ed0g5c62gb2d2g525f45423806" version="1">回风解围</content>
-    <content contentuid="h01dfe01fg9550g53c3gab9cgfc81346b6d0d" version="1">逆血狂澜 · 投入8层癫狂</content>
+    <content contentuid="h01dfe01fg9550g53c3gab9cgfc81346b6d0d" version="1">逆血狂澜 · 消耗8层癫狂</content>
     <content contentuid="h01e011c8g5727g5aacg91b9g82472613730c" version="1">Taixuan</content>
-    <content contentuid="h02051974gdbceg5b15gb6dag01f1449c0f8a" version="1">心照万法，剑通天地。凝气为锋，洞悉破绽，在从容护身与精准反击之间施展超然剑术。</content>
+    <content contentuid="h02051974gdbceg5b15gb6dag01f1449c0f8a" version="1">心照万法，剑通天地。以剑气洞悉破绽，护身反击。持盾或穿着中甲、重甲时，剑术与剑气防护失效。</content>
     <content contentuid="h022de9dfg4fa7g5281ga2f6g65f98170fad9" version="1">Requires at least 7 Frenzy stacks.</content>
-    <content contentuid="h02937807gec67g57a8gbcd0g1b29ebfdec16" version="1">跟进机会</content>
+    <content contentuid="h02937807gec67g57a8gbcd0g1b29ebfdec16" version="1">行歌的队友对你命中＋2、伤害＋15%。每名队友首次命中会为行歌恢复剑元；问路再次命中会刷新持续时间与回元机会。</content>
+    <content contentuid="h03499852g6eabg5bbcgb8e4gc40648969e1b" version="1">用副手剑追加一次御剑攻击，触发照隙的效果。需要双持剑；不获得连贯出剑。</content>
     <content contentuid="h03600e6cg47f6g5faeg9448gb43097ec9474" version="1">御剑术</content>
     <content contentuid="h04753eb0ga219g5f0bga210gb65d328c5d8a" version="1">回潮 · 6剑元</content>
     <content contentuid="h05221b60g3202g5c5bg8678g5baf619c49d4" version="1">八方灭阵 · 副手佩剑</content>
     <content contentuid="h0543921bgd816g575bg9fdbg11e9157e6194" version="1">御剑呼应</content>
     <content contentuid="h05492671g48f0g5687ga0deg2ce6e08be1af" version="1">逆血狂澜</content>
-    <content contentuid="h05feb012gc8cag5fcdg83fbg10411027e775" version="1">剑心入魇，杀戮成狂。从伤口、鲜血与生命之力中重新站起，穿行猎杀；癫狂既强化常态剑术，也能投入绝技换取爆发。</content>
+    <content contentuid="h0594c67bg8dccg5f03g93afg653eee93a7f7" version="1">逆锋 · 副手追加（近战）</content>
+    <content contentuid="h05feb012gc8cag5fcdg83fbg10411027e775" version="1">剑心入魇，饮血成狂。在穿行与杀戮中夺取生命，越战越烈。</content>
     <content contentuid="h06595552g9750g59f2gbf55g847c0fedd38e" version="1">Sword Yuan</content>
-    <content contentuid="h06b70466g55b9g502cg9bc5gef1095aec10b" version="1">入门防护使护甲等级提高1。</content>
-    <content contentuid="h071df240g7ca9g51dagacdcg3de8975f3960" version="1">在敌阵中穿行，四次追斩可集中一敌或分别猎杀。一次出剑机会，10剑元；整次最长24米路线，每次可移动最多6米。每段可自由选择近身3米追斩或18米御剑，独立命中，造成2d6＋感知＋1d6剑气；伤敌照常饮血与回元。实际位移后，2轮护甲等级＋2。</content>
-    <content contentuid="h07f6397age0acg5eebg8c6dg4b0f880cf66f" version="1">副手问路</content>
-    <content contentuid="h0843fcb1g53e0g52e4g9580g43fe8149e8e9" version="1">逆血狂澜 · 投入13层癫狂</content>
+    <content contentuid="h069aceb7gd07bg571bgb0adg79a5c1a98781" version="1">基础伤害：佩剑 [1]，另附 [2] 剑气伤害；气剑 [3] 剑气伤害。剑气可选坏死或力场。</content>
+    <content contentuid="h06b70466g55b9g502cg9bc5gef1095aec10b" version="1">护甲等级＋1，持盾时失效。</content>
+    <content contentuid="h071df240g7ca9g51dagacdcg3de8975f3960" version="1">以四次追斩猎杀敌人，可集中一敌或改换目标。用续剑与连城移步完成追斩；每剑可移步6米，整招最多24米，后续不再耗动作或剑元。位移后护甲等级＋2，持续2轮。</content>
+    <content contentuid="h0843fcb1g53e0g52e4g9580g43fe8149e8e9" version="1">逆血狂澜 · 消耗13层癫狂</content>
+    <content contentuid="h091642cfgbdb4g56a6g8506g2e6a07861d05" version="1">所示为剑雨基础伤害；每次反击造成 [1]。</content>
     <content contentuid="h0933f626g8328g5b3cg854dg8d9bb993e096" version="1">同舟破浪</content>
     <content contentuid="h094b000fg6873g5173g8abbg4d8138433f4f" version="1">星河反击</content>
     <content contentuid="h097c08a3gc9a7g525cgb80fge202bc0f0e5d" version="1">血影穿身 · 副手佩剑</content>
-    <content contentuid="h0aee23aag0905g50c7gaa0agcc0ee00db3af" version="1">掠血 · 御剑主手</content>
+    <content contentuid="h0aee23aag0905g50c7gaa0agcc0ee00db3af" version="1">掠血 · 御剑</content>
+    <content contentuid="h0bf38194g4e0eg5004gac38gce99f86f7baa" version="1">逆锋 · 副手追加（御剑）</content>
     <content contentuid="h0e51667ega944g5957ga6b4g47f5f0270c2e" version="1">天锋破阵 · 副手佩剑</content>
-    <content contentuid="h10809911g92b8g5c85g9d50gea9ea379793a" version="1">收束心神，运转剑元，为下一剑积蓄力量。&lt;br&gt;战斗中使用一次出剑机会，不耗剑元，恢复剑元容量40%，向上取整。&lt;br&gt;太玄11级起主动调息恢复50%。&lt;br&gt;战后调息可回满剑元。</content>
+    <content contentuid="h10809911g92b8g5c85g9d50gea9ea379793a" version="1">平复气息，恢复剑元；战斗外回满剑元。</content>
     <content contentuid="h11dd84b4gd668g565fgb3a9gbdee83565a76" version="1">天崩剑啸</content>
-    <content contentuid="h12afa06fg61cfg59acg88fdgb9758f59059b" version="1">历经红尘，仍愿同行。以灵动剑术接应同伴，以合击与御剑呼应共同破敌；危难时承接伤势，与众人走出风雨。</content>
+    <content contentuid="h12afa06fg61cfg59acg88fdgb9758f59059b" version="1">仗剑同行，扶危解困。以灵动剑术接应同伴，共同破敌。持盾或穿着中甲、重甲时，剑术与剑气防护失效。</content>
     <content contentuid="h1364a51agb104g5da1gb442gb937d6b46e2b" version="1">剑心／感知御剑</content>
-    <content contentuid="h14cc8df0g6cceg5033g9a0fga79d11dc80b5" version="1">无视敌人的借机攻击。</content>
+    <content contentuid="h14cc8df0g6cceg5033g9a0fga79d11dc80b5" version="1">普通移动与剑术位移均不会引发借机攻击。</content>
     <content contentuid="h14f42247g8674g5c1fg9b3ega184478b49ef" version="1">Xueyan</content>
-    <content contentuid="h151825ccg9aa6g53f1g82edg594392860222" version="1">附赠动作，6剑元，为自己或18米内一名实际队友恢复目标最大生命30%；实际治疗同伴奖励协作回气。3级初阶为4元恢复15%。</content>
-    <content contentuid="h15f8392eg5395g5b99g9657g88f81bb83472" version="1">以清辉护体，化解来袭攻势并将剑光返照于敌。附赠动作，4剑元，持续2轮；护甲等级额外＋3、减伤30%。攻势落空或被剑气减伤时，可向18米内攻击者反击，额外命中＋2，造成2d6＋感知＋4d8力场伤害。符合条件的独立攻击阶段均可提供反击机会；反击不耗反应、剑元或出剑机会。</content>
+    <content contentuid="h151825ccg9aa6g53f1g82edg594392860222" version="1">为自己或一名队友恢复最大生命值的[1]%。治疗队友可恢复剑元。</content>
+    <content contentuid="h15f8392eg5395g5b99g9657g88f81bb83472" version="1">护甲等级＋3、减伤30%，持续2轮。敌人攻击落空或被剑气减伤时，可反击，反击命中＋2；不消耗动作、反应或剑元。</content>
     <content contentuid="h165eacc2g526bg599eg81e4g960af8c57a8d" version="1">剑气护体</content>
-    <content contentuid="h16c49002g7b76g51bbg8fd3g452f740a73e0" version="1">血魇·无生 · 投入8层癫狂</content>
-    <content contentuid="h170d134bg6f78g5bbdg86fcg818e1071d17a" version="1">Requires Sword Flight.</content>
-    <content contentuid="h184c4e59gac44g5f48gad99g3d60077a5445" version="1">对已覆盖身体与心智控制的抵抗获得优势并额外+4。</content>
+    <content contentuid="h16c49002g7b76g51bbg8fd3g452f740a73e0" version="1">血魇·无生 · 消耗8层癫狂</content>
+    <content contentuid="h170d134bg6f78g5bbdg86fcg818e1071d17a" version="1">Use Sword Flight first.</content>
+    <content contentuid="h184c4e59gac44g5f48gad99g3d60077a5445" version="1">抵抗行动、精神与移动控制，以及致盲、沉默时，豁免检定具有优势并额外＋4。持盾或穿着本分支不允许的护甲时失效。</content>
     <content contentuid="h19653ec0g1540g5a78g9c36g16ee5d420a69" version="1">回潮</content>
-    <content contentuid="h1967b484gee45g54acga2a4gb3c924592f0c" version="1">血魇·无生 · 投入9层癫狂</content>
-    <content contentuid="h19c55f32ge182g5a53g9110g1d5c0ba08c0d" version="1">常态出剑每次回1元，成功协作每份回2元；11级起分别回2元与3元。</content>
-    <content contentuid="h1a130667g7eceg5809gabbbgd435a2595b6b" version="1">血魇·无生 · 投入0层癫狂</content>
-    <content contentuid="h1a881772g9e4dg5da9ga627gab6d83010703" version="1">周身血剑爆发，重创围攻者并夺回生命。一次出剑机会，10剑元；身周6米敌人受到2d6＋感知＋8d6剑气，敏捷抵抗成功减半。可自主投入癫狂增强当次伤害，零层也可施展。</content>
+    <content contentuid="h1967b484gee45g54acga2a4gb3c924592f0c" version="1">血魇·无生 · 消耗9层癫狂</content>
+    <content contentuid="h19c55f32ge182g5a53g9110g1d5c0ba08c0d" version="1">常态出剑恢复[1]剑元，落空亦可；保护、治疗、解控、接应队友，以及队友跟进、合击与御剑呼应，恢复[2]剑元。自用援护与被动并肩不触发协作回元。</content>
+    <content contentuid="h1a130667g7eceg5809gabbbgd435a2595b6b" version="1">血魇·无生 · 不消耗癫狂</content>
+    <content contentuid="h1a881772g9e4dg5da9ga627gab6d83010703" version="1">血剑向四周爆发。可投入癫狂，每层额外增伤10%，并保留投入前的命中与增伤；零层亦可施展。敏捷豁免成功时伤害减半。</content>
     <content contentuid="h1b890c74gd6c3g5741g9c6fg6ec6297f6a63" version="1">相扶</content>
-    <content contentuid="h1ba1388dgd5bcg53feg8c5cg8543bfaf4a7e" version="1">血魇·无生 · 投入3层癫狂</content>
+    <content contentuid="h1ba1388dgd5bcg53feg8c5cg8543bfaf4a7e" version="1">血魇·无生 · 消耗3层癫狂</content>
     <content contentuid="h1bd261a8g1a2cg5aa7gb8d0gbd17c817de2b" version="1">仗剑行歌</content>
-    <content contentuid="h1c28fdbfg4a2ag5d1bg8e7eg2b74789ab6f4" version="1">逆血狂澜 · 投入6层癫狂</content>
+    <content contentuid="h1c28fdbfg4a2ag5d1bg8e7eg2b74789ab6f4" version="1">逆血狂澜 · 消耗6层癫狂</content>
     <content contentuid="h1c579778gee78g535ag98c2gc3f35bb3d767" version="1">协作回气</content>
     <content contentuid="h1cad22degbdd2g5fd7g87d8gbfa87b30b82c" version="1">天崩剑啸 · 主手佩剑</content>
     <content contentuid="h1d7ce4a3ge28fg5a4dgb3d5g8f8066798fec" version="1">入门防护</content>
     <content contentuid="h21da4d76g5ff6g5b85g80a3g3b4838b2bb62" version="1">裂天一剑</content>
-    <content contentuid="h2200258bg571eg5c42g9e6fgbaf0e6c8d07c" version="1">以桀骜剑势横扫或贯斩，逼退挡路之敌。一次出剑机会，不耗剑元；近身为前方6米扇形，御剑为12米长、2米宽直线。每名命中敌人受到基础剑击＋3d8力场剑气，5级为＋4d8、10级为＋5d8；力量抵抗失败击退2米。</content>
-    <content contentuid="h22286832g316cg5355g89c8g973db42409fa" version="1">切换坏死或力场剑气。此选项不消耗动作或剑元。</content>
+    <content contentuid="h2200258bg571eg5c42g9e6fgbaf0e6c8d07c" version="1">横扫近身敌人，或以御剑贯斩直线敌阵。每敌独立进行攻击检定；力量豁免失败时击退2米。只伤敌。</content>
+    <content contentuid="h22286832g316cg5355g89c8g973db42409fa" version="1">在坏死与力场剑气之间切换，影响气剑与血魇招式的额外剑气。实体佩剑的伤害类型不变。</content>
     <content contentuid="h230cb6ddgf408g5141gb6b2g17bee1ebb4b5" version="1">近身剑术 · 副手佩剑</content>
-    <content contentuid="h23721782g6531g5f9agab68gb3d49423de15" version="1">血魇·无生 · 投入5层癫狂</content>
+    <content contentuid="h23721782g6531g5f9agab68gb3d49423de15" version="1">血魇·无生 · 消耗5层癫狂</content>
     <content contentuid="h2484b11ag1870g5dfcga77bg21355ab4e726" version="1">剑元不足。</content>
     <content contentuid="h255cbf19g95bbg5d1bg8e03g15214c3cff5f" version="1">天地剑劫</content>
-    <content contentuid="h25bf0af4gb974g5f04gbc69gad029c666d26" version="1">化身巨剑从天而降，以坠击、余威与攻防强化持续压场。一次出剑机会，10剑元；落至24米内地点，半径9米敌人受到基础剑击＋26d8力场剑气，敏捷抵抗成功减半。力量抵抗失败被击飞、击倒1轮，并3轮移速减半、护甲等级－4。自身随后4轮剑招伤害＋40%、额外减伤25%；6米内敌人回合开始受到6d8力场余威伤害。</content>
-    <content contentuid="h26e85e0bgb1b8g5b50ga1bbgc14cebedad51" version="1">逆锋 · 近战副手</content>
-    <content contentuid="h27037c51ga558g5b6bgbafdg990e049c5594" version="1">掠血 · 近战主手</content>
+    <content contentuid="h25bf0af4gb974g5f04gbc69gad029c666d26" version="1">御巨剑坠击敌阵。力量豁免失败时倒地1轮，移速减半、护甲等级－4、持续3轮。自身剑招伤害＋40%、额外减伤25%，持续4轮；余威在身周6米敌人回合开始时造成伤害。只伤敌。敏捷豁免成功时伤害减半。</content>
+    <content contentuid="h26e85e0bgb1b8g5b50ga1bbgc14cebedad51" version="1">逆锋 · 近战（副手）</content>
+    <content contentuid="h27037c51ga558g5b6bgbafdg990e049c5594" version="1">掠血 · 近战</content>
     <content contentuid="h275ececcg1cfbg5d5agbf5fga37b343fd048" version="1">拂尘</content>
-    <content contentuid="h282be0fcg1074g5e7bg8da7gd1efba456855" version="1">穿行保护</content>
+    <content contentuid="h282be0fcg1074g5e7bg8da7gd1efba456855" version="1">护甲等级＋2。再次穿行刷新持续时间，不叠加护甲等级。</content>
     <content contentuid="h282f4159ge355g57eegb510gdf76c7036d45" version="1">御剑术 · 副手佩剑</content>
-    <content contentuid="h28fb99abg55a0g5567g81a8g2e93f31d93c1" version="1">近身剑术</content>
+    <content contentuid="h28fb99abg55a0g5567g81a8g2e93f31d93c1" version="1">以手中佩剑斩击一名敌人。</content>
+    <content contentuid="h29b43d98g895cg5499gb504gf966fa349854" version="1">所示为每次落剑的基础伤害。</content>
     <content contentuid="h2aa8c32cgb624g5347gbb66gcdc727fe06b2" version="1">御剑飞移</content>
     <content contentuid="h2be2b84bgd38bg5302g8f1ag8dd0af091ec4" version="1">逆息回生</content>
     <content contentuid="h2c5085c4gb9d5g5703g96fdg37b234583334" version="1">剑术的内在力量。常态剑招不消耗；调息、伤敌及分支特性恢复剑元。</content>
-    <content contentuid="h2d7ecc1cg2d92g54c8g8ee9g2acf74db6bec" version="1">每敌死亡奖励一次：恢复最大生命10%、3剑元及2层癫狂；11级起回4元。</content>
+    <content contentuid="h2d7ecc1cg2d92g54c8g8ee9g2acf74db6bec" version="1">以剑术击杀敌人时，恢复最大生命值的10%、[1]剑元，获得2层癫狂。每名敌人只奖励一次。</content>
     <content contentuid="h2de3c37cg5e73g55b1g82dcg16add1bf40ce" version="1">天剑坠世</content>
-    <content contentuid="h2e494839g4ab0g50c0g8ff9gc91a966fb60b" version="1">实际伤害20%饮血，伤敌每段每敌回1元；11级起25%与2元。血衣累计至最大生命20%。</content>
+    <content contentuid="h2e494839g4ab0g50c0g8ff9gc91a966fb60b" version="1">剑术伤敌时，恢复伤害[1]%的生命，每剑每名受伤敌人恢复[2]剑元。伤害的10%化为血衣，最多吸收最大生命值20%的伤害，持续2轮；佩剑与额外剑气算同一剑。无鲜血敌人亦可触发。</content>
     <content contentuid="h2f2a698dg7942g5024g9a0bg4635db0d82f6" version="1">天崩剑啸 · 副手佩剑</content>
-    <content contentuid="h30492d1fgd0bag56dbg9da3gc588f807da4d" version="1">血魇·无生 · 投入2层癫狂</content>
-    <content contentuid="h30d86abag8ffbg52a3gbd4fg79f69a674749" version="1">附赠动作，不耗剑元。召回18米内属于自己的佩剑；墙与封闭门阻挡，不能夺取他人正在持用的剑。</content>
+    <content contentuid="h30492d1fgd0bag56dbg9da3gc588f807da4d" version="1">血魇·无生 · 消耗2层癫狂</content>
+    <content contentuid="h30d86abag8ffbg52a3gbd4fg79f69a674749" version="1">召回自己的佩剑并重新握持，不能夺取他人持用的剑。墙与封闭门会阻挡召剑；御剑攻击后佩剑会自行归手。</content>
     <content contentuid="h333ad9caga769g5ce1gaeb7gcb0741d64b5a" version="1">无视借机攻击</content>
-    <content contentuid="h346562a3g98e6g5eccg9885gfb72b152b350" version="1">掠血 · 近战副手</content>
-    <content contentuid="h34e82002g5e51g5b7dgb55bg047bf56c2e3f" version="1">Requires a main-hand sword.</content>
+    <content contentuid="h346562a3g98e6g5eccg9885gfb72b152b350" version="1">掠血 · 近战（副手）</content>
     <content contentuid="h35d7ee95g562cg5c9dgb182gb985b6d05076" version="1">调息</content>
+    <content contentuid="h361040b5g7bccg5d17gb844gedddb50a519c" version="1">继续血魇·无生的一剑，保留起招时的癫狂增幅，不再消耗动作或剑元。</content>
     <content contentuid="h36a90f59g421fg5ff1ga1c4g716368156601" version="1">Requires at least 6 Frenzy stacks.</content>
     <content contentuid="h375c6085g9451g5b62gbb7ag53dd1dd7dd05" version="1">跟进机会</content>
-    <content contentuid="h3a496ba9gedcdg5bf5g8b61gdbf88866640d" version="1">逆血狂澜 · 投入7层癫狂</content>
-    <content contentuid="h3b235c05gda26g5c8agb3d5g6272edca506a" version="1">失去佩剑时仍可凝气施展剑术与御剑飞行。此选项切换实体佩剑与纯气剑。</content>
+    <content contentuid="h3a496ba9gedcdg5bf5g8b61gdbf88866640d" version="1">逆血狂澜 · 消耗7层癫狂</content>
+    <content contentuid="h3ad2cff0g3b82g53begbcdag1bc36705b935" version="1">所示为基础伤害。</content>
+    <content contentuid="h3b235c05gda26g5c8agb3d5g6272edca506a" version="1">在佩剑与气剑之间切换，失去佩剑也能施展剑术与御剑飞行。气剑造成2d6＋感知伤害：太玄为力场，血魇沿用所选剑气类型。</content>
     <content contentuid="h3b4b5975g4134g5869g93f0g7dd415e462cf" version="1">Tianqing</content>
-    <content contentuid="h3b78cb97g89a2g501dg8ef8g6a69cc9db3de" version="1">坠剑余威</content>
-    <content contentuid="h3d329dccg25c2g5b16gbdfdgfc90c53f70cd" version="1">逆血狂澜 · 投入5层癫狂</content>
-    <content contentuid="h3e357c02g168dg5acfgbde1g8e51acb49e8a" version="1">剑啸如天崩，摧毁前方敌阵，主敌承受更强重击。一次出剑机会，10剑元；前方12米、90度扇形逐敌命中，造成基础剑击＋18d8力场剑气，指定主目标额外＋14d8。力量抵抗失败击退3米；主目标失败时还降低护甲等级3点，持续3轮。</content>
+    <content contentuid="h3b78cb97g89a2g501dg8ef8g6a69cc9db3de" version="1">剑招伤害＋40%、受到的伤害额外减少25%。身周6米敌人在其回合开始时受到6d8力场伤害。</content>
+    <content contentuid="h3d329dccg25c2g5b16gbdfdgfc90c53f70cd" version="1">逆血狂澜 · 消耗5层癫狂</content>
+    <content contentuid="h3e357c02g168dg5acfgbde1g8e51acb49e8a" version="1">重创主目标，并波及前方扇形内的敌人。力量豁免失败时击退3米，主目标另受护甲等级－3，持续3轮。只伤敌。</content>
     <content contentuid="h3f882f22ge4f1g5461g9d7bgd192f778329e" version="1">万钧剑势 · 副手佩剑</content>
     <content contentuid="h41ffe598gaa56g517cg9876gc2bc9cc4b4a2" version="1">太清剑域压制</content>
     <content contentuid="h42103336g1790g5397gbaa0g9b43b9bb2f24" version="1">风雨同归</content>
-    <content contentuid="h469a1886g7f98g54b0ga2d8gbee07e7e032c" version="1">附赠动作，6剑元，恢复自身最大生命40%。太玄另有回合开始自愈：3级起5%，11级起6%。</content>
-    <content contentuid="h46b1b630gb040g5ec1g8c36ge33be76338d3" version="1">逆血狂澜 · 投入4层癫狂</content>
+    <content contentuid="h469a1886g7f98g54b0ga2d8gbee07e7e032c" version="1">凝聚剑气，恢复自身最大生命值的40%。</content>
+    <content contentuid="h46b1b630gb040g5ec1g8c36ge33be76338d3" version="1">逆血狂澜 · 消耗4层癫狂</content>
     <content contentuid="h46c8b32dg78dcg5aedga590gba9d9b3ce678" version="1">回风保护</content>
-    <content contentuid="h482a0268g5e85g557aga424ged174d9fec54" version="1">身周展开随行剑域，剑雨降于敌阵，清气助己方破敌。一次出剑机会，10剑元，半径6米，持续4轮。自己与域内友方命中＋2、伤害＋20%；敌人移速减半、攻击命中－2、护甲等级－2。开域时先展开这些效果，再落下首次剑雨；开域及随后自身回合开始，每名域内敌人受到一道气剑攻击，重点目标另加两道。每道独立命中，造成2d6＋感知＋2d8力场伤害，并享受剑域增益。每次落剑前可免费改换重点目标。</content>
+    <content contentuid="h482a0268g5e85g557aga424ged174d9fec54" version="1">展开随身剑域，持续4轮。自己与域内友方命中＋2、伤害＋20%；敌人移速减半、攻击检定－2、护甲等级－2。开域时及随后每次自身回合开始时落剑，重点目标额外受到两剑。</content>
     <content contentuid="h485be4dag52e4g5fbdg925cgbaf300a1f754" version="1">乘风破围</content>
     <content contentuid="h486e60cegec4bg58a9g8a3bg452af138288f" version="1">反应脱困</content>
-    <content contentuid="h4972d7ecgbfbag50a4gacc1g0c64a3a88918" version="1">拂去束缚剑心与身体的控制，助自己或同伴重新行动。附赠动作，4剑元；援助自己或18米内一名队友，一次清除所有已覆盖控制，随后2轮对这些控制的抵抗＋2。自身受控时也可发动自救；为同伴实际解除控制取得协作回气。</content>
-    <content contentuid="h49844942gdf52g5f39g80feg40f240ab5be6" version="1">免费选定太清剑域重点目标。每次落剑对该目标额外两道气剑。</content>
+    <content contentuid="h4972d7ecgbfbag50a4gacc1g0c64a3a88918" version="1">解除自己或一名队友受到的控制、致盲与沉默。随后2轮抵抗控制的豁免检定＋2；无法行动时可通过自救选项施展。为队友解控可恢复剑元。</content>
+    <content contentuid="h49844942gdf52g5f39g80feg40f240ab5be6" version="1">指定太清剑域的重点目标，使其在落剑时额外受到两道气剑攻击。可在下次落剑前重选；目标须处于剑域内。</content>
     <content contentuid="h4a4eb30ag4670g55f4g8893g3a2777fa90e6" version="1">Requires at least 9 Frenzy stacks.</content>
     <content contentuid="h4a71d06agb2dbg5e91gba3fg475eec4d7b3a" version="1">逆锋</content>
+    <content contentuid="h4ab97c2eg28ecg5234ga957gb433416afe56" version="1">基础伤害：佩剑 [1]，另附 [2]；气剑 [3]。</content>
     <content contentuid="h4ba22a6dgfb60g527agae2fg6099b5a5cbfe" version="1">血衣</content>
     <content contentuid="h4c5b9dbfg0f30g5b12g819fg8490756c241c" version="1">近身剑术 · 主手佩剑</content>
     <content contentuid="h4ca4c3c2g16d5g567bga314g3348a5cf5c6c" version="1">Requires at least 14 Frenzy stacks.</content>
     <content contentuid="h4d215b49g88e8g51b9gab51g4f7ea5ff4b38" version="1">天剑坠世 · 副手佩剑</content>
-    <content contentuid="h4ed8fcaage6c6g5d2fg9d8eg2536c49be712" version="1">血魇·无生 · 投入11层癫狂</content>
+    <content contentuid="h4ed8fcaage6c6g5d2fg9d8eg2536c49be712" version="1">血魇·无生 · 消耗11层癫狂</content>
+    <content contentuid="h5201dbe2gb165g5453g9381ga43a2b526c2f" version="1">本次续剑的基础伤害：[1] 剑气伤害（坏死或力场）。</content>
     <content contentuid="h5286b825g48fcg5b68g8438g34b70efb997c" version="1">玄极·一线天</content>
-    <content contentuid="h53bf236eg85b5g54a1gaed2gb69f1cb4e0bb" version="1">Unavailable while using a shield or medium or heavy armor.</content>
     <content contentuid="h53df8a50gcbd7g5ee6gac12g4a842c4fd040" version="1">解控后抵抗</content>
     <content contentuid="h541f2f7eg363dg5708gadb7geb6e18d28f65" version="1">Requires at least 4 Frenzy stacks.</content>
-    <content contentuid="h541f9632g07beg5c8aga8f7g960450d34ee8" version="1">剑光照见一名敌人的防护破绽。一次出剑机会，不耗剑元；命中造成基础剑击＋2d8力场剑气，5级为＋3d8、10级为＋4d8。命中后3轮内，自己的后续剑术对该敌人命中＋2、伤害＋20%，无视伤害抗性。再次命中刷新破绽。</content>
-    <content contentuid="h5536f566ga34eg5070gb3bfg890178955716" version="1">血魇·无生 · 投入7层癫狂</content>
+    <content contentuid="h541f9632g07beg5c8aga8f7g960450d34ee8" version="1">斩击敌人，留下3轮破绽。你的后续剑术对其命中＋2、伤害＋20%，无视伤害抗性；免疫仍然有效。</content>
+    <content contentuid="h5536f566ga34eg5070gb3bfg890178955716" version="1">血魇·无生 · 消耗7层癫狂</content>
     <content contentuid="h577aecd9g1003g57e6g870fg1b02ae169afc" version="1">Requires at least 1 Frenzy stacks.</content>
-    <content contentuid="h589d5343g262dg53d1g9356g24c4ccfbbbc7" version="1">气凝三个血影，各出两剑，围杀一敌或猎杀多敌。一次出剑机会，20剑元，射程24米；共六段独立命中，每段2d6＋感知剑气。可自主投入癫狂，保留消耗前的持有增伤与命中，再叠加每层投入带来的10%增伤。满15层全部投入时，当次命中仍＋7、伤害共＋225%，施展后层数归零。血影没有独立回合。</content>
-    <content contentuid="h58a8f858g4fa9g5dd7ga243g5be5b3c435e5" version="1">四道流光接连追击同一强敌。一次出剑机会，10剑元，射程18米；每道独立命中，造成2d6＋感知＋4d8力场伤害。</content>
+    <content contentuid="h589d5343g262dg53d1g9356g24c4ccfbbbc7" version="1">凝出三个血影，共追斩六剑，可改换目标。用续剑完成追斩，后续不再耗动作或剑元。可投入癫狂，每层额外增伤10%，六剑保留起招时的癫狂增幅。</content>
+    <content contentuid="h58a8f858g4fa9g5dd7ga243g5be5b3c435e5" version="1">四道气剑追击同一名敌人，每剑独立进行攻击检定。</content>
     <content contentuid="h5932af15g1c67g5868g8a88g0d188ba61121" version="1">Xingge</content>
-    <content contentuid="h5a09b74fg9651g571cg9947g4b988e90f5f9" version="1">血魇·无生 · 投入13层癫狂</content>
-    <content contentuid="h5a5d6da9g2522g5e32gb1e2gbca4a28f68f6" version="1">回风保护</content>
-    <content contentuid="h5b5f37d1g97feg52f9gaa69g02d9d421bc51" version="1">气剑齐落，瞬间覆盖一片战场。一次出剑机会，4剑元；选择18米内半径6米区域，其中敌人受到2d6＋感知＋8d8力场伤害，敏捷抵抗成功减半。</content>
-    <content contentuid="h5bec1ae3gcb43g50f5gbec0gc70c84675997" version="1">以感知驾驭剑道。实体剑使用感知或原武器属性中较高者；纯气剑使用感知。</content>
+    <content contentuid="h5a09b74fg9651g571cg9947g4b988e90f5f9" version="1">血魇·无生 · 消耗13层癫狂</content>
+    <content contentuid="h5a5d6da9g2522g5e32gb1e2gbca4a28f68f6" version="1">护甲等级＋2，受到的伤害减少20%。再次施展刷新持续时间。</content>
+    <content contentuid="h5acd11fag0536g5a1fga075g4c91d948eb87" version="1">每次落剑的基础伤害：[1] 剑气伤害（坏死或力场）。</content>
+    <content contentuid="h5b5f37d1g97feg52f9gaa69g02d9d421bc51" version="1">气剑齐落，重创目标区域内的敌人。敏捷豁免成功时伤害减半。</content>
+    <content contentuid="h5bec1ae3gcb43g50f5gbec0gc70c84675997" version="1">佩剑攻击的命中与伤害采用感知或武器原属性中较高的调整值，气剑采用感知。持盾时暂停剑术与剑气防护。</content>
     <content contentuid="h5c3df14cg2823g5a62gb156g8f804435c369" version="1">连贯出剑</content>
     <content contentuid="h5c6bb831g125eg5aeaga4dcg7de92d3567cd" version="1">八方灭阵 · 主手佩剑</content>
-    <content contentuid="h5c7c0999g77ddg5f76g8fddg7bae293587d0" version="1">沿剑路突进，穿过敌阵并掠夺力量。一次出剑机会，4剑元；最长12米、宽2米路线，每名沿途敌人攻击一次，命中造成基础剑击＋4d6剑气。发生实际位移后，2轮护甲等级＋2。</content>
-    <content contentuid="h5d7beeffgc417g54dcgbf53g6cecaf5982f4" version="1">八方巨剑同时展开，将身周敌阵摧毁。一次出剑机会，20剑元；身周18米单位各结算一次。敌人承受基础剑击＋44d8力场剑气，敏捷抵抗成功减半；力量抵抗失败击退6米、击倒1轮，并3轮护甲等级－5。友方及中立只承受25%伤害，不附带这些控制与削弱；自身免伤。</content>
+    <content contentuid="h5c7c0999g77ddg5f76g8fddg7bae293587d0" version="1">化作血影，攻击沿途敌人，照常饮血与回元。完成位移后护甲等级＋2，持续2轮。</content>
+    <content contentuid="h5d7beeffgc417g54dcgbf53g6cecaf5982f4" version="1">八方巨剑摧毁围敌。力量豁免失败时击退6米、倒地1轮，护甲等级－5、持续3轮。友方与中立者只受四分之一伤害，不受控制与削弱；自身免伤。敏捷豁免成功时伤害减半。</content>
     <content contentuid="h5e19e87eg2299g5dd7gbacdgaa1811cd951a" version="1">天锋破阵</content>
-    <content contentuid="h60f796aegaaa4g5f41g9187g07071cbf5a89" version="1">附赠动作，4剑元。清除已覆盖控制并获得2轮抵抗+2；受控时仍可发动自救。</content>
-    <content contentuid="h627a4ffcg7810g53b8g8cf8g31b34cd673a7" version="1">照隙 · 御剑主手</content>
-    <content contentuid="h62c72ceag6277g5879g8382g40c37e11f353" version="1">剑势镇压</content>
-    <content contentuid="h634ac25agc6f5g5cc0gbd07gfefbced5f31c" version="1">Requires an active Liancheng sequence.</content>
-    <content contentuid="h64162b40g6d0bg5e89g8e5ag560c5adcc0e6" version="1">每个独立攻击段可选择反击。无需动作、反应或剑元。</content>
+    <content contentuid="h5fb179a1g1f33g5013g833bg20ef507f32e1" version="1">四剑；所示为每剑基础伤害。</content>
+    <content contentuid="h60f796aegaaa4g5f41g9187g07071cbf5a89" version="1">解除自身受到的控制、致盲与沉默。随后2轮抵抗控制的豁免检定＋2；无法行动时可通过自救选项施展。</content>
+    <content contentuid="h627a4ffcg7810g53b8g8cf8g31b34cd673a7" version="1">照隙 · 御剑</content>
+    <content contentuid="h62c72ceag6277g5879g8382g40c37e11f353" version="1">沉重剑势压制行动，使移动距离减半、攻击检定降低。同类压制不叠加，只保留较强效果。</content>
+    <content contentuid="h634ac25agc6f5g5cc0gbd07gfefbced5f31c" version="1">Use Blood Shadow Pursuit first.</content>
+    <content contentuid="h639e32e7g5da0g5019gba5ag726676fc3f4b" version="1">所示为基础伤害。</content>
+    <content contentuid="h64162b40g6d0bg5e89g8e5ag560c5adcc0e6" version="1">攻击落空或被剑气护体化解时，可用剑气反击18米内的攻击者。反击不消耗动作、反应或剑元。</content>
     <content contentuid="h65d7fa10g5521g5f8fg9445ga0154806990c" version="1">血魇·无生</content>
-    <content contentuid="h6791ac83gc23bg5460ga20ag71137c4d09d1" version="1">副手照隙</content>
     <content contentuid="h67a2bc2egd90bg5801gb7cdg9a04bb72ca58" version="1">九霄剑雨</content>
-    <content contentuid="h68d066a6gd362g587ega46bg27397e6e9bda" version="1">问路 · 御剑主手</content>
-    <content contentuid="h6aff6081g6987g5289gbaf4g645134604609" version="1">御剑呼应</content>
+    <content contentuid="h68420520g982ag5478ga85bg5e0b7de0d14e" version="1">在下一次连城追斩前移动，最多6米，不消耗普通移动距离。每剑重新获得额度，整招最多移动24米。</content>
+    <content contentuid="h68d066a6gd362g587ega46bg27397e6e9bda" version="1">问路 · 御剑</content>
+    <content contentuid="h69f2bd5eg7769g59c3g8e21gaa16624ba90b" version="1">所示为每名敌人的基础伤害。</content>
+    <content contentuid="h6aff6081g6987g5289gbaf4g645134604609" version="1">命中＋2、伤害＋30%。每人每轮可引发一次免费御剑呼应，飞剑命中造成2d6＋感知＋2d6力场伤害；次数在行歌回合开始时恢复。</content>
     <content contentuid="h6b67bdaeg2208g54aag83d7gf33e0cb2505d" version="1">星河倒悬</content>
-    <content contentuid="h6ba71457gd0d2g55baga1dage97089a16c51" version="1">每轮一次，在关键控制施加前消耗反应立即化解，不消耗剑元。</content>
-    <content contentuid="h6d8b96dcge5cag5962gbc4ag2a3a10ca70cc" version="1">沉重剑势镇压一片敌阵。一次出剑机会，4剑元；选择18米内半径6米区域，逐敌命中，造成基础剑击＋6d8力场剑气。命中者体质抵抗失败后，2轮移速减半、攻击命中－2。</content>
-    <content contentuid="h6efe08d1g5de1g5e57g8d47g2d282346e2d8" version="1">破围脱险</content>
-    <content contentuid="h6f7664fega8aeg5ed5g92edg49bcfa6710d8" version="1">击退围敌，借剑风护送自己或同伴脱险。一次出剑机会，10剑元；援护自己或18米内一名队友，受援者周围3米敌人受到基础剑击＋8d6力场剑气，敏捷抵抗成功减半，力量抵抗失败击退2米。受援者可立即免费移动6米，本次移动及随后1轮不受借机攻击。</content>
+    <content contentuid="h6ba71457gd0d2g55baga1dage97089a16c51" version="1">每轮首次受到定身、眩晕、麻痹、沉睡、魅惑或支配时，自动消耗反应抵消控制，不耗剑元。反应不可用时无法触发。</content>
+    <content contentuid="h6bf0f1f9g8dd0g59c8gadceg257358d071c7" version="1">所示为首名敌人的基础伤害。</content>
+    <content contentuid="h6d8b96dcge5cag5962gbc4ag2a3a10ca70cc" version="1">剑气镇压敌阵。命中后，体质豁免失败的敌人移速减半、攻击检定－2，持续2轮。只伤敌。</content>
+    <content contentuid="h6e487d28g77d0g5707g888eg394077350a0e" version="1">基础伤害：[1] 剑气伤害（坏死或力场）。</content>
+    <content contentuid="h6edf820dgb3c9g5ad1gaed6gfb6a6f67a599" version="1">所示为主目标基础伤害；其他敌人：[1]，另附 [2]。</content>
+    <content contentuid="h6efe08d1g5de1g5e57g8d47g2d282346e2d8" version="1">本次获得额外6米移动距离，并暂时免疫借机攻击。</content>
+    <content contentuid="h6f7664fega8aeg5ed5g92edg49bcfa6710d8" version="1">击退围敌，接应自己或一名队友。其身周3米敌人力量豁免失败时击退2米；受援者获得6米额外移动，本次及随后1轮免受借机攻击。援护队友可恢复剑元。敏捷豁免成功时伤害减半。</content>
     <content contentuid="h6f78f23bg3223g5377gb2bag4a9c9643857d" version="1">万钧剑势 · 主手佩剑</content>
-    <content contentuid="h6fa80cc6ge582g53fdgb28ag8f676bdeb311" version="1">逆血狂澜 · 投入14层癫狂</content>
-    <content contentuid="h6fb2859cg91a2g5bb6gb07cg58592fa92f8b" version="1">剑修成长生命乘2.5；主动蓄势回元60%，11级起70%。</content>
-    <content contentuid="h724749f2g05a6g5dd3gaf01gf6f4879c3548" version="1">每个独立攻击段可选择反击。无需动作、反应或剑元。</content>
-    <content contentuid="h729d551dgb906g5c8dg9f7eg817277bc77a1" version="1">Requires Qi Sword mode.</content>
-    <content contentuid="h72b57bf8g89e6g5115gb7e9g148ea1637171" version="1">主动焚燃生命，使癫狂立即攀升。附赠动作，不耗剑元；付出最大生命10%，获得4层癫狂，最多15层。生命费用不能使自己降至0，也不重复取得普通受伤奖励。</content>
+    <content contentuid="h6fa80cc6ge582g53fdgb28ag8f676bdeb311" version="1">逆血狂澜 · 消耗14层癫狂</content>
+    <content contentuid="h6fb2859cg91a2g5bb6gb07cg58592fa92f8b" version="1">剑修等级与体质提供的生命值提高至2.5倍，常态减伤[1]%；调息恢复剑元上限的[2]%。其他来源的额外生命值不受倍率影响。</content>
+    <content contentuid="h724749f2g05a6g5dd3gaf01gf6f4879c3548" version="1">攻击落空或被剑气护体化解时，可用剑气反击18米内的攻击者。反击不消耗动作、反应或剑元。</content>
+    <content contentuid="h729d551dgb906g5c8dg9f7eg817277bc77a1" version="1">Activate Qi Sword first.</content>
+    <content contentuid="h72b57bf8g89e6g5115gb7e9g148ea1637171" version="1">付出最大生命值的10%，获得4层癫狂，最多15层。不会使生命降至0；本次耗血不受减伤影响，也不额外触发受伤癫狂。</content>
     <content contentuid="h72bf4347g5cdeg5e77g94dbg413ddddba5dc" version="1">归元</content>
     <content contentuid="h72cd0563g739fg5089ga8b2g74a1b678416e" version="1">万钧剑势</content>
-    <content contentuid="h7536a0d8g6f37g5a29gbacbgc71c704ffd00" version="1">血衣</content>
+    <content contentuid="h72e9183bg6f1bg5fecg8909g6ab1014a3ebd" version="1">掠血 · 副手追加（御剑）</content>
+    <content contentuid="h7536a0d8g6f37g5a29gbacbgc71c704ffd00" version="1">血衣吸收伤害，最多储存最大生命值的20%。再次取得会累积血衣并刷新持续时间；仅损失血衣不会增加受伤癫狂。</content>
     <content contentuid="h774f1f2bg664fg5d83g9e58g2318d813726f" version="1">问路</content>
     <content contentuid="h7b49fca1g8ce0g5ab3g80eag8cf5e33935bb" version="1">Requires at least 13 Frenzy stacks.</content>
     <content contentuid="h7c824d53ga892g5060g9a33ga0ca403dbabd" version="1">破甲</content>
@@ -153,120 +168,147 @@
     <content contentuid="h856302c9ge33bg50fagbfcegd280980cd95e" version="1">御剑术 · 主手佩剑</content>
     <content contentuid="h8564ddc2gdcafg515cg88eagb4dbb1a85308" version="1">天地剑劫 · 主手佩剑</content>
     <content contentuid="h85c8a430gc057g5994g9aafg41509a9e325b" version="1">沟通天地／自愈</content>
-    <content contentuid="h879dd2f3ga075g5300gb2d9g53213a3e6217" version="1">逆血狂澜 · 投入9层癫狂</content>
-    <content contentuid="h890afb23gc959g5690gac20gbd380b3a331c" version="1">解控后抵抗</content>
+    <content contentuid="h86fdad45g7d07g57d3gb590gfed249d3a1eb" version="1">所示为每次御剑呼应的基础伤害。</content>
+    <content contentuid="h879dd2f3ga075g5300gb2d9g53213a3e6217" version="1">逆血狂澜 · 消耗9层癫狂</content>
+    <content contentuid="h890afb23gc959g5690gac20gbd380b3a331c" version="1">抵抗行动、精神与移动控制，以及致盲、沉默时，豁免检定＋2。</content>
     <content contentuid="h893174ebg2776g58e4g931cgba69e485f829" version="1">血魇·无生 · 续剑御剑</content>
-    <content contentuid="h8a676beegdf15g5821g80bfgcef65684eeb9" version="1">自身回合开始回元20%、自愈5%；11级起分别为25%、6%。</content>
-    <content contentuid="h8a6b14c4gd02ag5418ga207g3fad96a58bee" version="1">一剑引同舟之力，邀同伴即时合击关键敌人。一次出剑机会，10剑元；自己攻击18米内目标，命中造成基础剑击＋10d6力场剑气。6米内符合攻击条件的实际队友，各对该敌人免费普通武器攻击或单体伤害戏法一次；自己的剑击落空仍可引导合击。每名成功配合同伴奖励一份协作回气。</content>
-    <content contentuid="h8c5c3743ga419g5a8agbf51g5104529bd499" version="1">太清剑域压制</content>
-    <content contentuid="h8cd24a18gf5c6g5d32g8f74gd804431ec19e" version="1">附赠动作，选择消耗6剑元或3层癫狂，恢复自身最大生命40%。</content>
+    <content contentuid="h8a676beegdf15g5821g80bfgcef65684eeb9" version="1">自身回合开始时恢复剑元上限的[1]%与最大生命值的[2]%。倒地待救或死亡时停止。</content>
+    <content contentuid="h8a6b14c4gd02ag5418ga207g3fad96a58bee" version="1">攻击一敌，并引导自身6米内的队友免费合击。能够攻击该敌人的队友可选普通武器攻击或单体伤害戏法；自己落空也能合击。队友命中为你恢复剑元，与问路同时触发时只取较高值。</content>
+    <content contentuid="h8c5c3743ga419g5a8agbf51g5104529bd499" version="1">受到太清剑域压制：移动距离减半、攻击检定－2、护甲等级－2。离开剑域后失效。</content>
+    <content contentuid="h8cd24a18gf5c6g5d32g8f74gd804431ec19e" version="1">引血气疗伤，恢复自身最大生命值的40%。可选择以剑元或3层癫狂施展。</content>
     <content contentuid="h8ea3e3dbg163ag5ed8gb769gdf36c2633de6" version="1">坠剑余威</content>
     <content contentuid="h8ea89266g58dfg5a98g9459g05d2d914db23" version="1">召剑</content>
+    <content contentuid="h8eb9375aga274g5298gb936g62d6beb71145" version="1">用副手剑追加一次近战攻击，触发逆锋的效果。需要双持剑；不获得连贯出剑。</content>
+    <content contentuid="h8eca5607g9fc9g53ddg80d2g321eca743052" version="1">继续血影连城的一次追斩，不再消耗动作或剑元。</content>
     <content contentuid="h8f779033g4da6g5667g9297g4f89ad405b81" version="1">破围脱险</content>
-    <content contentuid="h91cc6983g8e74g5187g8060ge2201660d3a8" version="1">照隙 · 御剑副手</content>
+    <content contentuid="h91cc6983g8e74g5187g8060ge2201660d3a8" version="1">照隙 · 御剑（副手）</content>
     <content contentuid="h91cf9b95g233cg52b6g80cdgcfc1dea8b979" version="1">穿行保护</content>
     <content contentuid="h9228485eg468cg58c0g82degb0f8260324a4" version="1">御剑飞行</content>
-    <content contentuid="h9307244eg51f5g5637g9d0ag3927d0f1029b" version="1">Requires an off-hand sword.</content>
-    <content contentuid="h9341aeb0g8413g5972g9826g1519e16d5031" version="1">副手逆锋</content>
+    <content contentuid="h93db21c0gc377g5116g9299gd05eda6f4c89" version="1">基础伤害：佩剑 [1]，另附 [2] 剑气伤害；气剑 [3] 剑气伤害。剑气可选坏死或力场。</content>
     <content contentuid="h93e4fce3ga46eg5101gabc3gfdaad9bf56a5" version="1">Requires at least 12 Frenzy stacks.</content>
-    <content contentuid="h9707d139g8679g5a5cga44fg71d7c2b43b01" version="1">踏剑而行，越过沟壑、高低差与地面障碍。&lt;br&gt;附赠动作；不耗剑元；提供独立24米飞行距离。&lt;br&gt;起飞时3米内须无敌人；飞行途中接近敌人仍可完成。&lt;br&gt;墙与封闭门阻挡，终点须能够落脚。&lt;br&gt;天倾、行歌需要可用佩剑；太玄、血魇可以凝气为剑。</content>
-    <content contentuid="h98011437ge22cg5b81g9878gbeeccae9e3e8" version="1">三把巨剑齐落，使一片区域经历接连毁灭。一次出剑机会，20剑元；选择24米内半径9米区域，每把巨剑逐敌独立命中，造成基础剑击＋14d8力场剑气。敌人本次首次命中后力量抵抗失败，击倒1轮，并3轮移速减半、护甲等级－5。友方及中立只承受25%伤害，不附带这些削弱；自身免伤。</content>
+    <content contentuid="h9707d139g8679g5a5cga44fg71d7c2b43b01" version="1">踏剑而起，本回合获得24米额外飞行距离。需要佩剑或处于气剑状态。起飞时3米内不能有敌人；使用御剑飞移选择落点，墙与封闭门会阻挡飞行。</content>
+    <content contentuid="h98011437ge22cg5b81g9878gbeeccae9e3e8" version="1">三把巨剑接连坠落，每剑独立进行攻击检定。敌人首次被命中后，力量豁免失败则倒地1轮、移速减半、护甲等级－5，持续3轮。友方与中立者只受四分之一伤害，不受控制与削弱；自身免伤。</content>
+    <content contentuid="h989487c9g845ag5d41gb500g8162b41d612e" version="1">所示为基础伤害。</content>
     <content contentuid="h99c8cbfegc622g59e8g8fa5g0eabf9a7bf0b" version="1">天剑坠世 · 主手佩剑</content>
-    <content contentuid="h99e757c4ga4d5g5bdcg8f86gda61fcb9eabb" version="1">剑意与同行者呼应，四人并进，飞剑随攻势而至。一次出剑机会，20剑元，持续4轮；自己与6米内实际队友命中＋2、伤害＋30%。自己及每名队友每轮各可引发一次自动御剑呼应，追加2d6＋感知＋2d6力场伤害，次数在行歌回合开始恢复。单体攻势单体跟进；范围攻势选一名原生效敌人为中心，对3米内同样被原攻势影响的敌人各跟进一次。呼应不再消耗动作或剑元，一次呼应命中至少一敌奖励一份协作回气。</content>
-    <content contentuid="h99f8cf59g3c0bg51bfgb5edg652a4d2c1e4e" version="1">附赠动作，10剑元，恢复自身最大生命75%；11级起80%。3级初阶为5元恢复35%。</content>
+    <content contentuid="h99e757c4ga4d5g5bdcg8f86gda61fcb9eabb" version="1">持续4轮，自己与6米内队友命中＋2、伤害＋30%。每人每轮首次攻击命中或伤害法术生效，引发一次免费御剑呼应，命中后恢复3剑元；次数在你的回合开始时恢复。</content>
+    <content contentuid="h99f8cf59g3c0bg51bfgb5edg652a4d2c1e4e" version="1">逆转气息，恢复自身最大生命值的[1]%。</content>
     <content contentuid="h9a7e179ega8b6g56afg94c1gc8f5a4efd744" version="1">燃血入狂</content>
-    <content contentuid="h9afef6e0gb1c4g5e1bgb44dg3411d17a5898" version="1">逆血狂澜 · 投入3层癫狂</content>
+    <content contentuid="h9afef6e0gb1c4g5e1bgb44dg3411d17a5898" version="1">逆血狂澜 · 消耗3层癫狂</content>
+    <content contentuid="h9b36af9fg6fcag5075g810bg3bf02ff1077f" version="1">本次续剑的基础伤害：[1] 剑气伤害（坏死或力场）。</content>
     <content contentuid="h9c9b2f7fgf9f7g5eecga123g561b44d25e78" version="1">血海噬灵</content>
-    <content contentuid="h9cc2af13g8106g57aag9556g0ff1b649bfbf" version="1">主动聚集剑势，使用一次出剑机会、不耗剑元，恢复容量60%；11级起70%。</content>
+    <content contentuid="h9cc2af13g8106g57aag9556g0ff1b649bfbf" version="1">凝聚剑势，恢复剑元；战斗外回满剑元。</content>
+    <content contentuid="h9e09b101ga29fg5420g8901g48dec74d10c8" version="1">掠血 · 副手追加（近战）</content>
     <content contentuid="h9fc809b9gdefcg5d3fg9a03gc50501292b98" version="1">同舟破浪 · 主手佩剑</content>
     <content contentuid="h9ff18719g4b5fg5818g85a6g15d17dc57cd8" version="1">Requires at least 2 Frenzy stacks.</content>
     <content contentuid="ha03e5909g7a90g56f6g990bgeeb84efa1143" version="1">血影连城</content>
-    <content contentuid="ha0ae3176gebb6g5506ga048g775461c54efd" version="1">血魇·无生 · 投入12层癫狂</content>
+    <content contentuid="ha08cf1a4g2b31g5b68g9a68g06af7af95dce" version="1">三剑；所示为每剑基础伤害。</content>
+    <content contentuid="ha0ae3176gebb6g5506ga048g775461c54efd" version="1">血魇·无生 · 消耗12层癫狂</content>
+    <content contentuid="ha18c788fg09a3g5e82gbc5bgc7c264480157" version="1">照隙 · 副手追加（近战）</content>
     <content contentuid="ha349764fgceefg5986g8658gc0ae6f7cb3f7" version="1">天锋破阵 · 主手佩剑</content>
-    <content contentuid="ha470c67cg18edg58cbg9fe3ga6235589753f" version="1">问路 · 近战副手</content>
-    <content contentuid="ha679e6b9ga457g55adga84eg10f05cc712c5" version="1">照隙 · 近战副手</content>
-    <content contentuid="ha78bad47gdd4bg5393g842fg7f102e5886f0" version="1">逆锋 · 御剑副手</content>
+    <content contentuid="ha470c67cg18edg58cbg9fe3ga6235589753f" version="1">问路 · 近战（副手）</content>
+    <content contentuid="ha679e6b9ga457g55adga84eg10f05cc712c5" version="1">照隙 · 近战（副手）</content>
+    <content contentuid="ha78bad47gdd4bg5393g842fg7f102e5886f0" version="1">逆锋 · 御剑（副手）</content>
     <content contentuid="ha7a7f783g5926g54begbc7dg373d513ef9ed" version="1">Requires at least 15 Frenzy stacks.</content>
     <content contentuid="ha7b3180agf38bg52ceg90c0g829fac821353" version="1">天地剑劫 · 副手佩剑</content>
-    <content contentuid="ha904f33eg10d0g5c72ga063gd2cc7f0d8d68" version="1">血魇·无生 · 投入1层癫狂</content>
-    <content contentuid="haa0d3acbg4b79g579fgb8f9g9ccabdc41c93" version="1">展开随身移动的掠夺剑域，从敌人的鲜血、生机、魂息或魔力中取得力量。一次出剑机会，10剑元，半径6米，持续4轮；开域及随后自身回合开始，对每名域内敌人独立命中，造成2d6＋感知＋2d6剑气，使用当时的癫狂增幅。每段每敌照常饮血、回元并取得斩杀奖励。</content>
-    <content contentuid="habb04abcg99cdg5668g8611gd3e57579824a" version="1">血魇·无生 · 投入4层癫狂</content>
+    <content contentuid="ha8b6340ag1264g5d78gb7bfg75ca93e82602" version="1">用副手剑追加一次御剑攻击，触发问路的效果。需要双持剑；不获得连贯出剑。</content>
+    <content contentuid="ha904f33eg10d0g5c72ga063gd2cc7f0d8d68" version="1">血魇·无生 · 消耗1层癫狂</content>
+    <content contentuid="haa0d3acbg4b79g579fgb8f9g9ccabdc41c93" version="1">展开随身血海剑域，持续4轮。开域时及随后每次自身回合开始时，各向域内敌人出剑一次，照常饮血、回元并取得斩杀奖励。</content>
+    <content contentuid="habb04abcg99cdg5668g8611gd3e57579824a" version="1">血魇·无生 · 消耗4层癫狂</content>
     <content contentuid="habbd909bge23bg5858ga978gee521c50da44" version="1">破绽</content>
     <content contentuid="hacb999f5g05ceg5deagb264g6f9f619c1723" version="1">乘风破围 · 副手佩剑</content>
-    <content contentuid="hacfb89cfga136g5d24g8a99g6a6df7800a2a" version="1">凝聚强横力量重斩一敌，撕裂其防护。一次出剑机会，4剑元；近身或18米御剑，命中造成基础剑击＋12d8力场剑气。力量抵抗失败后护甲等级－3，持续3轮。</content>
+    <content contentuid="hacfb89cfga136g5d24g8a99g6a6df7800a2a" version="1">重斩一敌。命中后，力量豁免失败时护甲等级－3，持续3轮；重复施展只刷新时间。</content>
     <content contentuid="hadcf0a0cg6e94g5576g8f78gf0b6955ffc87" version="1">太清剑域增益</content>
-    <content contentuid="hadd9ebc4gcb12g59beg80daga406ddb066d2" version="1">逆锋 · 御剑主手</content>
+    <content contentuid="hadd9ebc4gcb12g59beg80daga406ddb066d2" version="1">逆锋 · 御剑</content>
     <content contentuid="hae7245b4gcb2bg58aag937bg49a8c9aadd22" version="1">掠血</content>
     <content contentuid="haec71232gc8c7g5e51gaba2g9df7633fd466" version="1">血影连城 · 续剑近战</content>
-    <content contentuid="hb1224b70g8487g53e4g9f5eg4a9bfb9e477c" version="1">太清剑域增益</content>
-    <content contentuid="hb1615044g7466g576cg9728g5d7102e8772a" version="1">照隙 · 近战主手</content>
-    <content contentuid="hb171ed31g9da6g5f8cg8c90g87f6d672d4d7" version="1">Requires an active Wusheng sequence.</content>
+    <content contentuid="hb080460bg4bd0g5880g91ebgfd17198a5fb3" version="1">所示为基础伤害。</content>
+    <content contentuid="hb1224b70g8487g53e4g9f5eg4a9bfb9e477c" version="1">太清剑域中的清气助你破敌：命中＋2，伤害＋20%。离开剑域后失效，同名增益不叠加。</content>
+    <content contentuid="hb1615044g7466g576cg9728g5d7102e8772a" version="1">照隙 · 近战</content>
+    <content contentuid="hb171ed31g9da6g5f8cg8c90g87f6d672d4d7" version="1">Use Blood Nightmare: Lifeless first.</content>
     <content contentuid="hb1ecd2ddg00f0g5d21g81c3gf46c5984e721" version="1">剑气伤害切换</content>
     <content contentuid="hb266089egb8d0g54c9ga5b1g7ae34b3e8502" version="1">蓄势</content>
     <content contentuid="hb448bcafg4fceg5feagbefdge9a2a6d1f7b4" version="1">Eastern Sword Cultivator</content>
     <content contentuid="hb4c89730g868ag59f6gaf8bga20a29c9ef17" version="1">并肩</content>
-    <content contentuid="hb553282egcc60g597cga49eg1e256730f3cb" version="1">逆血狂澜 · 投入15层癫狂</content>
+    <content contentuid="hb553282egcc60g597cga49eg1e256730f3cb" version="1">逆血狂澜 · 消耗15层癫狂</content>
     <content contentuid="hb723d1e7gf4f4g5d28ga036gaff5db60d80a" version="1">回潮 · 3层癫狂</content>
-    <content contentuid="hb74c2c91g9644g5247gbcdcg6cff901bebc2" version="1">一个剑术动作提供当级整套出剑机会。5级起前三途3次、行歌2次；10级起前三途4次。</content>
+    <content contentuid="hb74c2c91g9644g5247gbcdcg6cff901bebc2" version="1">太玄、天倾、血魇每个动作可出剑[1]次，行歌可出剑2次。常态剑法、进攻强化、绝技与主动回气各占一次；副手追加不能连贯出剑。</content>
+    <content contentuid="hb77db705gbbe3g5d80g8efbg17deeefd7ca6" version="1">问路 · 副手追加（近战）</content>
     <content contentuid="hb811a384g56e3g5c71g9ee7gea28950c43a4" version="1">Requires at least 5 Frenzy stacks.</content>
-    <content contentuid="hb939e30ag7450g5085gbb6dgc2300c16daab" version="1">逆血狂澜 · 投入10层癫狂</content>
-    <content contentuid="hba153feegb33bg527cg80ffgb46d0b7bfbfb" version="1">御巨剑直冲敌阵，在冲击中压倒敌人的攻势。一次出剑机会，10剑元；沿最长18米、宽3米路线冲至终点，每名敌人攻击一次，命中造成基础剑击＋22d8力场剑气。力量抵抗失败击退3米、击倒1轮，并2轮攻击命中－3。冲阵后自身2轮剑招伤害＋30%。</content>
+    <content contentuid="hb939e30ag7450g5085gbb6dgc2300c16daab" version="1">逆血狂澜 · 消耗10层癫狂</content>
+    <content contentuid="hba153feegb33bg527cg80ffgb46d0b7bfbfb" version="1">御巨剑冲阵，攻击沿途敌人。力量豁免失败时击退3米、倒地1轮，攻击检定－3、持续2轮。冲阵后自身剑招伤害＋30%，持续2轮。只伤敌。</content>
+    <content contentuid="hba6ceaadg293fg5e3ag969dg49c255cdc08e" version="1">用副手剑追加一次御剑攻击，触发掠血的效果。需要双持剑；不获得连贯出剑。</content>
     <content contentuid="hbac7336egcb9ag5e67gafa2g131cc5fd9503" version="1">连城移步</content>
-    <content contentuid="hbc7084e8gfd4dg517ag81d7gc6e6802c7b71" version="1">问路 · 御剑副手</content>
-    <content contentuid="hbc798160ga60eg52c0g9bedg3c0d5e5e3c8d" version="1">逆血狂澜 · 投入1层癫狂</content>
-    <content contentuid="hbd588f03gc0e3g57c1gbddfg900d4f78bbb2" version="1">逆血狂澜 · 投入11层癫狂</content>
+    <content contentuid="hbc7084e8gfd4dg517ag81d7gc6e6802c7b71" version="1">问路 · 御剑（副手）</content>
+    <content contentuid="hbc798160ga60eg52c0g9bedg3c0d5e5e3c8d" version="1">逆血狂澜 · 消耗1层癫狂</content>
+    <content contentuid="hbc803793gb698g5b7ag8623gd35015f113dd" version="1">所示为落点基础伤害；余威每次造成 [1]。</content>
+    <content contentuid="hbd588f03gc0e3g57c1gbddfg900d4f78bbb2" version="1">逆血狂澜 · 消耗11层癫狂</content>
+    <content contentuid="hbd595bccgab2bg51a0g8e35g70f957807e74" version="1">每次反击的基础伤害：[1]。</content>
     <content contentuid="hbe3efad8g1f7eg5912gac84gdd06a4e9f070" version="1">Requires at least 8 Frenzy stacks.</content>
+    <content contentuid="hbe9a8236g7443g5774g8904gc3361988d779" version="1">所示为基础伤害。</content>
     <content contentuid="hbeb63ab8g8233g5c3dg8231g7093b3f98452" version="1">分担伤害</content>
     <content contentuid="hc148ccadg838ag58ddg9c2ag969ac9c95492" version="1">癫狂</content>
-    <content contentuid="hc45bfb11g121fg59b0g9167g604f6a730c50" version="1">以剑心御使佩剑，飞击一名敌人，再将剑收回手中。&lt;br&gt;一次出剑机会；不耗剑元；射程18米。&lt;br&gt;伤害按所用佩剑的基础剑击计算。&lt;br&gt;3级选择修行道路后，由分支常态剑法替换。</content>
-    <content contentuid="hc63eb48egbda7g5010g800bga72a620b4d08" version="1">与3米内实际队友并肩时双方额外护甲等级+1、减伤10%；11级起+2与15%。</content>
-    <content contentuid="hc7b69270g787bg5581gb17cgdb1b82ec5112" version="1">血魇·无生 · 投入6层癫狂</content>
-    <content contentuid="hc7d6ae52g6c07g5e67g9a0fg4e6e8e048926" version="1">分担伤害</content>
+    <content contentuid="hc45bfb11g121fg59b0g9167g604f6a730c50" version="1">御使佩剑飞击一名敌人，随后归手。</content>
+    <content contentuid="hc5b5fe5ag0d0cg5297g9e19gb5c3fca64556" version="1">问路 · 副手追加（御剑）</content>
+    <content contentuid="hc63eb48egbda7g5010g800bga72a620b4d08" version="1">与3米内队友并肩时，自己与这些队友护甲等级＋[1]、减伤[2]%，离开范围后失效。多个行歌的保护不叠加，召唤物不计作队友。</content>
+    <content contentuid="hc737a449g9384g52f0g8468g99f9b8004116" version="1">所示为基础伤害。</content>
+    <content contentuid="hc7b69270g787bg5581gb17cgdb1b82ec5112" version="1">血魇·无生 · 消耗6层癫狂</content>
+    <content contentuid="hc7d6ae52g6c07g5e67g9a0fg4e6e8e048926" version="1">为6米内队友分担防护后剩余伤害的[1]%，离开范围后停止。自身额外减伤30%，获得的治疗提高[2]%。</content>
     <content contentuid="hc8420098ged7cg5644ga457g18f5f58b1f2c" version="1">清辉反击</content>
-    <content contentuid="hc8919607g0ad8g580fgad2eg9fea931b47cb" version="1">逆血狂澜 · 投入0层癫狂</content>
-    <content contentuid="hc8a6b669gaf6bg5872g9debg07627a509b2f" version="1">舍道求力，逆锋不屈。以万钧剑势摧毁抵抗，御巨剑冲阵、坠击，凭深厚体魄与强力回生独自撑起战局。</content>
+    <content contentuid="hc8919607g0ad8g580fgad2eg9fea931b47cb" version="1">逆血狂澜 · 不消耗癫狂</content>
+    <content contentuid="hc8a6b669gaf6bg5872g9debg07627a509b2f" version="1">舍道求力，逆锋不屈。以沉重剑势摧破敌阵，凭强健体魄承受攻势。</content>
     <content contentuid="hccb774a9g7f58g5858g9c07gdc461385ddb1" version="1">血影穿身 · 主手佩剑</content>
     <content contentuid="hcd2d9f78g8558g5aaag850cg85caaf4605ee" version="1">近身剑术</content>
     <content contentuid="hcdfb8aeagabbfg5d09g9623g529e5f8a4925" version="1">流光追星</content>
-    <content contentuid="hcdfeec16g49e5g582cg8455gf25b74e3669c" version="1">掠血 · 御剑副手</content>
+    <content contentuid="hcdfeec16g49e5g582cg8455gf25b74e3669c" version="1">掠血 · 御剑（副手）</content>
     <content contentuid="hce8c579cg7ac2g551agb3cfg35e6f3196688" version="1">裂天一剑 · 副手佩剑</content>
+    <content contentuid="hcf3e8598g62adg5b6eg97cag789813d20828" version="1">六剑，每剑基础伤害：[1] 剑气伤害（坏死或力场）。</content>
+    <content contentuid="hd0606287g5370g5a2cg9234gc01e97526251" version="1">选择落点，本回合共可飞行24米，不消耗普通移动距离。墙与封闭门会阻挡飞行，终点须可落脚。</content>
     <content contentuid="hd097fba1g98a0g54dfgb903g84aad5a12b43" version="1">天倾攻势强化</content>
     <content contentuid="hd0c25bb2g38dcg562cg9c33g8e311d5b4590" version="1">抗控基础</content>
-    <content contentuid="hd309c2d4gade4g5e78gac43g55b8c029580d" version="1">副手掠血</content>
-    <content contentuid="hd3615830gea3dg573ag83d7gee38fe371f28" version="1">癫狂</content>
-    <content contentuid="hd499d315ge7e6g56c0gb70cgac7966b3dfef" version="1">天倾攻势强化</content>
-    <content contentuid="hd5ebef9egc1d4g5bcdg81dag5b13fe10dc99" version="1">以剑风牵制围敌，短时护住危急之人。附赠动作，4剑元；援护自己或18米内一名队友。受援者周围3米敌人敏捷抵抗失败后，2轮攻击命中－2、移速减半；受援者2轮护甲等级＋2、减伤20%。援护队友成功奖励协作回气。</content>
+    <content contentuid="hd3615830gea3dg573ag83d7gee38fe371f28" version="1">每满2层使剑术命中＋1，每层使剑招伤害＋5%、职业减伤增加2个百分点，最多15层。战斗外每6秒消退1层，倒地待救或死亡时清空。</content>
+    <content contentuid="hd499d315ge7e6g56c0gb70cgac7966b3dfef" version="1">剑招伤害提高：天锋破阵＋30%，天剑坠世＋40%。各自独立计时。</content>
+    <content contentuid="hd5ebef9egc1d4g5bcdg81dag5b13fe10dc99" version="1">保护自己或一名队友：护甲等级＋2、减伤20%，持续2轮。其身周3米敌人敏捷豁免失败时，攻击检定－2、移速减半，持续2轮。援护队友可恢复剑元。</content>
     <content contentuid="hd6542697gcb2ag5c11g95e6gc953cc168219" version="1">深厚体魄</content>
-    <content contentuid="hd722b191gcdcfg5d46gbf83g0968c4b57d16" version="1">破绽</content>
-    <content contentuid="hd7c76d68g017ag5939ga84age671538374bc" version="1">逆锋 · 近战主手</content>
-    <content contentuid="hd8a257d6ga927g58adg9db0g0c0ab190e7a1" version="1">剑气震开围攻者，随后以更强护体与反击从容应战。一次出剑机会，10剑元；周围6米敌人受到2d6＋感知＋10d8力场伤害，敏捷抵抗成功减半，力量抵抗失败再击退3米。随后护体2轮，护甲等级额外＋5、减伤40%；反击额外命中＋3，伤害为2d6＋感知＋6d8，其他反击条件沿用清辉返照。</content>
+    <content contentuid="hd722b191gcdcfg5d46gbf83g0968c4b57d16" version="1">破绽暴露，施加者后续剑术对你命中＋2、伤害＋20%，并无视伤害抗性。免疫仍然有效；照隙再次命中会刷新持续时间。</content>
+    <content contentuid="hd7c76d68g017ag5939ga84age671538374bc" version="1">逆锋 · 近战</content>
+    <content contentuid="hd8a257d6ga927g58adg9db0g0c0ab190e7a1" version="1">震开围敌，以剑气护身。力量豁免失败的敌人被击退3米；护甲等级＋5、减伤40%，持续2轮。来袭攻击落空或被剑气减伤时，可免费反击，反击命中＋3。敏捷豁免成功时伤害减半。</content>
     <content contentuid="hd8ca0927g3911g532cgb489ge2a57df57f5f" version="1">改换重点目标</content>
-    <content contentuid="hd91a596ega8cfg5794g9b5dg457d03ba9e39" version="1">一剑探出敌人的应对，为同行者创造跟进机会。一次出剑机会，不耗剑元；命中造成基础剑击＋1d4力场剑气，5级为＋1d6、10级为＋2d6。3轮内，队友对目标的武器攻击与直接伤害法术命中＋2、伤害＋15%；每名队友首次成功跟进奖励行歌一份协作回气。再命中刷新持续与首次奖励资格。</content>
+    <content contentuid="hd91a596ega8cfg5794g9b5dg457d03ba9e39" version="1">斩击敌人，为同伴创造机会。随后3轮，队友攻击该敌人时命中＋2、伤害＋15%；每名队友首次命中为你恢复剑元，再次问路刷新回元机会。</content>
+    <content contentuid="hd92f878cgf8c5g5618gb026g8109e97777cf" version="1">继续血影连城的一次追斩，不再消耗动作或剑元。</content>
     <content contentuid="hd99d2e4dgd439g5eddga6bdg7de38e210a24" version="1">Requires at least 3 Frenzy stacks.</content>
     <content contentuid="hdcb1a899g19e6g537agbcf9ga7ce5d7404e6" version="1">乘风破围 · 主手佩剑</content>
+    <content contentuid="hdd6a5142gdfcdg5e6dg9b00gdb4b5e5ff90d" version="1">四剑，每剑基础伤害：[1] 剑气伤害（坏死或力场）。</content>
     <content contentuid="hdd7b84c1g1a5ag53a0ga6ccg0d27f644b88e" version="1">血影穿身</content>
-    <content contentuid="hddaeef32g7c2dg5e5egb140gfc92954ef184" version="1">承自异乡的剑道，以剑心御动天地之气。持剑近战，御剑远击；修行者或一心求道，或弃道求力，或走火入魔，或与友同行。</content>
-    <content contentuid="hdfa8b7c1ge393g52b0gb017g41ce6ad9916d" version="1">护体反击</content>
+    <content contentuid="hddaeef32g7c2dg5e5egb140gfc92954ef184" version="1">以剑心御动天地之气，持剑近战，御剑远击。</content>
+    <content contentuid="hdfa8b7c1ge393g52b0gb017g41ce6ad9916d" version="1">来袭攻击落空或被剑气减伤时，可以向18米内攻击者反击。反击不消耗动作、反应或剑元，也不会引发对方的护体反击。</content>
+    <content contentuid="hdfc6c735g4209g57b7gb154ge229c4152a17" version="1">所示为基础伤害。</content>
     <content contentuid="he30ca46bg4130g5647gadaag2623debac9e0" version="1">血魇·无生 · 续剑近战</content>
-    <content contentuid="he4adee41g3822g5c00gab03g4774b6024280" version="1">血魇·无生 · 投入15层癫狂</content>
+    <content contentuid="he4adee41g3822g5c00gab03g4774b6024280" version="1">血魇·无生 · 消耗15层癫狂</content>
     <content contentuid="he5e87ff2g3b88g5a3fg8423gd3ea4599c01a" version="1">八方灭阵</content>
-    <content contentuid="he640900dg70c5g5731g9f85g036830a99a2d" version="1">将剑意凝为一线，穿墙贯阵，直破常规防御。一次出剑机会，20剑元；剑路长30米、宽2米，只伤敌，不作命中判定，无视抗性与减伤。首名能受伤的敌人承受2d6＋感知＋36d8力场伤害，之后依次减半。力场免疫者不受伤，也不削弱后续剑势。</content>
+    <content contentuid="he640900dg70c5g5731g9f85g036830a99a2d" version="1">剑意凝成一线，穿墙贯阵，只伤敌。无需攻击检定，无视伤害抗性与减伤；每穿过一敌，后续伤害减半。力场免疫者不受伤，也不削弱剑势。</content>
+    <content contentuid="he7c32a7ag9b35g58e8ga83cg9ec13b1ab94b" version="1">继续血魇·无生的一剑，保留起招时的癫狂增幅，不再消耗动作或剑元。</content>
     <content contentuid="hebe1a804g19b8g5052g8f88gfd78948b9462" version="1">照隙</content>
     <content contentuid="hede16a51g40e9g506fgb238g3963fb10ec1e" version="1">血影连城 · 续剑御剑</content>
-    <content contentuid="hee3f1932gcee1g5418gbb62g6e74160a7450" version="1">血魇·无生 · 投入10层癫狂</content>
-    <content contentuid="hf1556f83g530fg5590g81eag37544cc045b5" version="1">以血色剑气猎取敌人的生命与力量。一次出剑机会，不耗剑元；单体命中造成基础剑击＋2d6剑气，5级为＋3d6、10级为＋4d6。剑气默认坏死，可改力场；伤敌照常饮血、凝成血衣并恢复剑元。</content>
-    <content contentuid="hf25a3252g863cg56cbg8436g5a2960369eb7" version="1">破甲</content>
+    <content contentuid="hee3f1932gcee1g5418gbb62g6e74160a7450" version="1">血魇·无生 · 消耗10层癫狂</content>
+    <content contentuid="hf0fa5033g71cbg50d6g998fgfd0d94e186a3" version="1">用副手剑追加一次近战攻击，触发照隙的效果。需要双持剑；不获得连贯出剑。</content>
+    <content contentuid="hf1556f83g530fg5590g81eag37544cc045b5" version="1">以血色剑气斩击一名敌人，触发饮血、血衣与回元。剑气采用所选伤害类型。</content>
+    <content contentuid="hf25a3252g863cg56cbg8436g5a2960369eb7" version="1">护甲等级降低。不同剑术造成的破甲只取最强效果，各自保留持续时间；同一剑术重施会刷新持续时间，不叠加幅度。</content>
     <content contentuid="hf34c6dc7g6750g5740g87dege8a9480625dc" version="1">剑势镇压</content>
-    <content contentuid="hf4d9da41gc82ag537dg9854ge06a87c729d1" version="1">承接同行者的伤势，以自身防护为队伍撑过风雨。一次出剑机会，10剑元，持续4轮；保护6米内实际队友，转移其自身防护后40%的剩余伤害，再以行歌的防护化解。自身额外减伤30%，接受治疗提高50%。10级起分担45%、接受治疗提高75%。</content>
-    <content contentuid="hf4e6107bg052fg555fg91d7g04eb177c0231" version="1">逆血狂澜 · 投入2层癫狂</content>
+    <content contentuid="hf4d9da41gc82ag537dg9854ge06a87c729d1" version="1">持续4轮，为6米内队友分担防护后剩余伤害的[1]%。自身额外减伤30%，获得的治疗提高[2]%；队友离开范围后停止分担。</content>
+    <content contentuid="hf4e6107bg052fg555fg91d7g04eb177c0231" version="1">逆血狂澜 · 消耗2层癫狂</content>
     <content contentuid="hf53806e6g8f3fg568dg8a84g2f7c41bb110d" version="1">裂天一剑 · 主手佩剑</content>
-    <content contentuid="hf648a1bcga559g569eg9ac4g4a1d340900e8" version="1">使剑气萦绕周身，偏转来袭攻势，化去部分伤害。&lt;br&gt;附赠动作；2剑元；持续2轮。&lt;br&gt;护甲等级额外＋2，减伤20%。&lt;br&gt;太玄后续的清辉返照、星河倒悬与本招属于同一护体系列，只保留最强护体。</content>
-    <content contentuid="hf9d17c76g57b2g52e7gbfe0gc74dfbc9d19e" version="1">问路 · 近战主手</content>
+    <content contentuid="hf648a1bcga559g569eg9ac4g4a1d340900e8" version="1">以剑气护身，护甲等级＋2，受到的伤害减少20%，持续2轮。同类护体只保留最强效果。</content>
+    <content contentuid="hf9d17c76g57b2g52e7gbfe0gc74dfbc9d19e" version="1">问路 · 近战</content>
+    <content contentuid="hf9f4883eg12f5g56cagabdagabdf71f252e5" version="1">照隙 · 副手追加（御剑）</content>
+    <content contentuid="hfa061db3ge0abg55ceg8bf9g5b60a244334c" version="1">用副手剑追加一次近战攻击，触发问路的效果。需要双持剑；不获得连贯出剑。</content>
     <content contentuid="hfc1bc61fg3fbag5d86g986fg623a7f565208" version="1">太清剑域</content>
     <content contentuid="hfc5c037bg6063g5752g9074g4aeaee3eac4b" version="1">Requires at least 11 Frenzy stacks.</content>
     <content contentuid="hfd8c0b6bg1ea3g53deg9902gecf33a38f02f" version="1">护体反击</content>
     <content contentuid="hfe097f3eg6376g5c8bgaa96gbd1b32d5066d" version="1">凝气成剑</content>
-    <content contentuid="hfe8cca22gd07bg577cg9312gd12be1871b53" version="1">血魇·无生 · 投入14层癫狂</content>
+    <content contentuid="hfe2cd7eegf666g5025g96bcg2ae28e7e7e99" version="1">用副手剑追加一次近战攻击，触发掠血的效果。需要双持剑；不获得连贯出剑。</content>
+    <content contentuid="hfe8cca22gd07bg577cg9312gd12be1871b53" version="1">血魇·无生 · 消耗14层癫狂</content>
+    <content contentuid="hfed2329egc4ddg5556g877age2d6b451586d" version="1">用副手剑追加一次御剑攻击，触发逆锋的效果。需要双持剑；不获得连贯出剑。</content>
+    <content contentuid="hff08b29dg13aeg509egb5c6g0a1dd6fcb4c2" version="1">所示为每名敌人的基础伤害。</content>
     <content contentuid="hff3c3d39g5d44g5ed6gb57bg75207668bc57" version="1">Requires at least 10 Frenzy stacks.</content>
-    <content contentuid="hfff92997gc082g522bgb316g939c2c70449e" version="1">逆血狂澜 · 投入12层癫狂</content>
+    <content contentuid="hfff92997gc082g522bgb316g939c2c70449e" version="1">逆血狂澜 · 消耗12层癫狂</content>
 </contentList>

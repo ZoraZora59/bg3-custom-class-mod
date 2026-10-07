@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="47b5a20c-14ea-5efd-9f6e-3cd9a6120d50" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Common_Impact">
+    <EffectInfo UUID="75e72b23-e96c-56c3-a827-899d17cb435d" EffectResourceGuid="6c9c4098-b37e-501b-8c88-76dbac0af0cd" DetachSource="true" DetachTarget="true" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_BodyFX" />
+</MultiEffectInfos>

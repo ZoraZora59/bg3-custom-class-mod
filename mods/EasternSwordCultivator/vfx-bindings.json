@@ -1,0 +1,406 @@
+{
+  "registered": {
+    "common": {
+      "impact": {
+        "effect": "6c9c4098-b37e-501b-8c88-76dbac0af0cd",
+        "mei": "47b5a20c-14ea-5efd-9f6e-3cd9a6120d50",
+        "name": "VFX_ESC_Common_Impact_01",
+        "duration": 1.0,
+        "looping": false,
+        "bounds_min": [
+          -4.0,
+          -4.0,
+          -4.0
+        ],
+        "bounds_max": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 6.928203230275509,
+        "dependencies": [
+          "5bd97f73-3a3e-a628-9af2-8a618e388f5a",
+          "e7b55705-01cd-edbd-7a8d-25321c31904d",
+          "eb4f4fd6-49e4-7c34-774b-e843647ed84e"
+        ],
+        "metadata_source": "editor-source"
+      },
+      "projectile": {
+        "effect": "709aba23-bbf9-55a5-b2b4-7666abc37dcc",
+        "mei": "932b7155-73a9-5665-bd53-206370809284",
+        "name": "VFX_ESC_Common_Projectile_01",
+        "duration": 1.2,
+        "looping": true,
+        "bounds_min": [
+          -3.0,
+          -3.0,
+          -3.0
+        ],
+        "bounds_max": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 5.196152422706632,
+        "dependencies": [
+          "c1319fce-3d47-ac75-e502-a3e965500038",
+          "fb318905-c5c9-165b-2a28-1bec091aa3db"
+        ],
+        "metadata_source": "editor-source"
+      }
+    },
+    "taixuan": {
+      "impact": {
+        "effect": "40bf0664-6b05-52d8-a7df-f173688f8e56",
+        "mei": "f68ab21c-acc5-5198-9de9-cc55733b5975",
+        "name": "VFX_ESC_Taixuan_Impact_01",
+        "duration": 2.0,
+        "looping": false,
+        "bounds_min": [
+          -5.0,
+          -5.0,
+          -5.0
+        ],
+        "bounds_max": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 8.660254037844387,
+        "dependencies": [
+          "44192e18-75cf-4d16-1747-81ed534b8247",
+          "97b12629-982f-c7b4-7807-1ca4cd35e0aa"
+        ],
+        "metadata_source": "editor-source"
+      },
+      "projectile": {
+        "effect": "0c32b8dc-2720-5f00-a142-7e3b055831d2",
+        "mei": "1f917c5c-7c9d-57fb-9ed4-39715bd7152a",
+        "name": "VFX_ESC_Taixuan_Projectile_01",
+        "duration": 1.2,
+        "looping": true,
+        "bounds_min": [
+          -3.0,
+          -3.0,
+          -3.0
+        ],
+        "bounds_max": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 5.196152422706632,
+        "dependencies": [
+          "c1319fce-3d47-ac75-e502-a3e965500038",
+          "fb318905-c5c9-165b-2a28-1bec091aa3db"
+        ],
+        "metadata_source": "editor-source"
+      }
+    },
+    "tianqing": {
+      "impact": {
+        "effect": "bf5408ee-1405-5a6d-9dce-a186182a5692",
+        "mei": "1292f086-a586-59e0-86d2-1266dfa5ecca",
+        "name": "VFX_ESC_Tianqing_Impact_01",
+        "duration": 2.0,
+        "looping": false,
+        "bounds_min": [
+          -10.0,
+          -10.0,
+          -10.0
+        ],
+        "bounds_max": [
+          10.0,
+          10.0,
+          10.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 17.320508075688775,
+        "dependencies": [
+          "5bd97f73-3a3e-a628-9af2-8a618e388f5a",
+          "707add78-20c6-ec43-477d-bf2d0fa51d67",
+          "e7b55705-01cd-edbd-7a8d-25321c31904d",
+          "eb4f4fd6-49e4-7c34-774b-e843647ed84e"
+        ],
+        "metadata_source": "editor-source"
+      },
+      "projectile": {
+        "effect": "0db22044-16d9-5c82-9633-651befed3716",
+        "mei": "abcb28c8-3595-57c5-8c49-e283784beb57",
+        "name": "VFX_ESC_Tianqing_Projectile_01",
+        "duration": 1.2,
+        "looping": true,
+        "bounds_min": [
+          -9.0,
+          -9.0,
+          -9.0
+        ],
+        "bounds_max": [
+          9.0,
+          9.0,
+          9.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 15.588457268119896,
+        "dependencies": [
+          "12f3193c-ce1a-5a69-1bf0-8537b9b606f9",
+          "fb318905-c5c9-165b-2a28-1bec091aa3db"
+        ],
+        "metadata_source": "editor-source"
+      }
+    },
+    "xingge": {
+      "impact": {
+        "effect": "e17ef193-d594-50ee-995c-d3a8b57e2ef4",
+        "mei": "6b3aad3b-7ccb-5d88-8eb9-b79de2649c42",
+        "name": "VFX_ESC_Xingge_Impact_01",
+        "duration": 2.0,
+        "looping": false,
+        "bounds_min": [
+          -5.0,
+          -5.0,
+          -5.0
+        ],
+        "bounds_max": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 8.660254037844387,
+        "dependencies": [
+          "5bd97f73-3a3e-a628-9af2-8a618e388f5a",
+          "e7b55705-01cd-edbd-7a8d-25321c31904d",
+          "eb4f4fd6-49e4-7c34-774b-e843647ed84e"
+        ],
+        "metadata_source": "editor-source"
+      },
+      "projectile": {
+        "effect": "3953c772-1b76-5d0a-9d4b-c2a7b0b4ce02",
+        "mei": "e187e0ce-b767-5582-9bdf-14033f5330b9",
+        "name": "VFX_ESC_Xingge_Projectile_01",
+        "duration": 1.2,
+        "looping": true,
+        "bounds_min": [
+          -3.0,
+          -3.0,
+          -3.0
+        ],
+        "bounds_max": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 5.196152422706632,
+        "dependencies": [
+          "c1319fce-3d47-ac75-e502-a3e965500038",
+          "fb318905-c5c9-165b-2a28-1bec091aa3db"
+        ],
+        "metadata_source": "editor-source"
+      }
+    },
+    "xueyan": {
+      "impact": {
+        "effect": "e1ff9168-fa5b-524e-b8d2-f5cc8c4a15de",
+        "mei": "42da558e-ec29-517e-9752-a67ccfb40712",
+        "name": "VFX_ESC_Xueyan_Impact_01",
+        "duration": 2.0,
+        "looping": false,
+        "bounds_min": [
+          -5.0,
+          -5.0,
+          -5.0
+        ],
+        "bounds_max": [
+          5.0,
+          5.0,
+          5.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 8.660254037844387,
+        "dependencies": [
+          "4860ed23-afca-2745-f070-12da4f8bd239",
+          "5bd97f73-3a3e-a628-9af2-8a618e388f5a",
+          "e7b55705-01cd-edbd-7a8d-25321c31904d",
+          "eb4f4fd6-49e4-7c34-774b-e843647ed84e"
+        ],
+        "metadata_source": "editor-source"
+      },
+      "projectile": {
+        "effect": "7133596e-3742-5cf3-a129-a54aa7809603",
+        "mei": "4a61af47-eacb-5ca9-8a4d-278953ea45b3",
+        "name": "VFX_ESC_Xueyan_Projectile_01",
+        "duration": 2.3000000000000003,
+        "looping": true,
+        "bounds_min": [
+          -3.0,
+          -3.0,
+          -3.0
+        ],
+        "bounds_max": [
+          3.0,
+          3.0,
+          3.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 5.196152422706632,
+        "dependencies": [
+          "4860ed23-afca-2745-f070-12da4f8bd239",
+          "c1319fce-3d47-ac75-e502-a3e965500038",
+          "fb318905-c5c9-165b-2a28-1bec091aa3db"
+        ],
+        "metadata_source": "editor-source"
+      }
+    }
+  },
+  "projectiles": {
+    "common": {
+      "uuid": "713e09eb-e206-5eed-966f-c4b4eeca6152",
+      "pathfind_uuid": "0ba40698-682b-5aa2-95b5-5def52470c54",
+      "trajectories": "713e09eb-e206-5eed-966f-c4b4eeca6152,0ba40698-682b-5aa2-95b5-5def52470c54",
+      "projectile": "common",
+      "impact": "common"
+    },
+    "taixuan": {
+      "uuid": "06c310e6-0865-5cc7-8176-db65ee6c5571",
+      "pathfind_uuid": "98b49fea-53a9-571c-91ce-4a6e2adacaaf",
+      "trajectories": "06c310e6-0865-5cc7-8176-db65ee6c5571,98b49fea-53a9-571c-91ce-4a6e2adacaaf",
+      "projectile": "taixuan",
+      "impact": "taixuan"
+    },
+    "tianqing": {
+      "uuid": "c9bcde8e-d653-5d63-afcd-3a96050f848a",
+      "pathfind_uuid": "7ca79282-35da-5293-9d68-32055b6e18d9",
+      "trajectories": "c9bcde8e-d653-5d63-afcd-3a96050f848a,7ca79282-35da-5293-9d68-32055b6e18d9",
+      "projectile": "tianqing",
+      "impact": "tianqing"
+    },
+    "xingge": {
+      "uuid": "6455ee4a-0949-5814-bc15-262399c79f1e",
+      "pathfind_uuid": "3342115c-ff33-55fd-85f8-82ae2b3b055e",
+      "trajectories": "6455ee4a-0949-5814-bc15-262399c79f1e,3342115c-ff33-55fd-85f8-82ae2b3b055e",
+      "projectile": "xingge",
+      "impact": "xingge"
+    },
+    "xueyan": {
+      "uuid": "de0cce83-0f92-5118-9732-c5db2db1be01",
+      "pathfind_uuid": "37015b93-a5ad-5f1c-864e-b8f1485db560",
+      "trajectories": "de0cce83-0f92-5118-9732-c5db2db1be01,37015b93-a5ad-5f1c-864e-b8f1485db560",
+      "projectile": "xueyan",
+      "impact": "xueyan"
+    }
+  },
+  "missing_compiled": [],
+  "files": [
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Common_Impact_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/47b5a20c-14ea-5efd-9f6e-3cd9a6120d50.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/47b5a20c-14ea-5efd-9f6e-3cd9a6120d50.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/47b5a20c-14ea-5efd-9f6e-3cd9a6120d50.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Common_Projectile_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/932b7155-73a9-5665-bd53-206370809284.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/932b7155-73a9-5665-bd53-206370809284.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/932b7155-73a9-5665-bd53-206370809284.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Taixuan_Impact_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/f68ab21c-acc5-5198-9de9-cc55733b5975.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/f68ab21c-acc5-5198-9de9-cc55733b5975.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/f68ab21c-acc5-5198-9de9-cc55733b5975.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Taixuan_Projectile_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/1f917c5c-7c9d-57fb-9ed4-39715bd7152a.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/1f917c5c-7c9d-57fb-9ed4-39715bd7152a.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/1f917c5c-7c9d-57fb-9ed4-39715bd7152a.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Tianqing_Impact_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/1292f086-a586-59e0-86d2-1266dfa5ecca.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/1292f086-a586-59e0-86d2-1266dfa5ecca.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/1292f086-a586-59e0-86d2-1266dfa5ecca.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Tianqing_Projectile_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/abcb28c8-3595-57c5-8c49-e283784beb57.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/abcb28c8-3595-57c5-8c49-e283784beb57.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/abcb28c8-3595-57c5-8c49-e283784beb57.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xingge_Impact_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/6b3aad3b-7ccb-5d88-8eb9-b79de2649c42.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/6b3aad3b-7ccb-5d88-8eb9-b79de2649c42.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/6b3aad3b-7ccb-5d88-8eb9-b79de2649c42.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xingge_Projectile_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/e187e0ce-b767-5582-9bdf-14033f5330b9.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/e187e0ce-b767-5582-9bdf-14033f5330b9.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/e187e0ce-b767-5582-9bdf-14033f5330b9.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xueyan_Impact_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/42da558e-ec29-517e-9752-a67ccfb40712.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/42da558e-ec29-517e-9752-a67ccfb40712.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/42da558e-ec29-517e-9752-a67ccfb40712.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xueyan_Projectile_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/4a61af47-eacb-5ca9-8a4d-278953ea45b3.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/4a61af47-eacb-5ca9-8a4d-278953ea45b3.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/4a61af47-eacb-5ca9-8a4d-278953ea45b3.lsf",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/Groups/483cab54-4d12-55c6-827b-4cb665cf124d.group",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Content/Assets/Effects/Effects/Sword/[PAK]_ESC_SwordEffects/_merged.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Content/Assets/Effects/Effects/Sword/[PAK]_ESC_SwordEffects/_merged.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/713e09eb-e206-5eed-966f-c4b4eeca6152.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/713e09eb-e206-5eed-966f-c4b4eeca6152.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/0ba40698-682b-5aa2-95b5-5def52470c54.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/0ba40698-682b-5aa2-95b5-5def52470c54.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/06c310e6-0865-5cc7-8176-db65ee6c5571.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/06c310e6-0865-5cc7-8176-db65ee6c5571.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/98b49fea-53a9-571c-91ce-4a6e2adacaaf.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/98b49fea-53a9-571c-91ce-4a6e2adacaaf.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/c9bcde8e-d653-5d63-afcd-3a96050f848a.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/c9bcde8e-d653-5d63-afcd-3a96050f848a.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/7ca79282-35da-5293-9d68-32055b6e18d9.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/7ca79282-35da-5293-9d68-32055b6e18d9.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/6455ee4a-0949-5814-bc15-262399c79f1e.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/6455ee4a-0949-5814-bc15-262399c79f1e.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/3342115c-ff33-55fd-85f8-82ae2b3b055e.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/3342115c-ff33-55fd-85f8-82ae2b3b055e.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/de0cce83-0f92-5118-9732-c5db2db1be01.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/de0cce83-0f92-5118-9732-c5db2db1be01.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/37015b93-a5ad-5f1c-864e-b8f1485db560.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/37015b93-a5ad-5f1c-864e-b8f1485db560.lsf"
+  ],
+  "reference_projectile": "348013df-7958-4ca9-ac9f-80337e054bee",
+  "rotation_validation": "pending Toolkit Follow/orientation review"
+}

@@ -10,9 +10,9 @@
                     <attribute id="Name" type="LSString" value="EasternSwordCultivator" />
                     <attribute id="Level" type="uint8" value="1" />
                     <attribute id="ProgressionType" type="uint8" value="0" />
-                    <attribute id="Selectors" type="LSString" value="SelectSkills(a0e2abe7-a094-57ae-8eae-48bbb050fc61,2);AddSpells(5b89b04e-0c87-55af-acd4-e50d8904bbf3,,,,AlwaysPrepared)" />
+                    <attribute id="Selectors" type="LSString" value="SelectSkills(a0e2abe7-a094-57ae-8eae-48bbb050fc61,2)" />
                     <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars);ProficiencyBonus(SavingThrow,Wisdom);ProficiencyBonus(SavingThrow,Constitution)" />
-                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
+                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword;ESC_P_StarterMelee" />
                 </node>
                 <node id="Progression">
                     <attribute id="UUID" type="guid" value="62cce976-30a4-5900-8ace-c66b472dfbeb" />
@@ -22,6 +22,7 @@
                     <attribute id="ProgressionType" type="uint8" value="0" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(aab5d465-6b17-5f25-a079-6999661f6bbf,,,,AlwaysPrepared)" />
                     <attribute id="Boosts" type="LSString" value="ActionResource(ESC_SwordYuan,6,0)" />
+                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_StarterGuard" />
                 </node>
                 <node id="Progression">
                     <attribute id="UUID" type="guid" value="438f3f58-e7e7-5c8c-9b17-62b812cca202" />
@@ -135,7 +136,7 @@
                     <attribute id="Level" type="uint8" value="3" />
                     <attribute id="ProgressionType" type="uint8" value="1" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(79822d36-e5b0-527a-a8e6-6c2901ce4707,,,,AlwaysPrepared)" />
-                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword" />
+                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword;ESC_P_StarterMelee" />
                     <attribute id="PassivesAdded" type="LSString" value="ESC_P_control_resist;ESC_P_taixuan_breath;ESC_P_Branch_taixuan" />
                 </node>
                 <node id="Progression">
@@ -145,6 +146,7 @@
                     <attribute id="Level" type="uint8" value="4" />
                     <attribute id="ProgressionType" type="uint8" value="1" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(938132db-5eb1-5df3-9b47-d46f7fe9b570,,,,AlwaysPrepared)" />
+                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterGuard" />
                     <attribute id="PassivesAdded" type="LSString" value="ESC_P_auto_release" />
                 </node>
                 <node id="Progression">
@@ -216,7 +218,7 @@
                     <attribute id="Level" type="uint8" value="3" />
                     <attribute id="ProgressionType" type="uint8" value="1" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(a542e1af-85b4-5a64-a8ac-091d5030bccc,,,,AlwaysPrepared)" />
-                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword" />
+                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword;ESC_P_StarterMelee" />
                     <attribute id="Boosts" type="LSString" value="Proficiency(MediumArmor);Proficiency(HeavyArmor)" />
                     <attribute id="PassivesAdded" type="LSString" value="ESC_P_control_resist;ESC_P_tianqing_fortitude;ESC_P_Branch_tianqing" />
                 </node>
@@ -299,7 +301,7 @@
                     <attribute id="Level" type="uint8" value="3" />
                     <attribute id="ProgressionType" type="uint8" value="1" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(8b1aa091-4456-5b99-ad8f-eed9d1a82c1d,,,,AlwaysPrepared)" />
-                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword" />
+                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword;ESC_P_StarterMelee" />
                     <attribute id="Boosts" type="LSString" value="Proficiency(MediumArmor);Proficiency(HeavyArmor)" />
                     <attribute id="PassivesAdded" type="LSString" value="ESC_P_control_resist;ESC_P_xueyan_siphon;ESC_P_xueyan_finish;ESC_P_xueyan_unhindered;ESC_P_Branch_xueyan" />
                 </node>
@@ -381,7 +383,7 @@
                     <attribute id="Level" type="uint8" value="3" />
                     <attribute id="ProgressionType" type="uint8" value="1" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(2924dfe7-52b1-5a1f-9bd9-e1922da2f626,,,,AlwaysPrepared)" />
-                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword" />
+                    <attribute id="PassivesRemoved" type="LSString" value="ESC_P_StarterSword;ESC_P_StarterMelee" />
                     <attribute id="PassivesAdded" type="LSString" value="ESC_P_xingge_sidebyside;ESC_P_xingge_cooperation;ESC_P_Branch_xingge" />
                 </node>
                 <node id="Progression">
@@ -461,8 +463,7 @@
                     <attribute id="Level" type="uint8" value="1" />
                     <attribute id="ProgressionType" type="uint8" value="0" />
                     <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars)" />
-                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
-                    <attribute id="Selectors" type="LSString" value="AddSpells(55b8cb7f-18cb-52fc-b351-25e2e8a52630,,,,AlwaysPrepared)" />
+                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword;ESC_P_StarterMelee" />
                     <attribute id="IsMulticlass" type="bool" value="true" />
                 </node>
             </children>

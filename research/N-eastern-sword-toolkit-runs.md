@@ -1,6 +1,6 @@
 # 东方剑修：Toolkit 实际运行记录
 
-日期：2026-10-01。本文记录正式 `EasternSwordCultivator` 的实际编辑器观察；设计与模拟测试覆盖矩阵见 [M](M-eastern-sword-validation.md)。正式模块 UUID 为 `6560ea02-fe1e-5fdb-8631-b41a2e53af90`，与旧 Skeleton 测试工程不同。**当前`629ADB...`包的第十二轮Toolkit严格门禁已通过，可进入正式客户端测试；本包直接实测1–3级及四支三级选择。旧`6EE20F`包正式游戏创角后一级职业能力为空，G-01未通过；当前包G-01至G-12仍待客户端实测。**
+记录更新至2026-10-07。本文记录正式 `EasternSwordCultivator` 的实际编辑器观察；设计与模拟测试见 [M](M-eastern-sword-validation.md)，本轮技能修订见 [O](O-skill-review-20261006.md)。正式模块UUID为 `6560ea02-fe1e-5fdb-8631-b41a2e53af90`。**冻结测试源1.0.0.4／`1EBD795B...`的四分支1–12级Toolkit逐级Accept通过；既有mod.io条目现已发布原生1.0.0.5／`B2ACAF2E...`，线上包与原生一致，本地PAK及元数据同步均完成。扫描通过及Windows激活由用户确认，新FileID未取得。两轮Toolkit均正常退出并restore；正式SE战斗与原创动态VFX待验收。**
 
 ## 第一次载入：未通过
 
@@ -171,3 +171,41 @@ Toolkit 已上传列表封面，但 General Settings → Media 的 Image gallery
 构建规格已持久化 `PublishHandle=6417135`，生成器仅修改本模组的ModuleInfo，GustavX依赖的PublishHandle仍为0。新本地包Version64为 `36028797018963971`，SHA256 `1BD21169D0BFCEBFAAD3927979BE2EB481F57B1ED85C0BF7D9E34C33A00AA117`；111/111回归通过，静态错误与警告均0，StatsParser 0诊断，包内meta回读通过。新旧均487项，无新增或删除；内容变化仅发布ID、版本及GeneratedSpec对应字段，两项LSF重新序列化但解码内容相同。原6DD包另存 `modio-upload-20261001/frozen-6dd.pak`。
 
 此关联包未安装、未上传，线上仍为文件8269084／版本1.0.0.2；新版Toolkit和游戏验证均pending，旧6DD门禁结果不转移到新SHA。具体证据见 `modio-upload-20261001/publish-handle-persistence-report.json`。仓库根AGENTS.md已加入用户要求的“遇到不确定事项先查官方资料及手册，再参考社区经验，最后进行可撤销实验”的工作规则。
+
+## 第十八轮：技能入口与说明修订后的冻结源复验（2026-10-06至07）
+
+用户试用线上包后反馈技能入口、说明和动态特效未达预期，授权审阅、删并修改、Toolkit测试；随后又授权全部验证后更新既有mod.io条目并更新本地。测试结束时发布尚未执行；后续实际发布及本地同步见第十九轮。
+
+已审阅全部44个命名技能。独立副手追加容器并入四支常态六选项；3级常态接替御剑术及近身剑术；天倾蓄势回元提升并入调息；太玄4级清辉返照接替剑气护体。玩家文案重写了主动、被动、状态、选项和装备提示，明确费用、射程、持续及后期成长；无生续剑按近战3米／御剑24米区分。流光追星锁定同一敌人进行四次攻击；天崩剑啸显式点选主敌，主敌基础剑击＋32d8、扇形余敌基础剑击＋18d8，分别检定。误继承的治疗提示、雷鸣提示和双持联动费用已清除；血魇可切伤害不再固定显示坏死预览。
+
+本轮早期测试仍依赖SE持剑状态，Toolkit不加载正式SE，因而出现装备剑后技能灰的现象。最终入口改为原生主／副手槽位查询及装备／状态刷新：所有分支禁盾；太玄／行歌禁中、重甲，天倾／血魇允许。SE中的角色发现与GameplayReady／后加入角色初始化修复仍单独保留，不能仅靠编辑器原生入口宣称正式客户端SE生命周期问题已验收。
+
+当前冻结脚本PAK SHA256为 `1EBD795BC80E39B8FCE830DC61B155B3D74947857982FFA4E6D096454C62B632`，版本1.0.0.4（Version64=`36028797018963972`）、PublishHandle=`6417135`，22,799,865字节、487项。`build-report.json`记录129/129静态与生产Lua模拟回归通过、0跳过，静态错误／警告与StatsParser诊断均0，PAK、图集、封面回读通过；构建时ToolkitTest／GameTest为pending，实际UI与最终新日志结果以下单列，不将构建结果当作实际游戏测试。
+
+`skill-review-independent-readback.json`独立复核同一1EBD包：487项包／回读哈希一致，150条技能Source／回读一致，全部44个命名技能本地化完整，两语言各284条；原生装备条件、刷新事件、容器、变体文案、图标及四支成长源表等24项复核均通过。`toolkit-native-skill-expectations.json`仅提供每级期待技能，不能冒充升级操作。`release-semantic-comparator-validation.json`记录线上包比较器的自比与隔离负例通过，此时尚未取得新发布PAK，不能推出线上包已同本轮源一致。
+
+主agent在当前冻结源的 `Basic_Level_A` Game Mode 中已完成太玄、天倾、血魇、行歌各自1–12级升级流程，并实际Accept每级。最终技能书太玄13、天倾14、血魇14、行歌12项常驻入口，12级均50剑元；洗点后未残留旧分支技能。`toolkit-ui-20261007/ui-observations.json`绑定1EBD包，实查66条观察、63张PNG（编号003–065）；059为行歌12项／50剑元，065为天倾14项总数（13戏法＋天地剑劫普通动作）／50剑元。不是仅选中升级预览页便宣称升级完成。
+
+装备入口实际观察已通过三种组合：持Shield时六个常态选项全禁；双剑六项全亮；主手Dagger＋副手Shortsword时仅副手近战、御剑两个动作选项亮，两个主手动作和两个附赠追加均灰。此次未用手动补SE状态来放行，证明的是当前原生装备门槛与UI刷新。行歌装备Scale Mail中甲与Chain Mail重甲时技能灰，卸甲立即恢复，不需要先攻击；但原生护甲熟练不足与条件失败同时出现，尚未隔离熟练限制的影响。持盾提示仍是原生英文，护甲条件未直接看到专属中文说明，因此不能写为全部装备限制提示或独立禁甲条件已逐项验收。
+
+主agent已正常关闭Toolkit，保存不可变 `capture-20261007-020512-226737`；00:56:31启动的新通用日志 `log.2026-10-07T00-56-31-855310.txt` 为824,303行。`toolkit-final-native-equipment-log-analysis-20261007.json`报告ModuleIssues空、NativeCrash=false、no-attributable-errors。capture对通用／Osiris／Thoth三种日志均标记fresh，通用日志SHA256为 `1a32f1646a8e915f3ba50d0c95024420cf2b09ad45cd889a6ac8147180c123ab`。本轮UI观察和正常退出来自主agent实际操作，日志解析器仅证明所读日志未观察到归属问题。
+
+02:07:52已restore，测试源保留于 `retired-20261007-020751-835601`，状态实查inactive，无Glasses/bg3/bg3_dx11进程。此前00:37中断轮日志与旧6C95安装审阅均只作历史记录，不用于代替最终1EBD证据。
+
+正式游戏SE中的资源、连贯出剑、实际双持费用、领域、协同、血魇多段伤害和旧档迁移仍待验收。远程仍使用原版Magic Missile轨迹；清除不相干提示或绿光不是原创飞剑、踏剑、阵列、领域和血影动态特效完成。本轮Toolkit与静态／模拟结论不覆盖这些效果，也不预写mod.io更新或本地替换成功。
+
+测试结束时曾因电脑操作工具不能可靠识别Chrome当前URL而停止；当时线上和本地仍为旧文件8269084／1.0.0.2。用户回复继续后完成的实际发布与本地同步以下单列，不与当时停止状态混用。
+
+## 第十九轮：既有mod.io更新、在线包回读与本地同步（2026-10-07）
+
+主agent通过官方Toolkit Project Settings → Publish更新既有Mod `6417135`，保存设置使Build4自增为Build5，Message Log实际显示“Mod published successfully”。[设置截图](../build/sword-cultivator/modio-upload-20261007/01-publish-settings.png)与[成功截图](../build/sword-cultivator/modio-upload-20261007/02-toolkit-published-successfully.png)已保存。原生发布PAK为 **1.0.0.5**（Version64=`36028797018963973`）、22,768,021字节、489项，SHA256=`B2ACAF2E7DF24F761ED6F48719202D7CFA71C7E78D762DA7EB2BD059EA17529D`；UUID、Folder、Name及PublishHandle=`6417135`保留。
+
+用户下载原ZIP，确认扫描通过并手动勾选Windows后再下载 `(2).zip`。两ZIP均为21,868,765字节，SHA256=`79BA22F1A504CE3570B4EDFED8545AA961DCCC092999E35304840472C0870E17`，内含PAK逐字节等于原生B2包。扫描和Windows激活来自用户直接观察，浏览器连接器持续nodeRepl.fetch failed，没有自动网页复核、native Chrome回退或凭证读取。新FileID未取得，明确为null，不沿用旧8269084；私有可见性仍按既有Live (Private)意图保留，当前未重新自动核验。证据见 [线上下载记录](../build/sword-cultivator/modio-upload-20261007/online-download-evidence.json)。
+
+[完整语义比较](../build/sword-cultivator/release-semantic-native-20261007-1-0-0-5-complete/comparison.json)与[独立审阅](../build/sword-cultivator/modio-upload-20261007/release-content-independent-review.json)确认289条Stats、5份Lua、2份SE JSON、两语各284条、418个文本引用及456份美术实物与冻结1EBD内容相同，核心职业／成长／Lists等语义一致。原生XML与脚本LOCA文本语义相同。GUI编译188项与旧线上编译索引相同，源码754项含额外566个别名，低画质／手柄未实测。TextureBank编译语义相同；ModuleInfo仅Version64、Toolkit生成MD5及英文Description按预期改变。通用比较器保留多表示冲突，不能写为自动全项pass；独立审阅已逐项处理并判定适用本次发布。
+
+发布轮正常退出Toolkit后保存 `capture-20261007-022819-249876`，02:29:31 restore成功，保留 `retired-20261007-022931-328271`，环境inactive。此轮仅4953行fresh Osiris原版INIT日志，没有本模组引用或可归属错误，也没有发布成功／FileID／平台记录；generic与thoth均stale，不冒充发布轮新日志。此前824,303行完整Toolkit验证仍绑定冻结1EBD源。
+
+原生Publish已自动覆盖游戏Mods同UUID PAK为B2／1.0.0.5。随后辅助脚本实际Apply，将唯一对应modsettings记录由1.0.0.2同步为1.0.0.5，Version64=`36028797018963973`、MD5=`e5f22623a45960ec5e950841d9a17536`、PublishHandle=`6417135`。独立安装后复核确认六字段等于线上包meta，其他XML节点结构不变。15个其他文件哈希、218个存档文件尺寸／修改时间清单未变；没有对全部存档内容做哈希验证，也未启动正式游戏。Prepare前后PAK均B2，因为Toolkit先行写包；helper rollback只恢复Prepare实际前态。完整旧1.0.0.2 PAK045051F6…与旧配置E7DBE083…另存于发布目录。
+
+[Applied清单](../build/sword-cultivator/modio-local-update-20261007-023815-004980/manifest.json)、[安装后复核](../build/sword-cultivator/modio-upload-20261007/post-install-verification.json)及[release-result](../build/sword-cultivator/modio-upload-20261007/release-result.json)已将发布与本地同步记为completed。GameTest仍待验收，本轮正式游戏执行为not-run。文件更新与语义相同不代表SE战斗、生命周期、旧存档迁移、全部辅助攻击段或原创动态特效通过。

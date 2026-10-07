@@ -131,6 +131,117 @@ class Bridge(unittest.TestCase):
             self.assertIn(listener.name,signatures)
             self.assertEqual(listener.arity,signatures[listener.name],listener.name)
 
+    def test_new_game_ready_discovers_class_after_initial_equipment_without_an_attack(self):
+        entity=self.actor(level=1,branch=None)
+        finalized=entity.Classes
+        entity.Classes=None
+        self.F.event('SessionLoaded',self.table({}))
+        self.F.emit('Equipped','sword:sword','sword')
+        self.assertFalse(self.E.hasStatus('sword','ESC_MAIN_SWORD'))
+        self.assertIsNone(entity.Vars.ESC_State)
+        # In the real new-game log the initial longsword equipment preceded
+        # the tutorial's Ready event; no second equipment/attack is required.
+        entity.Classes=finalized
+        self.F.clearCalls()
+        self.F.emit('LevelGameplayReady','TUT_Avernus_C',0)
+        self.assertTrue(self.E.hasStatus('sword','ESC_MAIN_SWORD'))
+        self.assertFalse(self.E.hasStatus('sword','ESC_OFFHAND_SWORD'))
+        self.assertIsNotNone(entity.Vars.ESC_State)
+        self.assertEqual(self.F.callCount('UseSpell'),0)
+        self.assertEqual(self.F.callCount('AddSpell'),0)
+        self.assertEqual(self.F.resource('sword').Amount,0)
+
+    def test_save_load_and_repeated_ready_keep_resources_clocks_and_active_cast_boosts(self):
+        entity=self.actor(level=8,branch='tianqing')
+        state=self.ESC.State('sword')
+        state.turn=7
+        state.guard=self.table(dict(rank=1,expires=9,ac=2,reduction=.2))
+        self.F.resource('sword').Amount=3
+        opportunity=self.E.resourceEntry('sword',SPEC['opportunityResource'])
+        opportunity.Amount=1
+        resource_ids=(SPEC['resource'],SPEC['opportunityResource'],
+                      '734cbcfb-8922-4b6d-8330-b2a7e4c14b6a',
+                      '45ff0f48-b210-4024-972f-b64a44dc6985',
+                      '420c8df5-45c2-4253-93c2-7ec44e127930')
+        for uuid in resource_ids[2:]: self.E.resourceEntry('sword',uuid).Amount=0
+        amounts=lambda:tuple(self.E.resourceEntry('sword',uuid).Amount for uuid in resource_ids)
+        before=amounts()
+        self.F.event('SessionLoaded',self.table({}))
+        self.assertTrue(self.E.hasStatus('sword','ESC_MAIN_SWORD'))
+        self.E.setBoosts('sword','cast_snapshot_1','RollBonus(Attack,3)')
+        timers=len(self.F.timers)
+        self.F.clearCalls()
+        for _ in range(3): self.F.emit('LevelGameplayReady','TUT_Avernus_C',0)
+        self.assertEqual(amounts(),before)
+        self.assertEqual((state.turn,state.guard.expires,entity._hp),(7,9,30))
+        self.assertEqual(entity._boosts['ESC_cast_snapshot_1'],'RollBonus(Attack,3)')
+        self.assertEqual(len(self.F.timers),timers,'Ready must not start another periodic timer')
+        self.assertEqual(self.F.callCount('ApplyStatus'),0)
+        self.assertEqual(self.F.callCount('AddBoosts'),0)
+        self.assertEqual(self.F.callCount('AddSpell'),0)
+        self.assertEqual(self.F.callCount('SetHitpoints'),0)
+
+    def test_joining_avatar_refreshes_immediately_then_once_after_classes_are_published(self):
+        self.F.event('SessionLoaded',self.table({}))
+        ready=self.actor('ready',1,None)
+        self.F.emit('UserAvatarCreated',65536,'ready','guardian')
+        self.assertTrue(self.E.hasStatus('ready','ESC_MAIN_SWORD'))
+        delayed=self.actor('joining',1,None)
+        finalized=delayed.Classes
+        delayed.Classes=None
+        self.F.emit('UserAvatarCreated',65537,'joining','guardian')
+        self.assertFalse(self.E.hasStatus('joining','ESC_MAIN_SWORD'))
+        timers=len(self.F.timers)
+        retry=self.F.timers[timers]
+        self.assertEqual(retry.ms,200)
+        self.F.emit('UserAvatarCreated',65537,'joining','guardian')
+        self.assertEqual(len(self.F.timers),timers,'Duplicate avatar notifications coalesce the retry')
+        delayed.Classes=finalized
+        self.F.clearCalls()
+        retry.callback()
+        self.assertTrue(self.E.hasStatus('joining','ESC_MAIN_SWORD'))
+        self.assertEqual(len(self.F.timers),timers,'The retry must not schedule itself')
+        self.assertEqual(self.F.callCount('UseSpell'),0)
+        self.assertEqual(self.F.callCount('AddSpell'),0)
+        self.assertEqual(self.F.resource('joining').Amount,0)
+        before=self.F.callCount('ApplyStatus')
+        retry.callback()
+        self.assertEqual(self.F.callCount('ApplyStatus'),before,'A consumed retry is inert')
+
+    def test_avatar_retry_is_cancelled_on_reload_or_entity_removal(self):
+        self.F.event('SessionLoaded',self.table({}))
+        entity=self.actor('joining',1,None)
+        finalized=entity.Classes
+        entity.Classes=None
+        self.F.emit('UserAvatarCreated',65537,'joining','guardian')
+        retry=self.F.timers[len(self.F.timers)]
+        self.F.event('SessionLoaded',self.table({}))
+        entity.Classes=finalized
+        self.F.clearCalls()
+        retry.callback()
+        self.assertFalse(self.E.hasStatus('joining','ESC_MAIN_SWORD'))
+        self.assertEqual(len(self.F.calls),0)
+        self.F.emit('UserAvatarCreated',65537,'joining','guardian')
+        removed_retry=self.F.timers[len(self.F.timers)]
+        self.F.entities['joining']=None
+        self.F.clearCalls()
+        removed_retry.callback()
+        self.assertEqual(len(self.F.calls),0)
+
+    def test_ready_and_avatar_refresh_keep_real_sword_and_shield_limits(self):
+        unarmed=self.actor('unarmed',1,None)
+        unarmed._equipped['Melee Main Weapon']=None
+        ordinary=self.actor('ordinary',0,None)
+        shielded=self.actor('shielded',1,None)
+        shielded._equipped.Shield='shield'
+        self.F.emit('LevelGameplayReady','TUT_Avernus_C',0)
+        self.F.emit('UserAvatarCreated',65537,'unarmed','guardian')
+        self.assertFalse(self.E.hasStatus('unarmed','ESC_MAIN_SWORD'))
+        self.assertFalse(self.E.allowed('shielded',None,True))
+        self.assertIsNone(ordinary.Vars.ESC_State)
+        self.assertFalse(self.E.hasStatus('ordinary','ESC_MAIN_SWORD'))
+        self.assertEqual(self.F.callCount('AddSpell'),0)
+
     def test_multiclass_hp_uses_class_level_and_respec_removes_boosts(self):
         entity=self.actor(branch='taixuan',level=3)
         self.ESC.Refresh('sword')
@@ -282,6 +393,87 @@ class Bridge(unittest.TestCase):
         pool.Amount=0;self.E.removeStatus('sword','ESC_EXTRA_ATTACK','sword')
         self.ESC.Runtime.BeginCast('sword',spell,25,'enemy');self.ESC.Runtime.FinishCast('sword',spell,25)
         self.assertEqual(pool.Amount,3)
+
+    def test_liuguang_root_miss_still_requests_three_independent_free_native_stages_once(self):
+        self.actor(level=10,branch='taixuan')
+        self.actor('enemy',0,None,1000,1000,'enemies',8)
+        spell=SPEC['spells']['taixuan_liuguang']['stat']
+        self.F.resource('sword').Amount=20
+        self.ESC.Runtime.BeginCast('sword',spell,810,'enemy')
+        # No main-hit callback: later swords must still be requested on a miss.
+        self.ESC.Runtime.FinishCast('sword',spell,810)
+        calls=[call for call in self.F.calls.values() if call.name=='UseSpell']
+        self.assertEqual([(call.args[2],call.args[3]) for call in calls],
+                         [('Target_ESC_LiuguangStage','enemy')]*3)
+        pool=self.E.resourceEntry('sword',SPEC['opportunityResource'])
+        self.assertEqual(pool.Amount,3)
+        self.ESC.Runtime.FinishCast('sword',spell,810)
+        self.assertEqual(self.F.callCount('UseSpell'),3)
+        for action in (811,812,813):
+            self.F.emit('UsingSpellOnTarget','sword','enemy','Target_ESC_LiuguangStage','Target','',action)
+            hit=self.native_damage('sword','enemy',[20],spell='Target_ESC_LiuguangStage',action=action)
+            self.assertEqual(hit.TotalDamageDone,23,'Each stage retains its level-10 regular-technique multiplier')
+            self.F.emit('StatusApplied','enemy','ESC_HIT_MARKER','sword',action)
+            self.F.emit('CastedSpell','sword','Target_ESC_LiuguangStage','Target','',action)
+            self.assertEqual(pool.Amount,3)
+        self.assertEqual(self.F.resource('sword').Amount,20)
+        self.assertEqual(self.F.callCount('UseSpell'),3,'Internal stages must never request another three swords')
+
+    def test_tianbeng_cone_uses_chosen_target_facing_filters_enemies_and_preserves_offhand(self):
+        source=self.actor(level=10,branch='tianqing')
+        source._equipped['Melee Offhand Weapon']='sword:sword'
+        main=self.actor('main',0,None,1000,1000,'enemies',8)
+        for name,x,z in (('inside',4,0),('boundary',6,6),('side',4,4.1),('behind',-3,0),
+                         ('far',13,0),('blocked',5,0)):
+            entity=self.actor(name,0,None,1000,1000,'enemies',x)
+            entity.Transform.Transform.Translate[3]=z
+        self.actor('ally',0,None,1000,1000,'players',4)
+        source._blocked='blocked'
+        spell='Target_ESC_tianqing_tianbeng_Off'
+        self.ESC.Runtime.BeginCast('sword',spell,830)
+        self.F.emit('UsingSpellOnTarget','sword','main',spell,'Target','',830)
+        # The first native hit can kill/push the primary enemy before finish.
+        main._dead=True
+        main.Transform.Transform.Translate=self.table([0,0,8])
+        self.F.emit('StatusApplied','main','ESC_HIT_MARKER','sword',830)
+        self.ESC.Runtime.FinishCast('sword',spell,830)
+        calls=[call for call in self.F.calls.values() if call.name=='UseSpell']
+        self.assertEqual({(call.args[2],call.args[3]) for call in calls},
+                         {('Target_ESC_TianbengCone_Off','inside'),('Target_ESC_TianbengCone_Off','boundary')})
+        self.assertFalse(any('TianbengMain' in call.args[2] for call in calls))
+        self.ESC.Runtime.FinishCast('sword',spell,830)
+        self.assertEqual(self.F.callCount('UseSpell'),2)
+        self.F.emit('StatusApplied','main','ESC_SAVEFAIL_TIANQING_TIANBENG','sword',830)
+        self.assertEqual(self.ESC.State('main').debuffs['sword:tianqing_tianbeng'].ac,-3)
+        for index,call in enumerate(calls,831):
+            victim=call.args[3]
+            self.F.emit('UsingSpellOnTarget','sword',victim,call.args[2],'Target','',index)
+            self.F.emit('StatusApplied',victim,'ESC_SAVEFAIL_TIANQING_TIANBENG','sword',index)
+            self.assertIsNone(self.ESC.State(victim).debuffs['sword:tianqing_tianbeng'].ac)
+            self.F.emit('CastedSpell','sword',call.args[2],'Target','',index)
+        self.assertEqual(self.E.resourceEntry('sword',SPEC['opportunityResource']).Amount,3)
+
+    def test_tianbeng_legacy_zone_migrates_only_existing_high_level_tianqing_grants(self):
+        old=('Zone_ESC_tianqing_tianbeng','Zone_ESC_tianqing_tianbeng_Main','Zone_ESC_tianqing_tianbeng_Off')
+        new='Target_ESC_tianqing_tianbeng'
+        for id,level,branch,has_old,has_new in (('old',6,'tianqing',True,False),
+                ('both',12,'tianqing',True,True),('fresh',6,'tianqing',False,False),
+                ('low',5,'tianqing',True,False),('otherbranch',12,'taixuan',True,False),
+                ('ordinary',0,None,True,False)):
+            entity=self.actor(id,level,branch)
+            entity._spells=self.table({spell:True for spell in old} if has_old else {})
+            if has_new: entity._spells[new]=True
+            self.F.clearCalls()
+            self.ESC.Refresh(id)
+            migrates=branch=='tianqing' and level>=6 and has_old
+            self.assertEqual(all(entity._spells[spell] is None for spell in old),not has_old or migrates,id)
+            calls=[call for call in self.F.calls.values() if call.name=='AddSpell']
+            self.assertEqual(len(calls),int(migrates and not has_new),id)
+            if calls:
+                self.assertEqual(tuple(calls[0].args[index] for index in range(1,5)),(id,new,0,1))
+            before=self.F.callCount('AddSpell')
+            self.ESC.Refresh(id)
+            self.assertEqual(self.F.callCount('AddSpell'),before,id)
 
     def test_branch_passive_does_not_mutate_other_class(self):
         entity=self.actor('ordinary',0,None)
@@ -865,7 +1057,7 @@ class Bridge(unittest.TestCase):
         self.assertEqual(self.ESC.State('sword').frenzy,4)
 
     def test_reload_removes_only_old_starting_sword_spells_once(self):
-        entity=self.actor()
+        entity=self.actor(level=2,branch=None)
         obsolete=('Shout_ESC_StartingSword','Shout_ESC_StartingSword_longsword',
             'Shout_ESC_StartingSword_greatsword','Shout_ESC_StartingSword_dualshorts')
         entity.Vars.ESC_State=self.table({'startingSword':'greatsword'})
@@ -881,6 +1073,94 @@ class Bridge(unittest.TestCase):
         self.assertFalse(any(call.name=='TemplateAddTo' for call in self.F.calls.values()))
         self.F.event('SessionLoaded',self.table({}))
         self.assertEqual(len([call for call in self.F.calls.values() if call.name=='RemoveSpell']),4)
+
+    def test_reload_consolidates_old_skill_menu_without_removing_bonus_children_or_unrelated_spells(self):
+        entity=self.actor(level=4,branch='taixuan')
+        offhand=('Shout_ESC_Offhand_taixuan_zhaoxi','Shout_ESC_Offhand_tianqing_nifeng',
+                 'Shout_ESC_Offhand_xueyan_luexue','Shout_ESC_Offhand_xingge_wenlu')
+        introductory=tuple(parent+suffix for parent in ('Target_ESC_sword_strike','Projectile_ESC_yujian')
+                           for suffix in ('','_Main','_Off'))
+        obsolete=(*offhand,*introductory,'Shout_ESC_tianqing_xushi','Shout_ESC_qi_guard')
+        kept=['Projectile_FireBolt','Shout_ESC_taixuan_qinghui',SPEC['spells']['taixuan_zhaoxi']['stat']]
+        for old,key in zip(offhand,('taixuan_zhaoxi','tianqing_nifeng','xueyan_luexue','xingge_wenlu')):
+            children=[('Zone' if key=='tianqing_nifeng' else 'Target')+'_ESC_'+key+'_MeleeOff_Bonus',
+                      ('Zone' if key=='tianqing_nifeng' else 'Projectile')+'_ESC_'+key+'_RangedOff_Bonus']
+            self.F.stats[old]=self.table({'ContainerSpells':';'.join(children)})
+            kept.extend(children)
+        entity._spells=self.table({spell:True for spell in (*obsolete,*kept)})
+        entity._passives=self.table({'ESC_P_StarterSword':True,'ESC_P_StarterMelee':True,
+                                    'ESC_P_StarterGuard':True,'ESC_P_sword_heart':True})
+        entity.Vars.ESC_State=self.table({'startingSword':'greatsword','frenzy':2})
+        self.F.event('SessionLoaded',self.table({}))
+        removed=[call for call in self.F.calls.values() if call.name=='RemoveSpell']
+        self.assertEqual({call.args[2] for call in removed},set(obsolete))
+        self.assertTrue(all(call.args[3]==0 for call in removed))
+        self.assertTrue(all(entity._spells[spell] for spell in kept))
+        self.assertTrue(entity._passives['ESC_P_sword_heart'])
+        self.assertEqual({call.args[2] for call in self.F.calls.values() if call.name=='RemovePassive'},
+                         {'ESC_P_StarterSword','ESC_P_StarterMelee','ESC_P_StarterGuard'})
+        self.assertEqual(entity.Vars.ESC_State.startingSword,'greatsword')
+        self.assertEqual(entity.Vars.ESC_State.frenzy,2)
+        self.assertFalse(any(call.name=='TemplateAddTo' for call in self.F.calls.values()))
+        count=len(removed)
+        self.F.event('SessionLoaded',self.table({}))
+        self.assertEqual(len([call for call in self.F.calls.values() if call.name=='RemoveSpell']),count)
+        self.assertEqual(len([call for call in self.F.calls.values() if call.name=='RemovePassive']),3)
+
+    def test_skill_menu_migration_preserves_introductory_levels_and_other_branch_guards(self):
+        introductory=tuple(parent+suffix for parent in ('Target_ESC_sword_strike','Projectile_ESC_yujian')
+                           for suffix in ('','_Main','_Off'))
+        for id,level,branch in (('level1',1,None),('level2',2,None),('taixuan3',3,'taixuan'),
+                                ('tianqing4',4,'tianqing'),('xueyan12',12,'xueyan'),('xingge12',12,'xingge')):
+            entity=self.actor(id,level,branch)
+            entity._spells=self.table({spell:True for spell in (*introductory,'Shout_ESC_qi_guard')})
+            entity._passives=self.table({'ESC_P_StarterSword':True,'ESC_P_StarterMelee':True,
+                                        'ESC_P_StarterGuard':True})
+            self.ESC.Refresh(id)
+            self.assertTrue(entity._spells['Shout_ESC_qi_guard'],id)
+            self.assertTrue(entity._passives['ESC_P_StarterGuard'],id)
+            self.assertEqual(all(bool(entity._spells[spell]) for spell in introductory),level<3,id)
+            self.assertEqual(bool(entity._passives['ESC_P_StarterSword']),level<3,id)
+            self.assertEqual(bool(entity._passives['ESC_P_StarterMelee']),level<3,id)
+
+    def test_skill_menu_migration_applies_after_level_and_respec_without_touching_nonclass_actors(self):
+        entity=self.actor(level=2,branch=None)
+        entity._spells=self.table({'Target_ESC_sword_strike':True,'Projectile_ESC_yujian':True,'Shout_ESC_qi_guard':True})
+        entity._passives=self.table({'ESC_P_StarterSword':True,'ESC_P_StarterMelee':True,'ESC_P_StarterGuard':True})
+        entity.Classes.Classes[1].Level=3
+        entity.Classes.Classes[1].SubClassUUID=SPEC['classes']['taixuan']
+        self.F.emit('LeveledUp','sword')
+        self.assertIsNone(entity._spells['Target_ESC_sword_strike'])
+        self.assertIsNone(entity._spells['Projectile_ESC_yujian'])
+        self.assertTrue(entity._spells['Shout_ESC_qi_guard'])
+        entity.Classes.Classes[1].Level=4
+        self.F.emit('RespecCompleted','sword')
+        self.assertIsNone(entity._spells['Shout_ESC_qi_guard'])
+        self.assertIsNone(entity._passives['ESC_P_StarterGuard'])
+        # A normal character with an ESC spell manually learned from another
+        # source is outside this class migration, including after leaving ESC.
+        ordinary=self.actor('ordinary',0,None)
+        ordinary.Classes.Classes=self.table([{'ClassUUID':'other','Level':12}])
+        ordinary._spells=self.table({'Target_ESC_sword_strike':True,'Shout_ESC_Offhand_taixuan_zhaoxi':True})
+        ordinary._passives=self.table({'ESC_P_StarterSword':True})
+        entity.Classes.Classes=self.table([{'ClassUUID':'other','Level':12}])
+        entity._spells=self.table({'Target_ESC_sword_strike':True})
+        self.F.clearCalls()
+        self.F.event('SessionLoaded',self.table({}))
+        self.ESC.Refresh('ordinary')
+        self.ESC.Refresh('sword')
+        self.assertFalse(any(call.name in ('RemoveSpell','RemovePassive') for call in self.F.calls.values()))
+        self.assertTrue(ordinary._spells['Target_ESC_sword_strike'])
+        self.assertTrue(ordinary._spells['Shout_ESC_Offhand_taixuan_zhaoxi'])
+        self.assertTrue(ordinary._passives['ESC_P_StarterSword'])
+        self.assertTrue(entity._spells['Target_ESC_sword_strike'])
+
+    def test_tianqing_shared_breath_retains_merged_recovery_scaling(self):
+        for level,expected in ((3,6),(11,31)):
+            entity=self.actor('tianqing'+str(level),level,'tianqing')
+            self.F.resource('tianqing'+str(level)).Amount=0
+            self.cast('tianqing'+str(level),'tiaoxi',action=400+level)
+            self.assertEqual(self.F.resource('tianqing'+str(level)).Amount,expected)
 
     def test_rescue_network_intent_spends_once_and_clears_all_covered_controls(self):
         entity,token=self.rescue_ready()

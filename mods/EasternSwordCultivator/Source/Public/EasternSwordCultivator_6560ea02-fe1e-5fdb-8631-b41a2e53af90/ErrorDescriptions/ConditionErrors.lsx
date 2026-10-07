@@ -5,12 +5,6 @@
         <node id="root">
             <children>
                 <node id="ConditionErrors">
-                    <attribute id="UUID" type="guid" value="3e78e957-d320-5c5c-8fc0-bd0d72a65546" />
-                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_ARMOR_BLOCKED_True" />
-                    <attribute id="DisplayName" type="TranslatedString" handle="h53bf236eg85b5g54a1gaed2gb69f1cb4e0bb" version="1" />
-                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
-                </node>
-                <node id="ConditionErrors">
                     <attribute id="UUID" type="guid" value="f89f6086-970d-5fb0-8eb5-0a3de6717de2" />
                     <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_CHAIN_LIANCHENG_False" />
                     <attribute id="DisplayName" type="TranslatedString" handle="h634ac25agc6f5g5cc0gbd07gfefbced5f31c" version="1" />
@@ -116,18 +110,6 @@
                     <attribute id="UUID" type="guid" value="3bd777fe-78f0-5335-97d6-3893eddf1731" />
                     <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_IN_FLIGHT_False" />
                     <attribute id="DisplayName" type="TranslatedString" handle="h170d134bg6f78g5bbdg86fcg818e1071d17a" version="1" />
-                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
-                </node>
-                <node id="ConditionErrors">
-                    <attribute id="UUID" type="guid" value="db25de6a-fd8a-5586-b4ed-45d3a443aa5f" />
-                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_MAIN_SWORD_False" />
-                    <attribute id="DisplayName" type="TranslatedString" handle="h34e82002g5e51g5b7dgb55bg047bf56c2e3f" version="1" />
-                    <attribute id="ErrorDescriptionType" type="uint8" value="0" />
-                </node>
-                <node id="ConditionErrors">
-                    <attribute id="UUID" type="guid" value="9a0f8cc9-8cef-5436-a6e6-76204c1a80f8" />
-                    <attribute id="Identifier" type="FixedString" value="CE_Status_ESC_OFFHAND_SWORD_False" />
-                    <attribute id="DisplayName" type="TranslatedString" handle="h9307244eg51f5g5637g9d0ag3927d0f1029b" version="1" />
                     <attribute id="ErrorDescriptionType" type="uint8" value="0" />
                 </node>
                 <node id="ConditionErrors">

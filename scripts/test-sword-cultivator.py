@@ -122,6 +122,28 @@ class RulesTest(unittest.TestCase):
 
 
 class GeneratedDataTest(unittest.TestCase):
+    def test_class_details_register_the_progression_table(self):
+        public = SOURCE/'Public'/FOLDER
+        classes = ET.parse(public/'ClassDescriptions/ClassDescriptions.lsx')
+        descriptions = ET.parse(public/'Progressions/ProgressionDescriptions.lsx')
+        registrations = descriptions.findall('.//node[@id="ProgressionDescription"]')
+        class_rows = classes.findall('.//node[@id="ClassDescription"]')
+        self.assertEqual(len(registrations), len(class_rows))
+        for main in class_rows:
+            name = main.find('attribute[@id="Name"]').get('value')
+            matches = [row for row in registrations if row.find('attribute[@id="Type"]').get('value') == name]
+            self.assertEqual(len(matches), 1, name)
+            registration = matches[0]
+            table = main.find('attribute[@id="ProgressionTableUUID"]').get('value')
+            self.assertEqual(registration.find('attribute[@id="ProgressionTableId"]').get('value'), table)
+            self.assertNotEqual(table, main.find('attribute[@id="UUID"]').get('value'))
+            self.assertIsNone(registration.find('attribute[@id="ExactMatch"]'))
+            hidden = registration.find('attribute[@id="Hidden"]')
+            self.assertNotEqual(hidden.get('value').lower() if hidden is not None else 'false', 'true')
+            for field in ('DisplayName', 'Description'):
+                self.assertEqual(registration.find(f'attribute[@id="{field}"]').get('handle'),
+                                 main.find(f'attribute[@id="{field}"]').get('handle'))
+
     def test_published_module_identity_and_dependency_handle(self):
         meta=ET.parse(SOURCE/'Mods'/FOLDER/'meta.lsx')
         def value(node,key):
@@ -146,9 +168,6 @@ class GeneratedDataTest(unittest.TestCase):
         generated=json.loads((LUA/'GeneratedSpec.json').read_text(encoding='utf-8'))
         keys={row['stat']:key for key,row in generated['spells'].items()}
         keys.update({stat:value['key'] for stat,value in generated.get('aliases',{}).items()})
-        for branch,key in [('taixuan','taixuan_zhaoxi'),('tianqing','tianqing_nifeng'),
-            ('xueyan','xueyan_luexue'),('xingge','xingge_wenlu')]:
-            keys['Shout_ESC_Offhand_'+key]=key
         lists={}
         for node in ET.parse(SOURCE/'Public'/FOLDER/'Lists/SpellLists.lsx').findall('.//node[@id="SpellList"]'):
             attrs={a.get('id'):a.get('value') for a in node.findall('attribute')}
@@ -156,10 +175,10 @@ class GeneratedDataTest(unittest.TestCase):
         # Independent GDD-derived grant expectations. Do not call spells_at:
         # the generator's grant mapping itself is the behavior under test.
         expected={
-            'common':{1:'sword_strike',2:'tiaoxi qi_guard',5:'sword_flight'},
+            'common':{2:'tiaoxi',5:'sword_flight'},
             'taixuan':{3:'qi_sword taixuan_zhaoxi',4:'taixuan_qinghui taixuan_guiyuan',5:'control_release',
                 6:'taixuan_liuguang',7:'taixuan_xinghe',8:'taixuan_jiuxiao',9:'focus_target taixuan_taiqing',12:'taixuan_yixiantian'},
-            'tianqing':{3:'recall_sword tianqing_nifeng tianqing_xushi tianqing_nixi',4:'tianqing_wanjun',5:'control_release',
+            'tianqing':{3:'recall_sword tianqing_nifeng tianqing_nixi',4:'tianqing_wanjun',5:'control_release',
                 6:'tianqing_tianbeng',7:'tianqing_tianfeng',8:'tianqing_lietian',9:'tianqing_tianjian',12:'tianqing_bafang tianqing_tiandi'},
             'xueyan':{3:'qi_sword xueyan_luexue xueyan_damage_mode',4:'xueyan_chuanshen xueyan_huichao',5:'control_release',
                 6:'xueyan_liancheng',7:'xueyan_nixue',8:'xueyan_ranxue',9:'xueyan_xuehai',12:'xueyan_wusheng'},
@@ -182,6 +201,105 @@ class GeneratedDataTest(unittest.TestCase):
         passive=(SOURCE/'Public'/FOLDER/'Stats/Generated/Data/Passive.txt').read_text(encoding='utf-8')
         self.assertIn('UnlockSpell('+generated['spells']['yujian']['stat']+')',passive)
 
+    def test_introductory_grants_expire_at_branch_upgrades_without_obsolete_spell_lists(self):
+        source=SOURCE/'Public'/FOLDER
+        generated=json.loads((LUA/'GeneratedSpec.json').read_text(encoding='utf-8'))
+        text=(source/'Stats/Generated/Data/Passive.txt').read_text(encoding='utf-8')
+        passives={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
+            for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        for passive,key in (('ESC_P_StarterSword','yujian'),('ESC_P_StarterMelee','sword_strike'),
+                            ('ESC_P_StarterGuard','qi_guard')):
+            self.assertEqual(passives[passive]['Properties'],'IsHidden',passive)
+            self.assertEqual(passives[passive]['Boosts'],'UnlockSpell('+generated['spells'][key]['stat']+')',passive)
+        rows=[{a.get('id'):a.get('value') for a in node.findall('attribute')}
+              for node in ET.parse(source/'Progressions/Progressions.lsx').findall('.//node[@id="Progression"]')]
+        for row in rows:
+            if row['TableUUID']==guid('table/common') and row['Level']=='1':
+                self.assertTrue({'ESC_P_StarterSword','ESC_P_StarterMelee'}<=set(row['PassivesAdded'].split(';')))
+                self.assertNotIn('AddSpells(',row.get('Selectors',''))
+            elif row['TableUUID']==guid('table/common') and row['Level']=='2':
+                self.assertIn('ESC_P_StarterGuard',row['PassivesAdded'].split(';'))
+            elif row['TableUUID'] in {guid('table/'+branch) for branch in BRANCHES} and row['Level']=='3':
+                self.assertEqual(set(row['PassivesRemoved'].split(';')),{'ESC_P_StarterSword','ESC_P_StarterMelee'})
+            elif row['TableUUID']==guid('table/taixuan') and row['Level']=='4':
+                self.assertIn('ESC_P_StarterGuard',row['PassivesRemoved'].split(';'))
+        granted={spell for node in ET.parse(source/'Lists/SpellLists.lsx').findall('.//node[@id="SpellList"]')
+                 for a in node.findall('attribute') if a.get('id')=='Spells' for spell in a.get('value','').split(';')}
+        self.assertFalse(any(spell.startswith('Shout_ESC_Offhand_') for spell in granted))
+        for key in ('yujian','sword_strike','qi_guard','tianqing_xushi'):
+            self.assertNotIn(generated['spells'][key]['stat'],granted,key)
+
+    def test_regular_sword_containers_keep_bonus_offhand_children_and_pay_only_selected_action(self):
+        source=SOURCE/'Public'/FOLDER
+        generated=json.loads((LUA/'GeneratedSpec.json').read_text(encoding='utf-8'))
+        text='\n'.join(path.read_text(encoding='utf-8') for path in (source/'Stats/Generated/Data').glob('Spell_*.txt'))
+        stats={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
+            for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        translations={a.get('contentuid'):a.text for a in ET.parse(SOURCE/'Mods'/FOLDER/'Localization/Chinese'/(MOD+'.xml')).getroot()}
+        for key in ('taixuan_zhaoxi','tianqing_nifeng','xueyan_luexue','xingge_wenlu'):
+            parent=generated['spells'][key]['stat'];container=stats[parent]
+            self.assertEqual(container['UseCosts'],'',parent)
+            children=container['ContainerSpells'].split(';')
+            self.assertEqual(len(children),6,parent)
+            self.assertEqual(len(set(children)),6,parent)
+            bonus=[child for child in children if child.endswith('_Bonus')]
+            self.assertEqual(len(bonus),2,parent)
+            self.assertNotIn('Shout_ESC_Offhand_'+key,stats)
+            for child in children:
+                row=stats[child]
+                self.assertEqual(row['SpellContainerID'],parent,child)
+                self.assertEqual(row['UseCosts'],'BonusActionPoint:1' if child in bonus else 'ActionPoint:1',child)
+                if child in bonus:
+                    alias=generated['aliases'][child]
+                    self.assertEqual(alias['key'],key)
+                    self.assertTrue(alias['offhand'])
+                    self.assertTrue(alias['bonusOnly'])
+                    self.assertEqual(alias['hand'],'off')
+                    self.assertIn('副手追加',translations[row['DisplayName'].split(';')[0]],child)
+                    self.assertIn('不获得连贯出剑',translations[row['Description'].split(';')[0]],child)
+                    form='近战' if '_MeleeOff_' in child else '御剑'
+                    self.assertIn('追加一次'+form+'攻击',translations[row['Description'].split(';')[0]],child)
+        for spell,distance in (('Target_ESC_wusheng_ContinueMelee',3),
+                               ('Projectile_ESC_wusheng_ContinueRanged',24)):
+            description=translations[stats[spell]['Description'].split(';')[0]]
+            self.assertEqual(float(stats[spell]['TargetRadius']),distance,spell)
+            self.assertNotRegex(description,r'\d+米',spell)
+            self.assertTrue(stats[spell]['ExtraDescriptionParams'],spell)
+
+    def test_native_spell_inheritance_cannot_add_offhand_costs_healing_text_or_foreign_container_children(self):
+        text='\n'.join(path.read_text(encoding='utf-8') for path in (SOURCE/'Public'/FOLDER/'Stats/Generated/Data').glob('Spell_*.txt'))
+        stats={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
+            for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        damage_targets=save_spells=containers=0
+        for name,row in stats.items():
+            # Explicit empty overrides are required: omitting these fields
+            # inherits the native parent's offhand cost and animation events.
+            for field in ('DualWieldingUseCosts','AlternativeCastTextEvents'):
+                self.assertIn(field,row,name+'.'+field)
+                self.assertEqual(row[field],'',name+'.'+field)
+            damage=';'.join(row.get(field,'') for field in ('SpellSuccess','SpellFail','SpellProperties'))
+            if row['SpellType']=='Target' and 'DealDamage(' in damage:
+                damage_targets+=1
+                self.assertEqual(row.get('TooltipPermanentWarnings'),'',name)
+                self.assertEqual(row.get('VerbalIntent'),'Damage',name)
+            ability=re.search(r'SavingThrow\(Ability\.([A-Za-z]+),',row.get('SpellRoll',''))
+            if ability:
+                save_spells+=1
+                self.assertEqual(row.get('TooltipAttackSave'),ability.group(1),name)
+            self.assertIn('ContainerSpells',row,name)
+            children=row['ContainerSpells']
+            if children:
+                containers+=1
+                self.assertIn('IsLinkedSpellContainer',row['SpellFlags'],name)
+                for child in children.split(';'):
+                    self.assertIn(child,stats,name+' child '+child)
+                    self.assertRegex(child,r'^[A-Za-z]+_ESC_',name)
+            else:
+                self.assertNotIn('IsLinkedSpellContainer',row['SpellFlags'],name)
+        self.assertGreater(damage_targets,10)
+        self.assertGreater(save_spells,5)
+        self.assertGreater(containers,10)
+
     def test_native_stats_values_fit_observed_toolkit_2048_byte_limit(self):
         failures=[]
         for file in (SOURCE/'Public'/FOLDER/'Stats/Generated/Data').glob('*.txt'):
@@ -201,8 +319,10 @@ class GeneratedDataTest(unittest.TestCase):
                                          file.read_text(encoding='utf-8'),re.M):
                 for match in re.finditer(r"(not )?HasStatus\('([^']+)'",conditions):
                     required.add(f'CE_Status_{match.group(2)}_{"True" if match.group(1) else "False"}')
-        self.assertEqual(len(required),22)
-        self.assertIn('CE_Status_ESC_MAIN_SWORD_False',required)
+        self.assertEqual(len(required),19)
+        for status in ('ESC_MAIN_SWORD','ESC_OFFHAND_SWORD','ESC_ARMOR_BLOCKED'):
+            self.assertFalse(any(status in identifier for identifier in required),status)
+        self.assertIn('CE_Status_ESC_QI_MODE_False',required)
         relative='ErrorDescriptions/ConditionErrors'
         native={}
         for node in ET.parse(SOURCE/'Public'/FOLDER/(relative+'.lsx')).findall('./region/node/children/node'):
@@ -231,9 +351,103 @@ class GeneratedDataTest(unittest.TestCase):
             for language in translations:
                 self.assertTrue(translations[language].get(attrs['DisplayName'].get('handle')),
                                 f'{language}: {identifier}')
-        main=native['CE_Status_ESC_MAIN_SWORD_False']['DisplayName'].get('handle')
-        self.assertIn('主手剑',translations['Chinese'][main])
-        self.assertIn('main-hand sword',translations['English'][main])
+        qi=native['CE_Status_ESC_QI_MODE_False']['DisplayName'].get('handle')
+        self.assertIn('凝气成剑',translations['Chinese'][qi])
+        self.assertIn('qi',translations['English'][qi].lower())
+
+    def test_equipment_requirements_use_native_slots_and_refresh_for_equipment_and_statuses(self):
+        text='\n'.join(path.read_text(encoding='utf-8') for path in
+            (SOURCE/'Public'/FOLDER/'Stats/Generated/Data').glob('Spell_*.txt'))
+        stats={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
+            for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        native_weapon_checks=0
+        for name,row in stats.items():
+            condition=row.get('RequirementConditions','')
+            for status in ('ESC_MAIN_SWORD','ESC_OFFHAND_SWORD','ESC_ARMOR_BLOCKED'):
+                self.assertNotIn(status,condition,name)
+            self.assertNotIn('ConditionResult(',condition,name)
+            self.assertNotIn('ConditionError(',condition,name)
+            events=set(row.get('RequirementEvents','').split(';'))
+            if any(fn+'(' in condition for fn in ('IsWeaponOfProficiencyGroup','HasShieldEquipped','HasHeavyArmor','HasMediumArmor')):
+                self.assertTrue({'OnEquip','OnUnequip'}<=events,name)
+            if 'HasStatus(' in condition:
+                self.assertTrue({'OnStatusApplied','OnStatusRemoved'}<=events,name)
+            for groups,slot in re.findall(r"IsWeaponOfProficiencyGroup\('([^']+)', GetItemInEquipmentSlot\(EquipmentSlot\.(\w+), context.Source\)\)",condition):
+                native_weapon_checks+=1
+                self.assertEqual(set(groups.split('|')),{'Longswords','Shortswords','Greatswords','Rapiers','Scimitars'},name)
+                self.assertIn(slot,('MeleeMainHand','MeleeOffHand'),name)
+            if 'IsWeaponOfProficiencyGroup(' in condition:
+                self.assertNotIn('GetActiveWeapon(',condition,name)
+        self.assertGreater(native_weapon_checks,70)
+        passive=(SOURCE/'Public'/FOLDER/'Stats/Generated/Data/Passive.txt').read_text(encoding='utf-8')
+        basic=dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',re.search(
+            r'new entry "ESC_P_basic_defense"\n(.*?)(?=new entry |\Z)',passive,re.S).group(1),re.M))
+        self.assertNotIn('ESC_ARMOR_BLOCKED',passive)
+        self.assertEqual(basic['Boosts'],'AC(1)')
+        self.assertEqual(basic['BoostContext'],'OnEquip;OnCreate')
+        for armor in ('HasHeavyArmor(context.Source)','HasMediumArmor(context.Source)'):
+            self.assertIn(armor,basic['BoostConditions'])
+
+    def test_native_equipment_condition_truth_table_preserves_hands_qi_and_branch_armor_rules(self):
+        # Boolean native-query stand-ins exercise generated expression logic.
+        # This does not establish the Toolkit parser or engine query behavior.
+        text='\n'.join(path.read_text(encoding='utf-8') for path in
+            (SOURCE/'Public'/FOLDER/'Stats/Generated/Data').glob('Spell_*.txt'))
+        stats={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
+            for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        lua=LuaRuntime(unpack_returned_tuples=True)
+        lua.execute("context={Source='source',Target='enemy'}; EquipmentSlot={MeleeMainHand='main',MeleeOffHand='off'}")
+        state={}
+        def source_only(actor):
+            self.assertEqual(actor,'source')
+        def item(slot,actor):
+            source_only(actor)
+            return state[slot]
+        def armor(kind,actor):
+            source_only(actor)
+            return state['armor']==kind
+        def passive(name,actor):
+            source_only(actor)
+            return name=='ESC_P_Branch_'+state['branch']
+        def shield(actor):
+            source_only(actor)
+            return state['shield']
+        def status(name,actor):
+            source_only(actor)
+            self.assertEqual(name,'ESC_QI_MODE')
+            return state['qi']
+        lua.globals().GetItemInEquipmentSlot=item
+        lua.globals().IsWeaponOfProficiencyGroup=lambda groups,weapon: bool(weapon and weapon in groups.split('|'))
+        lua.globals().HasShieldEquipped=shield
+        lua.globals().HasMediumArmor=lambda actor: armor('MediumArmor',actor)
+        lua.globals().HasHeavyArmor=lambda actor: armor('HeavyArmor',actor)
+        lua.globals().HasPassive=passive
+        lua.globals().HasStatus=status
+        names=['Projectile_ESC_yujian_Main','Projectile_ESC_yujian_Off',
+            'Target_ESC_sword_strike_Main','Target_ESC_sword_strike_Off',
+            'Target_ESC_taixuan_zhaoxi_MeleeMain','Target_ESC_taixuan_zhaoxi_MeleeOff',
+            'Target_ESC_taixuan_zhaoxi_MeleeOff_Bonus',
+            'Zone_ESC_tianqing_nifeng_RangedMain','Zone_ESC_tianqing_nifeng_RangedOff',
+            'Zone_ESC_tianqing_nifeng_RangedOff_Bonus']
+        evaluate={name:lua.eval('function() return '+stats[name]['RequirementConditions']+' end') for name in names}
+        swords={'Longswords','Shortswords','Greatswords','Rapiers','Scimitars'}
+        for branch in ('','taixuan','tianqing','xueyan','xingge'):
+            for armor_kind in ('','LightArmor','MediumArmor','HeavyArmor'):
+                for main in (*sorted(swords),'Daggers','Longbows',''):
+                    for off in ('Shortswords','Daggers',''):
+                        for qi in (False,True):
+                            for has_shield in (False,True):
+                                state.update(branch=branch,armor=armor_kind,main=main,off=off,qi=qi,shield=has_shield)
+                                equipment_ok=not has_shield and not (branch in ('taixuan','xingge') and armor_kind in ('MediumArmor','HeavyArmor'))
+                                for name,fn in evaluate.items():
+                                    if name.endswith('_Bonus'):
+                                        hand_ok=main in swords and off in swords
+                                    elif name.endswith('Off'):
+                                        hand_ok=off in swords
+                                    else:
+                                        supports_qi='tianqing_nifeng' not in name
+                                        hand_ok=main in swords or (supports_qi and qi and branch in ('taixuan','xueyan'))
+                                    self.assertEqual(fn(),equipment_ok and hand_ok,(name,dict(state)))
 
     def test_starting_longsword_is_equipped_without_a_choice_button(self):
         class_file=SOURCE/'Public'/FOLDER/'ClassDescriptions/ClassDescriptions.lsx'
@@ -279,7 +493,8 @@ class GeneratedDataTest(unittest.TestCase):
         row=rows[0];spells=set()
         for list_uuid in re.findall(r'AddSpells\(([0-9a-f-]{36})',row.get('Selectors','')): spells.update(lists[list_uuid])
         generated=json.loads((LUA/'GeneratedSpec.json').read_text(encoding='utf-8'))
-        self.assertEqual(spells,{generated['spells']['sword_strike']['stat']})
+        self.assertEqual(spells,set())
+        self.assertTrue({'ESC_P_StarterSword','ESC_P_StarterMelee'}<=set(row['PassivesAdded'].split(';')))
         self.assertNotIn('SelectSkills(',row.get('Selectors',''))
         self.assertNotIn('SelectAbilityBonus(',row.get('Selectors',''))
         self.assertNotIn('SavingThrow',row.get('Boosts',''))
@@ -295,7 +510,7 @@ class GeneratedDataTest(unittest.TestCase):
 
     def test_editor_tables_preserve_all_formal_lsx_fields(self):
         editor=SOURCE/'Editor/Mods'/FOLDER
-        for relative in ('ClassDescriptions/ClassDescriptions','Progressions/Progressions',
+        for relative in ('ClassDescriptions/ClassDescriptions','Progressions/Progressions','Progressions/ProgressionDescriptions',
             'Lists/SkillLists','Lists/AbilityLists','Lists/SpellLists','ActionResourceDefinitions/ActionResourceDefinitions',
             'CharacterCreationPresets/AbilityDistributionPresets'):
             rows={}
@@ -344,7 +559,13 @@ class GeneratedDataTest(unittest.TestCase):
                     self.assertIn(key,editor[name],f'{name}.{key}')
                     field=editor[name][key]
                     actual=field.get('value')
-                    if field.get('type')=='TranslatedStringTableFieldDefinition': actual=field.get('handle')+';'+field.get('version')
+                    if field.get('type')=='TranslatedStringTableFieldDefinition':
+                        if value=='':
+                            self.assertEqual(field.get('clear_inherited_value'),'true',f'{name}.{key}')
+                            self.assertIn(field.get('handle'),(None,''),f'{name}.{key}')
+                            actual=field.get('value','')
+                        else:
+                            actual=field.get('handle')+';'+field.get('version')
                     self.assertEqual(actual,value,f'{name}.{key}')
                     self.assertLessEqual(len((actual or '').encode('utf-8')),2048,f'{name}.{key}')
 
@@ -431,6 +652,49 @@ class GeneratedDataTest(unittest.TestCase):
             elif 'DealDamage' in success:
                 self.assertNotIn('ExecuteWeaponFunctors(',success,name)
         self.assertGreater(checked,20)
+
+    def test_native_liuguang_and_tianbeng_stages_are_independent_single_target_attacks_with_one_root_cost(self):
+        text='\n'.join(p.read_text(encoding='utf-8') for p in (SOURCE/'Public'/FOLDER/'Stats/Generated/Data').glob('Spell_*.txt'))
+        spells={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
+                for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        generated=json.loads((LUA/'GeneratedSpec.json').read_text(encoding='utf-8'))
+        liuguang=spells[generated['spells']['taixuan_liuguang']['stat']]
+        self.assertEqual((liuguang['AmountOfTargets'],liuguang['ProjectileCount']),('1','1'))
+        self.assertEqual(liuguang['UseCosts'],'ActionPoint:1;ESC_SwordYuan:10')
+        stage=spells['Target_ESC_LiuguangStage']
+        for row in (liuguang,stage):
+            self.assertEqual(row['SpellRoll'],'Attack(AttackType.RangedSpellAttack)')
+            self.assertIn('DealDamage(2d6+WisdomModifier,Force,Magical)',row['SpellSuccess'])
+            self.assertIn('DealDamage(4d8,Force,Magical)',row['SpellSuccess'])
+        tianbeng=generated['spells']['tianqing_tianbeng']['stat']
+        self.assertEqual(tianbeng,'Target_ESC_tianqing_tianbeng')
+        self.assertEqual(set(spells[tianbeng]['ContainerSpells'].split(';')),{tianbeng+'_Main',tianbeng+'_Off'})
+        self.assertEqual(spells[tianbeng]['UseCosts'],'')
+        helpers={'Target_ESC_LiuguangStage':'taixuan_liuguang'}
+        for suffix,weapon,hand in (('Main','MainMeleeWeapon','MainHand'),('Off','OffhandMeleeWeapon','OffHand')):
+            root=spells[tianbeng+'_'+suffix]
+            helper_name='Target_ESC_TianbengCone'+('_Off' if suffix=='Off' else '')
+            cone=spells[helper_name];helpers[helper_name]='tianqing_tianbeng'
+            self.assertEqual(root['UseCosts'],'ActionPoint:1;ESC_SwordYuan:10')
+            for row,dice in ((root,'32d8'),(cone,'18d8')):
+                self.assertEqual(row['SpellType'],'Target')
+                self.assertEqual(row['AmountOfTargets'],'1')
+                self.assertEqual(row['SpellRoll'],'Attack(AttackType.RangedSpellAttack)')
+                self.assertIn('DealDamage('+weapon+',',row['SpellSuccess'])
+                self.assertIn('DealDamage('+dice+',Force,Magical)',row['SpellSuccess'])
+                self.assertIn('SavingThrow(Ability.Strength,SourceSpellDC())',row['SpellSuccess'])
+                self.assertIn('ApplyStatus(ESC_SAVEFAIL_TIANQING_TIANBENG,100,0)',row['SpellSuccess'])
+                self.assertIn('ExecuteWeaponFunctors('+hand+')',row['SpellSuccess'])
+        grants={spell for attr in ET.parse(SOURCE/'Public'/FOLDER/'Lists/SpellLists.lsx').findall('.//attribute[@id="Spells"]')
+                for spell in attr.get('value','').split(';')}
+        for name,parent in helpers.items():
+            self.assertEqual(spells[name]['UseCosts'],'',name)
+            self.assertEqual(spells[name]['Cooldown'],'',name)
+            self.assertEqual(spells[name]['ContainerSpells'],'',name)
+            self.assertTrue(generated['aliases'][name]['internal'],name)
+            self.assertEqual(generated['aliases'][name]['parent'],parent,name)
+            self.assertNotIn(name,grants)
+        self.assertFalse(any(name.startswith('Zone_ESC_tianqing_tianbeng') for name in spells))
 
     def test_shared_sword_strike_native_variants_have_attack_damage_marker_and_weapon_functor(self):
         text=(SOURCE/'Public'/FOLDER/'Stats/Generated/Data/Spell_Target.txt').read_text(encoding='utf-8')
@@ -558,16 +822,46 @@ class GeneratedDataTest(unittest.TestCase):
 
     def test_native_tooltip_damage_preview_has_no_conditional_functors(self):
         stats=SOURCE/'Public'/FOLDER/'Stats/Generated/Data'
-        previews=[]
+        previews={};rows={}
         for file in stats.glob('Spell_*.txt'):
             for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',file.read_text(encoding='utf-8'),re.S):
                 row=dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
                 preview=row.get('TooltipDamageList','')
-                previews.append((name,preview))
+                previews[name]=preview;rows[name]=row
                 self.assertNotIn('IF(',preview,name)
-        # Four one-time starting-sword spells were retired; named techniques remain.
-        self.assertGreaterEqual(len(previews),151)
-        self.assertTrue(any(preview for _,preview in previews))
+                execution=';'.join(row.get(field,'') for field in ('SpellSuccess','SpellFail','SpellProperties'))
+                if 'ESC_FORCE_MODE' in execution: self.assertEqual(preview,'',name)
+        generated=json.loads((LUA/'GeneratedSpec.json').read_text(encoding='utf-8'))
+        self.assertTrue({row['stat'] for row in generated['spells'].values()}<=set(rows))
+        self.assertTrue(set(generated['aliases'])<=set(rows))
+        self.assertTrue(any(previews.values()))
+        for key in ('xueyan_nixue','xueyan_wusheng'):
+            names=[generated['spells'][key]['stat']]+[name for name,alias in generated['aliases'].items() if alias['key']==key]
+            for name in names: self.assertEqual(previews[name],'',name)
+        translations={a.get('contentuid'):a.text for a in ET.parse(SOURCE/'Mods'/FOLDER/'Localization/Chinese'/(MOD+'.xml')).getroot()}
+        for key,spell in generated['spells'].items():
+            row=rows[spell['stat']]
+            description=translations[row['Description'].split(';')[0]]
+            self.assertNotRegex(description,r'\d+级|后期提高|后期恢复',key)
+            if spell['base'] or key=='taixuan_qinghui':
+                self.assertTrue(row['TooltipDamageList'] or row['ExtraDescriptionParams'],key)
+            for field in ('DescriptionParams','ExtraDescriptionParams','TooltipDamageList'):
+                self.assertNotIn('IF(',row.get(field,''),(key,field))
+            if spell['branch']=='xueyan':
+                self.assertNotIn('Necrotic',row['TooltipDamageList'],key)
+        for key in ('yujian','sword_strike'):
+            self.assertIn('MainMeleeWeapon',rows[generated['spells'][key]['stat']]['TooltipDamageList'],key)
+        maps=ET.parse(SOURCE/'Public'/FOLDER/'Levelmaps/LevelMapValues.lsx')
+        series={node.find("attribute[@id='Name']").get('value'):node for node in maps.findall('.//node[@id="LevelMapSeries"]')}
+        expected={'ESC_ZhaoxiDamage':('2d8','3d8','4d8'),
+                  'ESC_NifengDamage':('3d8','4d8','5d8'),
+                  'ESC_LuexueDamage':('2d6','3d6','4d6'),
+                  'ESC_WenluDamage':('1d4','1d6','2d6')}
+        for name,ranks in expected.items():
+            node=series[name]
+            self.assertEqual(node.find("attribute[@id='PreferredClassUUID']").get('value'),guid('class/common'),name)
+            for level,dice in zip((3,5,10),ranks):
+                self.assertEqual(node.find(f"attribute[@id='Level{level}']").get('value'),dice,(name,level))
 
     def test_art_revision_and_source_integrity(self):
         bindings=json.loads((REPO/'mods'/MOD/'asset-bindings.json').read_text(encoding='utf-8'))
@@ -640,8 +934,12 @@ if __name__=='__main__':
     def source_hashes():
         source_paths=[p for p in SOURCE.rglob('*') if p.is_file() and p.suffix.lower() in source_extensions]
         source_paths.extend([Path(__file__),REPO/'scripts/sword_cultivator_spec.py',
+            REPO/'scripts/generate-sword-cultivator.py',REPO/'scripts/sword_spell_presentation.py',REPO/'scripts/sword_tooltips.py',
+            REPO/'scripts/prepare-sword-toolkit.py',
+            REPO/'docs/20-eastern-sword-cultivator-gdd.md',REPO/'docs/21-player-facing-skill-text-draft.md',
             REPO/'scripts/tests/esc_engine_fixture.lua',REPO/'scripts/tests/test_esc_bridge.py',
-            REPO/'scripts/tests/test_toolkit_log_analyzer.py',REPO/'scripts/analyze-sword-toolkit-log.py'])
+            REPO/'scripts/tests/test_toolkit_log_analyzer.py',REPO/'scripts/analyze-sword-toolkit-log.py',
+            REPO/'scripts/sword_player_text.json'])
         return {str(p.relative_to(REPO)):hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else 'missing'
             for p in source_paths}
     hashes=source_hashes()

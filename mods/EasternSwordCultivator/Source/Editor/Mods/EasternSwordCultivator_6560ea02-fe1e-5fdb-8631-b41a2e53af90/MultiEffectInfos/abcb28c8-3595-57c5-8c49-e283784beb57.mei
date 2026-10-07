@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="abcb28c8-3595-57c5-8c49-e283784beb57" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Tianqing_Projectile">
+    <EffectInfo UUID="c8630e98-e068-5b5f-a30e-d78dff9fe5af" EffectResourceGuid="0db22044-16d9-5c82-9633-651befed3716" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_Root" />
+</MultiEffectInfos>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<save>
+    <version major="4" minor="8" revision="0" build="500" />
+    <region id="ProgressionDescriptions">
+        <node id="root">
+            <children>
+                <node id="ProgressionDescription">
+                    <attribute id="UUID" type="guid" value="40a9e548-32fe-5129-84bc-a236c16530bf" />
+                    <attribute id="Type" type="FixedString" value="EasternSwordCultivator" />
+                    <attribute id="ProgressionTableId" type="guid" value="9833800d-f69d-5492-95f4-ae7005aea5e4" />
+                    <attribute id="Hidden" type="bool" value="false" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hb448bcafg4fceg5feagbefdge9a2a6d1f7b4" version="1" />
+                    <attribute id="Description" type="TranslatedString" handle="hddaeef32g7c2dg5e5egb140gfc92954ef184" version="1" />
+                </node>
+                <node id="ProgressionDescription">
+                    <attribute id="UUID" type="guid" value="4ee6d85e-bd7f-5c50-83b1-d6076e944dac" />
+                    <attribute id="Type" type="FixedString" value="ESC_Taixuan" />
+                    <attribute id="ProgressionTableId" type="guid" value="35754a46-16a3-57d7-b12e-580916be6367" />
+                    <attribute id="Hidden" type="bool" value="false" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h01e011c8g5727g5aacg91b9g82472613730c" version="1" />
+                    <attribute id="Description" type="TranslatedString" handle="h02051974gdbceg5b15gb6dag01f1449c0f8a" version="1" />
+                </node>
+                <node id="ProgressionDescription">
+                    <attribute id="UUID" type="guid" value="6423a7bc-308f-5b17-9566-fc6addd6a6b7" />
+                    <attribute id="Type" type="FixedString" value="ESC_Tianqing" />
+                    <attribute id="ProgressionTableId" type="guid" value="fb54f0c2-6e15-50c4-9ee3-d21dd8b6c08d" />
+                    <attribute id="Hidden" type="bool" value="false" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3b4b5975g4134g5869g93f0g7dd415e462cf" version="1" />
+                    <attribute id="Description" type="TranslatedString" handle="hc8a6b669gaf6bg5872g9debg07627a509b2f" version="1" />
+                </node>
+                <node id="ProgressionDescription">
+                    <attribute id="UUID" type="guid" value="7fc9eafd-5a69-58bf-b85b-d08956903655" />
+                    <attribute id="Type" type="FixedString" value="ESC_Xueyan" />
+                    <attribute id="ProgressionTableId" type="guid" value="ce16da59-cd80-5561-8eef-f922cb296919" />
+                    <attribute id="Hidden" type="bool" value="false" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h14f42247g8674g5c1fg9b3ega184478b49ef" version="1" />
+                    <attribute id="Description" type="TranslatedString" handle="h05feb012gc8cag5fcdg83fbg10411027e775" version="1" />
+                </node>
+                <node id="ProgressionDescription">
+                    <attribute id="UUID" type="guid" value="917dcb21-3f98-56be-83fc-7e3c45481f57" />
+                    <attribute id="Type" type="FixedString" value="ESC_Xingge" />
+                    <attribute id="ProgressionTableId" type="guid" value="edcb00a2-8d9b-53e4-ba64-215fd81048de" />
+                    <attribute id="Hidden" type="bool" value="false" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h5932af15g1c67g5868g8a88g0d188ba61121" version="1" />
+                    <attribute id="Description" type="TranslatedString" handle="h12afa06fg61cfg59acg88fdgb9758f59059b" version="1" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

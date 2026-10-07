@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="42da558e-ec29-517e-9752-a67ccfb40712" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Xueyan_Impact">
+    <EffectInfo UUID="f757ab59-5432-585b-9294-5d7c5e0bd6b0" EffectResourceGuid="e1ff9168-fa5b-524e-b8d2-f5cc8c4a15de" DetachSource="true" DetachTarget="true" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_BodyFX" />
+</MultiEffectInfos>
