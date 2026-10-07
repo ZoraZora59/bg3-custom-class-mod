@@ -21,6 +21,24 @@ SNAPSHOT={p.name:p.read_bytes() for p in LUA.glob('*.lua')}
 SPEC=json.loads((LUA/'GeneratedSpec.json').read_text(encoding='utf-8'))
 
 
+class DocumentedResistanceFlags:
+    """Lupa exposes Python objects as userdata; allow only documented bitfield keys."""
+    __slots__ = ('_mask',)
+
+    def __init__(self, mask):
+        self._mask = mask
+
+    def __getattr__(self, key):
+        if key == 'ImmuneToMagical':
+            return bool(self._mask & 4)
+        if key == '__Value':
+            return self._mask
+        if key == '__EnumName':
+            return 'ResistanceBoostFlags'
+        raise AttributeError('Undocumented bitfield property: '+key)
+
+
+
 class Bridge(unittest.TestCase):
     def setUp(self):
         self.lua=LuaRuntime(unpack_returned_tuples=True)
@@ -49,6 +67,7 @@ class Bridge(unittest.TestCase):
     def cast(self,id,key,target=None,action=1):
         stat=SPEC['spells'][key]['stat']
         self.F.emit('UsingSpellOnTarget',id,target or id,stat,'Target','',action)
+        self.F.statusFunctors(id,stat,target or id,action)
         self.F.emit('CastedSpell',id,stat,'Target','',action)
 
     def rescue_ready(self,branch='taixuan',level=5):
@@ -156,6 +175,7 @@ class Bridge(unittest.TestCase):
         state=self.ESC.State('sword')
         state.turn=7
         state.guard=self.table(dict(rank=1,expires=9,ac=2,reduction=.2))
+        self.lua.globals().Osi.ApplyStatus('sword','ESC_COUNTER_READY',12,1,'sword')
         self.F.resource('sword').Amount=3
         opportunity=self.E.resourceEntry('sword',SPEC['opportunityResource'])
         opportunity.Amount=1
@@ -488,18 +508,32 @@ class Bridge(unittest.TestCase):
         self.cast('sword','qi_guard',action=2)
         self.assertEqual(self.ESC.State('sword').guard.rank,3)
         self.assertEqual(self.ESC.State('sword').guard.expires,2)
+        # Native engine expiry is a separate input; owner turn alone must not
+        # invent a second lifetime clock in the bridge.
+        self.lua.globals().Osi.RemoveStatus('sword','ESC_COUNTER_READY','sword')
+        self.F.emit('StatusRemoved','sword','ESC_COUNTER_READY','sword',2)
         self.F.emit('TurnStarted','sword')
         self.assertIsNone(self.ESC.State('sword').guard)
 
-    def test_equipment_pause_removes_native_counter_gate_without_extending_guard(self):
-        entity=self.actor(branch='taixuan');self.cast('sword','taixuan_qinghui')
-        self.assertTrue(self.E.hasStatus('sword','ESC_COUNTER_RANK2'))
+    def test_equipment_pause_blocks_counter_without_extending_native_guard(self):
+        entity=self.actor(branch='taixuan');self.actor('enemy',level=0,party='enemy',x=5)
+        self.cast('sword','taixuan_qinghui')
+        rank=entity.StatusContainer.Statuses['ESC_COUNTER_RANK2']
+        duration=rank.Duration
+        self.F.clearCalls()
         entity._equipped.Shield='shield';self.F.emit('Equipped','shield','sword')
-        self.assertFalse(self.E.hasStatus('sword','ESC_COUNTER_RANK2'))
+        self.assertTrue(self.E.hasStatus('sword','ESC_COUNTER_RANK2'))
+        self.assertFalse(self.ESC.Runtime.CounterEligible('sword','enemy',9))
+        self.assertEqual(self.ESC.Runtime.Defense('sword',100,False,False,None,None)[0],100)
         self.F.emit('TurnStarted','sword')
         entity._equipped.Shield=None;self.F.emit('Unequipped','shield','sword')
-        self.assertTrue(self.E.hasStatus('sword','ESC_COUNTER_RANK2'))
+        self.assertTrue(self.ESC.Runtime.CounterEligible('sword','enemy',9))
+        self.assertEqual(rank.Duration,duration)
+        native_reapplications=[call for call in self.F.calls.values() if call.name=='ApplyStatus' and call.args[2] in ('ESC_COUNTER_READY','ESC_COUNTER_RANK2')]
+        self.assertEqual(native_reapplications,[])
         self.assertEqual(self.ESC.State('sword').guard.expires,2)
+        self.lua.globals().Osi.RemoveStatus('sword','ESC_COUNTER_READY','sword')
+        self.F.emit('StatusRemoved','sword','ESC_COUNTER_READY','sword',2)
         self.F.emit('TurnStarted','sword')
         self.assertIsNone(self.ESC.State('sword').guard)
 
@@ -1219,6 +1253,71 @@ class Bridge(unittest.TestCase):
         payload=self.lua.globals().Ext.Json.Stringify(self.table(dict(id='sword',available=False)))
         self.F.event('NetMessage',self.table(dict(Channel='ESC_ControlRescueState',Payload=payload)))
         self.assertFalse(window.Visible)
+
+
+    def test_force_immunity_accepts_documented_userdata_flag(self):
+        self.actor('immune', 0, None)
+        self.lua.globals().resistanceFlags = DocumentedResistanceFlags(4)
+        self.assertEqual(self.lua.eval('type(resistanceFlags)'), 'userdata')
+        self.F.entities['immune'].Resistances = self.table(dict(Resistances={14: self.lua.globals().resistanceFlags}))
+        self.assertTrue(self.E.forceImmune('immune'))
+        # Nonmagical immunity, resistance, and no flags must not skip a magical hit.
+        for mask in (8, 1, 0):
+            self.lua.globals().resistanceFlags = DocumentedResistanceFlags(mask)
+            self.F.entities['immune'].Resistances.Resistances[14] = self.lua.globals().resistanceFlags
+            self.assertFalse(self.E.forceImmune('immune'), mask)
+
+    def test_force_immunity_retains_numeric_string_and_table_compatibility(self):
+        actor = self.actor('target', 0, None)
+        for flags, expected in ((4, True), (8, False), ('ImmuneToMagical', True),
+                                ('ImmuneToNonMagical', False), (self.table(['ImmuneToMagical']), True),
+                                (self.table(['ResistantToMagical']), False)):
+            actor.Resistances = self.table(dict(Resistances={14: flags}))
+            self.assertEqual(self.E.forceImmune('target'), expected)
+        actor.Resistances = None
+        self.assertFalse(self.E.forceImmune('target'))
+
+    def test_one_line_userdata_immunity_skips_falloff_with_strict_event_fields(self):
+        self.actor(branch='taixuan')
+        immune = self.actor('immune', 0, None, 500, 500, 'enemies', 1)
+        self.lua.globals().resistanceFlags = DocumentedResistanceFlags(4)
+        immune.Resistances = self.table(dict(Resistances={14: self.lua.globals().resistanceFlags}))
+        self.actor('near', 0, None, 500, 500, 'enemies', 2)
+        self.actor('far', 0, None, 500, 500, 'enemies', 4)
+        self.lua.execute('''
+            function Fixture.contractProxy(values, declared)
+                return setmetatable({}, {
+                    __index=function(_, key)
+                        assert(declared[key], 'Undocumented engine field: '..tostring(key))
+                        return values[key]
+                    end,
+                    __newindex=function(_, key, value)
+                        assert(declared[key], 'Undocumented engine field: '..tostring(key))
+                        values[key]=value
+                    end
+                })
+            end
+        ''')
+        native = SPEC['spells']['taixuan_yixiantian']['stat']
+        self.ESC.Runtime.BeginCast('sword', native, 191, None, self.table([30, 0, 0]))
+        event_fields = self.table({key: True for key in ('Caster', 'Target', 'StoryActionId', 'Hit', 'Attack', 'SpellId', 'HitWith', 'Result')})
+        hit_fields = self.table({key: True for key in ('DamageList', 'TotalDamageDone', 'Damage', 'SpellId', 'StatusId', 'HitWith', 'CauseType', 'Throwing', 'SpellAttackType')})
+        before_fields = self.table(dict(Hit=True, Attack=True))
+        outcomes = {}
+        # Deliver far first so geometry, not dispatch order, determines falloff.
+        for target in ('far', 'immune', 'near'):
+            damage = self.F.contractProxy(self.table(dict(TotalDamage=101)), self.table(dict(TotalDamage=True)))
+            part = self.F.contractProxy(self.table(dict(Amount=1, DamageType='Force')), self.table(dict(Amount=True, DamageType=True)))
+            hit = self.F.contractProxy(self.table(dict(DamageList=[part], TotalDamageDone=1, Damage=damage, SpellId=native)), hit_fields)
+            spell_id = self.F.contractProxy(self.table(dict(Prototype=native)), self.table(dict(Prototype=True)))
+            event = self.F.contractProxy(self.table(dict(Caster='sword', Target=target, StoryActionId=191, Hit=hit, SpellId=spell_id)), event_fields)
+            self.F.event('DealDamage', event)
+            self.F.event('BeforeDealDamage', self.F.contractProxy(self.table(dict(Hit=hit)), before_fields))
+            outcomes[target] = hit.TotalDamageDone
+            event.Result = self.F.contractProxy(self.table(dict(Hit=hit)), self.table(dict(Hit=True)))
+            self.F.event('DealtDamage', event)
+        self.assertEqual(outcomes, dict(far=50, immune=0, near=101))
+
 
 
 if __name__=='__main__':

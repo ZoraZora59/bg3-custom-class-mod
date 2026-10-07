@@ -535,6 +535,19 @@ def generate_spells():
                 values.update(TargetConditions='Self()', TargetRadius=0)
             # Callback marker spell has a real status, not a damaging placeholder.
             values['SpellProperties'] = f'ApplyStatus(ESC_CAST_{key.upper()},100,0)'
+        # Apply guard before CastedSpell: native AC and the status clock also
+        # function in Toolkit without the Script Extender bridge.
+        guard_rank={'qi_guard':1,'taixuan_qinghui':2,'taixuan_xinghe':3}.get(key)
+        if guard_rank:
+            stronger=' or '.join(f"HasStatus('ESC_COUNTER_RANK{rank}',context.Source)" for rank in range(max(2,guard_rank+1),4))
+            prefix=f"SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and ({stronger}))):" if stronger else 'SELF:'
+            functors=[]
+            for rank in (2,3):
+                if rank!=guard_rank: functors.append(f'RemoveStatus(ESC_COUNTER_RANK{rank})')
+            if guard_rank>=2: functors.append(f'ApplyStatus(ESC_COUNTER_RANK{guard_rank},100,2)')
+            functors.append('ApplyStatus(ESC_COUNTER_READY,100,2)')
+            values['SpellProperties']+=';'+';'.join(prefix+functor for functor in functors)
+        if key=='xingge_huifeng': values['SpellProperties']+=';ApplyStatus(ESC_XINGGE_PROTECTION,100,2)'
         values['SpellFlags'] += ';IgnoreSilence'
         values['RequirementConditions']=equipment_condition()
         if spec['base']=='W' and spec['action']=='sword': values['RequirementConditions']+=' and ('+sword_condition('Main')+' or '+sword_condition('Off')+')'
@@ -644,7 +657,7 @@ def generate_spells():
         damage=(f'DealDamage({base_damage},{dtype},Magical);' if base_damage!='0' else '')+f'DealDamage({dice},{dtype},Magical)'
         if suffix=='BloodPulse':
             damage="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):"+damage.replace(';',";IF(not HasStatus('ESC_FORCE_MODE',context.Source)):")+";IF(HasStatus('ESC_FORCE_MODE',context.Source)):"+damage.replace('Necrotic','Force').replace(';',";IF(HasStatus('ESC_FORCE_MODE',context.Source)):")
-        values=dict(SpellType='Target',Level=0,UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.RangedSpellAttack)' if attack else '',SpellProperties='' if attack else damage,SpellSuccess=damage+';ApplyStatus(ESC_HIT_MARKER,100,0)' if attack else '',SpellFail='',TargetRadius=30,TargetConditions='Character() and Enemy() and not Dead()',SpellFlags='IsSpell;IsHarmful;IgnoreSilence',Icon=icon('skill_xueyan_xuehai' if suffix=='BloodPulse' else 'skill_taixuan_taiqing'),AmountOfTargets=1)
+        values=dict(SpellType='Target',Level=0,UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.RangedSpellAttack)' if attack else '',SpellProperties='' if attack else damage,SpellSuccess=damage+';ApplyStatus(ESC_HIT_MARKER,100,0)' if attack else '',SpellFail='',TargetRadius=18 if suffix in ('Counter2','Counter3') else 30,TargetConditions='Character() and Enemy() and not Dead()',SpellFlags='IsSpell;IsHarmful;IgnoreSilence',Icon=icon('skill_xueyan_xuehai' if suffix=='BloodPulse' else 'skill_taixuan_taiqing'),AmountOfTargets=1)
         files['Target']=files.get('Target','')+entry(sid,'SpellData',values,'Target_HealingWord')
         aliases[sid]=dict(key=key,internal=True,attackBonus=bonus)
     tiandi_damage="IF(Enemy()):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage(14d8,Force,Magical);IF(not Enemy()):DealDamage((MainMeleeWeapon)/4,MainMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((14d8)/4,Force,Magical)"
@@ -713,15 +726,22 @@ def generate_statuses():
             StatusType='BOOST', DisplayName=handle('spell/' + key, assets['skill_' + key]['name']) + ';1',
             Icon=icon('skill_' + key), StackId='ESC_CAST_' + key.upper(),
             StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead'))
+    guard_gate=equipment_condition()
+    guard_ac=';'.join([
+        f"IF({guard_gate} and HasStatus('ESC_COUNTER_RANK3',context.Source)):AC(5)",
+        f"IF({guard_gate} and not HasStatus('ESC_COUNTER_RANK3',context.Source) and HasStatus('ESC_COUNTER_RANK2',context.Source)):AC(3)",
+        f"IF({guard_gate} and not HasStatus('ESC_COUNTER_RANK3',context.Source) and not HasStatus('ESC_COUNTER_RANK2',context.Source)):AC(2)"])
     for aid, a in assets.items():
         if a['kind'] != 'status':
             continue
         key = aid.removeprefix('status_')
         text += entry('ESC_' + key.upper(), 'StatusData', dict(
-            StatusType='BOOST', DisplayName=handle('status/' + key, a['name']) + ';1',
+            StatusType='BOOST', DisplayName=handle('status/' + key, '剑气护体' if key=='counter_ready' else a['name']) + ';1',
             Description=handle('status/' + key + '/description', PLAYER_TEXT['status_descriptions'].get(key, a['name'])) + ';1',
             DescriptionParams=PLAYER_TEXT.get('status_description_params', {}).get(key, ''), Icon=icon(aid),
-            StackId='ESC_' + key.upper(), TickType='StartTurn', **({'Boosts':'AC(2)'} if key=='xingge_protection' else {})))
+            StackId='ESC_' + key.upper(), TickType='StartTurn',
+            **({'Boosts':'AC(2)'} if key=='xingge_protection' else {}),
+            **({'Boosts':guard_ac,'StatusEffect':'87356553-5bed-4e2b-86eb-f0697e5ec648'} if key=='counter_ready' else {})))
     for key in HIT_CONTROLS:
         text+=entry('ESC_SAVEFAIL_'+key.upper(),'StatusData',dict(StatusType='BOOST',StackId='ESC_SAVEFAIL_'+key.upper(),StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead',**({'OnApplyFunctors':f'Force({HIT_CONTROLS[key]["push"]})'} if HIT_CONTROLS[key].get('push') else {})))
     for name in ['HIT_MARKER', 'CHAIN', 'GUARD', 'BASELINE', 'WEAPON_WISDOM']:
@@ -750,11 +770,12 @@ def generate_statuses():
         ('OFFHAND_SWORD',''),('MAIN_SWORD',''),('ARMOR_BLOCKED',''),('STARTING_SWORD_CHOSEN',''),('TIANDI_TARGET',''),('TIANDI_FIRSTHIT',''),
         ('COUNTER_RANK2',"UnlockInterrupt(Interrupt_ESC_Counter2);IF(SpellId('Target_ESC_Counter2')):RollBonus(Attack,2)"),
         ('COUNTER_RANK3',"UnlockInterrupt(Interrupt_ESC_Counter3);IF(SpellId('Target_ESC_Counter3')):RollBonus(Attack,3)"),
-    ]:text+=entry('ESC_'+name,'StatusData',dict(StatusType='BOOST',StackId='ESC_'+name,Boosts=boosts,StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead'))
+    ]:text+=entry('ESC_'+name,'StatusData',dict(StatusType='BOOST',StackId='ESC_'+name,Boosts=boosts,StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead',**({'TickType':'StartTurn'} if name in ('COUNTER_RANK2','COUNTER_RANK3') else {})))
     write(PUBLIC / 'Stats/Generated/Data/Status_BOOST.txt', text)
     interrupts=''
+    counter_gate=equipment_condition().replace('context.Source','context.Observer')
     for rank in (2,3):
-        interrupts+=entry(f'Interrupt_ESC_Counter{rank}','InterruptData',dict(DisplayName=handle('counter/'+str(rank),'清辉反击' if rank==2 else '星河反击')+';1',Description=handle('counter/'+str(rank)+'/description','攻击落空或被剑气护体化解时，可用剑气反击18米内的攻击者。反击不消耗动作、反应或剑元。')+';1',Icon=icon('skill_taixuan_qinghui' if rank==2 else 'skill_taixuan_xinghe'),InterruptContext='OnCastHit',InterruptContextScope='Self',Container='YesNoDecision',Conditions=f"HasStatus('ESC_COUNTER_RANK{rank}',context.Observer) and not HasShieldEquipped(context.Observer) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({{'SG_Incapacitated','SG_Polymorph'}},context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3')",Properties=f'UseSpell(SWAP,Target_ESC_Counter{rank},true,true,true)',Cost='',Stack='ESC_Counter',InterruptDefaultValue='Enabled;Ask',EnableContext='OnStatusApplied;OnStatusRemoved'))
+        interrupts+=entry(f'Interrupt_ESC_Counter{rank}','InterruptData',dict(DisplayName=handle('counter/'+str(rank),'清辉反击' if rank==2 else '星河反击')+';1',Description=handle('counter/'+str(rank)+'/description','攻击落空或被剑气护体化解时，可用剑气反击18米内的攻击者。反击不消耗动作、反应或剑元。')+';1',Icon=icon('skill_taixuan_qinghui' if rank==2 else 'skill_taixuan_xinghe'),InterruptContext='OnCastHit',InterruptContextScope='Self',Container='YesNoDecision',Conditions=f"HasStatus('ESC_COUNTER_RANK{rank}',context.Observer) and HasStatus('ESC_COUNTER_READY',context.Observer) and ({counter_gate}) and Self(context.Target,context.Observer) and not DistanceToEntityGreaterThan(18,context.ObserverPosition,context.Source) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({{'SG_Incapacitated','SG_Polymorph'}},context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3') and not SpellId('Target_ESC_Counter2_Off') and not SpellId('Target_ESC_Counter3_Off')",Properties=f'UseSpell(SWAP,Target_ESC_Counter{rank},true,true,true)',Cost='',Stack='ESC_Counter',InterruptDefaultValue='Enabled;Ask',EnableContext='OnStatusApplied;OnStatusRemoved'))
     write(PUBLIC/'Stats/Generated/Data/Interrupt.txt',interrupts)
 
 

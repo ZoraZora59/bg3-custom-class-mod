@@ -147,6 +147,8 @@ function E.forceImmune(id)
     local entity=E.entity(id)
     -- BG3 DamageType.Force=13; engine arrays are exposed to Lua with 1-based indices.
     local flags=entity and entity.Resistances and entity.Resistances.Resistances[14]
+    -- BG3SE v32 exposes ResistanceBoostFlags as a bitfield userdata.
+    if type(flags)=='userdata' then return flags.ImmuneToMagical end
     if type(flags)=='number' then return (flags & 4)~=0 end
     if type(flags)=='string' then return flags:find('ImmuneToMagical',1,true)~=nil end
     if type(flags)=='table' then

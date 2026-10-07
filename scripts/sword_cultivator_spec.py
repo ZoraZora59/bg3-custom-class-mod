@@ -14,7 +14,7 @@ def guid(key):
 
 MODULE_UUID = guid('module')
 FOLDER = f'{MOD}_{MODULE_UUID}'
-VERSION64 = (1 << 55) | 7
+VERSION64 = (1 << 55) | 8
 PUBLISH_HANDLE = 6417135
 CAPACITIES = [0, 6, 10, 14, 18, 24, 26, 28, 30, 40, 44, 50]
 BRANCHES = {

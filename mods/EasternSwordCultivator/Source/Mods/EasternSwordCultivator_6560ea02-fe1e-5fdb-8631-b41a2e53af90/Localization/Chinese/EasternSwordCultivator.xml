@@ -280,7 +280,7 @@
     <content contentuid="hdd6a5142gdfcdg5e6dg9b00gdb4b5e5ff90d" version="1">四剑，每剑基础伤害：[1] 剑气伤害（坏死或力场）。</content>
     <content contentuid="hdd7b84c1g1a5ag53a0ga6ccg0d27f644b88e" version="1">血影穿身</content>
     <content contentuid="hddaeef32g7c2dg5e5egb140gfc92954ef184" version="1">以剑心御动天地之气，持剑近战，御剑远击。</content>
-    <content contentuid="hdfa8b7c1ge393g52b0gb017g41ce6ad9916d" version="1">来袭攻击落空或被剑气减伤时，可以向18米内攻击者反击。反击不消耗动作、反应或剑元，也不会引发对方的护体反击。</content>
+    <content contentuid="hdfa8b7c1ge393g52b0gb017g41ce6ad9916d" version="1">以剑气护身，护甲等级与减伤按当前护体招式生效。同类护体只保留最强效果。</content>
     <content contentuid="hdfc6c735g4209g57b7gb154ge229c4152a17" version="1">所示为基础伤害。</content>
     <content contentuid="he30ca46bg4130g5647gadaag2623debac9e0" version="1">血魇·无生 · 续剑近战</content>
     <content contentuid="he4adee41g3822g5c00gab03g4774b6024280" version="1">血魇·无生 · 消耗15层癫狂</content>
@@ -303,7 +303,7 @@
     <content contentuid="hfa061db3ge0abg55ceg8bf9g5b60a244334c" version="1">用副手剑追加一次近战攻击，触发问路的效果。需要双持剑；不获得连贯出剑。</content>
     <content contentuid="hfc1bc61fg3fbag5d86g986fg623a7f565208" version="1">太清剑域</content>
     <content contentuid="hfc5c037bg6063g5752g9074g4aeaee3eac4b" version="1">需要至少 11 层癫狂。</content>
-    <content contentuid="hfd8c0b6bg1ea3g53deg9902gecf33a38f02f" version="1">护体反击</content>
+    <content contentuid="hfd8c0b6bg1ea3g53deg9902gecf33a38f02f" version="1">剑气护体</content>
     <content contentuid="hfe097f3eg6376g5c8bgaa96gbd1b32d5066d" version="1">凝气成剑</content>
     <content contentuid="hfe2cd7eegf666g5025g96bcg2ae28e7e7e99" version="1">用副手剑追加一次近战攻击，触发掠血的效果。需要双持剑；不获得连贯出剑。</content>
     <content contentuid="hfe8cca22gd07bg577cg9312gd12be1871b53" version="1">血魇·无生 · 消耗14层癫狂</content>

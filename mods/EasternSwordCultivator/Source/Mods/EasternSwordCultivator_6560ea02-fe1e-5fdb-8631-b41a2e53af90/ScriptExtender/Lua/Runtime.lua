@@ -51,6 +51,19 @@ local function state(id)
     return s
 end
 local function save(id,s) local entity=E.entity(id);if entity then entity.Vars.ESC_State=s end end
+-- The engine status is the sole duration clock, both in and out of combat.
+-- Persisted turn counters remain a snapshot only; they must not revive expired DR.
+local guardValues={{rank=1,ac=2,reduction=.2},{rank=2,ac=3,reduction=.3,dice='4d8',attack=2},
+    {rank=3,ac=5,reduction=.4,dice='6d8',attack=3}}
+local function syncGuard(id,reapplied)
+    local s=state(id);if not s then return end
+    if not E.hasStatus(id,'ESC_COUNTER_READY') then s.guard=nil
+    else
+        local rank=E.hasStatus(id,'ESC_COUNTER_RANK3') and 3 or E.hasStatus(id,'ESC_COUNTER_RANK2') and 2 or 1
+        if reapplied or not s.guard or s.guard.rank~=rank then s.guard=R.guard(nil,guardValues[rank],s.turn) end
+    end
+    save(id,s);return s
+end
 local function keyFor(spell) return keys[E.spellName(spell)] end
 local function offensiveKey(key)
     local row=key and spec.spells[key]
@@ -259,12 +272,12 @@ end
 local function refresh(id)
     local level,branch=E.class(id)
     if level==0 and not watched[id] then return end
-    local s=state(id);if not s then return end
+    local s=syncGuard(id,false);if not s then return end
     if level==0 then
         weaponWisdom(id,s,false)
         for slot in pairs(s.boosts) do if slot~='aura' then E.setBoosts(id,slot,'') end end
         s=state(id);s.frenzy=0;s.shield=0;s.domains={};s.guard=nil;s.chains={};save(id,s)
-        for _,status in ipairs({'ESC_MAIN_SWORD','ESC_OFFHAND_SWORD','ESC_ARMOR_BLOCKED','ESC_COUNTER_RANK2','ESC_COUNTER_RANK3','ESC_EXTRA_ATTACK','ESC_IN_FLIGHT','ESC_CHAIN_LIANCHENG','ESC_CHAIN_WUSHENG'}) do E.removeStatus(id,status,id) end
+        for _,status in ipairs({'ESC_MAIN_SWORD','ESC_OFFHAND_SWORD','ESC_ARMOR_BLOCKED','ESC_COUNTER_READY','ESC_COUNTER_RANK2','ESC_COUNTER_RANK3','ESC_EXTRA_ATTACK','ESC_IN_FLIGHT','ESC_CHAIN_LIANCHENG','ESC_CHAIN_WUSHENG'}) do E.removeStatus(id,status,id) end
         return
     end
     migrateSkillMenu(id,level,branch)
@@ -276,7 +289,7 @@ local function refresh(id)
         else E.removeStatus(id,entry[1],id) end
     end
     local ac=level<3 and 0 or ({taixuan=level>=11 and 6 or 5,tianqing=1,xueyan=1,xingge=0})[branch] or 0
-    if s.guard and s.guard.expires>s.turn then ac=ac+s.guard.ac end
+    -- Active guard AC belongs to ESC_COUNTER_READY; never add it twice here.
     if s.dashUntil and s.dashUntil>s.turn then ac=ac+2 end
     E.setBoosts(id,'combat',allowed and 'AC('..ac..')' or '')
     scopedBoosts(id,'sword_stats_',allowed and bonus or 0,allowed and bonus or 0)
@@ -295,13 +308,7 @@ local function refresh(id)
     local frenzy=allowed and branch=='xueyan' and math.floor(s.frenzy/2) or 0
     scopedBoosts(id,'frenzy_stats_',frenzy,0)
     if E.sword(id,true) then E.status(id,'ESC_OFFHAND_SWORD',-1,id) else E.removeStatus(id,'ESC_OFFHAND_SWORD',id) end
-    local activeGuard=allowed and s.guard and s.guard.expires>s.turn and s.guard.rank>=2
-    for rank=2,3 do
-        local status='ESC_COUNTER_RANK'..rank
-        if activeGuard and s.guard.rank==rank then
-            if not E.hasStatus(id,status) then E.status(id,status,s.guard.expires-s.turn,id) end
-        else E.removeStatus(id,status,id) end
-    end
+    -- Native rank markers retain their original lifetime across equipment changes.
 end
 local function setFrenzy(id,value)
     local s=state(id);if not s then return end
@@ -323,20 +330,6 @@ local function helper(id,key,target,meta)
     pendingHelpers[id]=pendingHelpers[id] or {}
     pendingHelpers[id][#pendingHelpers[id]+1]={key=key,target=target,meta=meta or {}}
     E.useSpell(id,spell,target);return true
-end
-local function guard(id,rank)
-    local s=state(id)
-    local values=({{rank=1,ac=2,reduction=.2},{rank=2,ac=3,reduction=.3,dice='4d8',attack=2},
-        {rank=3,ac=5,reduction=.4,dice='6d8',attack=3}})[rank]
-    local changed;s.guard,changed=R.guard(s.guard,values,s.turn);save(id,s)
-    if changed then
-        E.status(id,'ESC_COUNTER_READY',2,id)
-        if rank>=2 then
-            E.removeStatus(id,rank==3 and 'ESC_COUNTER_RANK2' or 'ESC_COUNTER_RANK3',id)
-            E.status(id,rank==3 and 'ESC_COUNTER_RANK3' or 'ESC_COUNTER_RANK2',2,id)
-        end
-        refresh(id)
-    end
 end
 local function cooperation(id,target)
     if E.friend(id,target) then E.restore(id,R.cooperation(E.class(id)));return true end
@@ -377,7 +370,8 @@ local function updateAuras()
         for target in pairs(s.kills) do if E.entity(target) and E.alive(target) then s.kills[target]=nil end end
         for key,p in pairs(s.protections) do
             local owner=state(p.owner)
-            if not owner or owner.turn>=p.expires or not E.alive(p.owner) then
+            if not owner or not E.alive(p.owner) or (p.kind=='huifeng' and not E.hasStatus(id,'ESC_XINGGE_PROTECTION'))
+                or owner.turn>=p.expires then
                 s.protections[key]=nil
                 if p.kind=='chengfeng' then E.setBoosts(id,'chengfeng','') end
             else dr=math.max(dr,p.reduction) end
@@ -477,8 +471,6 @@ local function castEffect(c)
     if not key or level==0 or c.invalid then return end
     local s=state(id)
     if key=='tiaoxi' or key=='tianqing_xushi' then E.restore(id,R.breath(level,key=='tianqing_xushi' and 'tianqing' or branch,true,E.combat(id)))
-    elseif key=='qi_guard' or key=='taixuan_qinghui' then guard(id,key=='qi_guard' and 1 or 2)
-    elseif key=='taixuan_xinghe' then guard(id,3)
     elseif key=='taixuan_guiyuan' or key=='tianqing_nixi' or key=='xueyan_huichao' or key=='xingge_xiangfu' then
         if target==id or key=='xingge_xiangfu' and E.friend(id,target) and E.distance(id,target)<=18 then
             local actual=E.heal(target,E.maxHp(target)*R.healing(level,branch));if actual>0 then cooperation(id,target) end
@@ -522,7 +514,7 @@ local function castEffect(c)
     elseif key=='xingge_huifeng' then
         if target==id or E.friend(id,target) and E.distance(id,target)<=18 then
             local t=state(target);t.protections['huifeng:'..id]={owner=id,kind='huifeng',expires=s.turn+2,reduction=.20};save(target,t)
-            E.status(target,'ESC_XINGGE_PROTECTION',2,id);cooperation(id,target);updateAuras()
+            cooperation(id,target);updateAuras()
             for _,enemy in ipairs(E.nearby(target,3,function(_,other) return E.enemy(id,other) end)) do helper(id,'internal_huifeng_control',enemy,{parentAction=c.action}) end
         end
     elseif key=='tianqing_tianfeng' then s.chargeUntil=s.turn+2;save(id,s)
@@ -560,7 +552,7 @@ local function reductionFactor(target)
     local level,branch=E.class(target);local s=state(target);local factor=1
     if E.allowed(target,branch,false) then
         factor=factor*(1-R.baseReduction(level,branch,s.frenzy))
-        if s.guard and s.guard.expires>s.turn then factor=factor*(1-s.guard.reduction) end
+        if s.guard and E.hasStatus(target,'ESC_COUNTER_READY') then factor=factor*(1-s.guard.reduction) end
         if validDomain(target,'tianqing_tianjian') then factor=factor*.75 end
         if validDomain(target,'xingge_fengyu') then factor=factor*.70 end
     end
@@ -591,7 +583,7 @@ local function defense(target,damage,bypass,transfer,parts,stage)
     if not bypass then
         local other={}
         if E.allowed(target,branch,false) then
-            if s.guard and s.guard.expires>s.turn then other[#other+1]=s.guard.reduction end
+            if s.guard and E.hasStatus(target,'ESC_COUNTER_READY') then other[#other+1]=s.guard.reduction end
             if validDomain(target,'tianqing_tianjian') then other[#other+1]=.25 end
             if validDomain(target,'xingge_fengyu') then other[#other+1]=.30 end
             -- Keep floating value until the final stage/target rounding, including aura DR.
@@ -858,7 +850,7 @@ local function turnStarted(id)
     local s=state(id);if not s then return end
     s.turn=s.turn+1;s.autoReleased=false;s.resonanceRewards={}
     for key,domain in pairs(s.domains) do if not R.tickDuration(domain,s.turn) then s.domains[key]=nil else domain.used={} end end
-    if s.guard and s.guard.expires<=s.turn then s.guard=nil end
+    -- Native StatusRemoved ends guard, including real-time expiry outside combat.
     if s.shieldUntil and s.shieldUntil<=s.turn then s.shield=0 end
     save(id,s)
     if spec.opportunityResource then local pool=E.resourceEntry(id,spec.opportunityResource);if pool then pool.Amount=0;E.entity(id):Replicate('ActionResources') end end
@@ -897,7 +889,7 @@ local function statusAttempt(id,status,source,action)
 end
 local function counterEligible(id,source,action)
     local s=state(id);local c=casts[action]
-    if not s or not s.guard or s.guard.rank<2 or s.guard.expires<=s.turn then return false end
+    if not s or not s.guard or s.guard.rank<2 or not E.hasStatus(id,'ESC_COUNTER_READY') then return false end
     if c and (c.key=='internal_counter2' or c.key=='internal_counter3') then return false end
     return E.alive(id) and E.allowed(id,'taixuan',false) and E.enemy(id,source) and E.distance(id,source)<=18 and E.visible(id,source)
 end
@@ -1012,7 +1004,8 @@ Ext.Osiris.RegisterListener('CastSpellFailed',5,'after',function(id,spell,kind,e
 Ext.Osiris.RegisterListener('StatusApplied',4,'after',function(id,status,source,action)
     trace('StatusApplied',{target=id,status=status,source=source,action=action})
     if Osi.IsItem(id)==1 then local owner=Osi.GetOwner(id);if owner and E.class(owner)>0 then refresh(owner) end end
-    if status=='ESC_HIT_MARKER' then hit(source,id,action)
+    if status=='ESC_COUNTER_READY' then syncGuard(id,true);refresh(id)
+    elseif status=='ESC_HIT_MARKER' then hit(source,id,action)
     elseif status=='ESC_TIANDI_TARGET' then
         local c=casts[action]
         if c then
@@ -1031,6 +1024,20 @@ Ext.Osiris.RegisterListener('StatusApplied',4,'after',function(id,status,source,
     end
 end)
 Ext.Osiris.RegisterListener('StatusRemoved',4,'after',function(id,status,source,action)
+    if status=='ESC_COUNTER_READY' and not E.hasStatus(id,status) then
+        local s=state(id);if s then s.guard=nil;save(id,s) end
+        -- Leave rank markers on their native clock: an old Ready removal
+        -- can be delivered after a new rank is applied during refresh.
+        if E.class(id)>0 then refresh(id) end
+    elseif status=='ESC_XINGGE_PROTECTION' then
+        local s=state(id)
+        if s then
+            for key,p in pairs(s.protections) do
+                if p.kind=='huifeng' and (not E.hasStatus(id,status) or p.owner==source) then s.protections[key]=nil end
+            end
+            save(id,s);updateAuras()
+        end
+    end
     if Osi.IsItem(id)==1 then local owner=Osi.GetOwner(id);if owner and E.class(owner)>0 then refresh(owner) end end
     if status=='ESC_CONTROL_RESISTANCE' and E.class(id)>0 then refresh(id) end
 end)

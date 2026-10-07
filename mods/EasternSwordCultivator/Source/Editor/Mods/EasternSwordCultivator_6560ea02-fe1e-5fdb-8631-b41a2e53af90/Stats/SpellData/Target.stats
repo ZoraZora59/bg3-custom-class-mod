@@ -2008,7 +2008,7 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XINGGE_HUIFENG,100,0)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XINGGE_HUIFENG,100,0);ApplyStatus(ESC_XINGGE_PROTECTION,100,2)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -2513,7 +2513,7 @@
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(4d8,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="30" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;IsHarmful;IgnoreSilence" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_taiqing" />
@@ -2572,7 +2572,7 @@
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(6d8,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="30" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;IsHarmful;IgnoreSilence" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_taiqing" />

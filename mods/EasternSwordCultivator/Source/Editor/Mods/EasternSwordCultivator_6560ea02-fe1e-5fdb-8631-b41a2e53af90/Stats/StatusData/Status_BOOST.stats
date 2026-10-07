@@ -535,6 +535,8 @@
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_status_counter_ready" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_READY" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and HasStatus('ESC_COUNTER_RANK3',context.Source)):AC(5);IF(not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and not HasStatus('ESC_COUNTER_RANK3',context.Source) and HasStatus('ESC_COUNTER_RANK2',context.Source)):AC(3);IF(not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and not HasStatus('ESC_COUNTER_RANK3',context.Source) and not HasStatus('ESC_COUNTER_RANK2',context.Source)):AC(2)" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="87356553-5bed-4e2b-86eb-f0697e5ec648" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1095,6 +1097,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_RANK2" />
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_ESC_Counter2);IF(SpellId('Target_ESC_Counter2')):RollBonus(Attack,2)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1104,6 +1107,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_RANK3" />
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_ESC_Counter3);IF(SpellId('Target_ESC_Counter3')):RollBonus(Attack,3)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
       </fields>
     </stat_object>
   </stat_objects>

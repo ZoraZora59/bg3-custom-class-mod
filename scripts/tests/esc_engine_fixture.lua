@@ -193,3 +193,30 @@ function F.callCount(name)
     local n=0;for _,call in ipairs(F.calls) do if call.name==name then n=n+1 end end;return n
 end
 function F.clearCalls() F.calls={} end
+
+-- Focused native boundary for guard/protection status functors. Deliberately
+-- does not emulate attack rolls, status timing or native boost evaluation.
+-- Parsing real generated values keeps lifecycle tests tied to the production
+-- spell contract; native acceptance must still be tested in Toolkit/game.
+function F.statusFunctors(id,spell,target,action)
+    local properties=F.stats[spell] and F.stats[spell].SpellProperties or ''
+    for functor in properties:gmatch('[^;]+') do
+        if functor:find('ESC_COUNTER_',1,true) or functor:find('ESC_XINGGE_PROTECTION',1,true) then
+            local condition=functor:match('IF%((.*)%):')
+            local env={context={Source=id},HasStatus=function(name,source) return Osi.HasActiveStatus(source or id,name)==1 end}
+            local enabled=not condition or assert(load('return '..condition,'native-status-condition','t',env))()
+            if enabled then
+                local recipient=functor:find('SELF:',1,true)==1 and id or target or id
+                local name,rounds=functor:match('ApplyStatus%((ESC_[A-Z0-9_]+),100,(%d+)%)')
+                local removed=functor:match('RemoveStatus%((ESC_[A-Z0-9_]+)%)')
+                if name then
+                    Osi.ApplyStatus(recipient,name,tonumber(rounds)*6,1,id)
+                    F.emit('StatusApplied',recipient,name,id,action)
+                elseif removed and Osi.HasActiveStatus(recipient,removed)==1 then
+                    Osi.RemoveStatus(recipient,removed,id)
+                    F.emit('StatusRemoved',recipient,removed,id,action)
+                end
+            end
+        end
+    end
+end

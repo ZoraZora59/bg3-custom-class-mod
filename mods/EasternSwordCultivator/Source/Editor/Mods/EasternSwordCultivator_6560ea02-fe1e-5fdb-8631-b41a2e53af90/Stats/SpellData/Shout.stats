@@ -85,7 +85,7 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_QI_GUARD,100,0)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_QI_GUARD,100,0);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(ESC_COUNTER_RANK2);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(ESC_COUNTER_RANK3);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(ESC_COUNTER_READY,100,2)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -292,7 +292,7 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TAIXUAN_QINGHUI,100,0)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TAIXUAN_QINGHUI,100,0);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(ESC_COUNTER_RANK3);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(ESC_COUNTER_RANK2,100,2);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(ESC_COUNTER_READY,100,2)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -361,7 +361,7 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value=";SELF:RemoveStatus(ESC_COUNTER_RANK2);SELF:ApplyStatus(ESC_COUNTER_RANK3,100,2);SELF:ApplyStatus(ESC_COUNTER_READY,100,2)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(10d8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0);ApplyStatus(ESC_HIT_MARKER,100,0)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((2d6+WisdomModifier)/2,Force,Magical);DealDamage((10d8)/2,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0)" />
