@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="df8e8cd2-1960-5f37-814c-f9c04c540886" OwnerUUID="483cab54-4d12-55c6-827b-4cb665cf124d" Name="ESC_Common_Status">
+    <EffectInfo UUID="eb6db4be-e1e7-5647-9f5f-9ba0539e896d" EffectResourceGuid="92fe3ea3-082a-5702-8ade-8f3b2a8d69d5" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" DamageType="None" VerbalIntent="None" TargetBone="Dummy_Root" />
+</MultiEffectInfos>

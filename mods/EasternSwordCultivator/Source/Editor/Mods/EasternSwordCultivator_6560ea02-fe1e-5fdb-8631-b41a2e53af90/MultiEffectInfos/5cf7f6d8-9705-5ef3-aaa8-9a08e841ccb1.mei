@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="5cf7f6d8-9705-5ef3-aaa8-9a08e841ccb1" OwnerUUID="72df0943-816d-51d6-bfb3-2fd2086e8522" Name="VFX_ESC_Polish_Tianqing_Tianfeng_Cast_01_Offhand">
+    <EffectInfo UUID="53245b2a-4b33-5cdd-b55d-5fb33893ee9b" EffectResourceGuid="a9aeef8a-31f3-55a4-a6f3-62df0e9dab91" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" StartTextKey="CastOffhand" TargetBone="Dummy_Root" DamageType="None" VerbalIntent="None" />
+</MultiEffectInfos>

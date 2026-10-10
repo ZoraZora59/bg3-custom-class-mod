@@ -14,7 +14,7 @@ def guid(key):
 
 MODULE_UUID = guid('module')
 FOLDER = f'{MOD}_{MODULE_UUID}'
-VERSION64 = (1 << 55) | 8
+VERSION64 = (1 << 55) | 10
 PUBLISH_HANDLE = 6417135
 CAPACITIES = [0, 6, 10, 14, 18, 24, 26, 28, 30, 40, 44, 50]
 BRANCHES = {
@@ -23,7 +23,7 @@ BRANCHES = {
     'xueyan': dict(name='血魇', english='Xueyan', hp=1.6, attack=3, ac=2, reduction=20),
     'xingge': dict(name='行歌', english='Xingge', hp=1.1, attack=1, ac=1, reduction=0),
 }
-CLASS_DESCRIPTION = '以剑心御动天地之气，持剑近战，御剑远击。'
+CLASS_DESCRIPTION = '承自异乡的剑道，以剑心御动天地之气。以剑心御剑破敌；修行者或一心求道，或弃道求力，或走火入魔，或与友同行。'
 BRANCH_DESCRIPTIONS = {
     'taixuan': '心照万法，剑通天地。以剑气洞悉破绽，护身反击。持盾或穿着中甲、重甲时，剑术与剑气防护失效。',
     'tianqing': '舍道求力，逆锋不屈。以沉重剑势摧破敌阵，凭强健体魄承受攻势。',
@@ -32,14 +32,13 @@ BRANCH_DESCRIPTIONS = {
 }
 
 # key, level, kind, cost, distance, radius/width, dice, segments, base, action
-# base W means the selected sword; Q means 2d6 + Wisdom modifier.
+# AUTO chooses exactly one basis: main sword, otherwise offhand sword, otherwise 2d6 + Wisdom.
 ROWS = [
     ('yujian', 1, 'attack', 0, 18, 0, '', 1, 'WQ', 'sword'),
     ('sword_strike', 1, 'attack', 0, 3, 0, '', 1, 'WQ', 'sword'),
     ('tiaoxi', 2, 'recover', 0, 0, 0, '', 1, '', 'sword'),
     ('qi_guard', 2, 'guard', 2, 0, 0, '', 1, '', 'bonus'),
     ('sword_flight', 5, 'flight', 0, 24, 0, '', 1, '', 'bonus'),
-    ('recall_sword', 3, 'recall', 0, 18, 0, '', 1, '', 'bonus'),
     ('qi_sword', 3, 'mode', 0, 0, 0, '', 1, '', 'free'),
     ('control_release', 5, 'release', 4, 0, 0, '', 1, '', 'bonus'),
     ('focus_target', 9, 'focus', 0, 18, 0, '', 1, '', 'free'),
@@ -86,6 +85,15 @@ for key, level, kind, cost, distance, radius, dice, segments, base, action in RO
                        radius=radius, dice=dice, segments=segments, base=base,
                        action=action, branch=branch if branch in BRANCHES else 'common')
 
+# Legacy spell IDs remain deserializable but are never newly granted.
+for key in ('focus_target', 'qi_sword', 'sword_strike'):
+    SPELLS[key]['retired'] = True
+for row in SPELLS.values():
+    if row['base'] in ('W', 'WQ', 'Q'):
+        row['legacy_base'] = row['base']
+        row['base'] = 'AUTO'
+
+
 PASSIVES = {
     'sword_heart': (1, 'common'), 'basic_defense': (1, 'common'),
     'continuous_strikes': (5, 'common'), 'control_resist': (3, 'solo'),
@@ -100,22 +108,20 @@ def spells_at(branch, level):
     result = []
     for key, spec in SPELLS.items():
         # Retain legacy Stats IDs for saved references, without granting duplicate buttons.
-        if key in ('sword_strike', 'qi_guard', 'tianqing_xushi'):
+        if key in ('sword_strike', 'qi_guard', 'tianqing_xushi') or spec.get('retired'):
             continue
         if spec['level'] != level:
             continue
-        if spec['branch'] == branch and key not in ('recall_sword', 'qi_sword', 'control_release', 'focus_target'):
+        if spec['branch'] == branch and key not in ('qi_sword', 'control_release', 'focus_target'):
             result.append(key)
         elif spec['branch'] == 'common':
-            if key == 'recall_sword' and branch in ('tianqing', 'xingge'):
-                result.append(key)
-            elif key == 'qi_sword' and branch in ('taixuan', 'xueyan'):
+            if key == 'qi_sword' and branch in ('taixuan', 'xueyan'):
                 result.append(key)
             elif key == 'control_release' and branch in ('taixuan', 'tianqing', 'xueyan'):
                 result.append(key)
             elif key == 'focus_target' and branch == 'taixuan':
                 result.append(key)
-            elif key not in ('recall_sword', 'qi_sword', 'control_release', 'focus_target') and branch == 'common':
+            elif key not in ('qi_sword', 'control_release', 'focus_target') and branch == 'common':
                 result.append(key)
     return result
 
@@ -128,7 +134,7 @@ HIT_CONTROLS = {
     'tianqing_lietian': dict(ability='Strength',ac=-3,duration=3),
     'tianqing_tianbeng': dict(ability='Strength',push=3,ac=-3,duration=3,mainOnly=True),
     'tianqing_tianfeng': dict(ability='Strength',push=3,prone=1,attack=-3,duration=2),
-    'tianqing_tianjian': dict(ability='Strength',prone=1,slow=.5,ac=-4,duration=3),
+    'tianqing_tianjian': dict(ability='Strength',push=4,prone=1,slow=.5,ac=-4,duration=3),
     'tianqing_bafang': dict(ability='Strength',push=6,prone=1,ac=-5,duration=3),
     'tianqing_tiandi': dict(ability='Strength',prone=1,slow=.5,ac=-5,duration=3),
     'xingge_chengfeng': dict(ability='Strength',push=2,duration=1),

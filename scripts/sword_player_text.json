@@ -1,11 +1,11 @@
 {
   "fallback_descriptions": {
-    "sword_strike": "以手中佩剑斩击一名敌人。",
-    "recall_sword": "召回自己的佩剑并重新握持，不能夺取他人持用的剑。墙与封闭门会阻挡召剑；御剑攻击后佩剑会自行归手。",
-    "qi_sword": "在佩剑与气剑之间切换，失去佩剑也能施展剑术与御剑飞行。气剑造成2d6＋感知伤害：太玄为力场，血魇沿用所选剑气类型。",
+    "sword_strike": "此招已并入御剑术与分支常态剑法，无需另选近战形式。",
+    "qi_sword": "此操作已取消。剑招自动优先使用主手剑，其次副手剑，无剑时以气成剑。",
     "control_release": "解除自身受到的控制、致盲与沉默。随后2轮抵抗控制的豁免检定＋2；无法行动时可通过自救选项施展。",
-    "focus_target": "指定太清剑域的重点目标，使其在落剑时额外受到两道气剑攻击。可在下次落剑前重选；目标须处于剑域内。",
-    "xueyan_damage_mode": "在坏死与力场剑气之间切换，影响气剑与血魇招式的额外剑气。实体佩剑的伤害类型不变。"
+    "focus_target": "此操作已并入太清剑域。重点自动跟随你主动施展的单目标剑攻击。",
+    "xueyan_damage_mode": "在坏死与力场剑气之间切换，影响无剑时的气剑与血魇招式的额外剑气。实体佩剑的伤害类型不变。",
+    "tianqing_xushi": "此招已并入调息，按天倾等级提高回元。"
   },
   "passive_descriptions": {
     "sword_heart": "佩剑攻击的命中与伤害采用感知或武器原属性中较高的调整值，气剑采用感知。持盾时暂停剑术与剑气防护。",
@@ -38,17 +38,17 @@
     "xingge_protection": "护甲等级＋2，受到的伤害减少20%。再次施展刷新持续时间。",
     "escape": "本次获得额外6米移动距离，并暂时免疫借机攻击。",
     "damage_share": "为6米内队友分担防护后剩余伤害的[1]%，离开范围后停止。自身额外减伤30%，获得的治疗提高[2]%。",
-    "team_resonance": "命中＋2、伤害＋30%。每人每轮可引发一次免费御剑呼应，飞剑命中造成2d6＋感知＋2d6力场伤害；次数在行歌回合开始时恢复。"
+    "team_resonance": "命中＋2、伤害＋30%。每人每轮可引发一次免费御剑呼应，飞剑命中造成一次基础剑击，另附2d6力场伤害；次数在行歌回合开始时恢复。"
   },
   "ui_descriptions": {
     "sword_yuan_description": "施展剑术所需的内在力量。常态剑法不消耗剑元，可通过调息、伤敌与分支特性恢复。",
     "counter_description": "来袭攻击落空或被剑气减伤时，可向攻击者反击，不消耗动作、反应或剑元。",
     "flight_move_description": "选择落点，本回合共可飞行24米，不消耗普通移动距离。墙与封闭门会阻挡飞行，终点须可落脚。",
     "chain_move_description": "在下一次连城追斩前移动，最多6米，不消耗普通移动距离。每剑重新获得额度，整招最多移动24米。",
-    "liancheng_continuation_description": "继续血影连城的一次追斩，不再消耗动作或剑元。",
-    "wusheng_continuation_description": "继续血魇·无生的一剑，保留起招时的癫狂增幅，不再消耗动作或剑元。",
-    "offhand_bonus_description": "双持佩剑时，以副手施展一次常态剑法，照常获得分支效果。不能继续连贯出剑。",
-    "weapon_choice_note": "选择用于本次剑术的佩剑，每次只计算一把剑的伤害。",
+    "liancheng_continuation_description": "继续血影连城的一次御剑追斩，自动选剑，不再消耗动作或剑元。",
+    "wusheng_continuation_description": "继续血魇·无生的一次御剑追斩，自动选剑，保留起招时的癫狂增幅，不再消耗动作或剑元。",
+    "offhand_bonus_description": "双持剑时，以副手剑施展一次御剑常态剑法，照常获得分支效果。不能继续连贯出剑。",
+    "weapon_choice_note": "自动优先使用主手剑，其次副手剑，无剑时以气成剑；基础只计算一次。",
     "spend_frenzy_note": "消耗所选层数的癫狂，每层使本招伤害额外＋10%，保留消耗前层数带来的命中与增伤。"
   },
   "condition_descriptions": {
@@ -65,8 +65,8 @@
       "This form requires a sword in your off hand."
     ],
     "ESC_QI_MODE_False": [
-      "请先选择凝气成剑。",
-      "Activate Qi Sword first."
+      "剑招会自动选剑，请改用御剑术或分支剑法。",
+      "Sword arts select their sword automatically. Use Sword Control or a path sword art."
     ],
     "ESC_IN_FLIGHT_False": [
       "请先施展御剑飞行。",

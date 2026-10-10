@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="feead660-6393-57d7-9747-d13df01e1748" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Tianqing_Bafang_Hit_01_Projectile" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="c9bcde8e-d653-5d63-afcd-3a96050f848a" />
+                    <attribute id="Type" type="FixedString" value="projectile" />
+                    <attribute id="TrajectoryType" type="uint8" value="0" />
+                    <attribute id="ImpactFX" type="FixedString" value="VFX_ESC_Polish_Tianqing_Bafang_Hit_01" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

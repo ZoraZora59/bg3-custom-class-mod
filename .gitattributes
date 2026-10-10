@@ -7,6 +7,11 @@
 *.md text eol=lf
 *.ps1 text eol=crlf
 *.pak binary
+*.lsefx -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.lsfx binary
+# Preserve exact upstream bytes in extracted native XML templates.
+scripts/resources/native-beam.lsx -text whitespace=-blank-at-eol,-blank-at-eof
+scripts/resources/native-xuehai-world-material.lsx -text whitespace=-blank-at-eol,-blank-at-eof
 *.lsf binary
 *.lsb binary
 *.loca binary

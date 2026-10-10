@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="f2e074fd-fce7-5bc3-8200-a5f0930ba662" OwnerUUID="72df0943-816d-51d6-bfb3-2fd2086e8522" Name="VFX_ESC_Polish_Tianqing_Tiandi_Hit_01">
+    <EffectInfo UUID="94baf1bc-1b62-51ef-96e5-ef6582890a82" EffectResourceGuid="88fea09e-918b-5025-be46-e722f9c08606" DetachSource="true" DetachTarget="true" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" TargetBone="Dummy_BodyFX" DamageType="None" VerbalIntent="None" />
+</MultiEffectInfos>

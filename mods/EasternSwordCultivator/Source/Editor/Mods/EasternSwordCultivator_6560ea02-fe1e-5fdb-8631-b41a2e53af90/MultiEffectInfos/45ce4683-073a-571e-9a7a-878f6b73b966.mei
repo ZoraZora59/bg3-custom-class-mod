@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="45ce4683-073a-571e-9a7a-878f6b73b966" OwnerUUID="72df0943-816d-51d6-bfb3-2fd2086e8522" Name="VFX_ESC_Polish_Xueyan_Luexue_Hit_01">
+    <EffectInfo UUID="140369e8-ac76-5c61-ad1e-34836a313a5b" EffectResourceGuid="4527523f-7f62-52c2-ba73-2b6dc9807130" DetachSource="true" DetachTarget="true" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" TargetBone="Dummy_BodyFX" DamageType="None" VerbalIntent="None" />
+</MultiEffectInfos>

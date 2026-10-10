@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="54e0fe11-4ad0-59df-a582-786f07e4452d" OwnerUUID="72df0943-816d-51d6-bfb3-2fd2086e8522" Name="VFX_ESC_Polish_Tianqing_Wanjun_Hit_01">
+    <EffectInfo UUID="8934c4ca-ac26-56f0-96b5-9cb10179fff4" EffectResourceGuid="c817c6ae-0e45-5fb3-a2ba-2da7ba219d90" DetachSource="true" DetachTarget="true" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" TargetBone="Dummy_BodyFX" DamageType="None" VerbalIntent="None" />
+</MultiEffectInfos>

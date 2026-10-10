@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="4696adfe-c6ef-5a29-9d62-6020684c1b80" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Taixuan_Yixiantian_Hit_01_Pathfind" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="70bd4b14-adca-540a-bed3-d02a39b38268" />
+                    <attribute id="Type" type="FixedString" value="projectile" />
+                    <attribute id="TrajectoryType" type="uint8" value="2" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

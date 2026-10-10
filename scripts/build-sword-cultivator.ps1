@@ -20,6 +20,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Source check failed' }
     & python scripts/test-sword-cultivator.py
     if ($LASTEXITCODE -ne 0) { throw 'Regression tests failed' }
+    & python scripts/test-sword-glow.py
+    if ($LASTEXITCODE -ne 0) { throw 'Sword geometry regression tests failed' }
     $regressionPath = Join-Path $buildRoot 'regression-report.json'
     if (-not (Test-Path -LiteralPath $regressionPath)) { throw 'Regression test evidence is missing' }
     $regression = Get-Content -LiteralPath $regressionPath -Encoding utf8 -Raw | ConvertFrom-Json

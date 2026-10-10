@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="65c7aeb1-86bd-539b-be89-229a866b6afe" OwnerUUID="72df0943-816d-51d6-bfb3-2fd2086e8522" Name="VFX_ESC_Polish_Taixuan_Xinghe_Cast_01">
+    <EffectInfo UUID="9a9f615b-c150-5237-a8e7-bf357a3486d3" EffectResourceGuid="9404fc28-aa2f-5cda-ab5f-6a03e6414ab7" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" StartTextKey="Cast" TargetBone="Dummy_Root" DamageType="None" VerbalIntent="None" />
+</MultiEffectInfos>

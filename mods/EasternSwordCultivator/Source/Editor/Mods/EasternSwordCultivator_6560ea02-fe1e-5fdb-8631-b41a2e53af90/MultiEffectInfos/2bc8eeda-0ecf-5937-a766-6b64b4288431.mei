@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MultiEffectInfos UUID="2bc8eeda-0ecf-5937-a766-6b64b4288431" OwnerUUID="72df0943-816d-51d6-bfb3-2fd2086e8522" Name="VFX_ESC_Polish_Xueyan_Huichao_Cast_01_Offhand">
+    <EffectInfo UUID="36a38f29-06ff-5b1c-9eb4-d690e71f6f2e" EffectResourceGuid="27053291-fd49-56eb-a5ca-a283eef5e2f6" DetachSource="false" DetachTarget="false" KeepRotation="false" UseOrientDirection="false" UseDistance="false" UseScaleOverride="false" KeepScale="true" MainHand="false" OffHand="false" MinDistance="0" MaxDistance="0" BindSourceTo="SourceEntity" BindTargetTo="TargetEntity" Pivot="Target" Enabled="true" StartTextKey="CastOffhand" TargetBone="Dummy_Root" DamageType="None" VerbalIntent="None" />
+</MultiEffectInfos>

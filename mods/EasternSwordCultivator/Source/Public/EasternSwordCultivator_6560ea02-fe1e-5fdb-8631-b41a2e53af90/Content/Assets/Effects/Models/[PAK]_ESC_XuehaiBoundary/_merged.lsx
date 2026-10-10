@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="VisualBank">
+        <node id="VisualBank">
+            <children>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="1 1 0.049999997" />
+                    <attribute id="BoundsMin" type="fvec3" value="-1 -1 -0.049999997" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="ExcludeFromHLOD" type="bool" value="True" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="83db0e40-49cf-5976-beeb-89faffdb30e0" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Xuehai_WorldBoundary" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="RemapperSlotId" type="FixedString" value="" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="a00f2dc8-def1-5903-aadf-9d939f7e774b" />
+                            <attribute id="ObjectID" type="FixedString" value="VFX_Static_Circle_01.STATIC_MESHShape.0" />
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

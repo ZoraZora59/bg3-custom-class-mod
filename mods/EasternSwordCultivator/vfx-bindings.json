@@ -37,6 +37,37 @@
         "duration": 1.2,
         "looping": true,
         "bounds_min": [
+          -12.0,
+          -12.0,
+          -12.0
+        ],
+        "bounds_max": [
+          12.0,
+          12.0,
+          12.0
+        ],
+        "center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "radius": 20.784609690826528,
+        "dependencies": [
+          "3839b212-5adc-55b5-9752-c112f26ee934",
+          "6d1997f3-03c7-a813-7efa-7f7e1edac10b",
+          "73938b97-b0d4-5889-aa7e-f3034f5f573c",
+          "c851631a-669c-fb82-9138-93833bdb62f9",
+          "fb318905-c5c9-165b-2a28-1bec091aa3db"
+        ],
+        "metadata_source": "editor-source"
+      },
+      "status": {
+        "effect": "92fe3ea3-082a-5702-8ade-8f3b2a8d69d5",
+        "mei": "df8e8cd2-1960-5f37-814c-f9c04c540886",
+        "name": "VFX_ESC_Common_Status_01",
+        "duration": 4.2,
+        "looping": true,
+        "bounds_min": [
           -3.0,
           -3.0,
           -3.0
@@ -53,8 +84,11 @@
         ],
         "radius": 5.196152422706632,
         "dependencies": [
-          "c1319fce-3d47-ac75-e502-a3e965500038",
-          "fb318905-c5c9-165b-2a28-1bec091aa3db"
+          "1658900e-c604-1548-ce0b-5c9d2545feae",
+          "16febe89-39fa-1468-b65b-f412b7a98767",
+          "3839b212-5adc-55b5-9752-c112f26ee934",
+          "73938b97-b0d4-5889-aa7e-f3034f5f573c",
+          "b6a4bebc-39f5-741e-6e9d-4727c928cf86"
         ],
         "metadata_source": "editor-source"
       }
@@ -95,23 +129,26 @@
         "duration": 1.2,
         "looping": true,
         "bounds_min": [
-          -3.0,
-          -3.0,
-          -3.0
+          -12.0,
+          -12.0,
+          -12.0
         ],
         "bounds_max": [
-          3.0,
-          3.0,
-          3.0
+          12.0,
+          12.0,
+          12.0
         ],
         "center": [
           0.0,
           0.0,
           0.0
         ],
-        "radius": 5.196152422706632,
+        "radius": 20.784609690826528,
         "dependencies": [
-          "c1319fce-3d47-ac75-e502-a3e965500038",
+          "6d1997f3-03c7-a813-7efa-7f7e1edac10b",
+          "729a252e-da1a-5266-b44c-7ed55dee06cb",
+          "c851631a-669c-fb82-9138-93833bdb62f9",
+          "ea791f26-bad6-5e91-9e84-bf23068cd391",
           "fb318905-c5c9-165b-2a28-1bec091aa3db"
         ],
         "metadata_source": "editor-source"
@@ -155,23 +192,26 @@
         "duration": 1.2,
         "looping": true,
         "bounds_min": [
-          -9.0,
-          -9.0,
-          -9.0
+          -12.0,
+          -12.0,
+          -12.0
         ],
         "bounds_max": [
-          9.0,
-          9.0,
-          9.0
+          12.0,
+          12.0,
+          12.0
         ],
         "center": [
           0.0,
           0.0,
           0.0
         ],
-        "radius": 15.588457268119896,
+        "radius": 20.784609690826528,
         "dependencies": [
-          "12f3193c-ce1a-5a69-1bf0-8537b9b606f9",
+          "2d5546d6-caa0-58c2-9979-3e785d4b4c32",
+          "6d1997f3-03c7-a813-7efa-7f7e1edac10b",
+          "b731995b-cdd5-56f0-8840-06b9c3a7a11c",
+          "c851631a-669c-fb82-9138-93833bdb62f9",
           "fb318905-c5c9-165b-2a28-1bec091aa3db"
         ],
         "metadata_source": "editor-source"
@@ -214,23 +254,26 @@
         "duration": 1.2,
         "looping": true,
         "bounds_min": [
-          -3.0,
-          -3.0,
-          -3.0
+          -12.0,
+          -12.0,
+          -12.0
         ],
         "bounds_max": [
-          3.0,
-          3.0,
-          3.0
+          12.0,
+          12.0,
+          12.0
         ],
         "center": [
           0.0,
           0.0,
           0.0
         ],
-        "radius": 5.196152422706632,
+        "radius": 20.784609690826528,
         "dependencies": [
-          "c1319fce-3d47-ac75-e502-a3e965500038",
+          "6d1997f3-03c7-a813-7efa-7f7e1edac10b",
+          "9d0a9812-9c89-51ff-92e7-426592c57e1a",
+          "c851631a-669c-fb82-9138-93833bdb62f9",
+          "f51a91c1-fc2a-5f90-bd08-3f20ef532d9c",
           "fb318905-c5c9-165b-2a28-1bec091aa3db"
         ],
         "metadata_source": "editor-source"
@@ -274,24 +317,27 @@
         "duration": 2.3000000000000003,
         "looping": true,
         "bounds_min": [
-          -3.0,
-          -3.0,
-          -3.0
+          -12.0,
+          -12.0,
+          -12.0
         ],
         "bounds_max": [
-          3.0,
-          3.0,
-          3.0
+          12.0,
+          12.0,
+          12.0
         ],
         "center": [
           0.0,
           0.0,
           0.0
         ],
-        "radius": 5.196152422706632,
+        "radius": 20.784609690826528,
         "dependencies": [
           "4860ed23-afca-2745-f070-12da4f8bd239",
-          "c1319fce-3d47-ac75-e502-a3e965500038",
+          "6c1787e9-ccef-56c2-a055-9b1c387801d1",
+          "6d1997f3-03c7-a813-7efa-7f7e1edac10b",
+          "734f216b-8588-5b95-a7c4-c81d662ef8ce",
+          "c851631a-669c-fb82-9138-93833bdb62f9",
           "fb318905-c5c9-165b-2a28-1bec091aa3db"
         ],
         "metadata_source": "editor-source"
@@ -335,7 +381,28 @@
       "impact": "xueyan"
     }
   },
-  "missing_compiled": [],
+  "missing_compiled": [
+    {
+      "style": "taixuan",
+      "phase": "status",
+      "path": "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Taixuan_Status_01.lsfx"
+    },
+    {
+      "style": "tianqing",
+      "phase": "status",
+      "path": "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Tianqing_Status_01.lsfx"
+    },
+    {
+      "style": "xingge",
+      "phase": "status",
+      "path": "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xingge_Status_01.lsfx"
+    },
+    {
+      "style": "xueyan",
+      "phase": "status",
+      "path": "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Xueyan_Status_01.lsfx"
+    }
+  ],
   "files": [
     "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Common_Impact_01.lsfx",
     "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/47b5a20c-14ea-5efd-9f6e-3cd9a6120d50.mei",
@@ -345,6 +412,10 @@
     "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/932b7155-73a9-5665-bd53-206370809284.mei",
     "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/932b7155-73a9-5665-bd53-206370809284.lsx",
     "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/932b7155-73a9-5665-bd53-206370809284.lsf",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Common_Status_01.lsfx",
+    "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/df8e8cd2-1960-5f37-814c-f9c04c540886.mei",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/df8e8cd2-1960-5f37-814c-f9c04c540886.lsx",
+    "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/df8e8cd2-1960-5f37-814c-f9c04c540886.lsf",
     "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/VFX_ESC_Taixuan_Impact_01.lsfx",
     "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/f68ab21c-acc5-5198-9de9-cc55733b5975.mei",
     "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/MultiEffectInfos/f68ab21c-acc5-5198-9de9-cc55733b5975.lsx",
@@ -402,5 +473,939 @@
     "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/RootTemplates/37015b93-a5ad-5f1c-864e-b8f1485db560.lsf"
   ],
   "reference_projectile": "348013df-7958-4ca9-ac9f-80337e054bee",
-  "rotation_validation": "pending Toolkit Follow/orientation review"
+  "rotation_validation": "pending Toolkit Follow/orientation review",
+  "schoolPolish": {
+    "enabled": true,
+    "records": {
+      "taixuan_zhaoxi_hit": {
+        "skill": "taixuan_zhaoxi",
+        "phase": "impact",
+        "label": "照隙：锐点",
+        "binding": "hit",
+        "presentation": "玉白剑尖贯入，极窄青白剑痕与一个局部亮点迅速消散。",
+        "angles": [
+          0
+        ],
+        "axis": [
+          0.55,
+          1.2,
+          1
+        ],
+        "core_scale": 0.75,
+        "rgb": [
+          170,
+          230,
+          255
+        ],
+        "effect": "5ab6d7c3-1db3-5fbb-b2dc-22a14758056f",
+        "mei": "a0faf54b-de73-5ee4-bacc-06f49ae54031",
+        "effectName": "VFX_ESC_Polish_Taixuan_Zhaoxi_Hit_01",
+        "sourceSHA256": "bf8c842dac214d42ab3bc10979c19db86f51d43f1001f747aeac14dcbdd333ff",
+        "compiledSHA256": "2dd66afdb7ff51daf50caa4929a580e50ad085262482aa642d999834f01cac68",
+        "duration": 1.0,
+        "trajectories": "f8552d9a-d44c-551f-b98c-88873d778484,b4bd8e48-bf36-51d3-b4a3-dbcf1d89e120"
+      },
+      "taixuan_qinghui_hit": {
+        "skill": "taixuan_qinghui",
+        "phase": "impact",
+        "label": "清辉反击：交锋",
+        "binding": "hit",
+        "presentation": "返照反击在真实命中处显出两道交错细锋，同一瞬间收成玉白亮点。",
+        "angles": [
+          -40,
+          40
+        ],
+        "axis": [
+          0.45,
+          1.0,
+          1
+        ],
+        "core_scale": 0.85,
+        "rgb": [
+          195,
+          244,
+          230
+        ],
+        "effect": "8828f764-e295-5bfc-a1f9-d2ad3a1ba80d",
+        "mei": "b197b270-77a7-58a1-8a49-19d73183eabd",
+        "effectName": "VFX_ESC_Polish_Taixuan_Qinghui_Hit_01",
+        "sourceSHA256": "e3e052e33310b930428604919ff64bde6a1f6911a4a6b2f6588ce21f2d6ac181",
+        "compiledSHA256": "5a674e68184d87575f92209d21c17245ece9d55b98ec1cd7b6c9bcdf2924e5fa",
+        "duration": 1.0,
+        "trajectories": "018fca2b-2e6a-5b38-9310-585a90b70565,72dfb5d5-d875-58a8-88cb-ae7e296e06f6"
+      },
+      "taixuan_jiuxiao_hit": {
+        "skill": "taixuan_jiuxiao",
+        "phase": "impact",
+        "label": "九霄：落星",
+        "binding": "hit",
+        "presentation": "每名实际被剑雨击中的目标只出现一个四芒落星，剑雨构形不复制伤害。",
+        "angles": [
+          0,
+          90
+        ],
+        "axis": [
+          0.5,
+          1.2,
+          1
+        ],
+        "core_scale": 1.05,
+        "rgb": [
+          228,
+          250,
+          255
+        ],
+        "effect": "9ed7215e-867f-5840-be7b-bc7a6ee5a4d1",
+        "mei": "240ec4c6-6fe4-5779-bddf-084eb6101f58",
+        "effectName": "VFX_ESC_Polish_Taixuan_Jiuxiao_Hit_01",
+        "sourceSHA256": "f5423f3dd83ec27ffb470dd62d1a06abd3d2e448bf9600b3ffedb56a0489f109",
+        "compiledSHA256": "3f79f02954e26891c702d8a835b20106ab1225b014e42e2999025aa649ef6cad",
+        "duration": 1.0,
+        "trajectories": "a70e22e3-450e-5eab-bd67-a796c0941bca,56b5ade7-50be-5f96-a087-6acd0c88682c"
+      },
+      "taixuan_liuguang_hit": {
+        "skill": "taixuan_liuguang",
+        "phase": "impact",
+        "label": "追星：单段星芒",
+        "binding": "hit",
+        "presentation": "每个实际攻击段各显一个短促四芒贯刺，单个效果不自行连闪四次。",
+        "angles": [
+          -45,
+          45
+        ],
+        "axis": [
+          0.4,
+          1.35,
+          1
+        ],
+        "core_scale": 0.8,
+        "rgb": [
+          228,
+          250,
+          255
+        ],
+        "effect": "5b4a25ec-8a38-59d9-b74d-260d28029a88",
+        "mei": "90a32c3d-eb71-578c-b12d-7c5cf18b2d46",
+        "effectName": "VFX_ESC_Polish_Taixuan_Liuguang_Hit_01",
+        "sourceSHA256": "09330baa42eee8827a2b29d6a70b01de5c33770a807f57c6982059fdb0838cf5",
+        "compiledSHA256": "f20470743cdc2c8d4f847669c6274aa99ff7640e0221466ce71c82a95ec1aadc",
+        "duration": 1.0,
+        "trajectories": "28194f77-727a-5975-af40-ad73f1bed923,32d2c170-c4e8-5a19-832e-1738951e7dde"
+      },
+      "taixuan_xinghe_hit": {
+        "skill": "taixuan_xinghe",
+        "phase": "impact",
+        "label": "星河：六芒",
+        "binding": "hit",
+        "presentation": "向外剑势在实际目标上收为六芒星，护身与反击各有清楚读点。",
+        "angles": [
+          0,
+          60,
+          120
+        ],
+        "axis": [
+          0.5,
+          1.3,
+          1
+        ],
+        "core_scale": 1.05,
+        "rgb": [
+          195,
+          244,
+          230
+        ],
+        "effect": "fe50c810-90e9-51b5-a9e1-4855e78d51a7",
+        "mei": "daa31a1d-7d8a-5ddf-b33c-f23f130c7a79",
+        "effectName": "VFX_ESC_Polish_Taixuan_Xinghe_Hit_01",
+        "sourceSHA256": "b1193e24b0d2d3970ef9eafccb9c07c5ad923c0f1f88ac493296f94485ab1e23",
+        "compiledSHA256": "5691483012f4bd69a0cf3e2a948a4f5b156eed8a964027c20a37f26331b477fd",
+        "duration": 1.0,
+        "trajectories": "33e64462-ad7b-5158-9b59-795645f76513,d9e3ecd0-814b-593c-bdc8-94603a021295"
+      },
+      "taixuan_taiqing_hit": {
+        "skill": "taixuan_taiqing",
+        "phase": "impact",
+        "label": "太清：域中细锋",
+        "binding": "hit",
+        "presentation": "领域每次真实剑击一个克制的十字亮峰，重点目标加剑沿用真实 helper。",
+        "angles": [
+          0,
+          90
+        ],
+        "axis": [
+          0.35,
+          0.85,
+          1
+        ],
+        "core_scale": 0.65,
+        "rgb": [
+          170,
+          230,
+          255
+        ],
+        "effect": "d4a693ca-5917-574c-9ac0-d404bac4fa60",
+        "mei": "219f1b14-5372-5071-9d28-c74a315b9fb9",
+        "effectName": "VFX_ESC_Polish_Taixuan_Taiqing_Hit_01",
+        "sourceSHA256": "229371b7612257e732243c4013adbc62d3e167d70a06f945b5f9a2bf243a453f",
+        "compiledSHA256": "4752c032f80d0ee29aedc6f8dbe60633f45bbdf7e82db7717dae9279e223dded",
+        "duration": 1.0,
+        "trajectories": "a7224c69-62ec-5cff-8953-0e3c145c0fb1,269055f3-7748-5a22-a983-f29aef7c34c1"
+      },
+      "taixuan_yixiantian_hit": {
+        "skill": "taixuan_yixiantian",
+        "phase": "impact",
+        "label": "一线天：贯穿读点",
+        "binding": "hit",
+        "presentation": "实际受伤目标留一道长而极窄的局部剑痕；本资产不承担三十米整条长锋。",
+        "angles": [
+          0
+        ],
+        "axis": [
+          0.32,
+          2.0,
+          1
+        ],
+        "core_scale": 1.15,
+        "rgb": [
+          228,
+          250,
+          255
+        ],
+        "effect": "bae1933c-96b2-57ea-a618-6131cafbaedb",
+        "mei": "8a455b64-7d3f-5bb0-86bd-5b5d7a750e1f",
+        "effectName": "VFX_ESC_Polish_Taixuan_Yixiantian_Hit_01",
+        "sourceSHA256": "a400eb06a52c060ea88d8e2274f150dcc5fd1c951bc791f9514eba4b7edfd499",
+        "compiledSHA256": "a2e5e799bb0eb04c59eba11cc5a973b8c0bd8300c679f33cdfffc7103e73276e",
+        "duration": 1.0,
+        "trajectories": "70bd4b14-adca-540a-bed3-d02a39b38268,4696adfe-c6ef-5a29-9d62-6020684c1b80"
+      },
+      "taixuan_zhaoxi_cast": {
+        "skill": "taixuan_zhaoxi",
+        "phase": "cast",
+        "label": "照隙：凝锋",
+        "binding": "cast",
+        "presentation": "一柄青白气剑在身前短促凝锋，稳定剑尖后迅速收束。",
+        "count": 1,
+        "radius": 0.55,
+        "motion": "gather",
+        "rgb": [
+          170,
+          230,
+          255
+        ],
+        "effect": "a4f29ef7-326c-5be0-b918-8bb092f76011",
+        "mei": "0c4100d6-6c2d-537b-8d49-ee43f78e784d",
+        "effectName": "VFX_ESC_Polish_Taixuan_Zhaoxi_Cast_01",
+        "sourceSHA256": "0ef8c781b437a485be45a5c69545e04d66ec0ddffb1ac5389334a8dd5b2a7b52",
+        "compiledSHA256": "d90cb2cfa0b8ff7b89122ec5b38c12287cd08e9ef73f88ef8f3f3745c2020bb4",
+        "duration": 1.1,
+        "offhandMei": "b9ff2a12-3e11-5a1a-9bd1-636379907a1c"
+      },
+      "taixuan_qinghui_cast": {
+        "skill": "taixuan_qinghui",
+        "phase": "cast",
+        "label": "清辉：护弧初展",
+        "binding": "cast",
+        "presentation": "三柄细剑围身展开半弧，返照护体随后维持疏朗循环。",
+        "count": 3,
+        "radius": 1.05,
+        "motion": "expand",
+        "rgb": [
+          195,
+          244,
+          230
+        ],
+        "effect": "76b2db7b-0e28-5b91-895b-815a546c75bd",
+        "mei": "7629d7c3-20f5-5d9d-8b10-8c19e385297d",
+        "effectName": "VFX_ESC_Polish_Taixuan_Qinghui_Cast_01",
+        "sourceSHA256": "dca7ebb59fa66287be4f1360ea93af58359516292509ad40c9bf870c1714ef14",
+        "compiledSHA256": "aa1f26a7faafbbfde7bb1ad259d10f15bcbf31437d9fc46fed8310b7379b0a48",
+        "duration": 1.1,
+        "offhandMei": "03c73a21-2900-504a-bb32-4cab19a7006a"
+      },
+      "taixuan_jiuxiao_cast": {
+        "skill": "taixuan_jiuxiao",
+        "phase": "cast",
+        "label": "九霄：剑冠",
+        "binding": "cast",
+        "presentation": "六柄细长气剑在身周上方排成剑冠，短促下压收束，目标各有落星读点。",
+        "count": 6,
+        "radius": 1.45,
+        "motion": "gather",
+        "rgb": [
+          228,
+          250,
+          255
+        ],
+        "effect": "415fc9cd-192d-5498-8c21-269e5cd08384",
+        "mei": "ee117195-9eb5-5371-bbfe-df9baf9ae6ce",
+        "effectName": "VFX_ESC_Polish_Taixuan_Jiuxiao_Cast_01",
+        "sourceSHA256": "833ead77a151aeb22136558e16752c741bbb44b53c9a9a84a4293fdcc500094b",
+        "compiledSHA256": "386f5afacf6f85b2fc6ee29b637d1d936931dc8654dc7b46d66a81f1a06708d6",
+        "duration": 1.1,
+        "offhandMei": "962b07f6-c60f-545c-932e-1d2b00317be6"
+      },
+      "taixuan_liuguang_cast": {
+        "skill": "taixuan_liuguang",
+        "phase": "cast",
+        "label": "追星：四锋",
+        "binding": "cast",
+        "presentation": "四柄窄锋构成起招轮廓；后续四个实际攻击段分别给出命中峰。",
+        "count": 4,
+        "radius": 1.0,
+        "motion": "gather",
+        "rgb": [
+          228,
+          250,
+          255
+        ],
+        "effect": "6bb5f6d9-edcc-58f0-b690-8a4dc79c499a",
+        "mei": "b1adc08f-87b5-5b9c-bec2-1bca81111d9b",
+        "effectName": "VFX_ESC_Polish_Taixuan_Liuguang_Cast_01",
+        "sourceSHA256": "51ce625fefcc943a13a81b135acaf049c0f7b267ab89893691fecf4da2ecf007",
+        "compiledSHA256": "27cfef2cd3aa3dfe8e26d9fb305c02a0abfa183c89c7e11c5c06a4fbefdb1681",
+        "duration": 1.1,
+        "offhandMei": "e6617fd9-d53b-5a79-be86-3a0c9ef31ecd"
+      },
+      "taixuan_xinghe_cast": {
+        "skill": "taixuan_xinghe",
+        "phase": "cast",
+        "label": "星河：外推剑环",
+        "binding": "cast",
+        "presentation": "八柄细剑由内向外推出一道低密度剑环，释放后快速退亮。",
+        "count": 8,
+        "radius": 2.2,
+        "motion": "expand",
+        "rgb": [
+          195,
+          244,
+          230
+        ],
+        "effect": "9404fc28-aa2f-5cda-ab5f-6a03e6414ab7",
+        "mei": "65c7aeb1-86bd-539b-be89-229a866b6afe",
+        "effectName": "VFX_ESC_Polish_Taixuan_Xinghe_Cast_01",
+        "sourceSHA256": "6b25803e23291fd74d98bc86d4bca9b057fae76db616164e4c144793dd94ab89",
+        "compiledSHA256": "5d6f444f47931d51f5bbdeaadbdb6b5f5da6614b20393c1ff1c7bd85bab46e25",
+        "duration": 1.1,
+        "offhandMei": "cfb622aa-3ef4-50d0-be30-e5e53c4e0e32"
+      },
+      "taixuan_taiqing_cast": {
+        "skill": "taixuan_taiqing",
+        "phase": "cast",
+        "label": "太清：开域",
+        "binding": "cast",
+        "presentation": "六柄细剑从近身向外轻展，接入六米随身剑域的稀疏边界。",
+        "count": 6,
+        "radius": 1.7,
+        "motion": "expand",
+        "rgb": [
+          170,
+          230,
+          255
+        ],
+        "effect": "46bb8d6e-5aab-5395-be31-541e337e2e47",
+        "mei": "50674ab1-1b56-5236-a113-d29da0cc31ac",
+        "effectName": "VFX_ESC_Polish_Taixuan_Taiqing_Cast_01",
+        "sourceSHA256": "216a7ed52d764aa5f8e126fc8e02197fd374b82c1fdad5a0ad91b4766afa9cf9",
+        "compiledSHA256": "9b49f2c7ed10005a3c355f7ba70703f4910c1640371c35c4364e1d1df8e9af3b",
+        "duration": 1.1,
+        "offhandMei": "bb1e11ca-857f-5f89-9e58-09e46840fb15"
+      },
+      "taixuan_yixiantian_cast": {
+        "skill": "taixuan_yixiantian",
+        "phase": "cast",
+        "label": "一线天：多锋归一",
+        "binding": "cast",
+        "presentation": "三柄窄剑从两侧与身前汇成一锋，最亮点集中在收束时。",
+        "count": 3,
+        "radius": 1.6,
+        "motion": "gather",
+        "rgb": [
+          228,
+          250,
+          255
+        ],
+        "effect": "7a718e75-306b-5d5d-9186-3cfccc3599d8",
+        "mei": "da0f7b0e-a5ee-5d18-a1f2-ed569ae3f516",
+        "effectName": "VFX_ESC_Polish_Taixuan_Yixiantian_Cast_01",
+        "sourceSHA256": "884ab08bc5101b39f0deb1d5c7ffd83df30bb4adad83df7f0c8103d57451f622",
+        "compiledSHA256": "7f40c122638875f6f27e68000387b3f87411537e1e1069c4b460b15a4ba6b34b",
+        "duration": 1.1,
+        "offhandMei": "d4820441-34c2-5443-9f23-460d40ff6605"
+      },
+      "taixuan_guiyuan_cast": {
+        "skill": "taixuan_guiyuan",
+        "phase": "cast",
+        "label": "归元：气息回流",
+        "binding": "cast",
+        "presentation": "三柄玉白气剑与微风向自身归拢，淡光完成一次恢复读点。",
+        "count": 3,
+        "radius": 1.1,
+        "motion": "gather",
+        "rgb": [
+          195,
+          244,
+          230
+        ],
+        "effect": "c07b5085-5a07-533d-8906-b82a643b818f",
+        "mei": "de7a9524-bcaa-5664-bea3-5bfebc727644",
+        "effectName": "VFX_ESC_Polish_Taixuan_Guiyuan_Cast_01",
+        "sourceSHA256": "e6f9e40af24496d6602f4dd2e7f8686ec257526f0c568b0f59b25e5b5ad48c07",
+        "compiledSHA256": "90ae046a4061556954ab5bafc3c0e0681c8e3b3e918e671844f061d23433467d",
+        "duration": 1.1,
+        "offhandMei": "754ceb5b-5fd9-5a84-a586-af90d89ae5a5"
+      },
+      "taixuan_qinghui_status": {
+        "skill": "taixuan_qinghui",
+        "phase": "status",
+        "label": "清辉：返照微光",
+        "binding": "status",
+        "presentation": "共同护体的绕剑之外，仅叠加一缕玉白弧光与低亮护壳。",
+        "count": 0,
+        "wisps": 1,
+        "radius": 1.15,
+        "height": 0.95,
+        "shell_alpha": 0.1,
+        "rgb": [
+          195,
+          244,
+          230
+        ],
+        "effect": "70019880-3ce1-5fee-89bd-850cf9b048e5",
+        "mei": "4bc6224a-d901-50e7-b598-2947781ae88f",
+        "effectName": "VFX_ESC_Polish_Taixuan_Qinghui_Status_01",
+        "sourceSHA256": "33f3eeeac7f36feb75b37c71e1efe3603075db0eca1893e78fb283ffef3496df",
+        "compiledSHA256": "7799614b6f3898e38920ee3691e82019a6dd8bc886ef1e44b49f5d3ce5449308",
+        "duration": 4.2
+      },
+      "taixuan_xinghe_status": {
+        "skill": "taixuan_xinghe",
+        "phase": "status",
+        "label": "星河：双弧微光",
+        "binding": "status",
+        "presentation": "共同护体的绕剑之外，青白双弧与极淡护壳提供更强返照读点。",
+        "count": 0,
+        "wisps": 2,
+        "radius": 1.4,
+        "height": 1.05,
+        "shell_alpha": 0.07,
+        "rgb": [
+          228,
+          250,
+          255
+        ],
+        "effect": "a87c77bf-ec21-59d1-adc4-56bed626a883",
+        "mei": "0f9c4db1-1e98-5221-b032-7deb412659bd",
+        "effectName": "VFX_ESC_Polish_Taixuan_Xinghe_Status_01",
+        "sourceSHA256": "e1652f2f057e09e51e61c81d78fea5757b43799265a1f06fdbfac862e98ca0c7",
+        "compiledSHA256": "140c347f8feed646fa92ecf9279088eea2c556e76aefd395f0c44077f25d5965",
+        "duration": 4.2
+      },
+      "taixuan_taiqing_status": {
+        "skill": "taixuan_taiqing",
+        "phase": "status",
+        "label": "太清：六米剑域",
+        "binding": "status",
+        "presentation": "六柄低亮气剑沿六米随身边界环行，周期攻击之间保持稀疏。",
+        "count": 6,
+        "wisps": 1,
+        "radius": 6.0,
+        "height": 0.3,
+        "shell_alpha": 0,
+        "rgb": [
+          170,
+          230,
+          255
+        ],
+        "effect": "84011632-a4be-58ef-9b67-bd437dea4a29",
+        "mei": "efb10aea-8da5-5b7d-a7b7-ee870335c9bb",
+        "effectName": "VFX_ESC_Polish_Taixuan_Taiqing_Status_01",
+        "sourceSHA256": "735dc0406ad0e56936be4f662cf62b0b407a473ffd37ff363e8ca4574093b0da",
+        "compiledSHA256": "aee978e712e99f0c2cde4f6bb270b5039a8eaa490427b76982a14f25354339d0",
+        "duration": 4.2
+      },
+      "tianqing_nifeng_hit": {
+        "skill": "tianqing_nifeng",
+        "phase": "impact",
+        "label": "逆锋横扫",
+        "binding": "hit",
+        "presentation": "宽阔金色刃弧瞬切，窄金边余光收束，保留横扫的清晰方向。",
+        "primitive": "sweep",
+        "primary_axes": [
+          1.6,
+          0.8,
+          1
+        ],
+        "ring_scale": 0.62,
+        "lifespan": 0.22,
+        "angle": 0,
+        "paired": false,
+        "effect": "f4cec1bb-b7f7-524f-8c50-bd25423416c4",
+        "mei": "98281a6d-0813-5786-860b-f1ca2ef06ef8",
+        "effectName": "VFX_ESC_Polish_Tianqing_Nifeng_Hit_01",
+        "sourceSHA256": "6d057b8f2abeb09cc33c66170486e4e41092e9bbf952ae1df56c9d3f925430ff",
+        "compiledSHA256": "1c4da0ceb277e39a209dd4fe9532f37555cd659f627fdbd8e4d6a0e1e7380e6e",
+        "duration": 0.44,
+        "trajectories": "4fdea312-e5b9-5f04-a3db-d22250962de7,65231b31-91ad-5ac6-9b5a-1c0e3bdfc157"
+      },
+      "tianqing_tianbeng_hit": {
+        "skill": "tianqing_tianbeng",
+        "phase": "impact",
+        "label": "天崩",
+        "binding": "hit",
+        "presentation": "两道同拍金色尖锋形成楔形破裂，中心短促震纹突出重劈。",
+        "primitive": "point",
+        "primary_axes": [
+          0.7,
+          1.3,
+          1
+        ],
+        "ring_scale": 0.85,
+        "lifespan": 0.24,
+        "angle": 28,
+        "paired": true,
+        "effect": "18932022-4d7e-5320-9ebb-bd1ad84e0848",
+        "mei": "a0e4d86a-9cf3-5dd2-9022-417b64d2a088",
+        "effectName": "VFX_ESC_Polish_Tianqing_Tianbeng_Hit_01",
+        "sourceSHA256": "2ad7fbdf89881b0d36cf28528c7186a0e9866f79908dc65bc7a3db43b1430381",
+        "compiledSHA256": "eb86c2a9d770d6c9aeed24f52268ef5caae67e718df7f69b9811a2ce09fd4879",
+        "duration": 0.46,
+        "trajectories": "dea3ea91-c47c-5994-aaff-31802cdfafba,34ba333e-f594-535d-917c-4751f221161e"
+      },
+      "tianqing_tianfeng_hit": {
+        "skill": "tianqing_tianfeng",
+        "phase": "impact",
+        "label": "破阵",
+        "binding": "hit",
+        "presentation": "锐窄金色穿刺芒集中于命中处，细小冲击圈迅速退去。",
+        "primitive": "point",
+        "primary_axes": [
+          0.24,
+          1.45,
+          1
+        ],
+        "ring_scale": 0.48,
+        "lifespan": 0.2,
+        "angle": 0,
+        "paired": false,
+        "effect": "6e0f2643-8662-5405-8bf7-6b24886ff9e1",
+        "mei": "02cdbef8-19cb-5460-97b8-c0d7c0264960",
+        "effectName": "VFX_ESC_Polish_Tianqing_Tianfeng_Hit_01",
+        "sourceSHA256": "5242c5096811e802067ba8facf86643b2bcb1b946f15e43b51eca90a516778fa",
+        "compiledSHA256": "1b79814a58be0793e1dba5903bede70b974aedc7b3127cd2b9474492d29276be",
+        "duration": 0.42,
+        "trajectories": "f6f8bb60-d5fc-5dbe-9b9b-9ed4268a9811,fabee8cb-8c31-56d8-a94a-5b1f64d85cf8"
+      },
+      "tianqing_wanjun_hit": {
+        "skill": "tianqing_wanjun",
+        "phase": "impact",
+        "label": "万钧",
+        "binding": "hit",
+        "presentation": "紧实金色破碎核心配局部厚震环，与整招一次的落剑同奏。",
+        "primitive": "core",
+        "primary_axes": [
+          1,
+          0.8,
+          1
+        ],
+        "ring_scale": 1.25,
+        "lifespan": 0.26,
+        "angle": 0,
+        "paired": false,
+        "effect": "c817c6ae-0e45-5fb3-a2ba-2da7ba219d90",
+        "mei": "54e0fe11-4ad0-59df-a582-786f07e4452d",
+        "effectName": "VFX_ESC_Polish_Tianqing_Wanjun_Hit_01",
+        "sourceSHA256": "e5c42b31048405de7adb197f1f6bf466a2ab3996b02769a76245f32f59503fb6",
+        "compiledSHA256": "38fe17819d70e9d3175f307064c5fb436a309d75f870796df757ecf6554e61b6",
+        "duration": 0.48,
+        "trajectories": "2f326b53-7597-50ed-8b8c-9625a40bb53f,1d44b291-43ab-5145-aeee-c2d47d4a5528"
+      },
+      "tianqing_lietian_hit": {
+        "skill": "tianqing_lietian",
+        "phase": "impact",
+        "label": "裂天",
+        "binding": "hit",
+        "presentation": "纵向金裂芒与小范围环纹强调切开目标的一击。",
+        "primitive": "point",
+        "primary_axes": [
+          0.32,
+          1.6,
+          1
+        ],
+        "ring_scale": 0.7,
+        "lifespan": 0.25,
+        "angle": 0,
+        "paired": false,
+        "effect": "c22bd92e-b6e3-5905-8f51-b0bead541718",
+        "mei": "f676b3df-0538-5da1-a576-83c4158a052f",
+        "effectName": "VFX_ESC_Polish_Tianqing_Lietian_Hit_01",
+        "sourceSHA256": "8af6ad796895ca0fbd2cf429ffaa1c3b74f889dc52f29ef93c76aa0cdf3985d9",
+        "compiledSHA256": "1413e22a0aa5eb7b12b42672edda5629c44cb579de569603a1959792557786fb",
+        "duration": 0.47,
+        "trajectories": "d9e927ec-f448-5ee3-a697-4539c2b7327c,2f4e9489-3f95-58f4-af21-02848a3d7436"
+      },
+      "tianqing_tianjian_hit": {
+        "skill": "tianqing_tianjian",
+        "phase": "impact",
+        "label": "天剑坠世",
+        "binding": "hit",
+        "presentation": "温白金色压缩核心骤亮，重环在目标附近展开并留下清楚余光。",
+        "primitive": "core",
+        "primary_axes": [
+          1.25,
+          1.25,
+          1
+        ],
+        "ring_scale": 1.4,
+        "lifespan": 0.3,
+        "angle": 0,
+        "paired": false,
+        "effect": "bd9e722e-05ed-55ed-9d4c-d2cbaf930ef0",
+        "mei": "56be48fe-b34b-51c8-a977-b9eb5bc89f6e",
+        "effectName": "VFX_ESC_Polish_Tianqing_Tianjian_Hit_01",
+        "sourceSHA256": "1bde0661481094b55724965f54cef60a3e0adca82b240595ecf85748cc638a2e",
+        "compiledSHA256": "be8432bfd77ee2afe322c05edbd9da7f30b02d4a1b106d62c4b00bba5e6cdebb",
+        "duration": 0.52,
+        "trajectories": "a1b1e483-c2e4-5327-89ce-745d2069b0e7,92f8384f-6079-5c5d-911e-3a70ec1df097"
+      },
+      "tianqing_bafang_hit": {
+        "skill": "tianqing_bafang",
+        "phase": "impact",
+        "label": "八方灭阵",
+        "binding": "hit",
+        "presentation": "双向短金芒同拍破裂，紧凑薄环点明每个受击目标。",
+        "primitive": "point",
+        "primary_axes": [
+          0.5,
+          0.95,
+          1
+        ],
+        "ring_scale": 0.78,
+        "lifespan": 0.23,
+        "angle": 55,
+        "paired": true,
+        "effect": "08ab495f-4192-56ff-97fe-8195b78b3903",
+        "mei": "5ec672bd-f23c-5398-a57d-05aaf8792534",
+        "effectName": "VFX_ESC_Polish_Tianqing_Bafang_Hit_01",
+        "sourceSHA256": "0fde5f931ec030186d2f781d4ae18488e60df48a87203d228a36626c5043139f",
+        "compiledSHA256": "8099ea8742ad6640a0424a434c43c052209fb36208c957c77ef3bb469ea31f21",
+        "duration": 0.45,
+        "trajectories": "feead660-6393-57d7-9747-d13df01e1748,4e59fd05-9a87-587d-a86e-1c02894d0cd8"
+      },
+      "tianqing_tiandi_hit": {
+        "skill": "tianqing_tiandi",
+        "phase": "impact",
+        "label": "天地剑劫",
+        "binding": "hit",
+        "presentation": "交错金裂芒与压缩震环统一短峰，每个真实阶段命中只亮一次。",
+        "primitive": "point",
+        "primary_axes": [
+          0.52,
+          1.2,
+          1
+        ],
+        "ring_scale": 1.1,
+        "lifespan": 0.25,
+        "angle": 45,
+        "paired": true,
+        "effect": "88fea09e-918b-5025-be46-e722f9c08606",
+        "mei": "f2e074fd-fce7-5bc3-8200-a5f0930ba662",
+        "effectName": "VFX_ESC_Polish_Tianqing_Tiandi_Hit_01",
+        "sourceSHA256": "68197d576867d4383e98dcb827af8429b419351e0189be2145032b74037bf34a",
+        "compiledSHA256": "5750bf1bfa168f70924b469944469c7d1fd78eb053abf9c4208f7564aa495369",
+        "duration": 0.47,
+        "trajectories": "e9b94d98-4455-5a26-8b7a-f9486dc0c566,73bc420e-fd90-561f-8cc6-57c97e7c58af"
+      },
+      "tianqing_nixi_cast": {
+        "skill": "tianqing_nixi",
+        "phase": "cast",
+        "label": "逆息回生",
+        "binding": "cast",
+        "presentation": "金色环纹向内收息，柔亮金芒向上回升，体现回生而非重击。",
+        "primitive": "recovery",
+        "primary_axes": [
+          0.36,
+          0.5,
+          1
+        ],
+        "lifespan": 0.65,
+        "effect": "7b332f54-f534-5d05-8141-ec7060c96b15",
+        "mei": "ddd30ff9-5580-51c3-9034-4b930e31de8e",
+        "effectName": "VFX_ESC_Polish_Tianqing_Nixi_Cast_01",
+        "sourceSHA256": "72230a3e57f361fcc7e7a7bb139718543a8274719864c9a7b341a386148ed272",
+        "compiledSHA256": "ff6235148c65c06c45004968b62f48be09f7153633dd7c72a608645db3720df2",
+        "duration": 0.75,
+        "offhandMei": "786b2739-2014-5509-afbe-a94add961a01"
+      },
+      "xueyan_luexue_hit": {
+        "skill": "xueyan_luexue",
+        "phase": "impact",
+        "label": "掠血·撕雾",
+        "binding": "hit",
+        "presentation": "A narrow bright blood blade cuts first; a restrained red puff follows.",
+        "slash_scale": 0.8,
+        "slash_life": 0.45,
+        "mist_scale": 0.68,
+        "mist_alpha": 1.0,
+        "sword_count": 1,
+        "crimson_core_width": 1.6,
+        "effect": "4527523f-7f62-52c2-ba73-2b6dc9807130",
+        "mei": "45ce4683-073a-571e-9a7a-878f6b73b966",
+        "effectName": "VFX_ESC_Polish_Xueyan_Luexue_Hit_01",
+        "sourceSHA256": "f963f36039fe4cc24218ff8591f2b206c2d8d999f4dbcf5152dcefcf3a495817",
+        "compiledSHA256": "cfd38cee6824182c8e71ff35e7b0c4b0a14ac591e72b756c1c5da7be1f50e7ba",
+        "duration": 2.8,
+        "trajectories": "930962a5-3cb8-5046-9b3b-276206dcbe94,c70c0cb9-f38b-54e6-b5c0-71b33394aed7"
+      },
+      "xueyan_chuanshen_hit": {
+        "skill": "xueyan_chuanshen",
+        "phase": "impact",
+        "label": "血影穿身·贯斩",
+        "binding": "hit",
+        "presentation": "A stretched piercing blood blade and a small torn mist at each real victim.",
+        "slash_scale": 1.05,
+        "slash_life": 0.42,
+        "mist_scale": 0.32,
+        "mist_alpha": 0.7,
+        "sword_count": 1,
+        "effect": "e7ec07cf-11ba-50b6-84e9-a2d0ef84cb02",
+        "mei": "55a2699a-5c92-5e6b-bc18-fe6fedc20621",
+        "effectName": "VFX_ESC_Polish_Xueyan_Chuanshen_Hit_01",
+        "sourceSHA256": "d5ead22c6d6fc2add442820b9e06da6b30983975d14184e5dc4d596080243f32",
+        "compiledSHA256": "95fedd767b4e8f59499c8b007cd19d6c7979d9f5f9c24d6f0b0d759e40e2e9b5",
+        "duration": 2.8,
+        "trajectories": "8e80433c-b94f-5419-90fb-df4f9f4cdcf4,f1a62fd2-fc1d-5d65-9b73-b1b344a44427"
+      },
+      "xueyan_liancheng_hit": {
+        "skill": "xueyan_liancheng",
+        "phase": "impact",
+        "label": "血影连城·单段",
+        "binding": "hit",
+        "presentation": "One sharp blade peak per real pursuit attack; no four-stage playback.",
+        "slash_scale": 0.92,
+        "slash_life": 0.4,
+        "mist_scale": 0.3,
+        "mist_alpha": 0.66,
+        "sword_count": 1,
+        "effect": "3b91a0ad-e72c-587b-9a80-87d4322b0b54",
+        "mei": "7b26362f-76c0-589c-9f82-d61feb9c4832",
+        "effectName": "VFX_ESC_Polish_Xueyan_Liancheng_Hit_01",
+        "sourceSHA256": "4052301d9f0a7e4990e310804a985e1a3526e40fa30b7cf8e7aa25c6898b9dd8",
+        "compiledSHA256": "25b3518599a2f52a827570d2772a8c0b5d699da01d1cdfdfeb516098a8fab686",
+        "duration": 2.8,
+        "trajectories": "e663e774-86bd-5480-89fb-ea81ade3c9fe,5df23f0c-b838-5389-8002-099c420d4634"
+      },
+      "xueyan_wusheng_hit": {
+        "skill": "xueyan_wusheng",
+        "phase": "impact",
+        "label": "血魇无生·单段",
+        "binding": "hit",
+        "presentation": "One pale crimson blade through deep red mist per real attack; no six-stage playback.",
+        "slash_scale": 1.15,
+        "slash_life": 0.38,
+        "mist_scale": 0.32,
+        "mist_alpha": 0.72,
+        "sword_count": 1,
+        "effect": "79099882-4d59-58b5-a814-fca349f2e4f3",
+        "mei": "c1325b4e-9590-5216-99a0-67dbfaebc4af",
+        "effectName": "VFX_ESC_Polish_Xueyan_Wusheng_Hit_01",
+        "sourceSHA256": "6e206a78d12e717d0432a25624ce8d6a68f268ac819be49143c5ad5ff0653b4d",
+        "compiledSHA256": "495383cd4ac281939948a225da73fdf59f3d236869c5758815922de7225b59ba",
+        "duration": 2.8,
+        "trajectories": "91b78df6-b3c9-5983-b40d-9acb1fa20a5b,cbd9690a-5ae4-537b-98f7-de420ffb0421"
+      },
+      "xueyan_nixue_cast": {
+        "skill": "xueyan_nixue",
+        "phase": "cast",
+        "label": "逆血狂澜·放卷",
+        "binding": "cast",
+        "presentation": "Eight short blood blades spread once toward the six-metre boundary and fold inward.",
+        "sword_count": 8,
+        "radius": 5.5,
+        "motion": "out_return",
+        "mist_scale": 0.23,
+        "mist_alpha": 0.58,
+        "effect": "1d96e88a-7f4f-5c2f-9145-e1644afa1986",
+        "mei": "61cf2d97-574e-5c2e-aa9c-3dd663b19e56",
+        "effectName": "VFX_ESC_Polish_Xueyan_Nixue_Cast_01",
+        "sourceSHA256": "35e7e5537b6cf069715ca6d10c9a949faf5c253eccab2a61733e59a0d324563d",
+        "compiledSHA256": "ab4e235fc4f20bb7b4a7e62c6d34fe1a4f0bd1817448ed33b6165fbdd43ec79e",
+        "duration": 2.8,
+        "offhandMei": "aa13893f-4927-5fcb-a46d-f2c92cb8bd9c"
+      },
+      "xueyan_xuehai_cast": {
+        "skill": "xueyan_xuehai",
+        "phase": "cast",
+        "label": "血海噬灵·开域",
+        "binding": "cast",
+        "presentation": "A low circle of blood blades opens once; no per-victim domain replay.",
+        "sword_count": 8,
+        "radius": 5.6,
+        "motion": "out",
+        "mist_scale": 0.18,
+        "mist_alpha": 0.42,
+        "effect": "0693d9bf-345f-5382-ac84-d6b509d3797c",
+        "mei": "4546ff13-191e-50ea-b8a6-5ca6447e9c8c",
+        "effectName": "VFX_ESC_Polish_Xueyan_Xuehai_Cast_01",
+        "sourceSHA256": "266e39ced5c70a1a41639ae616880a84b6abe42d97cbf014028e37d0cf56acaf",
+        "compiledSHA256": "934be1c97b676d395daf23da262941ed22732e82467d1320f7c33a88204184af",
+        "duration": 2.8,
+        "offhandMei": "a18bd1ad-7b07-5ff3-9e8e-902d867677cd"
+      },
+      "xueyan_xuehai_hit": {
+        "skill": "xueyan_xuehai",
+        "phase": "impact",
+        "label": "血海噬灵·噬灵斩",
+        "binding": "hit",
+        "presentation": "A small local blood cut for each actual BloodPulse hit.",
+        "slash_scale": 0.65,
+        "slash_life": 0.42,
+        "mist_scale": 0.25,
+        "mist_alpha": 0.6,
+        "sword_count": 0,
+        "effect": "a11bd53f-449c-5d6c-82ba-2257c4dd34e6",
+        "mei": "77fc4b3d-4263-5503-8642-6ab0b3b7cad0",
+        "effectName": "VFX_ESC_Polish_Xueyan_Xuehai_Hit_01",
+        "sourceSHA256": "fd6b63c354ef149915b0360f96adb06f97dbfecd10bb9b123133158a6b6016e9",
+        "compiledSHA256": "a650a589906782c16a5cf1e6e55ae06f5895e662b434052dafadd63de6ae9d72",
+        "duration": 2.8,
+        "trajectories": "f48e352d-55d6-504e-a249-37d9216d24c0,6295cf23-4efd-5259-be00-2ea5c1b3b0fb"
+      },
+      "xueyan_xuehai_status": {
+        "skill": "xueyan_xuehai",
+        "phase": "status",
+        "label": "血海噬灵·赤环血雾",
+        "binding": "status",
+        "presentation": "An open luminous crimson ring and twelve low red wisps mark the six-metre owner-following boundary.",
+        "sword_count": 0,
+        "radius": 6,
+        "mist_scale": 0.24,
+        "mist_alpha": 0.45,
+        "boundary_alpha": 0.45,
+        "boundary_brightness": 0.8,
+        "effect": "0007614a-7bff-5c47-85e9-175cdd01f8ff",
+        "mei": "ab36c72b-9c72-50b6-a12f-5e5c5baa9f7b",
+        "effectName": "VFX_ESC_Polish_Xueyan_Xuehai_Status_01",
+        "sourceSHA256": "bcbb592c403b03b4d5a533a24f11b070a3e97e199661dfafd61773bd1199e9ee",
+        "compiledSHA256": "9a230c079f15d0e4b9f257c6683d4c7e2e457da3a11ad9e72d6d1666a3eae3c9",
+        "duration": 5.8
+      },
+      "xueyan_ranxue_cast": {
+        "skill": "xueyan_ranxue",
+        "phase": "cast",
+        "label": "燃血入狂·内聚",
+        "binding": "cast",
+        "presentation": "Four short blood blades and wisps pull inward, then extinguish.",
+        "sword_count": 4,
+        "radius": 1.4,
+        "motion": "in",
+        "mist_scale": 0.24,
+        "mist_alpha": 0.65,
+        "effect": "9c4ab99e-15d9-5e89-af0b-d48eaf04ea01",
+        "mei": "044ef944-0005-527f-b8d0-8ae13fbe1819",
+        "effectName": "VFX_ESC_Polish_Xueyan_Ranxue_Cast_01",
+        "sourceSHA256": "9ce5d7d01f93567516a00a2a6dcee58216f589fc7a1d73f006e56b57d110f41c",
+        "compiledSHA256": "0055ac40513c00db7ba34832bdd025a32ae417bcfb12f8e93729e90b4f737cc3",
+        "duration": 2.8,
+        "offhandMei": "32ff957e-8419-501d-af4f-b2b97a5c146f"
+      },
+      "xueyan_huichao_cast": {
+        "skill": "xueyan_huichao",
+        "phase": "cast",
+        "label": "回潮·回卷",
+        "binding": "cast",
+        "presentation": "Six crimson wisps and luminous blood threads converge into the chest, hold briefly and fade for both costs.",
+        "sword_count": 0,
+        "radius": 2.1,
+        "motion": "in",
+        "mist_scale": 0.42,
+        "mist_alpha": 0.88,
+        "mist_count": 6,
+        "convergence_height": 1.15,
+        "recovery_threads": 6,
+        "recovery_thread_scale": 0.85,
+        "recovery_thread_width": 0.9,
+        "recovery_thread_brightness": 8,
+        "effect": "27053291-fd49-56eb-a5ca-a283eef5e2f6",
+        "mei": "7cfd4d2e-6ddc-5a8d-9b58-b6056c57d7c9",
+        "effectName": "VFX_ESC_Polish_Xueyan_Huichao_Cast_01",
+        "sourceSHA256": "847f17fb4b5f7db891909d4812f087aaa605d148a6100fcd84705f358565a65d",
+        "compiledSHA256": "04271501b970acdf90d8078394fb0f3c82253dda0aee811d957df3dfe1e5fc4f",
+        "duration": 2.8,
+        "offhandMei": "2bc8eeda-0ecf-5937-a766-6b64b4288431"
+      },
+      "xueyan_damage_mode_cast": {
+        "skill": "xueyan_damage_mode",
+        "phase": "cast",
+        "label": "血剑凝锋·切换",
+        "binding": "cast",
+        "presentation": "One brief bright blood-blade accent; the red identity survives either damage mode.",
+        "sword_count": 1,
+        "radius": 0.45,
+        "motion": "in",
+        "mist_scale": 0.18,
+        "mist_alpha": 0.55,
+        "effect": "84dab3b5-b101-56e3-852e-3212ab3fe15c",
+        "mei": "ef42e4a6-a6a8-508d-b365-a85240c0b5a7",
+        "effectName": "VFX_ESC_Polish_Xueyan_Damage_Mode_Cast_01",
+        "sourceSHA256": "110d60d7775be156e0ae2d28657f267f0161728db989b2621e3bfb386fe77929",
+        "compiledSHA256": "b2fc8ddd117157bc0afcb7d1c45655a2a2e6d27bdbb0a6ce4b86e9eca0dd02cb",
+        "duration": 2.8,
+        "offhandMei": "58e7e90f-b692-57f2-87e0-70de06c0a797"
+      },
+      "tianqing_tianfeng_cast": {
+        "skill": "tianqing_tianfeng",
+        "phase": "cast",
+        "label": "天锋破阵：巨剑锋楔",
+        "binding": "cast",
+        "presentation": "金色巨剑随角色沿冲阵方向前推，两侧低亮气流分开，停步后迅速退亮。",
+        "motion": "caster_attached_forward_wedge",
+        "sword_count": 1,
+        "effect": "a9aeef8a-31f3-55a4-a6f3-62df0e9dab91",
+        "mei": "d39cf284-19ff-58a6-a719-9013c4f15139",
+        "effectName": "VFX_ESC_Polish_Tianqing_Tianfeng_Cast_01",
+        "sourceSHA256": "17c896d8f3090fb7191cb6ae002077d2229018e2851e15867a75b29fea8e6407",
+        "compiledSHA256": "01497d107f1fce1266aafd36f4b485d7814cd35b3f8a8ea52bb98b1e78f1f5d1",
+        "duration": 0.85,
+        "offhandMei": "5cf7f6d8-9705-5ef3-aaa8-9a08e841ccb1"
+      }
+    },
+    "evidenceLayer": "native-compiled-and-bound",
+    "clientVisualTest": "pending"
+  },
+  "xueyanEchoes": {
+    "enabled": true,
+    "records": {
+      "intro": {
+        "effect": "9e09b4b9-772a-5265-8b32-570303687cb9",
+        "effectName": "VFX_ESC_Xueyan_Wusheng_Intro_01",
+        "duration": 1.8,
+        "sourceSHA256": "0be45664b225208f535c64f2902030e15922c36ee15d5160e6fa5d0165af8137",
+        "compiledSHA256": "1ab3d606406e84c38fec00f9a4876dbd2bfcd9a7ececc623e774325fe5dd28cb"
+      },
+      "echo1": {
+        "effect": "8951f1d4-f78d-5283-b407-32b9f7595e5a",
+        "effectName": "VFX_ESC_Xueyan_Wusheng_Echo1_01",
+        "duration": 1.35,
+        "sourceSHA256": "bc933e8da680eaf32f9a5f2a5966d247da158d4e066672ba6b4e96350c02a4cf",
+        "compiledSHA256": "4b3a815b911680c6b3ce173ba2da3880caea5fa7d3e6ea5d2c01e1cc0a543590"
+      },
+      "echo2": {
+        "effect": "ec9b571f-64d9-5984-9edd-77f3fc7e139d",
+        "effectName": "VFX_ESC_Xueyan_Wusheng_Echo2_01",
+        "duration": 1.35,
+        "sourceSHA256": "949345bf4189582f8e8a55917844976c7e710ca13d971dbfb521829fa5931825",
+        "compiledSHA256": "3d9e06f9dda45dc81f46e62ea8233b180e02dd53a6e86261bdd65c146e8da753"
+      },
+      "echo3": {
+        "effect": "42230c16-0696-5266-ae85-e5762426b256",
+        "effectName": "VFX_ESC_Xueyan_Wusheng_Echo3_01",
+        "duration": 1.35,
+        "sourceSHA256": "af3b5627534b92801d0961a109c2e28a445a1b881fa67e1b23ff92643c61d733",
+        "compiledSHA256": "01b1bb7ec4e1c20af2c43a4d207939c7ee4c8ea64a87b89afeec0cb83698de8c"
+      }
+    },
+    "clientVisualTest": "pending",
+    "semantics": "three native equipped overlays; actual casts grouped into three pairs"
+  }
 }

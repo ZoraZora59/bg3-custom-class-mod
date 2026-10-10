@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="EffectBank">
+        <node id="EffectBank">
+            <children>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-19.5789 -19.5789 -19.5789" />
+                    <attribute id="BoundsMax" type="fvec3" value="19.5789 19.5789 19.5789" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.45" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Wanjun_GroundFall_01" />
+                    <attribute id="ID" type="FixedString" value="42409d4f-e02e-53cf-a0e6-3d18871c6628" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Wanjun_GroundFall_01" />
+                    <attribute id="Radius" type="float" value="33.911697323702064" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Wanjun_GroundFall_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-26.28 -26.28 -26.28" />
+                    <attribute id="BoundsMax" type="fvec3" value="26.28 26.28 26.28" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.57" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Lietian_GroundFall_01" />
+                    <attribute id="ID" type="FixedString" value="fbcc06ac-23c5-57ff-bcbd-aaa9cd9fa87b" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Lietian_GroundFall_01" />
+                    <attribute id="Radius" type="float" value="45.51835754401055" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Lietian_GroundFall_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-31.7594 -31.7594 -31.7594" />
+                    <attribute id="BoundsMax" type="fvec3" value="31.7594 31.7594 31.7594" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.7" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Tianjian_GroundFall_01" />
+                    <attribute id="ID" type="FixedString" value="bb8fc789-c74c-5f07-8a9b-7b5865fee0cf" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Tianjian_GroundFall_01" />
+                    <attribute id="Radius" type="float" value="55.008920702576845" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Tianjian_GroundFall_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-23.1516 -23.1516 -23.1516" />
+                    <attribute id="BoundsMax" type="fvec3" value="23.1516 23.1516 23.1516" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.55" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Bafang_GroundRing_01" />
+                    <attribute id="ID" type="FixedString" value="866e9d3a-22f9-5906-b2ea-e77d9e49452a" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Bafang_GroundRing_01" />
+                    <attribute id="Radius" type="float" value="40.09969698053249" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Bafang_GroundRing_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-30.5999 -30.5999 -30.5999" />
+                    <attribute id="BoundsMax" type="fvec3" value="30.5999 30.5999 30.5999" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.65" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_TiandiStage_GroundFall_01" />
+                    <attribute id="ID" type="FixedString" value="012ac316-53b8-5189-bd77-c04400a99b2c" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_TiandiStage_GroundFall_01" />
+                    <attribute id="Radius" type="float" value="53.0006455864658" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_TiandiStage_GroundFall_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-21.1888 -21.1888 -21.1888" />
+                    <attribute id="BoundsMax" type="fvec3" value="21.1888 21.1888 21.1888" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.55" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Bafang_GroundColumn_01" />
+                    <attribute id="ID" type="FixedString" value="0ac6d322-be30-540e-9d46-4ad0fb90e2e7" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Bafang_GroundColumn_01" />
+                    <attribute id="Radius" type="float" value="36.700106542177075" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Bafang_GroundColumn_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-19.5789 -19.5789 -19.5789" />
+                    <attribute id="BoundsMax" type="fvec3" value="19.5789 19.5789 19.5789" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="0.8" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Wanjun_GroundFall_PrepareHover_01" />
+                    <attribute id="ID" type="FixedString" value="594a90ab-5ca7-5123-b06f-c7bb3e86c1b6" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Wanjun_GroundFall_PrepareHover_01" />
+                    <attribute id="Radius" type="float" value="33.911697323702064" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Wanjun_GroundFall_PrepareHover_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-19.5789 -19.5789 -19.5789" />
+                    <attribute id="BoundsMax" type="fvec3" value="19.5789 19.5789 19.5789" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="0.85" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Wanjun_GroundFall_Contact_01" />
+                    <attribute id="ID" type="FixedString" value="13133986-0510-5d12-81b3-c9075382fc2b" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Wanjun_GroundFall_Contact_01" />
+                    <attribute id="Radius" type="float" value="33.911697323702064" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Wanjun_GroundFall_Contact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-26.28 -26.28 -26.28" />
+                    <attribute id="BoundsMax" type="fvec3" value="26.28 26.28 26.28" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="0.92" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Lietian_GroundFall_PrepareHover_01" />
+                    <attribute id="ID" type="FixedString" value="439b5236-d21e-53d8-a3a2-4cfc9fc968e0" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Lietian_GroundFall_PrepareHover_01" />
+                    <attribute id="Radius" type="float" value="45.51835754401055" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Lietian_GroundFall_PrepareHover_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-26.28 -26.28 -26.28" />
+                    <attribute id="BoundsMax" type="fvec3" value="26.28 26.28 26.28" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="0.85" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Lietian_GroundFall_Contact_01" />
+                    <attribute id="ID" type="FixedString" value="b6962cb0-3ba1-5135-9c84-6b20c0809933" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Lietian_GroundFall_Contact_01" />
+                    <attribute id="Radius" type="float" value="45.51835754401055" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Lietian_GroundFall_Contact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-31.7594 -31.7594 -31.7594" />
+                    <attribute id="BoundsMax" type="fvec3" value="31.7594 31.7594 31.7594" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="1.05" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Tianjian_GroundFall_PrepareHover_01" />
+                    <attribute id="ID" type="FixedString" value="7ea1c99b-9e31-5ccc-8274-89653983e449" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Tianjian_GroundFall_PrepareHover_01" />
+                    <attribute id="Radius" type="float" value="55.008920702576845" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Tianjian_GroundFall_PrepareHover_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-31.7594 -31.7594 -31.7594" />
+                    <attribute id="BoundsMax" type="fvec3" value="31.7594 31.7594 31.7594" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="0.85" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Tianjian_GroundFall_Contact_01" />
+                    <attribute id="ID" type="FixedString" value="8ba874f6-9532-58a9-b711-0a55c1c57775" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Tianjian_GroundFall_Contact_01" />
+                    <attribute id="Radius" type="float" value="55.008920702576845" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Tianjian_GroundFall_Contact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-21.1888 -21.1888 -21.1888" />
+                    <attribute id="BoundsMax" type="fvec3" value="21.1888 21.1888 21.1888" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="0.9" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Bafang_GroundColumn_PrepareHover_01" />
+                    <attribute id="ID" type="FixedString" value="b75f44b7-3567-5b84-af11-78abdcd9a66f" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="True" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Bafang_GroundColumn_PrepareHover_01" />
+                    <attribute id="Radius" type="float" value="36.700106542177075" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Bafang_GroundColumn_PrepareHover_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="BoundsMin" type="fvec3" value="-21.1888 -21.1888 -21.1888" />
+                    <attribute id="BoundsMax" type="fvec3" value="21.1888 21.1888 21.1888" />
+                    <attribute id="Center" type="fvec3" value="0 0 0" />
+                    <attribute id="CullingDistance" type="float" value="0" />
+                    <attribute id="Duration" type="float" value="0.85" />
+                    <attribute id="EffectName" type="FixedString" value="VFX_ESC_Tianqing_Bafang_GroundColumn_Contact_01" />
+                    <attribute id="ID" type="FixedString" value="258eaed4-1a1a-50eb-829e-c48f81e0dbe8" />
+                    <attribute id="Initialized" type="bool" value="True" />
+                    <attribute id="InterruptionMode" type="uint32" value="0" />
+                    <attribute id="Localized" type="bool" value="False" />
+                    <attribute id="Looping" type="bool" value="False" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Tianqing_Bafang_GroundColumn_Contact_01" />
+                    <attribute id="Radius" type="float" value="36.700106542177075" />
+                    <attribute id="SourceFile" type="LSString" value="Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Tianqing/VFX_ESC_Tianqing_Bafang_GroundColumn_Contact_01.lsfx" />
+                    <children>
+                        <node id="Dependencies">
+                            <children>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="707add78-20c6-ec43-477d-bf2d0fa51d67" />
+                                </node>
+                                <node id="DependentResource">
+                                    <attribute id="Object" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                                </node>
+                            </children>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

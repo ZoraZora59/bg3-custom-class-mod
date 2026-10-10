@@ -18,9 +18,9 @@ The installed Shared/Levelmaps/LevelMapValues.tbl's SneakAttack series is the
 native class-bound level-map example.  Its editor field is PreferredClass;
 the corresponding runtime LSX field is PreferredClassUUID.
 
-The native tooltip parser does not accept our execution IF functors.  A
-switchable weapon/Qi roll or Necrotic/Force type therefore gets clearly
-labeled alternative damage in ExtraDescription, without a false fixed type.
+The native tooltip parser does not accept our execution IF functors.  An
+automatically selected main/off/no-sword roll or Necrotic/Force type gets
+clearly labeled conditional alternatives in ExtraDescription, without a false fixed type.
 Displayed values are BASE damage: Lua damage multipliers, Frenzy spending,
 equipment riders, resistance and target-specific reduction resolve on hit.
 """
@@ -73,6 +73,51 @@ def _result(
     }
 
 
+
+def _auto_tooltip(key: str, spec: Mapping[str, object], bonus: str = '') -> dict[str, str]:
+    """Show conditional AUTO bases without unsupported native IF expressions."""
+    blood = str(spec.get('branch', key.split('_', 1)[0])) == 'xueyan'
+    label = {
+        'taixuan_liuguang': '四剑，每剑',
+        'taixuan_jiuxiao': '每名敌人',
+        'taixuan_taiqing': '每次落剑',
+        'taixuan_yixiantian': '首名可受伤敌人',
+        'tianqing_tianbeng': '主目标',
+        'tianqing_tiandi': '三剑，每剑',
+        'xueyan_liancheng': '四剑，每剑',
+        'xueyan_wusheng': '六剑，每剑',
+        'xueyan_xuehai': '每次落剑',
+        'xingge_chengfeng': '每名敌人',
+        'xingge_zhangjian': '每次御剑呼应',
+        'internal_counter2': '每次反击',
+        'internal_counter3': '每次反击',
+        'internal_resonance': '每次御剑呼应',
+    }.get(key, '本次剑击')
+    if spec.get('continuation'):
+        label = '本次续剑'
+    main = _damage('MainMeleeWeapon', 'MainMeleeWeaponDamageType')
+    off = _damage('OffhandMeleeWeapon', 'OffhandMeleeWeaponDamageType')
+    qi = _QI_BASE if blood else _damage(_QI_BASE)
+    extra_damage = bonus if blood else _damage(bonus) if bonus else ''
+    params = [main, off, qi]
+    text = (f'{label}的基础伤害自动择一：主手剑 [1]；'
+            '主手无剑时副手剑 [2]；两手无剑时气剑 [3]。')
+    if bonus:
+        params.append(extra_damage)
+        text += '另附 [4] 剑气伤害。'
+    if blood:
+        text += '气剑与额外剑气可选坏死或力场，佩剑类型不变。'
+    if key == 'tianqing_tianbeng':
+        params.append(_damage('18d8'))
+        text += f'其他敌人使用相同基础，另附 [{len(params)}]。'
+    elif key == 'taixuan_xinghe':
+        params.append(_damage('6d8'))
+        text += f'每次反击使用相同基础，另附 [{len(params)}]。'
+    elif key == 'tianqing_tianjian':
+        params.append(_damage('6d8'))
+        text += f'余威每次仅造成 [{len(params)}]，不另加基础剑击。'
+    return _result(extra=text, params=';'.join(params))
+
 def spell_tooltip(key: str, spec: Mapping[str, object]) -> dict[str, str]:
     """Describe current damage without costs, ranges, or future upgrades.
 
@@ -86,6 +131,26 @@ def spell_tooltip(key: str, spec: Mapping[str, object]) -> dict[str, str]:
     weapon = 'OffhandMeleeWeapon' if hand in ('off', 'offhand') else 'MainMeleeWeapon'
     weapon_type = weapon + 'DamageType'
     weapon_damage = _damage(weapon, weapon_type)
+
+    if base == 'AUTO' or key == 'taixuan_qinghui':
+        bonus = (
+            f'LevelMapValue({_NORMAL_MAPS[key]})' if key in _NORMAL_MAPS
+            else '32d8' if key == 'tianqing_tianbeng'
+            else '4d8' if key in ('taixuan_qinghui', 'internal_counter2')
+            else '6d8' if key == 'internal_counter3'
+            else '2d6' if key == 'internal_resonance'
+            else str(spec.get('dice', ''))
+        )
+        if spec.get('bonusOnly') and hand in ('off', 'offhand'):
+            if branch == 'xueyan':
+                return _result(
+                    weapon_damage,
+                    '本次副手御剑另附 [1] 剑气伤害（坏死或力场）。',
+                    bonus,
+                )
+            native = weapon_damage + (';' + _damage(bonus) if bonus else '')
+            return _result(native, '所示为本次副手御剑基础伤害。')
+        return _auto_tooltip(key, spec, bonus)
 
     if key == 'taixuan_qinghui':
         return _result(

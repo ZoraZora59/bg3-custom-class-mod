@@ -1,0 +1,119 @@
+"""A finite, caster-attached greatsword for Tianfeng's native Rush action.
+
+The shared SchoolPolish CastEffect MEI follows Dummy_Root and its orientation.
+The effect has no world path, damage, projectile, controller, or status loop.
+Its luminous sword uses the same native GR2/material proven by the H18 falls.
+"""
+from __future__ import annotations
+
+import copy
+import importlib.util
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+from sword_cultivator_spec import guid
+from tianqing_vfx_design import GREAT_SWORD
+from sword_glow import visual_id
+
+_spec = importlib.util.spec_from_file_location(
+    'tianfeng_fall_authoring', Path(__file__).with_name('generate-tianqing-vfx.py'))
+fall = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(fall)
+fx = fall.fx
+
+KEY = 'tianqing_tianfeng_cast'
+DURATION = .85
+SWORD_SCALE = (4.8, 4., 2.45)
+SWORD_POSITION = (0., 1.1, .1)
+RUSH = fx.BASE / 'Actions/Cast/WeaponAttack/VFX_Actions_Cast_WeaponAttack_Rush_Rush_Root_01.lsefx'
+RUSH_TRACK = '9c9b1439-0117-4033-a4f6-025a5ebe47d4'
+RUSH_MESH = '2d26f787-71aa-cdc3-b93e-482a40fe7ad6'
+PROFILES = {
+    KEY: dict(skill='tianqing_tianfeng', phase='cast', label='天锋破阵：巨剑锋楔',
+              binding='cast', presentation='金色巨剑随角色沿冲阵方向前推，两侧低亮气流分开，停步后迅速退亮。',
+              motion='caster_attached_forward_wedge', sword_count=1),
+}
+
+
+def author(data: Path, key: str, dictionary):
+    if key != KEY:
+        raise KeyError(key)
+    # Reuse the verified static sword component, then remove its entire falling
+    # path, floor burst and auxiliary glow shell before attaching it to a Rush.
+    root, origins, _ = fall.author(data, 'tianqing_lietian', dictionary)
+    root.set('id', guid('vfx/visual-polish/tianfeng/editor/' + key))
+    sword = None
+    for group in list(root.find('trackgroups')):
+        for track in list(group.findall('track')):
+            component = track.find('component')
+            mesh = component.find(f'./properties/property[@id="{fx.MESH}"]/data/datum')
+            if component.get('class') == 'Model' and mesh is not None and visual_id('tianqing') in mesh.get('value', ''):
+                if sword is not None:
+                    raise ValueError('Tianfeng requires precisely one sword donor')
+                sword = component
+                track.set('name', 'Tianfeng forward greatsword')
+                component.set('instancename', guid('vfx/tianfeng/component/sword'))
+                fx.set_value(component, fx.NAME, track.get('name'))
+            elif component.get('class') == 'BoundingSphere':
+                component.set('instancename', guid('vfx/tianfeng/component/bounds'))
+            else:
+                group.remove(track)
+        if not group.findall('track'):
+            root.find('trackgroups').remove(group)
+    if sword is None:
+        raise ValueError('Verified native greatsword donor missing')
+    # Define this horizontal pose in the original steel coordinate frame;
+    # the shared glow pass then maps it to the proven native luminous GR2.
+    fall.scalar(dictionary, sword, fx.MESH, f"{GREAT_SWORD['name']} <{GREAT_SWORD['guid']}>")
+    fx.timing(sword, 0, DURATION)
+    fall.scalar(dictionary, sword, fx.POSITION, ','.join(map(str, SWORD_POSITION)))
+    fall.constants(dictionary, sword, fx.MODEL_SCALE, SWORD_SCALE)
+    fall.constants(dictionary, sword, fall.INITIAL_ROTATION, (0, 0, 0))
+    fall.constants(dictionary, sword, fall.KEYFRAMED_OFFSET, (0, 0, 0))
+    fx.replace_ramp(dictionary, sword, fall.ALPHA, (
+        [(0, 0), (.035 / DURATION, 1), (.55 / DURATION, 1), (1, 0)],))
+
+    # The native Rush's forward ogive meshes supply two faint side contours.
+    # Their zero local path means they cannot outrun a blocked/stopped actor.
+    rush_path = data / RUSH
+    rush_root = ET.parse(rush_path).getroot()
+    donor = fall.native_track(rush_root, RUSH_TRACK)
+    native = donor.find('component')
+    mesh = native.find(f'./properties/property[@id="{fx.MESH}"]/data/datum')
+    if native.get('class') != 'Model' or mesh is None or RUSH_MESH not in mesh.get('value', ''):
+        raise ValueError('Verified native Rush contour changed')
+    contours = fall.group(root, 'Tianfeng low-brightness side streams', 3)
+    packed_gold = (0xff000000 | 255 << 16 | 183 << 8 | 35) - 0x100000000
+    for index, side in enumerate((-1, 1)):
+        track = copy.deepcopy(donor)
+        track.set('muted', 'False'); track.set('mutestateoverride', 'Unmuted')
+        track.set('name', f'Tianfeng side stream {index + 1}')
+        component = track.find('component')
+        component.set('instancename', guid(f'vfx/tianfeng/component/side/{index}'))
+        fx.set_value(component, fx.NAME, track.get('name'))
+        fx.timing(component, 0, .65)
+        fall.scalar(dictionary, component, fx.POSITION, f'{side * .62},.85,-1.5')
+        fall.constants(dictionary, component, fx.MODEL_SCALE, (.38, .55, .55))
+        fall.constants(dictionary, component, fall.KEYFRAMED_OFFSET, (0, 0, 0))
+        fall.constants(dictionary, component, fall.ROTATION_RPM, (0, 0, 0))
+        fall.constants(dictionary, component, fall.ROTATION_LIFE, (0, 0, 0))
+        fall.constants(dictionary, component, fx.MODEL_COLOR, (packed_gold,))
+        fall.constants(dictionary, component, fall.MODEL_BRIGHTNESS, (1.,))
+        fx.replace_ramp(dictionary, component, fall.ALPHA, (
+            [(0, 0), (.06 / .65, .18), (.4 / .65, .18), (1, 0)],))
+        contours.append(track)
+    fx.bounds(dictionary, root, 6, DURATION)
+    origins.append(rush_path)
+    details = dict(
+        sword_count=1, steel_reference_scale=SWORD_SCALE,
+        steel_reference_position=SWORD_POSITION,
+        sword_length=(GREAT_SWORD['bounds_max'][2] - GREAT_SWORD['bounds_min'][2]) * SWORD_SCALE[2],
+        direction='caster local -Z', duration=DURATION, fade_in=.035,
+        fade_start=.55, fade_end=DURATION, loop=False,
+        side_stream_count=2, side_stream_max_alpha=.18,
+        caster_attachment='CastEffect TargetBone=Dummy_Root; DetachTarget=false; KeepRotation=false',
+        world_path=False, gameplay_changed=False, giant_sword_count=1,
+        expected_motion='Follows actual Rush root transform, including collision stops; bounded fade after release',
+        remaining='Native rendered direction, actor attachment, full/blocked rush and end fade acceptance',
+    )
+    return root, origins, details

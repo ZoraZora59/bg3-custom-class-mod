@@ -11,6 +11,14 @@ function E.uuid(entity)
     if not entity then return nil end
     return entity.Uuid and tostring(entity.Uuid.EntityUuid) or nil
 end
+function E.sameEntity(first,second)
+    if first==nil or second==nil then return false end
+    if first==second then return true end
+    -- Osiris may supply Name_GUID while ECS causes expose GUID or handles.
+    -- Resolve both through the documented Entity API rather than compare text.
+    local firstUuid,secondUuid=E.uuid(E.entity(first)),E.uuid(E.entity(second))
+    return firstUuid~=nil and secondUuid~=nil and firstUuid:lower()==secondUuid:lower()
+end
 function E.refUuid(ref)
     if not ref then return nil end
     local ok,entity=pcall(function() return E.entity(ref.Handle or ref) end)
@@ -89,7 +97,7 @@ function E.nearby(id,range,relation)
         local target=E.uuid(entity)
         local position=target and E.position(target)
         if position and Osi.IsCharacter(target)==1 and E.alive(target) and R.within(position,center,range)
-            and (not relation or relation(id,target)) then result[#result+1]=target end
+            and Osi.IsOnStage(target)==1 and (not relation or relation(id,target)) then result[#result+1]=target end
     end
     return result
 end
@@ -116,14 +124,28 @@ function E.sword(id,offhand)
     if not id then return nil end
     return E.isSword(Osi.GetEquippedItem(id,offhand and 'Melee Offhand Weapon' or 'Melee Main Weapon'))
 end
+-- Technique foundations choose exactly one sword; ordinary attacks retain E.sword's hand.
+function E.preferredSword(id)
+    local main=E.sword(id);if main then return main,'main' end
+    local off=E.sword(id,true);if off then return off,'off' end
+    return nil,'qi'
+end
+function E.shield(id)
+    -- GetEquippedShield failure returns a truthy NULL GUID string in the client.
+    -- Query the documented Shield slot and validate the actual equipment kind.
+    local item=Osi.GetEquippedItem(id,'Shield');if not item then return nil end
+    if Osi.IsEquipmentWithProficiency(item,'Shields')==1 then return item end
+    local entity=E.entity(item)
+    return entity and entity.Armor and entity.Armor.Shield==true and item or nil
+end
 function E.allowed(id,branch,offensive)
-    if Osi.GetEquippedShield(id) then return false end
+    if E.shield(id) then return false end
     if branch=='taixuan' or branch=='xingge' then
         local armor=Osi.GetEquippedItem(id,'Breast')
         if armor and (Osi.IsEquipmentWithProficiency(armor,'MediumArmor')==1
             or Osi.IsEquipmentWithProficiency(armor,'HeavyArmor')==1) then return false end
     end
-    return not offensive or E.sword(id)~=nil or branch=='taixuan' or branch=='xueyan'
+    return not offensive or E.sword(id)~=nil or E.sword(id,true)~=nil or E.class(id)>0
 end
 function E.spellName(value)
     if type(value)=='string' then return value end
@@ -162,6 +184,26 @@ function E.damageTransfer(id,amount,damageType,source)
     Osi.ApplyDamage(id,amount,damageType or 'Force',source or id)
 end
 function E.hasPassive(id,name) return Osi.HasPassive(id,name)==1 end
+function E.weaponWisdomCauses(item,owner)
+    local entity=E.entity(item)
+    local causes,seen={},{}
+    for _,entry in pairs(entity and entity.BoostsContainer and entity.BoostsContainer.Boosts or {}) do
+        if entry.Type=='WeaponAttackRollAbilityOverride' then for _,handle in pairs(entry.Boosts or {}) do
+            local boost=E.entity(handle);local info=boost and boost.BoostInfo
+            local ability=boost and boost.WeaponAttackRollAbilityOverrideBoost and boost.WeaponAttackRollAbilityOverrideBoost.Ability
+            local cause=info and info.Cause and tostring(info.Cause.Cause) or ''
+            local prefix='ESC_WEAPON_WISDOM_'
+            if cause:find(prefix,1,true)==1 and E.sameEntity(cause:sub(#prefix+1),owner) and (ability=='Wisdom' or ability==5) and not seen[cause] then
+                causes[#causes+1]=cause;seen[cause]=true
+            end
+        end end
+    end
+    return causes
+end
+function E.hasWeaponWisdom(item,cause)
+    local prefix='ESC_WEAPON_WISDOM_'
+    return cause:find(prefix,1,true)==1 and #E.weaponWisdomCauses(item,cause:sub(#prefix+1))>0
+end
 function E.swordAttribute(id,offhand)
     local weapon=E.sword(id,offhand)
     local entity=E.entity(weapon)
@@ -185,6 +227,12 @@ function E.swordAttribute(id,offhand)
     end
     if override then ordinary=override end
     return math.max(ordinary,E.ability(id,'Wisdom')),ordinary
+end
+function E.techniqueAttribute(id,offhand)
+    local sword,hand=E.preferredSword(id)
+    if offhand then sword,hand=E.sword(id,true),'off' end
+    if not sword then return E.ability(id,'Wisdom'),hand end
+    return E.swordAttribute(id,hand=='off'),hand
 end
 function E.setResource(id,uuid,amount)
     if not uuid then return false end

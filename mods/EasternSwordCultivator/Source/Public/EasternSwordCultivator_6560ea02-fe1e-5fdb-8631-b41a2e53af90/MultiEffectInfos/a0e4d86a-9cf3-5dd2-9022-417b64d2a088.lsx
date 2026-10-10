@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="MultiEffectInfos">
+        <node id="MultiEffectInfos">
+            <attribute id="UUID" type="guid" value="a0e4d86a-9cf3-5dd2-9022-417b64d2a088" />
+            <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Tianqing_Tianbeng_Hit_01" />
+            <children>
+                <node id="EffectInfo">
+                    <attribute id="UUID" type="guid" value="9b67e58e-8690-55c9-9674-c4a13d403c7e" />
+                    <attribute id="EffectResourceGuid" type="guid" value="18932022-4d7e-5320-9ebb-bd1ad84e0848" />
+                    <attribute id="DetachSource" type="bool" value="True" />
+                    <attribute id="DetachTarget" type="bool" value="True" />
+                    <attribute id="KeepRotation" type="bool" value="False" />
+                    <attribute id="UseOrientDirection" type="bool" value="False" />
+                    <attribute id="UseDistance" type="bool" value="False" />
+                    <attribute id="UseScaleOverride" type="bool" value="False" />
+                    <attribute id="KeepScale" type="bool" value="True" />
+                    <attribute id="MainHand" type="bool" value="False" />
+                    <attribute id="OffHand" type="bool" value="False" />
+                    <attribute id="MinDistance" type="float" value="0" />
+                    <attribute id="MaxDistance" type="float" value="0" />
+                    <attribute id="BindSourceTo" type="FixedString" value="SourceEntity" />
+                    <attribute id="BindTargetTo" type="FixedString" value="TargetEntity" />
+                    <attribute id="Pivot" type="FixedString" value="Target" />
+                    <attribute id="Enabled" type="bool" value="True" />
+                    <attribute id="DamageType" type="uint32" value="0" />
+                    <attribute id="VerbalIntent" type="uint32" value="0" />
+                    <children>
+                        <node id="TargetBone">
+                            <attribute id="Value" type="LSString" value="Dummy_BodyFX" />
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

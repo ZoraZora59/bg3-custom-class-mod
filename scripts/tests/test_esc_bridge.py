@@ -55,6 +55,12 @@ class Bridge(unittest.TestCase):
         self.lua.execute('ESC={}')
         self.lua.globals().ESC.Rules=self.lua.execute(SNAPSHOT['Rules.lua'].decode('utf-8'))
         self.lua.globals().ESC.Engine=self.lua.execute(SNAPSHOT['Engine.lua'].decode('utf-8'))
+        module_cache={}
+        def require(path):
+            if path not in module_cache:
+                module_cache[path]=self.lua.execute(SNAPSHOT[path].decode('utf-8'))
+            return module_cache[path]
+        self.lua.globals().Ext.Require=require
         self.lua.execute(SNAPSHOT['Runtime.lua'].decode('utf-8'))
         self.F=self.lua.globals().Fixture
         self.E=self.lua.globals().ESC.Engine
@@ -117,7 +123,9 @@ class Bridge(unittest.TestCase):
 
     def native_damage(self,source,target,parts,spell=None,action=1,status=None):
         hit=self.table(dict(DamageList=[dict(Amount=p,DamageType='Force') for p in parts],TotalDamageDone=sum(parts),SpellId=spell,StatusId=status))
-        event=self.table(dict(Caster=source,Target=target,StoryActionId=action,Hit=hit))
+        # This fixture represents one logical native functor, shared across victims.
+        event=self.table(dict(Caster=source,Target=target,StoryActionId=action,Hit=hit,
+                              Functor=dict(FunctorUuid='11111111-1111-1111-1111-111111111111')))
         event.Hit=hit
         self.F.event('DealDamage',event)
         self.F.event('BeforeDealDamage',self.table(dict(Hit=hit)))
@@ -150,6 +158,52 @@ class Bridge(unittest.TestCase):
             self.assertIn(listener.name,signatures)
             self.assertEqual(listener.arity,signatures[listener.name],listener.name)
 
+    def test_session_load_defers_osiris_migration_and_coalesces_until_unrestricted_tick(self):
+        entity=self.actor(level=8,branch='tianqing')
+        self.lua.execute('''Fixture.deferNextTicks=true;Fixture.restricted=true
+            for name,fn in pairs(Osi) do
+                local callback=fn
+                Osi[name]=function(...)
+                    assert(not Fixture.restricted,'Attempted to call Osiris function in restricted context')
+                    return callback(...)
+                end
+            end''')
+        self.F.clearCalls()
+        self.F.event('SessionLoaded',self.table({}))
+        self.F.event('SessionLoaded',self.table({}))
+        self.assertIsNone(entity.Vars.ESC_State)
+        self.assertEqual(len(self.F.timers),0)
+        self.assertEqual(self.F.callCount('AddPassive'),0)
+        # Resolve entities afresh: the avatar can be finalized after the event.
+        self.F.restricted=False
+        self.F.runNextTick()
+        self.assertEqual(entity.Vars.ESC_State.nativeContinuous,1)
+        for passive in SPEC['continuousPassives']:
+            self.assertTrue(entity._passives[passive])
+        self.assertEqual(self.F.callCount('Print'),1)
+        self.assertEqual(len([timer for timer in self.F.timers.values() if timer.ms==200]),1)
+
+    def test_rescue_reads_ecs_status_handle_to_name_map_without_nil_stats_lookup(self):
+        entity=self.actor(branch='taixuan',level=5)
+        self.F.resource('sword').Amount=10
+        entity.StatusContainer.Statuses=self.table({
+            'status-handle-control':'TEST_ECS_STUN', 'status-handle-unrelated':'TEST_ECS_MARK'})
+        self.F.stats['TEST_ECS_STUN']=self.table({'StatusGroups':['SG_Stunned']})
+        self.F.stats['TEST_ECS_MARK']=self.table({'StatusGroups':['SG_Invisible']})
+        self.lua.execute('''local get=Ext.Stats.Get
+            function Ext.Stats.Get(name,...)
+                assert(type(name)=='string','Stats.Get requires a status name')
+                return get(name,...)
+            end''')
+        self.ESC.Runtime.UpdateRescue('sword')
+        packets=[self.F.jsonPackets[call.args[3]] for call in self.F.calls.values()
+                 if call.name=='PostMessageToClient' and call.args[2]=='ESC_ControlRescueState']
+        token=next(packet.token for packet in packets if packet.available)
+        self.rescue_intent('sword',token)
+        self.assertFalse(self.E.hasStatus('sword','TEST_ECS_STUN'))
+        self.assertTrue(self.E.hasStatus('sword','TEST_ECS_MARK'))
+        self.assertEqual((self.F.resource('sword').Amount,self.bonus().Amount),(6,0))
+
     def test_new_game_ready_discovers_class_after_initial_equipment_without_an_attack(self):
         entity=self.actor(level=1,branch=None)
         finalized=entity.Classes
@@ -178,6 +232,8 @@ class Bridge(unittest.TestCase):
         self.lua.globals().Osi.ApplyStatus('sword','ESC_COUNTER_READY',12,1,'sword')
         self.F.resource('sword').Amount=3
         opportunity=self.E.resourceEntry('sword',SPEC['opportunityResource'])
+        state.nativeContinuous=1
+        self.E.status('sword','ESC_EXTRA_ATTACK',1,'sword')
         opportunity.Amount=1
         resource_ids=(SPEC['resource'],SPEC['opportunityResource'],
                       '734cbcfb-8922-4b6d-8330-b2a7e4c14b6a',
@@ -275,10 +331,87 @@ class Bridge(unittest.TestCase):
         entity=self.actor(branch='tianqing')
         entity._equipped['Melee Main Weapon']=None
         self.assertTrue(self.E.allowed('sword','tianqing',False))
-        self.assertFalse(self.E.allowed('sword','tianqing',True))
+        self.assertTrue(self.E.allowed('sword','tianqing',True))
         self.assertTrue(self.E.allowed('sword','taixuan',True))
         entity._equipped.Shield='shield'
         self.assertFalse(self.E.allowed('sword','taixuan',False))
+
+    def test_offhand_sword_offensive_gate_retains_shield_and_armor_limits(self):
+        for branch in ('tianqing','xingge'):
+            with self.subTest(branch=branch):
+                entity=self.actor(branch=branch)
+                self.F.entities['dagger']=self.table(dict(_proficiencies={'Daggers':True}))
+                entity._equipped['Melee Main Weapon']='dagger'
+                entity._equipped['Melee Offhand Weapon']='sword:sword'
+                self.assertTrue(self.E.allowed('sword',branch,True))
+                entity._equipped.Shield='shield'
+                self.assertFalse(self.E.allowed('sword',branch,True))
+                entity._equipped.Shield=None
+                self.F.entities['armor']=self.table(dict(_proficiencies={'MediumArmor':True}))
+                entity._equipped.Breast='armor'
+                self.assertEqual(self.E.allowed('sword',branch,True),branch=='tianqing')
+                entity._equipped.Breast=None
+                entity._equipped['Melee Offhand Weapon']='dagger'
+                self.assertTrue(self.E.allowed('sword',branch,True))
+
+    def test_offhand_sword_starts_flight_for_physical_sword_branches(self):
+        for action,branch in enumerate(('tianqing','xingge'),301):
+            with self.subTest(branch=branch):
+                entity=self.actor(branch=branch)
+                self.F.entities['dagger']=self.table(dict(_proficiencies={'Daggers':True}))
+                entity._equipped['Melee Main Weapon']='dagger'
+                entity._equipped['Melee Offhand Weapon']='sword:sword'
+                self.cast('sword','sword_flight',action=action)
+                self.assertTrue(self.E.hasStatus('sword','ESC_IN_FLIGHT'))
+                self.assertEqual(self.E.resourceEntry('sword',SPEC['flightResource']).Amount,24)
+
+    def test_offhand_sword_resonance_pauses_on_loss_and_resumes_without_recast(self):
+        entity=self.actor(branch='xingge');self.actor('ally',0,None,100,100,'players',0)
+        self.actor('enemy',0,None,100,100,'enemies',5)
+        self.cast('sword','xingge_zhangjian')
+        self.F.entities['dagger']=self.table(dict(_proficiencies={'Daggers':True}))
+        entity._equipped['Melee Main Weapon']='dagger'
+        entity._equipped['Melee Offhand Weapon']=None
+        self.F.clearCalls()
+        for action,offhand in ((301,None),(302,'sword:sword'),(303,'sword:sword')):
+            entity._equipped['Melee Offhand Weapon']=offhand
+            self.F.emit('Equipped' if offhand else 'Unequipped','sword:sword','sword')
+            self.ESC.Runtime.BeginCast('ally','Target_MainHandAttack',action,'enemy')
+            self.ESC.Runtime.Hit('ally','enemy',action)
+            self.ESC.Runtime.FinishCast('ally','Target_MainHandAttack',action)
+            for timer in list(self.F.timers.values()):
+                if timer.ms==1: timer.callback()
+            echoes=[call for call in self.F.calls.values() if call.name=='UseSpell' and call.args[2]=='Target_ESC_Resonance']
+            self.assertEqual(len(echoes),1)
+        self.assertEqual(self.ESC.State('sword').domains.xingge_zhangjian.expires,4)
+
+    def test_chuanshen_actual_movement_grants_two_owner_turns_of_armor(self):
+        entity=self.actor(branch='xueyan',level=4)
+        entity._equipped['Melee Main Weapon']=None
+        entity._equipped['Melee Offhand Weapon']='sword:sword'
+        spell=SPEC['spells']['xueyan_chuanshen']['stat']
+        self.ESC.Runtime.BeginCast('sword',spell,310,'enemy')
+        entity.Transform.Transform.Translate=self.table([6,0,0])
+        self.ESC.Runtime.FinishCast('sword',spell,310)
+        self.assertEqual(self.ESC.State('sword').dashUntil,2)
+        self.assertEqual(entity._boosts['ESC_combat'],'AC(3)')
+        self.F.emit('TurnStarted','sword')
+        self.assertEqual(entity._boosts['ESC_combat'],'AC(3)')
+        self.F.emit('TurnStarted','sword')
+        self.assertEqual(entity._boosts['ESC_combat'],'AC(1)')
+
+    def test_chuanshen_no_movement_or_failed_cast_cannot_grant_armor(self):
+        entity=self.actor(branch='xueyan',level=4)
+        spell=SPEC['spells']['xueyan_chuanshen']['stat']
+        self.ESC.Runtime.BeginCast('sword',spell,311,'enemy')
+        self.ESC.Runtime.FinishCast('sword',spell,311)
+        self.assertIsNone(self.ESC.State('sword').dashUntil)
+        self.ESC.Runtime.BeginCast('sword',spell,312,'enemy')
+        entity.Transform.Transform.Translate=self.table([6,0,0])
+        self.F.emit('CastSpellFailed','sword',spell,'Rush','',312)
+        self.ESC.Runtime.FinishCast('sword',spell,312)
+        self.assertIsNone(self.ESC.State('sword').dashUntil)
+        self.assertEqual(entity._boosts['ESC_combat'],'AC(1)')
 
     def test_sword_attribute_compares_wisdom_to_real_weapon_attribute(self):
         entity=self.actor(branch='taixuan')
@@ -374,33 +507,31 @@ class Bridge(unittest.TestCase):
         self.F.event('AfterExecuteFunctor',self.table({}))
         self.assertEqual(healed._hp,40)
 
-    def test_strict_entity_proxy_item_detection_for_status_and_recall(self):
+    def test_strict_entity_proxy_item_detection_for_status(self):
         self.actor(branch='taixuan',level=5)
         self.actor('enemy',0,None,100,100,'enemies',2)
         self.F.strictEntity('enemy')
         self.F.emit('StatusApplied','enemy','BLINDED','sword',301)
         self.F.emit('StatusRemoved','enemy','BLINDED','sword',301)
-        loose=self.table(dict(_isItem=True,_owner='sword',_equipped=False,
+        loose=self.table(dict(_isItem=True,_owner='sword',
             Uuid=dict(EntityUuid='loose'),Transform=dict(Transform=dict(Translate=[1,0,0]))))
         self.F.entities['loose']=loose
         self.F.strictEntity('loose')
         self.F.emit('StatusApplied','loose','PACT_WEAPON','sword',302)
         self.F.emit('StatusRemoved','loose','PACT_WEAPON','sword',302)
-        self.cast('sword','recall_sword','loose',action=303)
-        equips=[call for call in self.F.calls.values() if call.name=='Equip']
-        self.assertEqual(len(equips),1)
-        self.assertEqual((equips[0].args[1],equips[0].args[2]),('sword','loose'))
 
-    def test_one_full_sword_action_opportunities_never_refill_bonus_offhand_or_internal_hits(self):
+    def test_runtime_never_mints_native_continuation_charges_including_last_charge(self):
         self.actor();self.actor('enemy',0,None,1000,1000,'enemies',2)
         pool=self.E.resourceEntry('sword',SPEC['opportunityResource'])
         spell=SPEC['spells']['xueyan_luexue']['stat']
         self.ESC.Runtime.BeginCast('sword',spell,21,'enemy')
         self.ESC.Runtime.FinishCast('sword',spell,21)
-        self.assertEqual(pool.Amount,3)
+        self.assertEqual(pool.Amount,0,'Only the native OnCast passive may grant charges')
+        # Supply an existing native grant at this Lua boundary; the independent
+        # generated-fee tests cover payment, not this bridge fixture.
+        pool.Amount=3
+        self.E.status('sword','ESC_EXTRA_ATTACK',1,'sword')
         self.ESC.Runtime.BeginCast('sword',spell,22,'enemy')
-        # The engine's native use-cost rewrite is outside this fixture; model its
-        # one opportunity charge explicitly, then verify production finish logic.
         self.assertTrue(self.E.spendResource('sword',SPEC['opportunityResource'],1))
         self.ESC.Runtime.FinishCast('sword',spell,22)
         self.assertEqual(pool.Amount,2)
@@ -410,9 +541,132 @@ class Bridge(unittest.TestCase):
         internal='Target_ESC_BloodPulse'
         self.ESC.Runtime.BeginCast('sword',internal,24,'enemy');self.ESC.Runtime.FinishCast('sword',internal,24)
         self.assertEqual(pool.Amount,2)
-        pool.Amount=0;self.E.removeStatus('sword','ESC_EXTRA_ATTACK','sword')
+        # Reproduce a last charge paid BEFORE UsingSpell. The old snapshot
+        # inferred a new action here and minted three more opportunities.
+        pool.Amount=0
         self.ESC.Runtime.BeginCast('sword',spell,25,'enemy');self.ESC.Runtime.FinishCast('sword',spell,25)
-        self.assertEqual(pool.Amount,3)
+        self.assertEqual(pool.Amount,0)
+
+    def test_native_continuation_migration_and_lifecycle_clear_without_replenishing(self):
+        entity=self.actor(level=8,branch='tianqing')
+        pool=self.E.resourceEntry('sword',SPEC['opportunityResource'])
+        pool.Amount=3
+        self.E.status('sword','ESC_EXTRA_ATTACK',-1,'sword')
+        for status in SPEC['opportunityStatuses']:
+            self.E.status('sword',status,-1,'sword')
+        self.F.event('SessionLoaded',self.table({}))
+        self.assertEqual(pool.Amount,0,'Old Lua-managed grants are retired once')
+        self.assertTrue(all(entity._passives[name] for name in SPEC['continuousPassives']))
+        self.assertFalse(self.E.hasStatus('sword','ESC_EXTRA_ATTACK'))
+        self.assertFalse(any(self.E.hasStatus('sword',status) for status in SPEC['opportunityStatuses']))
+        additions=self.F.callCount('AddPassive')
+        self.F.event('SessionLoaded',self.table({}))
+        self.assertEqual(self.F.callCount('AddPassive'),additions)
+        for event,args in (('TurnStarted',('sword',)),('LeftCombat',('sword','combat'))):
+            pool.Amount=2
+            self.E.status('sword','ESC_EXTRA_ATTACK',1,'sword')
+            for status in SPEC['opportunityStatuses']:
+                self.E.status('sword',status,-1,'sword')
+            self.F.emit(event,*args)
+            self.assertEqual(pool.Amount,0,event)
+            self.assertFalse(any(self.E.hasStatus('sword',status) for status in SPEC['opportunityStatuses']),event)
+        entity.Classes.Classes[1].Level=4
+        self.F.emit('RespecCompleted','sword')
+        self.assertFalse(any(entity._passives[name] for name in SPEC['continuousPassives']))
+
+    def pending_native_continuation(self):
+        # Explicit engine boundary: the B5A action64 log established AP1/Yuan10
+        # payment and native Extra application; this test supplies the pending
+        # resource grant, not an engine timing simulation or a Lua grant.
+        entity=self.actor(level=12,branch='taixuan')
+        self.actor('enemy',0,None,1000,1000,'enemies',2)
+        self.ESC.Refresh('sword')  # Finish one-time saved-character migration.
+        pool=self.E.resourceEntry('sword',SPEC['opportunityResource'])
+        pool.MaxAmount=3;pool.Amount=3
+        self.E.resourceEntry('sword',self.E.action).Amount=0
+        self.F.resource('sword').Amount=40
+        self.assertFalse(self.E.hasStatus('sword','ESC_EXTRA_ATTACK'))
+        return entity,pool
+
+    def assert_pending_grant_and_later_permissions(self,pool):
+        from test_esc_continuous_strikes import Actor,NativeDataModel
+        spell=SPEC['spells']['taixuan_xinghe']['stat']
+        # A resource balance alone does not replace a native action cost.
+        native=Actor(level=12,branch='taixuan',actions=0,yuan=40,opportunity=pool.Amount)
+        self.assertEqual(NativeDataModel(native).selected_costs(spell),
+                         {'ActionPoint':1,'ESC_SwordYuan':10})
+        self.assertEqual((pool.Amount,pool.MaxAmount),(3,3))
+        self.assertFalse(self.E.hasStatus('sword','ESC_EXTRA_ATTACK'))
+        # Deliver the native status/permission application after the intervening
+        # guard event, in the order witnessed in B5A's Osiris action64 capture.
+        for status in ('ESC_EXTRA_ATTACK',*SPEC['opportunityStatuses']):
+            self.lua.globals().Osi.ApplyStatus('sword',status,6,1,'sword')
+            self.F.emit('StatusApplied','sword',status,'sword',964)
+        self.assertEqual((pool.Amount,pool.MaxAmount),(3,3))
+        native.statuses={status for status in ('ESC_EXTRA_ATTACK',*SPEC['opportunityStatuses'])
+                         if self.E.hasStatus('sword',status)}
+        self.assertEqual(len(native.statuses),1+len(SPEC['opportunityStatuses']))
+        self.assertEqual(NativeDataModel(native).selected_costs(spell),
+                         {'ESC_SwordOpportunity':1,'ESC_SwordYuan':10})
+        self.assertEqual(self.E.resourceEntry('sword',self.E.action).Amount,0)
+        self.assertEqual(self.F.resource('sword').Amount,40)
+
+    def test_native_grant_survives_ready_applied_before_extra_attack_application(self):
+        _,pool=self.pending_native_continuation()
+        osi=self.lua.globals().Osi
+        osi.ApplyStatus('sword','ESC_COUNTER_RANK3',12,1,'sword')
+        osi.ApplyStatus('sword','ESC_COUNTER_READY',12,1,'sword')
+        self.F.emit('StatusApplied','sword','ESC_COUNTER_READY','sword',964)
+        self.assertEqual(self.ESC.State('sword').guard.rank,3)
+        self.assert_pending_grant_and_later_permissions(pool)
+
+    def test_native_grant_survives_ready_removed_before_extra_attack_application(self):
+        _,pool=self.pending_native_continuation()
+        osi=self.lua.globals().Osi
+        osi.ApplyStatus('sword','ESC_COUNTER_RANK2',12,1,'sword')
+        osi.ApplyStatus('sword','ESC_COUNTER_READY',12,1,'sword')
+        # The old Ready has expired during an upgrade and the new Ready is not
+        # active yet. The removed listener must retire DR without clearing the
+        # independent native grant waiting for its Extra status application.
+        osi.RemoveStatus('sword','ESC_COUNTER_READY','sword')
+        self.F.emit('StatusRemoved','sword','ESC_COUNTER_READY','sword',963)
+        self.assertIsNone(self.ESC.State('sword').guard)
+        self.assert_pending_grant_and_later_permissions(pool)
+
+    def test_guard_refresh_without_native_grant_does_not_mint_charges_or_permissions(self):
+        _,pool=self.pending_native_continuation();pool.Amount=0
+        osi=self.lua.globals().Osi
+        osi.ApplyStatus('sword','ESC_COUNTER_READY',12,1,'sword')
+        self.F.emit('StatusApplied','sword','ESC_COUNTER_READY','sword',965)
+        osi.RemoveStatus('sword','ESC_COUNTER_READY','sword')
+        self.F.emit('StatusRemoved','sword','ESC_COUNTER_READY','sword',965)
+        self.assertEqual((pool.Amount,pool.MaxAmount),(0,3))
+        self.assertFalse(self.E.hasStatus('sword','ESC_EXTRA_ATTACK'))
+        self.assertFalse(any(self.E.hasStatus('sword',status) for status in SPEC['opportunityStatuses']))
+
+    def test_pending_and_active_native_grants_still_clear_at_explicit_boundaries(self):
+        for active in (False,True):
+            for boundary in ('TurnStarted','LeftCombat','Shield','MediumArmor','HeavyArmor','Dead','BelowLevel5'):
+                with self.subTest(active=active,boundary=boundary):
+                    self.setUp();entity,pool=self.pending_native_continuation()
+                    if active:
+                        for status in ('ESC_EXTRA_ATTACK',*SPEC['opportunityStatuses']):
+                            self.lua.globals().Osi.ApplyStatus('sword',status,6,1,'sword')
+                    if boundary=='TurnStarted': self.F.emit('TurnStarted','sword')
+                    elif boundary=='LeftCombat': self.F.emit('LeftCombat','sword','combat')
+                    elif boundary=='Shield':
+                        entity._equipped.Shield='shield';self.F.emit('Equipped','shield','sword')
+                    elif boundary in ('MediumArmor','HeavyArmor'):
+                        armor=self.actor('armor',level=0)
+                        armor._proficiencies=self.table({boundary:True})
+                        entity._equipped.Breast='armor';self.F.emit('Equipped','armor','sword')
+                    elif boundary=='Dead':
+                        entity._dead=True;self.ESC.Refresh('sword')
+                    else:
+                        entity.Classes.Classes[1].Level=4;self.F.emit('RespecCompleted','sword')
+                    self.assertEqual((pool.Amount,pool.MaxAmount),(0,3),boundary)
+                    self.assertFalse(self.E.hasStatus('sword','ESC_EXTRA_ATTACK'),boundary)
+                    self.assertFalse(any(self.E.hasStatus('sword',status) for status in SPEC['opportunityStatuses']),boundary)
 
     def test_liuguang_root_miss_still_requests_three_independent_free_native_stages_once(self):
         self.actor(level=10,branch='taixuan')
@@ -420,12 +674,13 @@ class Bridge(unittest.TestCase):
         spell=SPEC['spells']['taixuan_liuguang']['stat']
         self.F.resource('sword').Amount=20
         self.ESC.Runtime.BeginCast('sword',spell,810,'enemy')
+        pool=self.E.resourceEntry('sword',SPEC['opportunityResource'])
+        pool.Amount=3;self.E.status('sword','ESC_EXTRA_ATTACK',1,'sword')
         # No main-hit callback: later swords must still be requested on a miss.
         self.ESC.Runtime.FinishCast('sword',spell,810)
         calls=[call for call in self.F.calls.values() if call.name=='UseSpell']
         self.assertEqual([(call.args[2],call.args[3]) for call in calls],
                          [('Target_ESC_LiuguangStage','enemy')]*3)
-        pool=self.E.resourceEntry('sword',SPEC['opportunityResource'])
         self.assertEqual(pool.Amount,3)
         self.ESC.Runtime.FinishCast('sword',spell,810)
         self.assertEqual(self.F.callCount('UseSpell'),3)
@@ -441,6 +696,7 @@ class Bridge(unittest.TestCase):
 
     def test_tianbeng_cone_uses_chosen_target_facing_filters_enemies_and_preserves_offhand(self):
         source=self.actor(level=10,branch='tianqing')
+        source._equipped['Melee Main Weapon']=None
         source._equipped['Melee Offhand Weapon']='sword:sword'
         main=self.actor('main',0,None,1000,1000,'enemies',8)
         for name,x,z in (('inside',4,0),('boundary',6,6),('side',4,4.1),('behind',-3,0),
@@ -449,8 +705,10 @@ class Bridge(unittest.TestCase):
             entity.Transform.Transform.Translate[3]=z
         self.actor('ally',0,None,1000,1000,'players',4)
         source._blocked='blocked'
-        spell='Target_ESC_tianqing_tianbeng_Off'
+        spell=SPEC['spells']['tianqing_tianbeng']['stat']
         self.ESC.Runtime.BeginCast('sword',spell,830)
+        pool=self.E.resourceEntry('sword',SPEC['opportunityResource'])
+        pool.Amount=3;self.E.status('sword','ESC_EXTRA_ATTACK',1,'sword')
         self.F.emit('UsingSpellOnTarget','sword','main',spell,'Target','',830)
         # The first native hit can kill/push the primary enemy before finish.
         main._dead=True
@@ -487,7 +745,7 @@ class Bridge(unittest.TestCase):
             self.ESC.Refresh(id)
             migrates=branch=='tianqing' and level>=6 and has_old
             self.assertEqual(all(entity._spells[spell] is None for spell in old),not has_old or migrates,id)
-            calls=[call for call in self.F.calls.values() if call.name=='AddSpell']
+            calls=[call for call in self.F.calls.values() if call.name=='AddSpell' and call.args[1]==id and call.args[2]==new]
             self.assertEqual(len(calls),int(migrates and not has_new),id)
             if calls:
                 self.assertEqual(tuple(calls[0].args[index] for index in range(1,5)),(id,new,0,1))
@@ -564,14 +822,18 @@ class Bridge(unittest.TestCase):
     def test_blood_domain_calls_four_actual_pulses_not_five(self):
         self.actor(branch='xueyan');self.actor('enemy',0,None,100,100,'enemies',2)
         self.cast('sword','xueyan_xuehai')
-        for _ in range(4): self.F.emit('TurnStarted','sword')
+        for _ in range(4):
+            self.F.timers=self.table([])
+            self.F.emit('TurnStarted','sword')
+            for timer in list(self.F.timers.values()):
+                if timer.ms==1: timer.callback()
         pulses=[call for call in self.F.calls.values() if call.name=='UseSpell' and call.args[2]=='Target_ESC_BloodPulse']
         self.assertEqual(len(pulses),4)
         self.assertTrue(all(call.args[3]=='enemy' for call in pulses))
 
     def test_taiqing_opening_buff_precedes_first_pulse_and_focus_has_three_hits(self):
         self.actor(branch='taixuan');self.actor('enemy',0,None,100,100,'enemies',2)
-        self.cast('sword','focus_target','enemy')
+        self.ESC.State('sword').focus='enemy'  # Existing saved focus identity.
         self.F.clearCalls();self.cast('sword','taixuan_taiqing',action=2)
         calls=list(self.F.calls.values())
         pulse_indexes=[i for i,call in enumerate(calls) if call.name=='UseSpell' and call.args[2]=='Target_ESC_TaiqingPulse']
@@ -714,7 +976,7 @@ class Bridge(unittest.TestCase):
         self.ESC.Runtime.BeginCast('sword',alias,221,'enemy')
         self.F.emit('CastedSpell','sword',alias,'Projectile','',221)
         self.ESC.State('sword').frenzy=2;self.ESC.Refresh('sword')
-        continuation='Target_ESC_wusheng_ContinueMelee'
+        continuation='Projectile_ESC_wusheng_ContinueRanged'
         cast=self.ESC.Runtime.BeginCast('sword',continuation,222,'enemy')
         self.assertEqual(cast.snapshot.attack,7)
         boosts=self.F.entities['sword']._boosts
@@ -919,7 +1181,8 @@ class Bridge(unittest.TestCase):
         for target in ('far','immune','near'):
             hit=self.table(dict(DamageList=[dict(Amount=1,DamageType='Force')],TotalDamageDone=1,
                                 Damage=dict(TotalDamage=101),SpellId=native))
-            event=self.table(dict(Caster='sword',Target=target,StoryActionId=191,Hit=hit))
+            event=self.table(dict(Caster='sword',Target=target,StoryActionId=191,Hit=hit,
+                                  Functor=dict(FunctorUuid='11111111-1111-1111-1111-111111111111')))
             self.F.event('DealDamage',event)
             self.F.event('BeforeDealDamage',self.table(dict(Hit=hit)))
             outcomes[target]=hit.TotalDamageDone
@@ -928,11 +1191,12 @@ class Bridge(unittest.TestCase):
 
     def test_support_bursts_use_friend_center_three_metres_and_selected_offhand(self):
         for key,helper,spell in (
-            ('xingge_chengfeng','Target_ESC_ChengfengBurst_Off','Target_ESC_xingge_chengfeng_Off'),
+            ('xingge_chengfeng','Target_ESC_ChengfengBurst_Off',SPEC['spells']['xingge_chengfeng']['stat']),
             ('xingge_huifeng','Target_ESC_HuifengControl',SPEC['spells']['xingge_huifeng']['stat'])):
             with self.subTest(key=key):
                 self.setUp()
                 entity=self.actor(branch='xingge')
+                entity._equipped['Melee Main Weapon']=None
                 entity._equipped['Melee Offhand Weapon']='sword:sword'
                 self.actor('friend',0,None,100,100,'players',10)
                 self.actor('otherfriend',0,None,100,100,'players',11)
@@ -1099,14 +1363,14 @@ class Bridge(unittest.TestCase):
         entity._spells=self.table({spell:True for spell in (*obsolete,'Target_ESC_sword_strike')})
         self.F.event('SessionLoaded',self.table({}))
         removed=[call for call in self.F.calls.values() if call.name=='RemoveSpell']
-        self.assertEqual({call.args[2] for call in removed},set(obsolete))
-        self.assertTrue(all(call.args[3]==1 for call in removed))
-        self.assertTrue(entity._spells['Target_ESC_sword_strike'])
+        self.assertEqual({call.args[2] for call in removed},set(obsolete)|{'Target_ESC_sword_strike'})
+        self.assertTrue(all(call.args[3]==(0 if call.args[2]=='Target_ESC_sword_strike' else 1) for call in removed))
+        self.assertIsNone(entity._spells['Target_ESC_sword_strike'])
         self.assertEqual(entity.Vars.ESC_State.startingSword,'greatsword')
         self.assertIsNotNone(entity.StatusContainer.Statuses['ESC_STARTING_SWORD_CHOSEN'])
         self.assertFalse(any(call.name=='TemplateAddTo' for call in self.F.calls.values()))
         self.F.event('SessionLoaded',self.table({}))
-        self.assertEqual(len([call for call in self.F.calls.values() if call.name=='RemoveSpell']),4)
+        self.assertEqual(len([call for call in self.F.calls.values() if call.name=='RemoveSpell']),5)
 
     def test_reload_consolidates_old_skill_menu_without_removing_bonus_children_or_unrelated_spells(self):
         entity=self.actor(level=4,branch='taixuan')
@@ -1114,13 +1378,14 @@ class Bridge(unittest.TestCase):
                  'Shout_ESC_Offhand_xueyan_luexue','Shout_ESC_Offhand_xingge_wenlu')
         introductory=tuple(parent+suffix for parent in ('Target_ESC_sword_strike','Projectile_ESC_yujian')
                            for suffix in ('','_Main','_Off'))
-        obsolete=(*offhand,*introductory,'Shout_ESC_tianqing_xushi','Shout_ESC_qi_guard')
+        obsolete=(*offhand,*introductory,'Shout_ESC_tianqing_xushi','Shout_ESC_qi_guard','Target_ESC_recall_sword')
         kept=['Projectile_FireBolt','Shout_ESC_taixuan_qinghui',SPEC['spells']['taixuan_zhaoxi']['stat']]
         for old,key in zip(offhand,('taixuan_zhaoxi','tianqing_nifeng','xueyan_luexue','xingge_wenlu')):
             children=[('Zone' if key=='tianqing_nifeng' else 'Target')+'_ESC_'+key+'_MeleeOff_Bonus',
                       ('Zone' if key=='tianqing_nifeng' else 'Projectile')+'_ESC_'+key+'_RangedOff_Bonus']
             self.F.stats[old]=self.table({'ContainerSpells':';'.join(children)})
-            kept.extend(children)
+            obsolete=(*obsolete,children[0])
+            kept.append(children[1])
         entity._spells=self.table({spell:True for spell in (*obsolete,*kept)})
         entity._passives=self.table({'ESC_P_StarterSword':True,'ESC_P_StarterMelee':True,
                                     'ESC_P_StarterGuard':True,'ESC_P_sword_heart':True})
@@ -1141,6 +1406,24 @@ class Bridge(unittest.TestCase):
         self.assertEqual(len([call for call in self.F.calls.values() if call.name=='RemoveSpell']),count)
         self.assertEqual(len([call for call in self.F.calls.values() if call.name=='RemovePassive']),3)
 
+    def test_reload_removes_retired_recall_from_tianqing_and_xingge_once(self):
+        for branch,regular in (('tianqing','tianqing_nifeng'),('xingge','xingge_wenlu')):
+            entity=self.actor(branch,3,branch)
+            retained=(SPEC['spells'][regular]['stat'],'Projectile_FireBolt')
+            entity._spells=self.table({spell:True for spell in (*retained,'Target_ESC_recall_sword')})
+            sword=self.E.sword(branch)
+            self.F.event('SessionLoaded',self.table({}))
+            self.assertIsNone(entity._spells['Target_ESC_recall_sword'])
+            self.assertTrue(all(entity._spells[spell] for spell in retained))
+            self.assertEqual(self.E.sword(branch),sword)
+            removed=[call for call in self.F.calls.values()
+                     if call.name=='RemoveSpell' and call.args[1]==branch]
+            self.assertEqual(len(removed),1)
+            self.assertEqual((removed[0].args[2],removed[0].args[3]),('Target_ESC_recall_sword',0))
+            self.F.event('SessionLoaded',self.table({}))
+            self.assertEqual(len([call for call in self.F.calls.values()
+                                 if call.name=='RemoveSpell' and call.args[1]==branch]),1)
+
     def test_skill_menu_migration_preserves_introductory_levels_and_other_branch_guards(self):
         introductory=tuple(parent+suffix for parent in ('Target_ESC_sword_strike','Projectile_ESC_yujian')
                            for suffix in ('','_Main','_Off'))
@@ -1153,9 +1436,10 @@ class Bridge(unittest.TestCase):
             self.ESC.Refresh(id)
             self.assertTrue(entity._spells['Shout_ESC_qi_guard'],id)
             self.assertTrue(entity._passives['ESC_P_StarterGuard'],id)
-            self.assertEqual(all(bool(entity._spells[spell]) for spell in introductory),level<3,id)
+            self.assertEqual({spell for spell in introductory if entity._spells[spell]},
+                             {'Projectile_ESC_yujian'} if level<3 else set(),id)
             self.assertEqual(bool(entity._passives['ESC_P_StarterSword']),level<3,id)
-            self.assertEqual(bool(entity._passives['ESC_P_StarterMelee']),level<3,id)
+            self.assertFalse(entity._passives['ESC_P_StarterMelee'],id)
 
     def test_skill_menu_migration_applies_after_level_and_respec_without_touching_nonclass_actors(self):
         entity=self.actor(level=2,branch=None)
@@ -1300,7 +1584,7 @@ class Bridge(unittest.TestCase):
         ''')
         native = SPEC['spells']['taixuan_yixiantian']['stat']
         self.ESC.Runtime.BeginCast('sword', native, 191, None, self.table([30, 0, 0]))
-        event_fields = self.table({key: True for key in ('Caster', 'Target', 'StoryActionId', 'Hit', 'Attack', 'SpellId', 'HitWith', 'Result')})
+        event_fields = self.table({key: True for key in ('Caster', 'Target', 'StoryActionId', 'Hit', 'Attack', 'SpellId', 'HitWith', 'Result', 'Functor')})
         hit_fields = self.table({key: True for key in ('DamageList', 'TotalDamageDone', 'Damage', 'SpellId', 'StatusId', 'HitWith', 'CauseType', 'Throwing', 'SpellAttackType')})
         before_fields = self.table(dict(Hit=True, Attack=True))
         outcomes = {}
@@ -1310,7 +1594,8 @@ class Bridge(unittest.TestCase):
             part = self.F.contractProxy(self.table(dict(Amount=1, DamageType='Force')), self.table(dict(Amount=True, DamageType=True)))
             hit = self.F.contractProxy(self.table(dict(DamageList=[part], TotalDamageDone=1, Damage=damage, SpellId=native)), hit_fields)
             spell_id = self.F.contractProxy(self.table(dict(Prototype=native)), self.table(dict(Prototype=True)))
-            event = self.F.contractProxy(self.table(dict(Caster='sword', Target=target, StoryActionId=191, Hit=hit, SpellId=spell_id)), event_fields)
+            functor = self.F.contractProxy(self.table(dict(FunctorUuid='11111111-1111-1111-1111-111111111111')), self.table(dict(FunctorUuid=True)))
+            event = self.F.contractProxy(self.table(dict(Caster='sword', Target=target, StoryActionId=191, Hit=hit, SpellId=spell_id, Functor=functor)), event_fields)
             self.F.event('DealDamage', event)
             self.F.event('BeforeDealDamage', self.F.contractProxy(self.table(dict(Hit=hit)), before_fields))
             outcomes[target] = hit.TotalDamageDone

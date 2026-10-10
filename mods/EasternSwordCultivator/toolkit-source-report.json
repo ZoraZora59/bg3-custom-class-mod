@@ -37,7 +37,7 @@
   },
   {
     "file": "ErrorDescriptions/ConditionErrors.tbl",
-    "rows": 19
+    "rows": 18
   },
   {
     "file": "Levelmaps/LevelMapValues.tbl",
@@ -49,31 +49,31 @@
   },
   {
     "file": "Stats/Stats/Passive.stats",
-    "rows": 22
+    "rows": 26
   },
   {
     "file": "Stats/SpellData/Projectile.stats",
-    "rows": 48
+    "rows": 35
   },
   {
     "file": "Stats/SpellData/Rush.stats",
-    "rows": 6
+    "rows": 2
   },
   {
     "file": "Stats/SpellData/Shout.stats",
-    "rows": 34
+    "rows": 32
   },
   {
     "file": "Stats/SpellData/Target.stats",
-    "rows": 54
+    "rows": 35
   },
   {
     "file": "Stats/SpellData/Zone.stats",
-    "rows": 8
+    "rows": 3
   },
   {
     "file": "Stats/StatusData/Status_BOOST.stats",
-    "rows": 115
+    "rows": 127
   },
   {
     "file": "Stats/Equipment/Equipment.stats",

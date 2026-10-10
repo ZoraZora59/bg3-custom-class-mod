@@ -35,6 +35,9 @@
         <field name="DescriptionParams" type="StringTableFieldDefinition" value="LevelMapValue(ESC_SwordOpportunities)" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_passive_continuous_strikes" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="Highlighted" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatsFunctorContext" value="OnCast" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="(SpellId('Projectile_ESC_yujian') or SpellId('Target_ESC_sword_strike') or SpellId('Shout_ESC_tiaoxi') or SpellId('Projectile_ESC_taixuan_zhaoxi') or SpellId('Target_ESC_taixuan_jiuxiao') or SpellId('Projectile_ESC_taixuan_liuguang') or SpellId('Shout_ESC_taixuan_xinghe') or SpellId('Shout_ESC_taixuan_taiqing') or SpellId('Zone_ESC_taixuan_yixiantian') or SpellId('Zone_ESC_tianqing_nifeng') or SpellId('Target_ESC_tianqing_wanjun') or SpellId('Target_ESC_tianqing_lietian')) and HasUseCosts('ActionPoint',true) and TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="UseActionResource(SELF,ESC_SwordOpportunity,100%,0);IF(HasPassive('ESC_P_Branch_xingge',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,1,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,2,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,3,0);ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -139,6 +142,46 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="3660a5c5-2f03-5e29-88b2-c4719dc79a20" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_ContinuousCast_1" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatsFunctorContext" value="OnCast" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="(SpellId('Target_ESC_tianqing_tianbeng') or SpellId('Rush_ESC_tianqing_tianfeng') or SpellId('Projectile_ESC_tianqing_tianjian') or SpellId('Shout_ESC_tianqing_bafang') or SpellId('Target_ESC_tianqing_tiandi') or SpellId('Shout_ESC_tianqing_xushi') or SpellId('Projectile_ESC_xueyan_luexue') or SpellId('Rush_ESC_xueyan_chuanshen') or SpellId('Shout_ESC_xueyan_liancheng') or SpellId('Shout_ESC_xueyan_nixue_F0') or SpellId('Shout_ESC_xueyan_nixue_F1') or SpellId('Shout_ESC_xueyan_nixue_F2')) and HasUseCosts('ActionPoint',true) and TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="UseActionResource(SELF,ESC_SwordOpportunity,100%,0);IF(HasPassive('ESC_P_Branch_xingge',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,1,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,2,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,3,0);ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="b871437c-ffe2-5da1-9a7e-9056918ed87d" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_ContinuousCast_2" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatsFunctorContext" value="OnCast" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="(SpellId('Shout_ESC_xueyan_nixue_F3') or SpellId('Shout_ESC_xueyan_nixue_F4') or SpellId('Shout_ESC_xueyan_nixue_F5') or SpellId('Shout_ESC_xueyan_nixue_F6') or SpellId('Shout_ESC_xueyan_nixue_F7') or SpellId('Shout_ESC_xueyan_nixue_F8') or SpellId('Shout_ESC_xueyan_nixue_F9') or SpellId('Shout_ESC_xueyan_nixue_F10') or SpellId('Shout_ESC_xueyan_nixue_F11') or SpellId('Shout_ESC_xueyan_nixue_F12') or SpellId('Shout_ESC_xueyan_nixue_F13') or SpellId('Shout_ESC_xueyan_nixue_F14')) and HasUseCosts('ActionPoint',true) and TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="UseActionResource(SELF,ESC_SwordOpportunity,100%,0);IF(HasPassive('ESC_P_Branch_xingge',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,1,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,2,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,3,0);ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c780025a-d878-5098-aacd-6e4423577c8c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_ContinuousCast_3" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatsFunctorContext" value="OnCast" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="(SpellId('Shout_ESC_xueyan_nixue_F15') or SpellId('Shout_ESC_xueyan_xuehai') or SpellId('Projectile_ESC_xueyan_wusheng_F0') or SpellId('Projectile_ESC_xueyan_wusheng_F1') or SpellId('Projectile_ESC_xueyan_wusheng_F2') or SpellId('Projectile_ESC_xueyan_wusheng_F3') or SpellId('Projectile_ESC_xueyan_wusheng_F4') or SpellId('Projectile_ESC_xueyan_wusheng_F5') or SpellId('Projectile_ESC_xueyan_wusheng_F6') or SpellId('Projectile_ESC_xueyan_wusheng_F7') or SpellId('Projectile_ESC_xueyan_wusheng_F8') or SpellId('Projectile_ESC_xueyan_wusheng_F9')) and HasUseCosts('ActionPoint',true) and TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="UseActionResource(SELF,ESC_SwordOpportunity,100%,0);IF(HasPassive('ESC_P_Branch_xingge',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,1,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,2,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,3,0);ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d71a0551-9c59-5f85-adf9-2195d0240190" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_P_ContinuousCast_4" />
+        <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
+        <field name="StatsFunctorContext" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatsFunctorContext" value="OnCast" />
+        <field name="Conditions" type="StringTableFieldDefinition" value="(SpellId('Projectile_ESC_xueyan_wusheng_F10') or SpellId('Projectile_ESC_xueyan_wusheng_F11') or SpellId('Projectile_ESC_xueyan_wusheng_F12') or SpellId('Projectile_ESC_xueyan_wusheng_F13') or SpellId('Projectile_ESC_xueyan_wusheng_F14') or SpellId('Projectile_ESC_xueyan_wusheng_F15') or SpellId('Projectile_ESC_xingge_wenlu') or SpellId('Target_ESC_xingge_chengfeng') or SpellId('Projectile_ESC_xingge_tongzhou') or SpellId('Shout_ESC_xingge_fengyu') or SpellId('Shout_ESC_xingge_zhangjian')) and HasUseCosts('ActionPoint',true) and TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))" />
+        <field name="StatsFunctors" type="FunctorsTableFieldDefinition" value="UseActionResource(SELF,ESC_SwordOpportunity,100%,0);IF(HasPassive('ESC_P_Branch_xingge',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,1,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,2,0);IF(not HasPassive('ESC_P_Branch_xingge',context.Source) and HasPassive('ESC_P_Level10',context.Source)):RestoreResource(SELF,ESC_SwordOpportunity,3,0);ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="037c8d35-a4c3-5443-b661-e2d9f03f1ab3" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_P_Branch_taixuan" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h01e011c8g5727g5aacg91b9g82472613730c" version="1" />
@@ -190,7 +233,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="66995995-75be-5bdf-9ebe-8651ad068e5f" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_P_StarterMelee" />
         <field name="Properties" type="EnumerationListTableFieldDefinition" enumeration_type_name="PassiveFlags" value="IsHidden" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_ESC_sword_strike)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

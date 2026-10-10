@@ -17,7 +17,7 @@
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_2" />
                     <attribute id="UUID" type="guid" value="79822d36-e5b0-527a-a8e6-6c2901ce4707" />
-                    <attribute id="Spells" type="LSString" value="Shout_ESC_qi_sword;Projectile_ESC_taixuan_zhaoxi" />
+                    <attribute id="Spells" type="LSString" value="Projectile_ESC_taixuan_zhaoxi;Projectile_ESC_taixuan_zhaoxi_RangedOff_Bonus" />
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_3" />
@@ -47,7 +47,7 @@
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_8" />
                     <attribute id="UUID" type="guid" value="aab08b69-55f4-547c-a094-36c3855a3b01" />
-                    <attribute id="Spells" type="LSString" value="Target_ESC_focus_target;Shout_ESC_taixuan_taiqing" />
+                    <attribute id="Spells" type="LSString" value="Shout_ESC_taixuan_taiqing" />
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_9" />
@@ -57,7 +57,7 @@
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_10" />
                     <attribute id="UUID" type="guid" value="a542e1af-85b4-5a64-a8ac-091d5030bccc" />
-                    <attribute id="Spells" type="LSString" value="Target_ESC_recall_sword;Zone_ESC_tianqing_nifeng;Target_ESC_tianqing_nixi" />
+                    <attribute id="Spells" type="LSString" value="Zone_ESC_tianqing_nifeng;Target_ESC_tianqing_nixi;Zone_ESC_tianqing_nifeng_RangedOff_Bonus" />
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_11" />
@@ -82,7 +82,7 @@
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_15" />
                     <attribute id="UUID" type="guid" value="ccbfbf5e-674d-5716-875d-963e48170547" />
-                    <attribute id="Spells" type="LSString" value="Projectile_ESC_tianqing_lietian" />
+                    <attribute id="Spells" type="LSString" value="Target_ESC_tianqing_lietian" />
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_16" />
@@ -97,7 +97,7 @@
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_18" />
                     <attribute id="UUID" type="guid" value="8b1aa091-4456-5b99-ad8f-eed9d1a82c1d" />
-                    <attribute id="Spells" type="LSString" value="Shout_ESC_qi_sword;Projectile_ESC_xueyan_luexue;Shout_ESC_xueyan_damage_mode" />
+                    <attribute id="Spells" type="LSString" value="Projectile_ESC_xueyan_luexue;Shout_ESC_xueyan_damage_mode;Projectile_ESC_xueyan_luexue_RangedOff_Bonus" />
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_19" />
@@ -137,7 +137,7 @@
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_26" />
                     <attribute id="UUID" type="guid" value="2924dfe7-52b1-5a1f-9bd9-e1922da2f626" />
-                    <attribute id="Spells" type="LSString" value="Target_ESC_recall_sword;Projectile_ESC_xingge_wenlu;Target_ESC_xingge_xiangfu" />
+                    <attribute id="Spells" type="LSString" value="Projectile_ESC_xingge_wenlu;Target_ESC_xingge_xiangfu;Projectile_ESC_xingge_wenlu_RangedOff_Bonus" />
                 </node>
                 <node id="SpellList">
                     <attribute id="Name" type="FixedString" value="ESC_SpellLists_27" />

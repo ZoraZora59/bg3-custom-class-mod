@@ -1,0 +1,56 @@
+{
+    "compiler":  "AllSpark.EffectCompiler.Compiler.Compile",
+    "binary_wrapper":  "LSLib 1.20.4 Divine convert-resource",
+    "normalizeTopLevelNodeIds":  true,
+    "packaging_proof":  "Native XML retained; only top-level node IDs normalized to region IDs, matching native AllSpark binary structure. Every region node and typed attribute value passed LSF readback comparison.",
+    "records":  [
+                    {
+                        "effect_name":  "VFX_ESC_Xueyan_Wusheng_Intro_01",
+                        "source_sha256":  "0be45664b225208f535c64f2902030e15922c36ee15d5160e6fa5d0165af8137",
+                        "compiled_sha256":  "1ab3d606406e84c38fec00f9a4876dbd2bfcd9a7ececc623e774325fe5dd28cb",
+                        "source":  "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Intro_01.lsefx",
+                        "compiled_binary":  "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Intro_01.lsfx",
+                        "compiled_xml_sha256":  "4c2f31e4d54d865731a63b52a8887f02bce9f2749455b1e299451acdac8b8e24",
+                        "packaging_xml_sha256":  "15b2b0414e8642c9b8fa7ac362dc1a63777aa30184a53b33a3b90ca596fc0113",
+                        "normalizeTopLevelNodeIds":  true,
+                        "semantic_roundtrip_verified":  true,
+                        "binary_version":  7
+                    },
+                    {
+                        "effect_name":  "VFX_ESC_Xueyan_Wusheng_Echo1_01",
+                        "source_sha256":  "bc933e8da680eaf32f9a5f2a5966d247da158d4e066672ba6b4e96350c02a4cf",
+                        "compiled_sha256":  "4b3a815b911680c6b3ce173ba2da3880caea5fa7d3e6ea5d2c01e1cc0a543590",
+                        "source":  "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Echo1_01.lsefx",
+                        "compiled_binary":  "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Echo1_01.lsfx",
+                        "compiled_xml_sha256":  "5b5d8c8834e872c0f59668890c4a7b3940bd1657de48a9420b6149f8a213e688",
+                        "packaging_xml_sha256":  "de01b55c7e7ef0f7a2ca55126bd1f0b11dd5c45ee0383fbb036fb47f0934f403",
+                        "normalizeTopLevelNodeIds":  true,
+                        "semantic_roundtrip_verified":  true,
+                        "binary_version":  7
+                    },
+                    {
+                        "effect_name":  "VFX_ESC_Xueyan_Wusheng_Echo2_01",
+                        "source_sha256":  "949345bf4189582f8e8a55917844976c7e710ca13d971dbfb521829fa5931825",
+                        "compiled_sha256":  "3d9e06f9dda45dc81f46e62ea8233b180e02dd53a6e86261bdd65c146e8da753",
+                        "source":  "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Echo2_01.lsefx",
+                        "compiled_binary":  "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Echo2_01.lsfx",
+                        "compiled_xml_sha256":  "70d5542a89bad8a3c7601d963fc0ad891529aafa96ef2418bf1a1a724ab83bd2",
+                        "packaging_xml_sha256":  "24cf0b623e35c1baeccc25ad06a077a125eb00dfa2b5de5098fe498dd00ccd11",
+                        "normalizeTopLevelNodeIds":  true,
+                        "semantic_roundtrip_verified":  true,
+                        "binary_version":  7
+                    },
+                    {
+                        "effect_name":  "VFX_ESC_Xueyan_Wusheng_Echo3_01",
+                        "source_sha256":  "af3b5627534b92801d0961a109c2e28a445a1b881fa67e1b23ff92643c61d733",
+                        "compiled_sha256":  "01b1bb7ec4e1c20af2c43a4d207939c7ee4c8ea64a87b89afeec0cb83698de8c",
+                        "source":  "Editor/Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Echo3_01.lsefx",
+                        "compiled_binary":  "Public/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/Assets/Effects/Effects_Banks/Sword/Xueyan/VFX_ESC_Xueyan_Wusheng_Echo3_01.lsfx",
+                        "compiled_xml_sha256":  "f873ed5bc3e00a7dc2e6f19e5e4323a99b91fc4257701e27cf8072a19e3c336d",
+                        "packaging_xml_sha256":  "783f117f28728a8b099d65fd95fac67227d2dbab03d0b1d26966f15f0305db28",
+                        "normalizeTopLevelNodeIds":  true,
+                        "semantic_roundtrip_verified":  true,
+                        "binary_version":  7
+                    }
+                ]
+}

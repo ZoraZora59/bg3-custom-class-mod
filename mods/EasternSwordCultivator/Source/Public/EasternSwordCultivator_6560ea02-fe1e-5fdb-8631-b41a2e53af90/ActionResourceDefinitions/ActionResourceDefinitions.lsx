@@ -19,9 +19,12 @@
                     <attribute id="UUID" type="guid" value="17d017a5-9e66-587f-a9e5-00ff1d769190" />
                     <attribute id="Name" type="FixedString" value="ESC_SwordOpportunity" />
                     <attribute id="MaxLevel" type="uint32" value="0" />
-                    <attribute id="ReplenishType" type="FixedString" value="Turn" />
+                    <attribute id="ReplenishType" type="FixedString" value="FullRest" />
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
                     <attribute id="IsSpellResource" type="bool" value="false" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="h88028a91gf969g54dbgad12g1031cbaa7467" version="1" />
+                    <attribute id="Description" type="TranslatedString" handle="heafa380cg360dg5e0cg8137gfd5a023593e3" version="1" />
+                    <attribute id="Error" type="TranslatedString" handle="hedacfaabgaf4cg5575g8d20g78f006c0f0de" version="1" />
                 </node>
                 <node id="ActionResourceDefinition">
                     <attribute id="UUID" type="guid" value="f0dc2f3c-f7a6-51a1-b7a2-d4b5d19b1e39" />

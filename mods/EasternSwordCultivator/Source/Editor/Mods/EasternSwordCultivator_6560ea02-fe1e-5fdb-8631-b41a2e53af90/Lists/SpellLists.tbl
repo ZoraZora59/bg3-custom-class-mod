@@ -19,7 +19,7 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_2" />
         <field name="UUID" type="IdTableFieldDefinition" value="79822d36-e5b0-527a-a8e6-6c2901ce4707" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_qi_sword;Projectile_ESC_taixuan_zhaoxi" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_taixuan_zhaoxi;Projectile_ESC_taixuan_zhaoxi_RangedOff_Bonus" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -61,7 +61,7 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_8" />
         <field name="UUID" type="IdTableFieldDefinition" value="aab08b69-55f4-547c-a094-36c3855a3b01" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_focus_target;Shout_ESC_taixuan_taiqing" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_taixuan_taiqing" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -75,7 +75,7 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_10" />
         <field name="UUID" type="IdTableFieldDefinition" value="a542e1af-85b4-5a64-a8ac-091d5030bccc" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_recall_sword;Zone_ESC_tianqing_nifeng;Target_ESC_tianqing_nixi" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Zone_ESC_tianqing_nifeng;Target_ESC_tianqing_nixi;Zone_ESC_tianqing_nifeng_RangedOff_Bonus" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -110,7 +110,7 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_15" />
         <field name="UUID" type="IdTableFieldDefinition" value="ccbfbf5e-674d-5716-875d-963e48170547" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_tianqing_lietian" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_tianqing_lietian" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -131,7 +131,7 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_18" />
         <field name="UUID" type="IdTableFieldDefinition" value="8b1aa091-4456-5b99-ad8f-eed9d1a82c1d" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Shout_ESC_qi_sword;Projectile_ESC_xueyan_luexue;Shout_ESC_xueyan_damage_mode" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_xueyan_luexue;Shout_ESC_xueyan_damage_mode;Projectile_ESC_xueyan_luexue_RangedOff_Bonus" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -187,7 +187,7 @@
       <fields>
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SpellLists_26" />
         <field name="UUID" type="IdTableFieldDefinition" value="2924dfe7-52b1-5a1f-9bd9-e1922da2f626" />
-        <field name="Spells" type="StringTableFieldDefinition" value="Target_ESC_recall_sword;Projectile_ESC_xingge_wenlu;Target_ESC_xingge_xiangfu" />
+        <field name="Spells" type="StringTableFieldDefinition" value="Projectile_ESC_xingge_wenlu;Target_ESC_xingge_xiangfu;Projectile_ESC_xingge_wenlu_RangedOff_Bonus" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

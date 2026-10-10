@@ -1,0 +1,29 @@
+{
+  "compiler": "AllSpark.EffectCompiler.Compiler.Compile",
+  "binary_wrapper": "LSLib 1.20.4 Divine convert-resource",
+  "records": [
+    {
+      "effect_name": "VFX_ESC_Taixuan_Yixiantian_LongBeam_01",
+      "source_sha256": "39fb98421f8a8b4f0119fc6d22e7820181cec7ddfca21ac2a78824a0d2958fe6",
+      "compiled_sha256": "40aefbcbebf138a1d7d82c45c5c4177bb4e45a35d95cc7e2c49ae7eccfcd738a",
+      "compiled_xml_sha256": "0b077bf7cbe3b0bac6c24329a7f34f731052839c9a2c5cbbfebe472c9a798af1",
+      "packaging_xml_sha256": "2baf785f621855ccaf9782162806eb5de6c11e6629193de8047dca03532cb0cd",
+      "roundtrip_xml_sha256": "c253492f23cc19b99e3c4e555eeaab25f89d21ac6c6dfc5812d62bf90be43ced",
+      "compiled_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h14\\VFX_ESC_Taixuan_Yixiantian_LongBeam_01.compiled.lsx",
+      "packaging_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h14\\VFX_ESC_Taixuan_Yixiantian_LongBeam_01.binary-input.lsx",
+      "compiled_binary": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h14\\VFX_ESC_Taixuan_Yixiantian_LongBeam_01.lsfx",
+      "roundtrip_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h14\\VFX_ESC_Taixuan_Yixiantian_LongBeam_01.roundtrip.lsx",
+      "component_count": 3,
+      "resource_dependencies": [
+        "5e6a613b-446f-51dc-89c1-e238788928f0",
+        "6b0b871d-ad6d-5110-8baf-fff29e7b3052"
+      ],
+      "binary_version": 7,
+      "normalizeTopLevelNodeIds": true,
+      "semantic_roundtrip_verified": true,
+      "native_compile_evidence": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\root-native-probe\\h14-beam\\VFX_ESC_Taixuan_Yixiantian_LongBeam_01\\VFX_ESC_Taixuan_Yixiantian_LongBeam_01.compile-evidence.json",
+      "native_compile_evidence_sha256": "1e344fe365c6351b86462c3a0bda5c9eddaff7740f7513ba6e40c3e74faac9e9"
+    }
+  ],
+  "native_visual_hearing_acceptance": "pending"
+}

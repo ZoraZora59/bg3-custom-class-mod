@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="MultiEffectInfos">
+        <node id="MultiEffectInfos">
+            <attribute id="UUID" type="guid" value="daa31a1d-7d8a-5ddf-b33c-f23f130c7a79" />
+            <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Taixuan_Xinghe_Hit_01" />
+            <children>
+                <node id="EffectInfo">
+                    <attribute id="UUID" type="guid" value="aba71962-0340-52d4-8ab9-e837293ce7d2" />
+                    <attribute id="EffectResourceGuid" type="guid" value="fe50c810-90e9-51b5-a9e1-4855e78d51a7" />
+                    <attribute id="DetachSource" type="bool" value="True" />
+                    <attribute id="DetachTarget" type="bool" value="True" />
+                    <attribute id="KeepRotation" type="bool" value="False" />
+                    <attribute id="UseOrientDirection" type="bool" value="False" />
+                    <attribute id="UseDistance" type="bool" value="False" />
+                    <attribute id="UseScaleOverride" type="bool" value="False" />
+                    <attribute id="KeepScale" type="bool" value="True" />
+                    <attribute id="MainHand" type="bool" value="False" />
+                    <attribute id="OffHand" type="bool" value="False" />
+                    <attribute id="MinDistance" type="float" value="0" />
+                    <attribute id="MaxDistance" type="float" value="0" />
+                    <attribute id="BindSourceTo" type="FixedString" value="SourceEntity" />
+                    <attribute id="BindTargetTo" type="FixedString" value="TargetEntity" />
+                    <attribute id="Pivot" type="FixedString" value="Target" />
+                    <attribute id="Enabled" type="bool" value="True" />
+                    <attribute id="DamageType" type="uint32" value="0" />
+                    <attribute id="VerbalIntent" type="uint32" value="0" />
+                    <children>
+                        <node id="TargetBone">
+                            <attribute id="Value" type="LSString" value="Dummy_BodyFX" />
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

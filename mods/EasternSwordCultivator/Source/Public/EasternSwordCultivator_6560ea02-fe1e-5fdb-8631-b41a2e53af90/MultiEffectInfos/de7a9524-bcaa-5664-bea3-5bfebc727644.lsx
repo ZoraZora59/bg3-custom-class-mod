@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="MultiEffectInfos">
+        <node id="MultiEffectInfos">
+            <attribute id="UUID" type="guid" value="de7a9524-bcaa-5664-bea3-5bfebc727644" />
+            <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Taixuan_Guiyuan_Cast_01" />
+            <children>
+                <node id="EffectInfo">
+                    <attribute id="UUID" type="guid" value="297aa3cf-0378-53f6-814e-6a5b4eb3f7c9" />
+                    <attribute id="EffectResourceGuid" type="guid" value="c07b5085-5a07-533d-8906-b82a643b818f" />
+                    <attribute id="DetachSource" type="bool" value="False" />
+                    <attribute id="DetachTarget" type="bool" value="False" />
+                    <attribute id="KeepRotation" type="bool" value="False" />
+                    <attribute id="UseOrientDirection" type="bool" value="False" />
+                    <attribute id="UseDistance" type="bool" value="False" />
+                    <attribute id="UseScaleOverride" type="bool" value="False" />
+                    <attribute id="KeepScale" type="bool" value="True" />
+                    <attribute id="MainHand" type="bool" value="False" />
+                    <attribute id="OffHand" type="bool" value="False" />
+                    <attribute id="MinDistance" type="float" value="0" />
+                    <attribute id="MaxDistance" type="float" value="0" />
+                    <attribute id="BindSourceTo" type="FixedString" value="SourceEntity" />
+                    <attribute id="BindTargetTo" type="FixedString" value="TargetEntity" />
+                    <attribute id="Pivot" type="FixedString" value="Target" />
+                    <attribute id="Enabled" type="bool" value="True" />
+                    <attribute id="StartTextKey" type="LSString" value="Cast" />
+                    <attribute id="DamageType" type="uint32" value="0" />
+                    <attribute id="VerbalIntent" type="uint32" value="0" />
+                    <children>
+                        <node id="TargetBone">
+                            <attribute id="Value" type="LSString" value="Dummy_Root" />
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

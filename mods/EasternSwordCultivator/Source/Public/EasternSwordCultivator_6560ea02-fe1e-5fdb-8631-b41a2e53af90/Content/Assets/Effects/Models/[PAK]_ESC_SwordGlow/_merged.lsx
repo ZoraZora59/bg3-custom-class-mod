@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="VisualBank">
+        <node id="VisualBank">
+            <children>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="0.17070608 1.9629779 0.043253355" />
+                    <attribute id="BoundsMin" type="fvec3" value="-0.1707061 -0.00018119812 -0.042987518" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="73938b97-b0d4-5889-aa7e-f3034f5f573c" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_common_sword" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115205255725669" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="3839b212-5adc-55b5-9752-c112f26ee934" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh.0" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="1" />
+                            <attribute id="MaterialID" type="FixedString" value="3839b212-5adc-55b5-9752-c112f26ee934" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD1.1" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="2" />
+                            <attribute id="MaterialID" type="FixedString" value="3839b212-5adc-55b5-9752-c112f26ee934" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD2.2" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="3" />
+                            <attribute id="MaterialID" type="FixedString" value="3839b212-5adc-55b5-9752-c112f26ee934" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD3.3" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="1 1 0.049999997" />
+                    <attribute id="BoundsMin" type="fvec3" value="-1 -1 -0.049999997" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="ExcludeFromHLOD" type="bool" value="True" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="0dc5252c-f678-5412-a20d-8ea07221807c" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_common_circle" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="RemapperSlotId" type="FixedString" value="" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="fa03fe8e-0362-5590-8c3e-18db5469f84a" />
+                            <attribute id="ObjectID" type="FixedString" value="VFX_Static_Circle_01.STATIC_MESHShape.0" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="0.17070608 1.9629779 0.043253355" />
+                    <attribute id="BoundsMin" type="fvec3" value="-0.1707061 -0.00018119812 -0.042987518" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="729a252e-da1a-5266-b44c-7ed55dee06cb" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_taixuan_sword" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115205255725669" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="ea791f26-bad6-5e91-9e84-bf23068cd391" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh.0" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="1" />
+                            <attribute id="MaterialID" type="FixedString" value="ea791f26-bad6-5e91-9e84-bf23068cd391" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD1.1" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="2" />
+                            <attribute id="MaterialID" type="FixedString" value="ea791f26-bad6-5e91-9e84-bf23068cd391" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD2.2" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="3" />
+                            <attribute id="MaterialID" type="FixedString" value="ea791f26-bad6-5e91-9e84-bf23068cd391" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD3.3" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="1 1 0.049999997" />
+                    <attribute id="BoundsMin" type="fvec3" value="-1 -1 -0.049999997" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="ExcludeFromHLOD" type="bool" value="True" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="6270592b-82ab-52c7-8b46-8b373447983e" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_taixuan_circle" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="RemapperSlotId" type="FixedString" value="" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="d47d8582-d572-5f74-ac13-aac6e64dadb9" />
+                            <attribute id="ObjectID" type="FixedString" value="VFX_Static_Circle_01.STATIC_MESHShape.0" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="0.17070608 1.9629779 0.043253355" />
+                    <attribute id="BoundsMin" type="fvec3" value="-0.1707061 -0.00018119812 -0.042987518" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="b731995b-cdd5-56f0-8840-06b9c3a7a11c" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_tianqing_sword" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115205255725669" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh.0" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="1" />
+                            <attribute id="MaterialID" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD1.1" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="2" />
+                            <attribute id="MaterialID" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD2.2" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="3" />
+                            <attribute id="MaterialID" type="FixedString" value="2d5546d6-caa0-58c2-9979-3e785d4b4c32" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD3.3" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="1 1 0.049999997" />
+                    <attribute id="BoundsMin" type="fvec3" value="-1 -1 -0.049999997" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="ExcludeFromHLOD" type="bool" value="True" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="f191d976-e4be-5bfe-9a40-0831b1d29e1f" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_tianqing_circle" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="RemapperSlotId" type="FixedString" value="" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="eaa3e383-63e8-5792-9cdf-021dc5714be2" />
+                            <attribute id="ObjectID" type="FixedString" value="VFX_Static_Circle_01.STATIC_MESHShape.0" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="0.17070608 1.9629779 0.043253355" />
+                    <attribute id="BoundsMin" type="fvec3" value="-0.1707061 -0.00018119812 -0.042987518" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="734f216b-8588-5b95-a7c4-c81d662ef8ce" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_xueyan_sword" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115205255725669" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="6c1787e9-ccef-56c2-a055-9b1c387801d1" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh.0" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="1" />
+                            <attribute id="MaterialID" type="FixedString" value="6c1787e9-ccef-56c2-a055-9b1c387801d1" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD1.1" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="2" />
+                            <attribute id="MaterialID" type="FixedString" value="6c1787e9-ccef-56c2-a055-9b1c387801d1" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD2.2" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="3" />
+                            <attribute id="MaterialID" type="FixedString" value="6c1787e9-ccef-56c2-a055-9b1c387801d1" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD3.3" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="1 1 0.049999997" />
+                    <attribute id="BoundsMin" type="fvec3" value="-1 -1 -0.049999997" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="ExcludeFromHLOD" type="bool" value="True" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="0a35619d-537f-5334-86ee-e19c1f1b43e0" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_xueyan_circle" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="RemapperSlotId" type="FixedString" value="" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="83fb60ac-68e6-5b8f-ad36-09701b060f55" />
+                            <attribute id="ObjectID" type="FixedString" value="VFX_Static_Circle_01.STATIC_MESHShape.0" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="0.17070608 1.9629779 0.043253355" />
+                    <attribute id="BoundsMin" type="fvec3" value="-0.1707061 -0.00018119812 -0.042987518" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="f51a91c1-fc2a-5f90-bd08-3f20ef532d9c" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_xingge_sword" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/SharedDev/Assets/Characters/_Models/_Creatures/SpiritualWeapons/Resources/SPRW_Greatsword.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115205255725669" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="9d0a9812-9c89-51ff-92e7-426592c57e1a" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh.0" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="1" />
+                            <attribute id="MaterialID" type="FixedString" value="9d0a9812-9c89-51ff-92e7-426592c57e1a" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD1.1" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="2" />
+                            <attribute id="MaterialID" type="FixedString" value="9d0a9812-9c89-51ff-92e7-426592c57e1a" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD2.2" />
+                        </node>
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="3" />
+                            <attribute id="MaterialID" type="FixedString" value="9d0a9812-9c89-51ff-92e7-426592c57e1a" />
+                            <attribute id="ObjectID" type="FixedString" value="SPRW_Greatsword.SPRW_Greatsword_Mesh_LOD3.3" />
+                        </node>
+                    </children>
+                </node>
+                <node id="Resource">
+                    <attribute id="AttachBone" type="FixedString" value="" />
+                    <attribute id="AttachmentSkeletonResource" type="FixedString" value="" />
+                    <attribute id="BlueprintInstanceResourceID" type="FixedString" value="" />
+                    <attribute id="BoundsMax" type="fvec3" value="1 1 0.049999997" />
+                    <attribute id="BoundsMin" type="fvec3" value="-1 -1 -0.049999997" />
+                    <attribute id="ClothColliderResourceID" type="FixedString" value="" />
+                    <attribute id="ExcludeFromHLOD" type="bool" value="True" />
+                    <attribute id="HairPresetResourceId" type="FixedString" value="" />
+                    <attribute id="HairType" type="uint8" value="0" />
+                    <attribute id="ID" type="FixedString" value="030d8436-e4bd-561d-ad26-50de4dbf0fec" />
+                    <attribute id="MaterialType" type="uint8" value="0" />
+                    <attribute id="Name" type="LSString" value="ESC_Glow_xingge_circle" />
+                    <attribute id="NeedsSkeletonRemap" type="bool" value="False" />
+                    <attribute id="RemapperSlotId" type="FixedString" value="" />
+                    <attribute id="ScalpMaterialId" type="FixedString" value="" />
+                    <attribute id="SkeletonResource" type="FixedString" value="" />
+                    <attribute id="SkeletonSlot" type="FixedString" value="" />
+                    <attribute id="Slot" type="FixedString" value="Unassigned" />
+                    <attribute id="SoftbodyResourceID" type="FixedString" value="" />
+                    <attribute id="SourceFile" type="LSString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.GR2" />
+                    <attribute id="SupportsVertexColorMask" type="bool" value="False" />
+                    <attribute id="Template" type="FixedString" value="Generated/Public/Shared/Assets/Effects/Models/Static/Resources/VFX_Static_Circle_01.Dummy_Root.0" />
+                    <attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+                    <children>
+                        <node id="Base" />
+                        <node id="ClothProxyMapping" />
+                        <node id="Objects">
+                            <attribute id="LOD" type="uint8" value="0" />
+                            <attribute id="MaterialID" type="FixedString" value="3d6a418f-ca2c-527a-8019-374f111d2276" />
+                            <attribute id="ObjectID" type="FixedString" value="VFX_Static_Circle_01.STATIC_MESHShape.0" />
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

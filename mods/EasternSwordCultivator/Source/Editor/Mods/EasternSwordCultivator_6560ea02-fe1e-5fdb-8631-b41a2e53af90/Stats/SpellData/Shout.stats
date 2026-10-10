@@ -85,7 +85,7 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_QI_GUARD,100,0);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(ESC_COUNTER_RANK2);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(ESC_COUNTER_RANK3);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(ESC_COUNTER_READY,100,2)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_QI_GUARD,100,0);IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(SELF,ESC_COUNTER_RANK2);IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(SELF,ESC_COUNTER_RANK3);IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK2',context.Source) or HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(SELF,ESC_COUNTER_READY,100,2)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -292,7 +292,7 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TAIXUAN_QINGHUI,100,0);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(ESC_COUNTER_RANK3);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(ESC_COUNTER_RANK2,100,2);SELF:IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(ESC_COUNTER_READY,100,2)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_TAIXUAN_QINGHUI,100,0);IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):RemoveStatus(SELF,ESC_COUNTER_RANK3);IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(SELF,ESC_COUNTER_RANK2,100,2);IF(not (HasStatus('ESC_COUNTER_READY',context.Source) and (HasStatus('ESC_COUNTER_RANK3',context.Source)))):ApplyStatus(SELF,ESC_COUNTER_READY,100,2)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -308,7 +308,7 @@
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="BonusActionPoint:1;ESC_SwordYuan:4" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(2d6+WisdomModifier+4d8,Force)" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(2d6+WisdomModifier,Force);DealDamage(4d8,Force)" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hbd595bccgab2bg51a0g8e35g70f957807e74" version="1" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
         <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -328,7 +328,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="49dd385f-fd25-4372-8628-30b775af7c79" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="2550e2bb-c9f9-4440-9cd4-146a03f2e9bc" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="7629d7c3-20f5-5d9d-8b10-8c19e385297d" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Surge" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_Surge" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="DontChange" />
@@ -361,11 +361,11 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value=";SELF:RemoveStatus(ESC_COUNTER_RANK2);SELF:ApplyStatus(ESC_COUNTER_RANK3,100,2);SELF:ApplyStatus(ESC_COUNTER_READY,100,2)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value=";RemoveStatus(SELF,ESC_COUNTER_RANK2);ApplyStatus(SELF,ESC_COUNTER_RANK3,100,2);ApplyStatus(SELF,ESC_COUNTER_READY,100,2)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(10d8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="DealDamage((2d6+WisdomModifier)/2,Force,Magical);DealDamage((10d8)/2,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0)" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier+10d8,Force)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(10d8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage((2d6+WisdomModifier)/2,Force,Magical);DealDamage((10d8)/2,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TAIXUAN_XINGHE,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -378,7 +378,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(2d6+WisdomModifier+6d8,Force)" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(2d6+WisdomModifier,Force);DealDamage(10d8,Force);DealDamage(6d8,Force)" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h091642cfgbdb4g56a6g8506g2e6a07861d05" version="1" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
         <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -392,13 +392,13 @@
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ContainerSpells" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Dexterity" />
-        <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="Force" />
+        <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Damage" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalDamage_External" />
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="65c7aeb1-86bd-539b-be89-229a866b6afe" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -406,7 +406,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="f68ab21c-acc5-5198-9de9-cc55733b5975" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="daa31a1d-7d8a-5ddf-b33c-f23f130c7a79" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -434,7 +434,7 @@
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier+2d8,Force)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -446,7 +446,7 @@
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(2d6+WisdomModifier,Force);DealDamage(2d8,Force)" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h29b43d98g895cg5499gb504gf966fa349854" version="1" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
         <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -466,7 +466,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="49dd385f-fd25-4372-8628-30b775af7c79" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="2550e2bb-c9f9-4440-9cd4-146a03f2e9bc" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="50674ab1-1b56-5236-a113-d29da0cc31ac" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Surge" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_Surge" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="DontChange" />
@@ -475,146 +475,6 @@
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="PrepareSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="2ded491e-37b4-5e54-bc99-a18c0e5838da" />
-        <field name="Name" type="NameTableFieldDefinition" value="ESC_tianqing_bafang_Main" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5c6bb831g125eg5aeaga4dcg7de92d3567cd" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5d7beeffgc417g54dcgbf53g6cecaf5982f4" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_bafang" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
-        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
-        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage(44d8,Force,Magical);IF(not Enemy()):DealDamage((MainMeleeWeapon)/4,MainMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/4,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);ExecuteWeaponFunctors(MainHand)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage((44d8)/2,Force,Magical);IF(not Enemy()):DealDamage((MainMeleeWeapon)/8,MainMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ExecuteWeaponFunctors(MainHand)" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(44d8,Force)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead()" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
-        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:20" />
-        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and IsWeaponOfProficiencyGroup('Longswords|Shortswords|Greatswords|Rapiers|Scimitars', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand, context.Source))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h639e32e7g5da0g5019gba5ag726676fc3f4b" version="1" />
-        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_tianqing_bafang" />
-        <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
-        <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipOnMiss" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipOnSave" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="CombatAIOverrideSpell" type="StatReferenceTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="DualWieldingUseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="DualWieldingSpellAnimation" type="CastAnimationsTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="AlternativeCastTextEvents" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Dexterity" />
-        <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Damage" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalDamage_External" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="79e47203-3855-4837-8673-ddb708d86962,,;711781fb-5f5a-4b9a-bd8b-e0b4ff9dec46,,;a17a7bf3-7381-4191-83f4-304d37c738e0,,;1172e0b6-08d1-4f28-a651-a01681b84ee6,,;863fabe7-d990-42a3-8961-7898c207bcb1,,;0002afee-5ad9-4109-ae64-9b2571601226,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,," />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="9342eaf4-6a20-44c6-a740-863b0f9c2475" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="1d808499-eac9-408a-b5c8-219bb4f52bdc" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Sweep" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_SweepingAttack" />
-        <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="Melee" />
-        <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="1292f086-a586-59e0-86d2-1266dfa5ecca" />
-        <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="PrepareSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="39729a34-e757-5eba-af55-4d2ffc9208ba" />
-        <field name="Name" type="NameTableFieldDefinition" value="ESC_tianqing_bafang_Off" />
-        <field name="Using" type="BaseClassTableFieldDefinition" value="6d1a74a5-e5cb-42a7-a532-5f4ab916aa82" />
-        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
-        <field name="SpellSchool" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSchool" value="None" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h05221b60g3202g5c5bg8678g5baf619c49d4" version="1" />
-        <field name="Description" type="TranslatedStringTableFieldDefinition" handle="h5d7beeffgc417g54dcgbf53g6cecaf5982f4" version="1" />
-        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_tianqing_bafang" />
-        <field name="SpellStyleGroup" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellStyleGroup" value="Class" />
-        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
-        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage(44d8,Force,Magical);IF(not Enemy()):DealDamage((OffhandMeleeWeapon)/4,OffhandMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/4,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);ExecuteWeaponFunctors(OffHand)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(Enemy()):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage((44d8)/2,Force,Magical);IF(not Enemy()):DealDamage((OffhandMeleeWeapon)/8,OffhandMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((44d8)/8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ExecuteWeaponFunctors(OffHand)" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(44d8,Force)" />
-        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead()" />
-        <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
-        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
-        <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:20" />
-        <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and IsWeaponOfProficiencyGroup('Longswords|Shortswords|Greatswords|Rapiers|Scimitars', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand, context.Source))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h639e32e7g5da0g5019gba5ag726676fc3f4b" version="1" />
-        <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_tianqing_bafang" />
-        <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
-        <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipOnMiss" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipOnSave" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="CombatAIOverrideSpell" type="StatReferenceTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="DualWieldingUseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="DualWieldingSpellAnimation" type="CastAnimationsTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="AlternativeCastTextEvents" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Dexterity" />
-        <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Damage" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalDamage_External" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="79e47203-3855-4837-8673-ddb708d86962,,;711781fb-5f5a-4b9a-bd8b-e0b4ff9dec46,,;a17a7bf3-7381-4191-83f4-304d37c738e0,,;1172e0b6-08d1-4f28-a651-a01681b84ee6,,;863fabe7-d990-42a3-8961-7898c207bcb1,,;0002afee-5ad9-4109-ae64-9b2571601226,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,," />
-        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="9342eaf4-6a20-44c6-a740-863b0f9c2475" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="1d808499-eac9-408a-b5c8-219bb4f52bdc" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Sweep" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_SweepingAttack" />
-        <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="Melee" />
-        <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
-        <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="1292f086-a586-59e0-86d2-1266dfa5ecca" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -640,25 +500,24 @@
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(44d8,Force)" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF((Enemy()) and (HasStatus('ESC_MAIN_SWORD',context.Source))):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF((Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF((Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(Enemy()):DealDamage(44d8,Force,Magical);IF((not Enemy()) and (HasStatus('ESC_MAIN_SWORD',context.Source))):DealDamage((MainMeleeWeapon)/4,MainMeleeWeaponDamageType,Magical);IF((not Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage((OffhandMeleeWeapon)/4,OffhandMeleeWeaponDamageType,Magical);IF((not Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)))):DealDamage((2d6+WisdomModifier)/4,Force,Magical);IF(not Enemy()):DealDamage((44d8)/4,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF((Enemy()) and (HasStatus('ESC_MAIN_SWORD',context.Source))):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF((Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF((Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)))):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(Enemy()):DealDamage((44d8)/2,Force,Magical);IF((not Enemy()) and (HasStatus('ESC_MAIN_SWORD',context.Source))):DealDamage((MainMeleeWeapon)/8,MainMeleeWeaponDamageType,Magical);IF((not Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage((OffhandMeleeWeapon)/8,OffhandMeleeWeaponDamageType,Magical);IF((not Enemy()) and (not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)))):DealDamage((2d6+WisdomModifier)/8,Force,Magical);IF(not Enemy()):DealDamage((44d8)/8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_BAFANG,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
-        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence;IsLinkedSpellContainer" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
-        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:20" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="18" />
-        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and (IsWeaponOfProficiencyGroup('Longswords|Shortswords|Greatswords|Rapiers|Scimitars', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand, context.Source)) or IsWeaponOfProficiencyGroup('Longswords|Shortswords|Greatswords|Rapiers|Scimitars', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand, context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(2d6+WisdomModifier,Force);DealDamage(44d8,Force)" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h639e32e7g5da0g5019gba5ag726676fc3f4b" version="1" />
-        <field name="ContainerSpells" type="StringTableFieldDefinition" value="Shout_ESC_tianqing_bafang_Main;Shout_ESC_tianqing_bafang_Off" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
         <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipOnMiss" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -669,28 +528,29 @@
         <field name="DualWieldingSpellAnimation" type="CastAnimationsTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="AlternativeCastTextEvents" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="Dexterity" />
         <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
-        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Utility" />
-        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="None" />
-        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,," />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Damage" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalDamage_External" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="79e47203-3855-4837-8673-ddb708d86962,,;711781fb-5f5a-4b9a-bd8b-e0b4ff9dec46,,;a17a7bf3-7381-4191-83f4-304d37c738e0,,;1172e0b6-08d1-4f28-a651-a01681b84ee6,,;863fabe7-d990-42a3-8961-7898c207bcb1,,;0002afee-5ad9-4109-ae64-9b2571601226,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
-        <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="DontChange" />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="9342eaf4-6a20-44c6-a740-863b0f9c2475" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Sweep" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_SweepingAttack" />
+        <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="Melee" />
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="5ec672bd-f23c-5398-a57d-05aaf8792534" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="CastSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="VocalComponentSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
       </fields>
     </stat_object>
@@ -814,7 +674,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="49dd385f-fd25-4372-8628-30b775af7c79" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="2550e2bb-c9f9-4440-9cd4-146a03f2e9bc" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="044ef944-0005-527f-b8d0-8ae13fbe1819" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Surge" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_Surge" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="DontChange" />
@@ -863,7 +723,7 @@
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+1d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;1d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="hdd6a5142gdfcdg5e6dg9b00gdb4b5e5ff90d" version="1" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
         <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -918,8 +778,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -933,7 +793,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
@@ -953,7 +813,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -961,7 +821,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -987,8 +847,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1002,7 +862,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_1',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1022,7 +882,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1030,7 +890,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1056,8 +916,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1071,7 +931,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_2',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1091,7 +951,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1099,7 +959,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1125,8 +985,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1140,7 +1000,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_3',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1160,7 +1020,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1168,7 +1028,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1194,8 +1054,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1209,7 +1069,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_4',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1229,7 +1089,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1237,7 +1097,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1263,8 +1123,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1278,7 +1138,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_5',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1298,7 +1158,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1306,7 +1166,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1332,8 +1192,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1347,7 +1207,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_6',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1367,7 +1227,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1375,7 +1235,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1401,8 +1261,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1416,7 +1276,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_7',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1436,7 +1296,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1444,7 +1304,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1470,8 +1330,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1485,7 +1345,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_8',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1505,7 +1365,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1513,7 +1373,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1539,8 +1399,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1554,7 +1414,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_9',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1574,7 +1434,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1582,7 +1442,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1608,8 +1468,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1623,7 +1483,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_10',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1643,7 +1503,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1651,7 +1511,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1677,8 +1537,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1692,7 +1552,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_11',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1712,7 +1572,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1720,7 +1580,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1746,8 +1606,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1761,7 +1621,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_12',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1781,7 +1641,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1789,7 +1649,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1815,8 +1675,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1830,7 +1690,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_13',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1850,7 +1710,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1858,7 +1718,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1884,8 +1744,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1899,7 +1759,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_14',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1919,7 +1779,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1927,7 +1787,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1953,8 +1813,8 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="not SavingThrow(Ability.Dexterity,SourceSpellDC())" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0)" />
-        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage(8d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage((OffhandMeleeWeapon)/2,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Necrotic,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source)) and HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((2d6+WisdomModifier)/2,Force,Magical);IF(not HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Necrotic,Magical);IF(HasStatus('ESC_FORCE_MODE',context.Source)):DealDamage((8d6)/2,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1968,7 +1828,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and HasStatus('ESC_FRENZY_AT_LEAST_15',context.Source)" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="SpellContainerID" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip;OnStatusApplied;OnStatusRemoved" />
@@ -1988,7 +1848,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="f9785481-e126-4499-b00e-f36fa02cd196" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="655f8b6b-f392-4c5d-8d74-d2a9df5f8f9d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="61cf2d97-574e-5c2e-aa9c-3dd663b19e56" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Spell_Prepare_Damage_Force_Gen_L1to3_Loop" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Spell_Cast_Damage_Force_MagicMissile_L1to3" />
@@ -1996,7 +1856,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="42da558e-ec29-517e-9752-a67ccfb40712" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -2037,7 +1897,7 @@
         <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="AreaRadius" type="IntegerTableFieldDefinition" value="6" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+8d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;8d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h6e487d28g77d0g5707g888eg394077350a0e" version="1" />
         <field name="ContainerSpells" type="StringTableFieldDefinition" value="Shout_ESC_xueyan_nixue_F0;Shout_ESC_xueyan_nixue_F1;Shout_ESC_xueyan_nixue_F2;Shout_ESC_xueyan_nixue_F3;Shout_ESC_xueyan_nixue_F4;Shout_ESC_xueyan_nixue_F5;Shout_ESC_xueyan_nixue_F6;Shout_ESC_xueyan_nixue_F7;Shout_ESC_xueyan_nixue_F8;Shout_ESC_xueyan_nixue_F9;Shout_ESC_xueyan_nixue_F10;Shout_ESC_xueyan_nixue_F11;Shout_ESC_xueyan_nixue_F12;Shout_ESC_xueyan_nixue_F13;Shout_ESC_xueyan_nixue_F14;Shout_ESC_xueyan_nixue_F15" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
@@ -2106,7 +1966,7 @@
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:10" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="2d6+WisdomModifier+2d6" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);2d6+WisdomModifier;2d6" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h5acd11fag0536g5a1fga075g4c91d948eb87" version="1" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
         <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -2126,7 +1986,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="49dd385f-fd25-4372-8628-30b775af7c79" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="2550e2bb-c9f9-4440-9cd4-146a03f2e9bc" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="4546ff13-191e-50ea-b8a6-5ca6447e9c8c" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Surge" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_Surge" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="DontChange" />
@@ -2195,7 +2055,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="49dd385f-fd25-4372-8628-30b775af7c79" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="2550e2bb-c9f9-4440-9cd4-146a03f2e9bc" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="ef42e4a6-a6a8-508d-b365-a85240c0b5a7" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Surge" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="Action_Impact_Surge" />
         <field name="Sheathing" type="EnumerationTableFieldDefinition" enumeration_type_name="SpellSheathing" value="DontChange" />
@@ -2301,7 +2161,7 @@
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(2d6+WisdomModifier+2d6,Force)" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -2313,7 +2173,7 @@
         <field name="ProjectileCount" type="StringTableFieldDefinition" value="1" />
         <field name="UseCosts" type="StringTableFieldDefinition" value="ActionPoint:1;ESC_SwordYuan:20" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))" />
-        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" clear_inherited_value="true" value="DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType);DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(2d6+WisdomModifier,Force);DealDamage(2d6,Force)" />
         <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" handle="h86fdad45g7d07g57d3gb590gfed249d3a1eb" version="1" />
         <field name="RequirementEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnEquip;OnUnequip" />
         <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />

@@ -56,7 +56,7 @@ FAMILY_KEYS = {
         'qi_sword', 'xueyan_damage_mode', 'control_release', 'xingge_fuchen',
         'focus_target',
     ),
-    'movement': ('sword_flight', 'recall_sword'),
+    'movement': ('sword_flight',),
 }
 KEY_FAMILIES = {key: family for family, keys in FAMILY_KEYS.items() for key in keys}
 if set(KEY_FAMILIES) != set(SPELLS):
@@ -75,6 +75,7 @@ INTERNAL_KEYS = {
     'Resonance': 'xingge_zhangjian',
     'Aftershock': 'tianqing_tianjian',
     'TiandiStage': 'tianqing_tiandi',
+    'TiandiStage_NoControl': 'tianqing_tiandi',
     'TianbengMain': 'tianqing_tianbeng',
     'LiuguangStage': 'taixuan_liuguang',
     'TianbengCone': 'tianqing_tianbeng',
@@ -161,6 +162,13 @@ def set_enabled_phases(enabled: Iterable[tuple[str, str]]) -> frozenset[tuple[st
 
 def enabled_phases() -> frozenset[tuple[str, str]]:
     return _enabled_phases
+
+
+def guard_status_effect(enabled: Iterable[tuple[str, str]] | None = None) -> str:
+    """Use the compiled orbiting-sword status, retaining a native fallback."""
+    if ('common', 'status') in _allowlist(enabled):
+        return mei_guid('common', 'status')
+    return '87356553-5bed-4e2b-86eb-f0697e5ec648'
 
 
 def asset_registry(enabled: Iterable[tuple[str, str]] | None = None) -> dict[str, object]:

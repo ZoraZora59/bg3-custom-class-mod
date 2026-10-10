@@ -11,7 +11,7 @@
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
         <field name="Selectors" type="StringTableFieldDefinition" value="SelectSkills(a0e2abe7-a094-57ae-8eae-48bbb050fc61,2)" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars);ProficiencyBonus(SavingThrow,Wisdom);ProficiencyBonus(SavingThrow,Constitution)" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword;ESC_P_StarterMelee" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -61,7 +61,7 @@
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
         <field name="Selectors" type="StringTableFieldDefinition" value="AddSpells(89ea958d-45c4-58bd-a71a-705c879c00a9,,,,AlwaysPrepared)" />
         <field name="Boosts" type="StringTableFieldDefinition" value="ActionResource(ESC_SwordOpportunity,3,0);ActionResource(ESC_SwordYuan,4,0);ActionResource(ESC_FlightMovement,24,0);ActionResource(ESC_ChainMovement,6,0)" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_continuous_strikes;ESC_P_Level5" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_continuous_strikes;ESC_P_Level5;ESC_P_ContinuousCast_1;ESC_P_ContinuousCast_2;ESC_P_ContinuousCast_3;ESC_P_ContinuousCast_4" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -601,7 +601,7 @@
         <field name="Level" type="ByteTableFieldDefinition" value="1" />
         <field name="ProgressionType" type="ByteTableFieldDefinition" value="0" />
         <field name="Boosts" type="StringTableFieldDefinition" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars)" />
-        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword;ESC_P_StarterMelee" />
+        <field name="PassivesAdded" type="StringTableFieldDefinition" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
         <field name="IsMulticlass" type="BoolTableFieldDefinition" value="True" />
       </fields>
     </stat_object>

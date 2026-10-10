@@ -3,6 +3,24 @@
   <stat_objects>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a536ab8d-a17d-5df7-bcad-ed8e63c0f566" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_VFX_SWORD_DOMAIN" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_VFX_SWORD_DOMAIN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="efb10aea-8da5-5b7d-a7b7-ee870335c9bb" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="8e1a2a9f-b65c-5c5e-afd2-2263ae3ee0a3" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_VFX_BLOOD_DOMAIN" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_VFX_BLOOD_DOMAIN" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="ab36c72b-9c72-50b6-a12f-5e5c5baa9f7b" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="331d9c57-8b23-576f-9562-efed41f52e5b" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_YUJIAN" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h03600e6cg47f6g5faeg9448gb43097ec9474" version="1" />
@@ -48,16 +66,6 @@
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h9228485eg468cg58c0g82degb0f8260324a4" version="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_sword_flight" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_SWORD_FLIGHT" />
-        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-      </fields>
-    </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="UUID" type="IdTableFieldDefinition" value="a1ccc379-c4a0-5f72-885b-501c70d017aa" />
-        <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_RECALL_SWORD" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h8ea89266g58dfg5a98g9459g05d2d914db23" version="1" />
-        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_recall_sword" />
-        <field name="StackId" type="StringTableFieldDefinition" value="ESC_CAST_RECALL_SWORD" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
       </fields>
     </stat_object>
@@ -536,7 +544,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_COUNTER_READY" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
         <field name="Boosts" type="StringTableFieldDefinition" value="IF(not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and HasStatus('ESC_COUNTER_RANK3',context.Source)):AC(5);IF(not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and not HasStatus('ESC_COUNTER_RANK3',context.Source) and HasStatus('ESC_COUNTER_RANK2',context.Source)):AC(3);IF(not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))) and not HasStatus('ESC_COUNTER_RANK3',context.Source) and not HasStatus('ESC_COUNTER_RANK2',context.Source)):AC(2)" />
-        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="87356553-5bed-4e2b-86eb-f0697e5ec648" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="df8e8cd2-1960-5f37-814c-f9c04c540886" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -610,6 +618,7 @@
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_XINGGE_PROTECTION" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
         <field name="Boosts" type="StringTableFieldDefinition" value="AC(2)" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="TickingWithSource" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -714,6 +723,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANJIAN" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_SAVEFAIL_TIANQING_TIANJIAN" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="Force(4)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -924,7 +934,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_0" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_0" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_yujian') or SpellId('Target_ESC_sword_strike') or SpellId('Shout_ESC_tiaoxi') or SpellId('Projectile_ESC_taixuan_zhaoxi') or SpellId('Target_ESC_taixuan_jiuxiao') or SpellId('Projectile_ESC_taixuan_liuguang') or SpellId('Shout_ESC_taixuan_xinghe') or SpellId('Shout_ESC_taixuan_taiqing') or SpellId('Zone_ESC_taixuan_yixiantian') or SpellId('Zone_ESC_tianqing_nifeng') or SpellId('Target_ESC_tianqing_wanjun') or SpellId('Projectile_ESC_tianqing_lietian'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_yujian'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Target_ESC_sword_strike'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_tiaoxi'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -933,7 +943,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_1" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_1" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Target_ESC_tianqing_tianbeng') or SpellId('Rush_ESC_tianqing_tianfeng') or SpellId('Projectile_ESC_tianqing_tianjian') or SpellId('Shout_ESC_tianqing_bafang') or SpellId('Target_ESC_tianqing_tiandi') or SpellId('Shout_ESC_tianqing_xushi') or SpellId('Projectile_ESC_xueyan_luexue') or SpellId('Rush_ESC_xueyan_chuanshen') or SpellId('Shout_ESC_xueyan_liancheng') or SpellId('Shout_ESC_xueyan_nixue') or SpellId('Shout_ESC_xueyan_xuehai') or SpellId('Projectile_ESC_xueyan_wusheng'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_taixuan_zhaoxi'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Target_ESC_taixuan_jiuxiao'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_taixuan_liuguang'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -942,7 +952,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_2" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_2" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_xingge_wenlu') or SpellId('Target_ESC_xingge_chengfeng') or SpellId('Projectile_ESC_xingge_tongzhou') or SpellId('Shout_ESC_xingge_fengyu') or SpellId('Shout_ESC_xingge_zhangjian') or SpellId('Projectile_ESC_yujian_Main') or SpellId('Projectile_ESC_yujian_Off') or SpellId('Target_ESC_sword_strike_Main') or SpellId('Target_ESC_sword_strike_Off') or SpellId('Target_ESC_taixuan_zhaoxi_MeleeMain') or SpellId('Target_ESC_taixuan_zhaoxi_MeleeOff') or SpellId('Projectile_ESC_taixuan_zhaoxi_RangedMain'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_taixuan_xinghe'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_taixuan_taiqing'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Zone_ESC_taixuan_yixiantian'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -951,7 +961,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_3" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_3" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_taixuan_zhaoxi_RangedOff') or SpellId('Zone_ESC_tianqing_nifeng_MeleeMain') or SpellId('Zone_ESC_tianqing_nifeng_MeleeOff') or SpellId('Zone_ESC_tianqing_nifeng_RangedMain') or SpellId('Zone_ESC_tianqing_nifeng_RangedOff') or SpellId('Target_ESC_tianqing_wanjun_Main') or SpellId('Target_ESC_tianqing_wanjun_Off') or SpellId('Projectile_ESC_tianqing_lietian_Main') or SpellId('Projectile_ESC_tianqing_lietian_Off') or SpellId('Target_ESC_tianqing_tianbeng_Main') or SpellId('Target_ESC_tianqing_tianbeng_Off') or SpellId('Rush_ESC_tianqing_tianfeng_Main'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Zone_ESC_tianqing_nifeng'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Target_ESC_tianqing_wanjun'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Target_ESC_tianqing_lietian'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -960,7 +970,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_4" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_4" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Rush_ESC_tianqing_tianfeng_Off') or SpellId('Projectile_ESC_tianqing_tianjian_Main') or SpellId('Projectile_ESC_tianqing_tianjian_Off') or SpellId('Shout_ESC_tianqing_bafang_Main') or SpellId('Shout_ESC_tianqing_bafang_Off') or SpellId('Target_ESC_tianqing_tiandi_Main') or SpellId('Target_ESC_tianqing_tiandi_Off') or SpellId('Target_ESC_xueyan_luexue_MeleeMain') or SpellId('Target_ESC_xueyan_luexue_MeleeOff') or SpellId('Projectile_ESC_xueyan_luexue_RangedMain') or SpellId('Projectile_ESC_xueyan_luexue_RangedOff') or SpellId('Rush_ESC_xueyan_chuanshen_Main'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Target_ESC_tianqing_tianbeng'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Rush_ESC_tianqing_tianfeng'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_tianqing_tianjian'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -969,7 +979,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_5" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_5" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Rush_ESC_xueyan_chuanshen_Off') or SpellId('Shout_ESC_xueyan_liancheng') or SpellId('Shout_ESC_xueyan_nixue_F0') or SpellId('Shout_ESC_xueyan_nixue_F1') or SpellId('Shout_ESC_xueyan_nixue_F2') or SpellId('Shout_ESC_xueyan_nixue_F3') or SpellId('Shout_ESC_xueyan_nixue_F4') or SpellId('Shout_ESC_xueyan_nixue_F5') or SpellId('Shout_ESC_xueyan_nixue_F6') or SpellId('Shout_ESC_xueyan_nixue_F7') or SpellId('Shout_ESC_xueyan_nixue_F8') or SpellId('Shout_ESC_xueyan_nixue_F9'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_tianqing_bafang'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Target_ESC_tianqing_tiandi'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_tianqing_xushi'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -978,7 +988,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_6" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_6" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F10') or SpellId('Shout_ESC_xueyan_nixue_F11') or SpellId('Shout_ESC_xueyan_nixue_F12') or SpellId('Shout_ESC_xueyan_nixue_F13') or SpellId('Shout_ESC_xueyan_nixue_F14') or SpellId('Shout_ESC_xueyan_nixue_F15') or SpellId('Projectile_ESC_xueyan_wusheng_F0') or SpellId('Projectile_ESC_xueyan_wusheng_F1') or SpellId('Projectile_ESC_xueyan_wusheng_F2') or SpellId('Projectile_ESC_xueyan_wusheng_F3') or SpellId('Projectile_ESC_xueyan_wusheng_F4') or SpellId('Projectile_ESC_xueyan_wusheng_F5'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_luexue'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Rush_ESC_xueyan_chuanshen'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_liancheng'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -987,7 +997,7 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_7" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_7" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F6') or SpellId('Projectile_ESC_xueyan_wusheng_F7') or SpellId('Projectile_ESC_xueyan_wusheng_F8') or SpellId('Projectile_ESC_xueyan_wusheng_F9') or SpellId('Projectile_ESC_xueyan_wusheng_F10') or SpellId('Projectile_ESC_xueyan_wusheng_F11') or SpellId('Projectile_ESC_xueyan_wusheng_F12') or SpellId('Projectile_ESC_xueyan_wusheng_F13') or SpellId('Projectile_ESC_xueyan_wusheng_F14') or SpellId('Projectile_ESC_xueyan_wusheng_F15') or SpellId('Target_ESC_xingge_wenlu_MeleeMain') or SpellId('Target_ESC_xingge_wenlu_MeleeOff'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F0'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F1'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F2'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -996,7 +1006,106 @@
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_8" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_8" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpellVariant(SpellId('Projectile_ESC_xingge_wenlu_RangedMain') or SpellId('Projectile_ESC_xingge_wenlu_RangedOff') or SpellId('Target_ESC_xingge_chengfeng_Main') or SpellId('Target_ESC_xingge_chengfeng_Off') or SpellId('Projectile_ESC_xingge_tongzhou_Main') or SpellId('Projectile_ESC_xingge_tongzhou_Off'),ModifyUseCosts(Replace,ActionPoint,1,0,ESC_SwordOpportunity))" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F3'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F4'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F5'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="50b1d5be-ad86-5a94-b83d-9ef604a1f6b1" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_9" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_9" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F6'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F7'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F8'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c26ca32e-4689-5baf-8800-454de90edc99" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_10" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_10" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F9'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F10'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F11'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="c3aea2f0-8a2f-545c-b9e8-d3671bd4984f" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_11" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_11" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F12'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F13'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F14'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="0bd09f7d-4d74-51b9-ada2-f0f21bc541fd" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_12" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_12" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_nixue_F15'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xueyan_xuehai'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F0'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="81ad0126-916d-5bb7-9486-742a4fcd3667" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_13" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_13" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F1'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F2'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F3'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a6da87bc-d8da-5dc3-b674-88c7726f26f3" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_14" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_14" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F4'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F5'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F6'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="d2005165-ccc1-5106-9266-65bfa6b75142" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_15" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_15" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F7'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F8'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F9'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="50c70103-b773-540a-b138-eb3cc5ab0957" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_16" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_16" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F10'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F11'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F12'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="9f3bdee9-9f50-533f-a367-02ff1a1bf8a2" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_17" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_17" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F13'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F14'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xueyan_wusheng_F15'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="7ee7d58f-6019-5a6f-9ab3-0be498fcf3ea" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_18" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_18" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xingge_wenlu'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Target_ESC_xingge_chengfeng'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Projectile_ESC_xingge_tongzhou'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="54dbe5d4-5ea3-5d8b-9ebc-c3ac7b56cd11" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK_19" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK_19" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xingge_fengyu'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow());IF(TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and (not HasShieldEquipped(context.Source) and ((not HasPassive('ESC_P_Branch_taixuan',context.Source) and not HasPassive('ESC_P_Branch_xingge',context.Source)) or (not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source))))):UnlockSpellVariant(SpellId('Shout_ESC_xingge_zhangjian'),ModifyUseCosts(Replace,ESC_SwordOpportunity,1,0,ActionPoint),ModifyIconGlow())" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1004,9 +1113,12 @@
         <field name="UUID" type="IdTableFieldDefinition" value="65b5e8a5-173e-5575-9f98-75e48aa81ce2" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_EXTRA_ATTACK" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_EXTRA_ATTACK" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
-        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(ESC_EXTRA_ATTACK_0,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_1,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_2,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_3,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_4,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_5,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_6,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_7,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_8,100,-1)" />
-        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(ESC_EXTRA_ATTACK_0);RemoveStatus(ESC_EXTRA_ATTACK_1);RemoveStatus(ESC_EXTRA_ATTACK_2);RemoveStatus(ESC_EXTRA_ATTACK_3);RemoveStatus(ESC_EXTRA_ATTACK_4);RemoveStatus(ESC_EXTRA_ATTACK_5);RemoveStatus(ESC_EXTRA_ATTACK_6);RemoveStatus(ESC_EXTRA_ATTACK_7);RemoveStatus(ESC_EXTRA_ATTACK_8)" />
+        <field name="RemoveEvents" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusEvent" value="OnSpellCast" />
+        <field name="RemoveConditions" type="RollConditionsTableFieldDefinition" value="not HasActionResource('ESC_SwordOpportunity',1,0,false,false,context.Target)" />
+        <field name="OnApplyFunctors" type="FunctorsTableFieldDefinition" value="ApplyStatus(ESC_EXTRA_ATTACK_0,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_1,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_2,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_3,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_4,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_5,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_6,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_7,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_8,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_9,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_10,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_11,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_12,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_13,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_14,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_15,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_16,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_17,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_18,100,-1);ApplyStatus(ESC_EXTRA_ATTACK_19,100,-1)" />
+        <field name="OnRemoveFunctors" type="FunctorsTableFieldDefinition" value="RemoveStatus(ESC_EXTRA_ATTACK_0);RemoveStatus(ESC_EXTRA_ATTACK_1);RemoveStatus(ESC_EXTRA_ATTACK_2);RemoveStatus(ESC_EXTRA_ATTACK_3);RemoveStatus(ESC_EXTRA_ATTACK_4);RemoveStatus(ESC_EXTRA_ATTACK_5);RemoveStatus(ESC_EXTRA_ATTACK_6);RemoveStatus(ESC_EXTRA_ATTACK_7);RemoveStatus(ESC_EXTRA_ATTACK_8);RemoveStatus(ESC_EXTRA_ATTACK_9);RemoveStatus(ESC_EXTRA_ATTACK_10);RemoveStatus(ESC_EXTRA_ATTACK_11);RemoveStatus(ESC_EXTRA_ATTACK_12);RemoveStatus(ESC_EXTRA_ATTACK_13);RemoveStatus(ESC_EXTRA_ATTACK_14);RemoveStatus(ESC_EXTRA_ATTACK_15);RemoveStatus(ESC_EXTRA_ATTACK_16);RemoveStatus(ESC_EXTRA_ATTACK_17);RemoveStatus(ESC_EXTRA_ATTACK_18);RemoveStatus(ESC_EXTRA_ATTACK_19)" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1023,7 +1135,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="d1973dec-53b7-563a-8013-e788e03f0078" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_CHAIN_LIANCHENG" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_CHAIN_LIANCHENG" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_ESC_liancheng_ContinueMelee);UnlockSpell(Projectile_ESC_liancheng_ContinueRanged);UnlockSpell(Projectile_ESC_ChainMove)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Projectile_ESC_liancheng_ContinueRanged);UnlockSpell(Projectile_ESC_ChainMove)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
       </fields>
     </stat_object>
@@ -1032,7 +1144,7 @@
         <field name="UUID" type="IdTableFieldDefinition" value="9baa47d5-c50f-5ae4-b113-10b861d92176" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_CHAIN_WUSHENG" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_CHAIN_WUSHENG" />
-        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Target_ESC_wusheng_ContinueMelee);UnlockSpell(Projectile_ESC_wusheng_ContinueRanged)" />
+        <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Projectile_ESC_wusheng_ContinueRanged)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
       </fields>
     </stat_object>
@@ -1098,6 +1210,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_ESC_Counter2);IF(SpellId('Target_ESC_Counter2')):RollBonus(Attack,2)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="4bc6224a-d901-50e7-b598-2947781ae88f" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1108,6 +1221,7 @@
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockInterrupt(Interrupt_ESC_Counter3);IF(SpellId('Target_ESC_Counter3')):RollBonus(Attack,3)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
         <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="0f9c4db1-1e98-5221-b032-7deb412659bd" />
       </fields>
     </stat_object>
   </stat_objects>

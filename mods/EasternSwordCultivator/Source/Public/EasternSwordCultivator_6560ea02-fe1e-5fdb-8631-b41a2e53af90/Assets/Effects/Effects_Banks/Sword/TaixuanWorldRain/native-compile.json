@@ -1,0 +1,75 @@
+{
+  "compiler": "AllSpark.EffectCompiler.Compiler.Compile",
+  "variant": "spiritual",
+  "records": [
+    {
+      "effect_name": "VFX_ESC_Taixuan_Jiuxiao_WorldRain_Spiritual_01",
+      "source_sha256": "5ec870eb39b701d16fd6737023d87bfb1c5cae69c32be005a9cafd402fa887b4",
+      "compiled_sha256": "c85321a4fc30431ad5a8223ff1f122475a765580ed8fdd8f4fd16351aeee185f",
+      "compiled_xml_sha256": "ab29c1521afa793634ef66a684b516555338b353a6970d036c28fd0e5dcb9818",
+      "packaging_xml_sha256": "8064ae00eec2c57b25840101980811c070f0890b72324c123f34ebd739a1b4b9",
+      "roundtrip_xml_sha256": "13114d5f1a0a4e3e32cc12ac4eb34f4a06dff7365f385a62129d0fe042438fe4",
+      "compiled_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_WorldRain_Spiritual_01.compiled.lsx",
+      "packaging_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_WorldRain_Spiritual_01.binary-input.lsx",
+      "compiled_binary": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_WorldRain_Spiritual_01.lsfx",
+      "roundtrip_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_WorldRain_Spiritual_01.roundtrip.lsx",
+      "component_count": 4,
+      "resource_dependencies": [
+        "44192e18-75cf-4d16-1747-81ed534b8247",
+        "729a252e-da1a-5266-b44c-7ed55dee06cb",
+        "e11a1c71-5181-7a7d-5abc-4ed596ff09a3"
+      ],
+      "binary_version": 7,
+      "normalizeTopLevelNodeIds": true,
+      "semantic_roundtrip_verified": true,
+      "native_compile_evidence": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\root-native-probe\\h11-production\\VFX_ESC_Taixuan_Jiuxiao_WorldRain_Spiritual_01\\VFX_ESC_Taixuan_Jiuxiao_WorldRain_Spiritual_01.compile-evidence.json",
+      "native_compile_evidence_sha256": "6afde691a6f6cac38a99b04e24739425eb3be33cf3d9364f34e801b01f081d17"
+    },
+    {
+      "effect_name": "VFX_ESC_Taixuan_Taiqing_WorldRain_Spiritual_01",
+      "source_sha256": "7b06ec77cc9394173c168280da6d8ad41f1569a14addab2d0f3b37352cd98ae0",
+      "compiled_sha256": "18a3c2fa9a5afe2ae98abe9f3bc6da2fcf5329de187c34ed4fbd47e9ac6bf321",
+      "compiled_xml_sha256": "d182c449659de416424ea50c5b47f691cd5958619a4e89a2c214ffde0e1248c7",
+      "packaging_xml_sha256": "45b5924fe21336c36c0a9511951455a430c2247c819a73ef18a7d9bde4f1f532",
+      "roundtrip_xml_sha256": "e5841c63b25d17cd666e525c405dde4c66edb795684b9ca2975d7f4dc0f87932",
+      "compiled_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Taiqing_WorldRain_Spiritual_01.compiled.lsx",
+      "packaging_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Taiqing_WorldRain_Spiritual_01.binary-input.lsx",
+      "compiled_binary": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Taiqing_WorldRain_Spiritual_01.lsfx",
+      "roundtrip_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Taiqing_WorldRain_Spiritual_01.roundtrip.lsx",
+      "component_count": 4,
+      "resource_dependencies": [
+        "44192e18-75cf-4d16-1747-81ed534b8247",
+        "729a252e-da1a-5266-b44c-7ed55dee06cb",
+        "e11a1c71-5181-7a7d-5abc-4ed596ff09a3"
+      ],
+      "binary_version": 7,
+      "normalizeTopLevelNodeIds": true,
+      "semantic_roundtrip_verified": true,
+      "native_compile_evidence": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\root-native-probe\\h11-production\\VFX_ESC_Taixuan_Taiqing_WorldRain_Spiritual_01\\VFX_ESC_Taixuan_Taiqing_WorldRain_Spiritual_01.compile-evidence.json",
+      "native_compile_evidence_sha256": "7df4250752c5f3eea4a8cadd4cf19239591f1c7e2a0e26e088d0d84d31a27d7d"
+    },
+    {
+      "effect_name": "VFX_ESC_Taixuan_Jiuxiao_Background_WorldRain_Spiritual_01",
+      "source_sha256": "b0f2c64c5aeae82057281803346ced6152f821a6f138192ef6b089d4b17df219",
+      "compiled_sha256": "d826d817868f44d85350af3bc9376a509602d89bd8a2a2d0f72e8b821c63956f",
+      "compiled_xml_sha256": "5e122cfb26664d33407e15de13113d1f2d86c648a241d21c08019431be1dfed6",
+      "packaging_xml_sha256": "ffcdee130d10b85d3299b79597886285808681ea366887da57da629fd87239cd",
+      "roundtrip_xml_sha256": "e2d37d6d0c6227c40e4e3b1d5ec1c54f4fc371e758c3656888435a88b9c33eb0",
+      "compiled_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_Background_WorldRain_Spiritual_01.compiled.lsx",
+      "packaging_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_Background_WorldRain_Spiritual_01.binary-input.lsx",
+      "compiled_binary": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_Background_WorldRain_Spiritual_01.lsfx",
+      "roundtrip_xml": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\native-serialized-h11\\VFX_ESC_Taixuan_Jiuxiao_Background_WorldRain_Spiritual_01.roundtrip.lsx",
+      "component_count": 2,
+      "resource_dependencies": [
+        "729a252e-da1a-5266-b44c-7ed55dee06cb"
+      ],
+      "binary_version": 7,
+      "normalizeTopLevelNodeIds": true,
+      "semantic_roundtrip_verified": true,
+      "native_compile_evidence": "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\candidates\\unified-ranged-design-20261009\\H1-menu-vfx-audit\\root-native-probe\\h11-production\\VFX_ESC_Taixuan_Jiuxiao_Background_WorldRain_Spiritual_01\\VFX_ESC_Taixuan_Jiuxiao_Background_WorldRain_Spiritual_01.compile-evidence.json",
+      "native_compile_evidence_sha256": "c4587c2a7de4d297ed36a2b85c9c68c333018af7bfda7fdf95ebce344f663523"
+    }
+  ],
+  "scope": "three compiled one-shot world resources; rendered/heard acceptance pending",
+  "native_visual_hearing_acceptance": "pending H11 rendered actual-skill verification"
+}

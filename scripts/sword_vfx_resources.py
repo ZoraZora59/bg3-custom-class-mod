@@ -57,6 +57,39 @@ _GUID_REFERENCE = re.compile(r'<([0-9a-fA-F-]{36})>')
 _SPHERE_CENTER = 'c1115291-39d1-43a2-8259-31c2ef4dbd93'
 _SPHERE_RADIUS = 'ba2ee0f9-d369-4d36-bd63-30d4c8c46a0a'
 
+# Native SPRW_Greatsword Objects/MaterialID was verified in Shared.pak:
+# Public/SharedDev/Content/Assets/Characters/Creatures/Spiritual Weapons/
+# GreatSword/[PAK]_Body/_merged.lsf, Visual 3727a57a... at LOD 0-3.
+# Keep this explicit dependency beside the direct Visual GUID: AllSpark only
+# exports the source's direct reference, while the native Visual needs its
+# linked material. Unknown visuals do not acquire guessed dependencies.
+VERIFIED_NATIVE_VISUAL_MATERIALS = {
+    '3727a57a-e4be-44da-02b4-5061028fed5f': ('897a51e0-39fb-7d08-0437-03ec27637571',),
+    # Native Shared [PAK]_Static_Models Objects/MaterialID, energy ring.
+    '36c6fe7b-25b9-19fe-a285-d750d070b6ff': ('0284789c-9a82-6af1-1af7-b75dfb5a4e16',),
+    # Native Shared Static Models Objects/MaterialID, TrueStrike Exterior beam.
+    '27169e30-e769-5199-2378-1cb3f2ad4f38': ('016f3188-f19f-334e-f8d3-4d661a52755b',),
+}
+from sword_glow import dependencies as glow_dependencies
+VERIFIED_NATIVE_VISUAL_MATERIALS.update(glow_dependencies())
+from xuehai_boundary_visual_polish import dependencies as bloodsea_dependencies
+VERIFIED_NATIVE_VISUAL_MATERIALS.update(bloodsea_dependencies())
+
+# Exported native EffectInfo fields have a schema independent of their Python
+# values. In particular animation text keys are LSString, unlike binding enums.
+# Cleave_CastEffect (1d808499-eac9-408a-b5c8-219bb4f52bdc) and MagicMissile's
+# prepare MEI use this schema; Toolkit rejects FixedString animation text keys.
+EFFECT_INFO_ATTRIBUTE_TYPES = {
+    'UUID': 'guid', 'EffectResourceGuid': 'guid',
+    'DetachSource': 'bool', 'DetachTarget': 'bool', 'KeepRotation': 'bool',
+    'UseOrientDirection': 'bool', 'UseDistance': 'bool', 'UseScaleOverride': 'bool',
+    'KeepScale': 'bool', 'MainHand': 'bool', 'OffHand': 'bool', 'Enabled': 'bool',
+    'MinDistance': 'float', 'MaxDistance': 'float',
+    'BindSourceTo': 'FixedString', 'BindTargetTo': 'FixedString', 'Pivot': 'FixedString',
+    'DamageType': 'uint32', 'VerbalIntent': 'uint32',
+    'StartTextKey': 'LSString', 'EndTextKey': 'LSString',
+}
+
 
 def effect_name(style: str, phase: str) -> str:
     return f'VFX_ESC_{style.title()}_{phase.title()}_01'
@@ -73,6 +106,14 @@ def editor_path(style: str, phase: str) -> Path:
 def _attribute(node: ET.Element, name: str, typ: str, value: object) -> None:
     value = str(value).title() if isinstance(value, bool) else str(value)
     ET.SubElement(node, 'attribute', id=name, type=typ, value=value)
+
+
+def _effect_info_attribute(node: ET.Element, name: str, value: object) -> None:
+    try:
+        typ = EFFECT_INFO_ATTRIBUTE_TYPES[name]
+    except KeyError as exc:
+        raise ValueError(f'Unverified native EffectInfo attribute: {name}') from exc
+    _attribute(node, name, typ, value)
 
 
 def _document(region: str) -> tuple[ET.Element, ET.Element]:
@@ -139,6 +180,8 @@ def _metadata(source: Path | None, phase: str) -> dict:
         if float(component.get('start', '0')) > 1e-6 or float(component.get('end', '0')) + 1e-6 < duration:
             raise ValueError(f'BoundingSphere does not cover the effect lifecycle: {source}')
         spheres.append((center, radius))
+    for dependency in tuple(dependencies):
+        dependencies.update(VERIFIED_NATIVE_VISUAL_MATERIALS.get(dependency.lower(), ()))
     result.update(duration=duration, looping=any(p.get('playcount') == '-1' for p in phases),
                   dependencies=sorted(dependencies - {ZERO}))
     if spheres:
@@ -191,10 +234,9 @@ def _mei(style: str, phase: str) -> tuple[ET.Element, ET.Element]:
     _attribute(parent, 'Name', 'LSString', name)
     item = ET.SubElement(ET.SubElement(parent, 'children'), 'node', id='EffectInfo')
     for key, value in fields.items():
-        typ = 'guid' if key in ('UUID', 'EffectResourceGuid') else 'bool' if isinstance(value, bool) else 'float' if key in ('MinDistance', 'MaxDistance') else 'FixedString'
-        _attribute(item, key, typ, value)
-    _attribute(item, 'DamageType', 'uint32', 0)
-    _attribute(item, 'VerbalIntent', 'uint32', 0)
+        _effect_info_attribute(item, key, value)
+    _effect_info_attribute(item, 'DamageType', 0)
+    _effect_info_attribute(item, 'VerbalIntent', 0)
     _attribute(ET.SubElement(ET.SubElement(item, 'children'), 'node', id='TargetBone'), 'Value', 'LSString', bone)
     return editor, exported
 

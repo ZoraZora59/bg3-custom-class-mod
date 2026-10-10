@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="73bc420e-fd90-561f-8cc6-57c97e7c58af" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Tianqing_Tiandi_Hit_01_Pathfind" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="e9b94d98-4455-5a26-8b7a-f9486dc0c566" />
+                    <attribute id="Type" type="FixedString" value="projectile" />
+                    <attribute id="TrajectoryType" type="uint8" value="2" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

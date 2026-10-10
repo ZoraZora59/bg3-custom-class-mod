@@ -140,16 +140,6 @@
     }
   },
   {
-    "asset": "skill_recall_sword",
-    "icon": "ESC_skill_recall_sword",
-    "selected": "masters/skill/skill_recall_sword.png",
-    "sha256": "9979dffbc87747cf759b35208e1c23a403b917810762ddb6b26d28a48310b732",
-    "outputs": {
-      "controller_144": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\ControllerUIIcons\\skills_png\\ESC_skill_recall_sword.dds",
-      "tooltip_380": "Mods\\EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90\\GUI\\Assets\\Tooltips\\Icons\\ESC_skill_recall_sword.dds"
-    }
-  },
-  {
     "asset": "skill_qi_sword",
     "icon": "ESC_skill_qi_sword",
     "selected": "masters/skill/skill_qi_sword.png",

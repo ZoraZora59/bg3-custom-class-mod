@@ -12,7 +12,7 @@
                     <attribute id="ProgressionType" type="uint8" value="0" />
                     <attribute id="Selectors" type="LSString" value="SelectSkills(a0e2abe7-a094-57ae-8eae-48bbb050fc61,2)" />
                     <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars);ProficiencyBonus(SavingThrow,Wisdom);ProficiencyBonus(SavingThrow,Constitution)" />
-                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword;ESC_P_StarterMelee" />
+                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
                 </node>
                 <node id="Progression">
                     <attribute id="UUID" type="guid" value="62cce976-30a4-5900-8ace-c66b472dfbeb" />
@@ -67,7 +67,7 @@
                     <attribute id="ProgressionType" type="uint8" value="0" />
                     <attribute id="Selectors" type="LSString" value="AddSpells(89ea958d-45c4-58bd-a71a-705c879c00a9,,,,AlwaysPrepared)" />
                     <attribute id="Boosts" type="LSString" value="ActionResource(ESC_SwordOpportunity,3,0);ActionResource(ESC_SwordYuan,4,0);ActionResource(ESC_FlightMovement,24,0);ActionResource(ESC_ChainMovement,6,0)" />
-                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_continuous_strikes;ESC_P_Level5" />
+                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_continuous_strikes;ESC_P_Level5;ESC_P_ContinuousCast_1;ESC_P_ContinuousCast_2;ESC_P_ContinuousCast_3;ESC_P_ContinuousCast_4" />
                 </node>
                 <node id="Progression">
                     <attribute id="UUID" type="guid" value="0e37531d-ff81-5a9d-9fff-0a0394d4e886" />
@@ -463,7 +463,7 @@
                     <attribute id="Level" type="uint8" value="1" />
                     <attribute id="ProgressionType" type="uint8" value="0" />
                     <attribute id="Boosts" type="LSString" value="Proficiency(LightArmor);Proficiency(Longswords);Proficiency(Shortswords);Proficiency(Greatswords);Proficiency(Rapiers);Proficiency(Scimitars)" />
-                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword;ESC_P_StarterMelee" />
+                    <attribute id="PassivesAdded" type="LSString" value="ESC_P_sword_heart;ESC_P_basic_defense;ESC_P_StarterSword" />
                     <attribute id="IsMulticlass" type="bool" value="true" />
                 </node>
             </children>

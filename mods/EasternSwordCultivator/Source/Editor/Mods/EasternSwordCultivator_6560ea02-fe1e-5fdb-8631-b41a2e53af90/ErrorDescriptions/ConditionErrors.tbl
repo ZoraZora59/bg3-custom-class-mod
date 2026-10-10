@@ -163,14 +163,5 @@
         <field name="ErrorDescriptionType" type="EnumerationTableFieldDefinition" enumeration_type_name="ErrorDescriptionType" value="0" />
       </fields>
     </stat_object>
-    <stat_object is_substat="false">
-      <fields>
-        <field name="Name" type="NameTableFieldDefinition" value="ESC_ConditionErrors_18" />
-        <field name="UUID" type="IdTableFieldDefinition" value="17809da7-f14f-5aff-b41b-fd845e54f089" />
-        <field name="Identifier" type="FixedStringTableFieldDefinition" value="CE_Status_ESC_QI_MODE_False" />
-        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h729d551dgb906g5c8dg9f7eg817277bc77a1" version="1" />
-        <field name="ErrorDescriptionType" type="EnumerationTableFieldDefinition" enumeration_type_name="ErrorDescriptionType" value="0" />
-      </fields>
-    </stat_object>
   </stat_objects>
 </stats>
