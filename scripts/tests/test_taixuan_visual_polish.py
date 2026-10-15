@@ -149,9 +149,9 @@ class TaixuanNativeAuthoring(unittest.TestCase):
                         self.assertAlmostEqual(channel[0][1], channel[-1][1], places=7)
                     for (_, x), (_, z) in zip(channels[0], channels[2]):
                         self.assertAlmostEqual(math.hypot(x, z), profile['radius'], places=6)
-                    self.assertTrue(all(value <= (.70 if native else .48) for _, value in ramps(sword, tx.MODEL_ALPHA)[0]))
+                    self.assertTrue(all(value <= (.85 if native else .48) for _, value in ramps(sword, tx.MODEL_ALPHA)[0]))
                 cores = [m for m in components(root, 'Model') if BLUE_CORE in scalar(m, tx.fx.MESH)]
-                self.assertEqual(len(cores), 6 if key == 'taixuan_taiqing_status' else 0)
+                self.assertEqual(len(cores), profile['count'] if key == 'taixuan_taiqing_status' else 0)
                 for sword, core in zip(swords, cores):
                     self.assertEqual(ramps(core,tx.MODEL_OFFSET),ramps(sword,tx.MODEL_OFFSET))
                     self.assertEqual(ramps(core,tx.MODEL_ALPHA),ramps(sword,tx.MODEL_ALPHA))

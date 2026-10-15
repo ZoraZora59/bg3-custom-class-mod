@@ -25,9 +25,12 @@ RECEIPT = COMPILED / 'native-compile.json'
 BANK = PUBLIC / 'Content/Assets/Effects/Effects/Sword/[PAK]_ESC_SchoolPolish/_merged.lsx'
 GROUP = guid('vfx/polish/mei/group')
 STATUS_SKILLS = {'ESC_COUNTER_RANK2': 'taixuan_qinghui',
+                 'ESC_IN_FLIGHT': 'sword_flight',
                  'ESC_COUNTER_RANK3': 'taixuan_xinghe',
                  'ESC_VFX_SWORD_DOMAIN': 'taixuan_taiqing',
-                 'ESC_VFX_BLOOD_DOMAIN': 'xueyan_xuehai'}
+                 'ESC_VFX_BLOOD_DOMAIN': 'xueyan_xuehai',
+                 'ESC_VFX_DAMAGE_SHARE': 'xingge_fengyu',
+                 'ESC_VFX_TEAM_RESONANCE': 'xingge_zhangjian'}
 _enabled = {}
 
 
@@ -36,8 +39,10 @@ def authoring_modules():
     import tianqing_visual_polish
     import xueyan_visual_polish
     import tianfeng_visual_polish
+    import xingge_visual_polish
+    import sword_flight_visual_polish
     return (taixuan_visual_polish, tianqing_visual_polish, xueyan_visual_polish,
-            tianfeng_visual_polish)
+            tianfeng_visual_polish, xingge_visual_polish, sword_flight_visual_polish)
 
 
 def profiles():
@@ -50,7 +55,26 @@ def profiles():
                 raise ValueError(f'Duplicate per-technique VFX role: {key}')
             roles.add(role)
             result[key] = value
+    # Exactly four target effects; all other profile records remain unchanged.
+    from xingge_support_v2 import DESIGNS, CORE_SCALE
+    for key, design in DESIGNS.items():
+        result[key] = {**result[key], 'duration': design['duration'],
+                       'model_scale': CORE_SCALE, 'pitch_degrees': design['pitch'],
+                       'presentation': design['motif']}
     return result
+
+
+def author_profile(module, data, key, dictionary):
+    from xingge_support_v2 import DESIGNS, author as author_support
+    if key in DESIGNS:
+        # This factory already performs the steel-to-luminous conversion once.
+        return author_support(data, key, dictionary)
+    from sword_glow import apply as apply_glow
+    root, origins, details = module.author(data, key, dictionary)
+    details.update(apply_glow(root, dictionary, key.split('_')[0]))
+    from nixue_v2 import apply as apply_nixue_v2
+    details.update(apply_nixue_v2(root, dictionary, key))
+    return root, origins, details
 
 
 def effect_name(key):
@@ -74,16 +98,24 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def attached_until_casted(profile):
+    # This is an explicit single-technique runtime lifecycle, not permission
+    # for ordinary cast effects to loop indefinitely through native MEIs.
+    return (profile.get('skill') == 'tianqing_tianfeng' and profile.get('binding') == 'cast'
+            and profile.get('lifecycle') == 'attached-until-casted')
+
+
 def _mei(key, profile, offhand=False):
     status = profile['binding'] == 'status'
     cast = profile['binding'] == 'cast'
+    target = profile['binding'] == 'target'
     # Native CastEffect's TargetEntity context is the caster. Part 3 and
     # ActionSurge use TargetBone, Pivot=Target for prepare/cast/status.
     bone_key = 'TargetBone'
-    bone = 'Dummy_Root' if cast or status else 'Dummy_BodyFX'
+    bone = 'Dummy_Root' if cast or status or target else 'Dummy_BodyFX'
     fields = dict(UUID=guid('vfx/polish/mei/' + key + ('/offhand' if offhand else '') + '/item'),
-                  EffectResourceGuid=effect_guid(key), DetachSource=not status and not cast,
-                  DetachTarget=not status and not cast, KeepRotation=False, UseOrientDirection=False,
+                  EffectResourceGuid=effect_guid(key), DetachSource=not status and not cast and not target,
+                  DetachTarget=not status and not cast and not target, KeepRotation=False, UseOrientDirection=False,
                   UseDistance=False, UseScaleOverride=False, KeepScale=True,
                   MainHand=False, OffHand=False, MinDistance=0, MaxDistance=0,
                   BindSourceTo='SourceEntity', BindTargetTo='TargetEntity',
@@ -145,7 +177,7 @@ def generate_resources(source):
                 or digest(source / binary) != row['compiled_sha256'].lower()):
             raise ValueError(f'Stale or unverified school polish compilation: {key}')
         meta = _metadata(source / editor, profile['phase'])
-        if meta['looping'] != (profile['binding'] == 'status'):
+        if meta['looping'] != (profile['binding'] == 'status' or attached_until_casted(profile)):
             raise ValueError(f'Unexpected looping lifecycle: {key}')
         prepared[key] = (profile, row, meta, binary)
     root, parent = _document('EffectBank')
@@ -214,7 +246,10 @@ def spell_bindings(name, values, records=None):
     roles = {r['binding']: r for r in available.values() if r['skill'] == key}
     result = {}
     if not presentation.internal and 'cast' in roles:
-        result['CastEffect'] = roles['cast']['offhandMei'] if values.get('CastTextEvent') == 'CastOffhand' else roles['cast']['mei']
+        if attached_until_casted(roles['cast']):
+            result['CastEffect'] = ''  # One runtime handle owns the whole Rush.
+        else:
+            result['CastEffect'] = roles['cast']['offhandMei'] if values.get('CastTextEvent') == 'CastOffhand' else roles['cast']['mei']
         if key == 'xueyan_huichao':
             # Both cost options inherit HealingWord. Its blue preparation spiral
             # obscures the authored red recovery flow and is not this skill's cue.
@@ -233,6 +268,20 @@ def spell_bindings(name, values, records=None):
             result.update(HitEffect='', TargetEffect='', TargetHitEffect='')
         else:
             result.update(HitEffect=roles['hit']['mei'], TargetEffect='', TargetHitEffect='')
+    # Assistance belongs to its selected recipient. Event-only marks/transfers
+    # are played by Runtime after the real event, never by a generic cast.
+    if (not presentation.internal and key in ('xingge_huifeng', 'xingge_fuchen',
+            'xingge_chengfeng', 'xingge_xiangfu') and 'target' in roles):
+        result.update(PrepareEffect='', CastEffect='', HitEffect='', TargetHitEffect='',
+                      TargetEffect=roles['target']['mei'])
+    if (not presentation.internal and key in ('xingge_fengyu', 'xingge_zhangjian')
+            and 'status' in roles):
+        # Their actual recipients own the persistent sword nodes. SELF_UTILITY
+        # supplies ActionSurge effects before this override; its release burst
+        # and screen effects obscure those nodes. Keep the gesture and sounds.
+        result.update(PrepareEffect='', CastEffect='', TargetEffect='', TargetHitEffect='',
+                      TargetGroundEffect='', PositionEffect='', HitEffect='', ImpactEffect='',
+                      PreviewEffect='', BeamEffect='', SpellEffect='')
     return result
 
 

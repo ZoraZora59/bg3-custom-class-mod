@@ -31,9 +31,25 @@ def material_id(style, shape='sword'):
     return guid(f'vfx/glow/material/{style}{suffix}')
 
 
+def support_halo_visual_id():
+    return guid('vfx/xingge/support-v2/halo')
+
+
+def support_halo_visual():
+    # Same native sword mesh/LOD; reuse the existing softer owned material.
+    node = copy.deepcopy(ET.parse(TEMPLATES).getroot().find('Sword/node'))
+    for key, value in [('ID', support_halo_visual_id()), ('Name', 'ESC_Xingge_Support_SwordHalo')]:
+        node.find(f'./attribute[@id="{key}"]').set('value', value)
+    for obj in node.findall('./children/node[@id="Objects"]'):
+        obj.find('./attribute[@id="MaterialID"]').set('value', material_id('xingge', 'circle'))
+    return node
+
+
 def dependencies():
-    return {visual_id(s, shape): (material_id(s, shape),)
-            for s in PALETTES for shape in ('sword', 'circle')}
+    result = {visual_id(s, shape): (material_id(s, shape),)
+              for s in PALETTES for shape in ('sword', 'circle')}
+    result[support_halo_visual_id()] = (material_id('xingge', 'circle'),)
+    return result
 
 
 def generate_resources(source):
@@ -61,6 +77,9 @@ def generate_resources(source):
             attr(visual,'ID',visual_id(style,shape));attr(visual,'Name',f'ESC_Glow_{style}_{shape}')
             for obj in visual.findall('./children/node[@id="Objects"]'):attr(obj,'MaterialID',material_id(style,shape))
             banks['Visual'][1].append(visual)
+    banks['Visual'][1].append(support_halo_visual())
+    from world_beam_materials import material_nodes
+    banks['Material'][1].extend(material_nodes())
     paths=[]
     for kind,(root,_) in banks.items():
         folder='Materials' if kind=='Material' else 'Models'

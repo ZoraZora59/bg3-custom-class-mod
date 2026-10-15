@@ -21,6 +21,24 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="a330a5d9-f07b-5805-bf9a-b0b1b9bce563" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_VFX_DAMAGE_SHARE" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_VFX_DAMAGE_SHARE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="7eeedb0f-c7d0-523f-b6bd-8adfa4693214" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="33f9abbb-39c7-565f-9eef-7bb6c5c7cb61" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_VFX_TEAM_RESONANCE" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_VFX_TEAM_RESONANCE" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="c33e092f-96ff-5b85-8780-37c75b54ca89" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="331d9c57-8b23-576f-9562-efed41f52e5b" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_CAST_YUJIAN" />
         <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h03600e6cg47f6g5faeg9448gb43097ec9474" version="1" />
@@ -762,6 +780,14 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="5f1733f7-70c2-5239-90b6-8aa4e464033c" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_XIANGFU_HEALED" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_XIANGFU_HEALED" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="4ce34668-4146-53b4-a5d7-eda21f377d26" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_CHAIN" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_CHAIN" />
@@ -1123,11 +1149,21 @@
     </stat_object>
     <stat_object is_substat="false">
       <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="fcec20e9-e869-5ccd-b216-6aea64a08038" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_INITIAL_SWORD_ATTACK" />
+        <field name="StackId" type="StringTableFieldDefinition" value="ESC_INITIAL_SWORD_ATTACK" />
+        <field name="TickType" type="EnumerationTableFieldDefinition" enumeration_type_name="TickType" value="StartTurn" />
+        <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableOverhead;DisableCombatlog;DisablePortraitIndicator" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
         <field name="UUID" type="IdTableFieldDefinition" value="aa32bf43-a32f-52b8-8d0b-61c88505eb2c" />
         <field name="Name" type="NameTableFieldDefinition" value="ESC_IN_FLIGHT" />
         <field name="StackId" type="StringTableFieldDefinition" value="ESC_IN_FLIGHT" />
         <field name="Boosts" type="StringTableFieldDefinition" value="UnlockSpell(Projectile_ESC_FlightMove)" />
         <field name="StatusPropertyFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="StatusPropertyFlags" value="DisableCombatlog;DisablePortraitIndicator;DisableOverhead" />
+        <field name="StatusEffect" type="GuidObjectTableFieldDefinition" value="7a1b8935-6335-5b4b-8134-786c81456eaa" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">

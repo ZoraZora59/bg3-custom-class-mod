@@ -110,6 +110,7 @@ class Actor:
     medium: bool = False
     heavy: bool = False
     blocked: bool = False
+    alive: bool = True
     statuses: set = field(default_factory=set)
     restores: list = field(default_factory=list)
 
@@ -135,15 +136,20 @@ class NativeDataModel:
         self.spell = None
         self.base_costs = {}
         self.paid_costs = {}
+        self.context = 'OnCast'
+        self.status_id = None
 
     def condition(self, expression):
         expression = expression.replace('context.HasContextFlag', 'HasContextFlag')
         expression = expression.replace('StatsFunctorContext.OnCast', "'OnCast'")
+        expression = expression.replace('StatsFunctorContext.OnStatusRemoved', "'OnStatusRemoved'")
         expression = expression.replace('context.Source', "'source'").replace('context.Target', "'source'")
         expression = re.sub(r'\btrue\b', 'True', expression)
         expression = re.sub(r'\bfalse\b', 'False', expression)
         functions = {
-            'HasContextFlag': lambda flag: flag == 'OnCast',
+            'HasContextFlag': lambda flag: flag == self.context,
+            'StatusId': lambda name: name == self.status_id,
+            'Dead': lambda *args: not self.actor.alive,
             'SpellId': lambda name, *args: name == self.spell,
             'HasUseCosts': lambda resource, modified=False, *args:
                 (self.paid_costs if modified else self.base_costs).get(resource, 0) != 0,
@@ -214,6 +220,21 @@ class NativeDataModel:
         if name in self.actor.statuses:
             self.actor.statuses.remove(name)
             self.functors(STATUSES[name].get('OnRemoveFunctors', ''))
+            self.status_removed(name)
+
+    def status_removed(self, name):
+        # Explicit event delivery lets the replay include removal of an old
+        # instance while a replacement with the same name is still present.
+        saved = self.context, self.status_id, self.spell, self.base_costs, self.paid_costs
+        self.context, self.status_id = 'OnStatusRemoved', name
+        self.spell, self.base_costs, self.paid_costs = None, {}, {}
+        try:
+            if self.actor.level >= 5:
+                for row in CAST_PASSIVES.values():
+                    if self.context in row['StatsFunctorContext'].split(';') and self.condition(row['Conditions']):
+                        self.functors(row['StatsFunctors'])
+        finally:
+            self.context, self.status_id, self.spell, self.base_costs, self.paid_costs = saved
 
     def spend_opportunity(self, amount):
         self.actor.opportunity -= amount
@@ -343,7 +364,7 @@ class ContinuousStrikes(unittest.TestCase):
             actual.extend(group)
             self.assertIn('OnCast', row['StatsFunctorContext'], name)
             self.assertIn("HasUseCosts('ActionPoint',true)", row['Conditions'].replace(' ', ''), name)
-            self.assertIn('TurnBased(', row['Conditions'], name)
+            self.assertIn('TurnBased(', row['StatsFunctors'], name)
             self.assertIn('EXTRA_ATTACK_BLOCKED', row['Conditions'], name)
             self.assertIn('HasShieldEquipped(', row['Conditions'], name)
         self.assertEqual(set(actual), ELIGIBLE)
@@ -499,14 +520,133 @@ class ContinuousStrikes(unittest.TestCase):
                         if node.find("attribute[@id='Name']").get('value') == 'ESC_SwordOpportunity')
         self.assertEqual(resource.find("attribute[@id='ReplenishType']").get('value'), 'FullRest')
         for name, passive in CAST_PASSIVES.items():
-            functors = passive['StatsFunctors'].split(';')
-            self.assertEqual(functors[0], 'UseActionResource(SELF,ESC_SwordOpportunity,100%,0)', name)
-            self.assertTrue(all('RestoreResource' in functor for functor in functors[1:-1]), name)
-            self.assertEqual(functors[-1], 'ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)', name)
+            functors = passive['StatsFunctors']
+            self.assertIn(':UseActionResource(SELF,ESC_SwordOpportunity,100%,0)', functors, name)
+            self.assertIn(':ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)', functors, name)
+            self.assertNotIn('RestoreResource(SELF,ActionPoint', functors, name)
+            self.assertNotIn('RestoreResource(ActionPoint', functors, name)
         runtime = (MOD / 'Source/Mods' / SPEC['folder'] / 'ScriptExtender/Lua/Runtime.lua').read_text(encoding='utf-8')
         self.assertNotIn('usedOpportunity', runtime)
         self.assertNotIn('R.opportunities(', runtime)
         self.assertNotIn('E.setResource(id,spec.opportunityResource', runtime)
+
+    def test_opening_attack_replays_h37_natural_entry_then_resumes_after_turn_cleanup(self):
+        # H37 action65: out-of-turn cast paid AP, then entered combat, then
+        # TurnStarted, then the native StartTurn technical status finally left.
+        # This replays that observed order; it does not emulate the engine clock.
+        actor = Actor(12, 'taixuan', turn_based=False)
+        model = NativeDataModel(actor)
+        spell = self.normal('taixuan')
+        self.assertTrue(model.cast(spell))
+        self.assertEqual((actor.actions, actor.opportunity), (0, 0))
+        self.assertIn('ESC_INITIAL_SWORD_ATTACK', actor.statuses)
+        self.assertNotIn('ESC_EXTRA_ATTACK', actor.statuses)
+        actor.turn_based = True
+        # The native transition can remove an old copy before the live one.
+        model.status_removed('ESC_INITIAL_SWORD_ATTACK')
+        self.assertEqual(actor.restores, [])
+        # Existing Runtime's unconditional turn-start cleanup is unchanged.
+        actor.opportunity = 0
+        model.remove_status('ESC_EXTRA_ATTACK')
+        model.remove_status('ESC_INITIAL_SWORD_ATTACK')
+        self.assertEqual((actor.actions, actor.opportunity), (0, 3))
+        model.status_removed('ESC_INITIAL_SWORD_ATTACK')
+        self.assertEqual(actor.restores, [3], 'Duplicate removal cannot refill a live set')
+        for remaining in (2, 1, 0):
+            self.assertTrue(model.cast(spell))
+            self.assertEqual((actor.actions, actor.opportunity), (0, remaining))
+        self.assertFalse(model.cast(spell))
+        self.assertEqual(actor.restores, [3])
+
+    def test_opening_resume_keeps_branch_and_level_counts_and_ignores_spell_context(self):
+        for branch in ('taixuan', 'tianqing', 'xueyan', 'xingge'):
+            for level in (5, 10, 12):
+                with self.subTest(branch=branch, level=level):
+                    actor = Actor(level, branch, turn_based=False)
+                    model = NativeDataModel(actor)
+                    self.assertTrue(model.cast(self.normal(branch)))
+                    actor.turn_based = True
+                    model.remove_status('ESC_INITIAL_SWORD_ATTACK')
+                    expected = 1 if branch == 'xingge' else 2 if level < 10 else 3
+                    self.assertEqual(actor.opportunity, expected)
+                    self.assertEqual(actor.restores, [expected])
+        handlers = [name for name, row in CAST_PASSIVES.items()
+                    if 'OnStatusRemoved' in row['StatsFunctorContext'].split(';')]
+        self.assertEqual(handlers, ['ESC_P_continuous_strikes'])
+
+    def test_opening_marker_cannot_be_armed_by_failed_free_bonus_or_internal_casts(self):
+        excluded = [name for name, alias in SPEC['aliases'].items()
+                    if alias.get('internal') or alias.get('bonusOnly') or alias.get('continuation')]
+        for spell in excluded:
+            if spell not in SPELLS:
+                continue
+            with self.subTest(spell=spell):
+                actor = Actor(12, 'taixuan', turn_based=False)
+                model = NativeDataModel(actor)
+                model.cast(spell)
+                self.assertNotIn('ESC_INITIAL_SWORD_ATTACK', actor.statuses)
+                actor.turn_based = True
+                model.status_removed('INITIAL_ATTACK_WAR_MAGIC_TECHNICAL')
+                model.status_removed('INITIAL_ATTACK_TECHNICAL')
+                self.assertEqual(actor.restores, [])
+        actor = Actor(12, 'taixuan', turn_based=False)
+        model = NativeDataModel(actor)
+        self.assertFalse(model.cast(self.normal('taixuan'), fail=True))
+        self.assertNotIn('ESC_INITIAL_SWORD_ATTACK', actor.statuses)
+        # A paid ordinary cantrip can cause the vanilla technical status, but
+        # it never arms our whitelist-specific bridge.
+        ordinary = 'Projectile_ContinuousTest_UnrelatedCantrip'
+        self.assertNotIn(ordinary, SPELLS)
+        SPELLS[ordinary] = {'UseCosts': 'ActionPoint:1'}
+        try:
+            self.assertTrue(model.cast(ordinary))
+            self.assertNotIn('ESC_INITIAL_SWORD_ATTACK', actor.statuses)
+            actor.turn_based = True
+            model.status_removed('INITIAL_ATTACK_WAR_MAGIC_TECHNICAL')
+            self.assertEqual(actor.restores, [])
+        finally:
+            del SPELLS[ordinary]
+
+    def test_opening_resume_rechecks_equipment_level_life_and_native_block(self):
+        for change in ({'shield': True}, {'medium': True}, {'blocked': True},
+                       {'alive': False}, {'level': 4}, {'turn_based': False}):
+            with self.subTest(change=change):
+                actor = Actor(12, 'taixuan', turn_based=False)
+                model = NativeDataModel(actor)
+                self.assertTrue(model.cast(self.normal('taixuan')))
+                actor.turn_based = True
+                for key, value in change.items():
+                    setattr(actor, key, value)
+                model.remove_status('ESC_INITIAL_SWORD_ATTACK')
+                self.assertEqual(actor.restores, [])
+                self.assertNotIn('ESC_EXTRA_ATTACK', actor.statuses)
+
+    def test_opening_status_uses_native_clock_and_bounded_stats_fields(self):
+        marker = STATUSES['ESC_INITIAL_SWORD_ATTACK']
+        self.assertEqual(marker['StatusType'], 'BOOST')
+        self.assertEqual(marker['TickType'], 'StartTurn')
+        self.assertNotIn('OnRemoveFunctors', marker)
+        self.assertNotIn('Boosts', marker)
+        for name, row in CAST_PASSIVES.items():
+            for field in ('Conditions', 'StatsFunctors'):
+                self.assertLessEqual(len(row[field].encode('utf-8')), 2048, (name, field))
+        # Status event's holder is Target; no stale spell Source is required.
+        row = CAST_PASSIVES['ESC_P_continuous_strikes']
+        resume = row['Conditions'].split(' or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)', 1)[1]
+        self.assertNotIn('context.Source', resume)
+        self.assertIn('context.Target', resume)
+        # Toolkit tables must carry the same emitted conditions and functors.
+        editor = MOD / 'Source/Editor/Mods' / SPEC['folder'] / 'Stats'
+        for relative, expected in (('Stats/Passive.stats', CAST_PASSIVES),
+                                   ('StatusData/Status_BOOST.stats', {'ESC_INITIAL_SWORD_ATTACK': marker})):
+            rows = {}
+            for obj in ET.parse(editor / relative).getroot().findall('./stat_objects/stat_object'):
+                fields = {f.get('name'): f.get('value') for f in obj.findall('./fields/field')}
+                rows[fields['Name']] = fields
+            for name, data in expected.items():
+                for field in ('Conditions', 'StatsFunctorContext', 'StatsFunctors', 'TickType', 'StackId'):
+                    if field in data:
+                        self.assertEqual(rows[name][field], data[field], (name, field))
 
 
 if __name__ == '__main__':

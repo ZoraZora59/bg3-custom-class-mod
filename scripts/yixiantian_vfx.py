@@ -4,7 +4,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import sword_vfx_resources as resources
 from sword_cultivator_spec import FOLDER,guid
-from sword_glow import material_id
+from world_beam_materials import material_id
 REPO=Path(__file__).resolve().parents[1]
 loader=importlib.util.spec_from_file_location('yixiantian_fx_definitions',REPO/'scripts/generate-sword-vfx.py')
 fx=importlib.util.module_from_spec(loader);loader.loader.exec_module(fx)

@@ -70,6 +70,7 @@ end
 function E.maxHp(id) return id and Osi.GetMaxHitpoints(id) or 0 end
 function E.hp(id) return id and Osi.GetHitpoints(id) or 0 end
 function E.heal(id,amount,regeneration)
+    if ESC.Runtime and ESC.Runtime.NotifyHealingInterference then ESC.Runtime.NotifyHealingInterference(id) end
     local before=E.hp(id)
     if before<=0 then return 0 end
     if not regeneration and ESC.Runtime and ESC.Runtime.HealingMultiplier then
@@ -85,10 +86,11 @@ function E.hasStatus(id,name) return Osi.HasActiveStatus(id,name)==1 end
 function E.removeStatus(id,name,source) Osi.RemoveStatus(id,name,source or id) end
 function E.alive(id) return Osi.IsDead(id)==0 and not E.hasStatus(id,'DOWNED') end
 function E.combat(id) return Osi.IsInCombat(id)==1 end
+function E.character(id) return id~=nil and Osi.IsCharacter(id)==1 end
 function E.friend(a,b)
-    return a and b and a~=b and Osi.IsInPartyWith(a,b)==1 and Osi.IsSummon(b)==0
+    return a~=b and E.character(a) and E.character(b) and Osi.IsInPartyWith(a,b)==1 and Osi.IsSummon(b)==0
 end
-function E.enemy(a,b) return a~=b and Osi.IsEnemy(a,b)==1 end
+function E.enemy(a,b) return a~=b and E.character(a) and E.character(b) and Osi.IsEnemy(a,b)==1 end
 function E.nearby(id,range,relation)
     local result={}
     local center=E.position(id)
@@ -102,17 +104,85 @@ function E.nearby(id,range,relation)
     return result
 end
 function E.ability(id,ability) return R.modifier(Osi.GetAbility(id,ability) or 10) end
+local submittedBoosts={}
+local function submittedBoost(id,slot,boost)
+    local owner=E.uuid(E.entity(id)) or id
+    submittedBoosts[owner]=submittedBoosts[owner] or {}
+    -- Osiris queues native boost creation. Do not submit the same slot again
+    -- while a load reconciliation still sees the pre-add native container.
+    -- This is evidence of an actual request in this Lua session, not saved
+    -- state. The SE reload resets it; no assumed native queue delay is needed.
+    submittedBoosts[owner][slot]=boost
+end
 function E.setBoosts(id,slot,boost)
     assert(not boost or #boost<=2048,'ESC boost exceeds the native GST 2048-byte bound: '..slot)
     local entity=E.entity(id)
+    if not entity then return end
     local state=entity.Vars.ESC_State or {}
     state.boosts=state.boosts or {}
     local old=state.boosts[slot]
-    if old==boost then return end
+    if (old or '')==(boost or '') then return end
     if old and old~='' then Osi.RemoveBoosts(id,old,0,'ESC_'..slot,id) end
-    if boost and boost~='' then Osi.AddBoosts(id,boost,'ESC_'..slot,id) end
+    if boost and boost~='' then submittedBoost(id,slot,boost);Osi.AddBoosts(id,boost,'ESC_'..slot,id) end
     state.boosts[slot]=boost
     entity.Vars.ESC_State=state
+    if ESC.Runtime and ESC.Runtime.TrackState then ESC.Runtime.TrackState(id,state) end
+end
+local function boostDescriptionKey(name,params)
+    -- The owned boost vocabulary has no significant whitespace in arguments.
+    return tostring(name)..'('..tostring(params or ''):gsub('%s+','')..')'
+end
+local function boostStatements(boost)
+    local statements={}
+    for text in boost:gmatch('[^;]+') do
+        local body=text:match('^%s*IF%b():%s*(.*)$') or text
+        local name,params=body:match('^%s*([%w_]+)%((.*)%)%s*$')
+        if not name then return nil end
+        statements[#statements+1]={text=text,key=boostDescriptionKey(name,params)}
+    end
+    return statements
+end
+function E.restoreBoosts(id)
+    local entity=E.entity(id);local state=entity and entity.Vars.ESC_State
+    if not state then return end
+    id=E.uuid(entity) or id
+    local native,seen={},{}
+    local function include(handle)
+        if seen[handle] then return end;seen[handle]=true
+        local boost=E.entity(handle);local info=boost and boost.BoostInfo
+        local cause=info and info.Cause and tostring(info.Cause.Cause)
+        local params=info and info.Params
+        if cause and params then
+            native[cause]=native[cause] or {}
+            local key=boostDescriptionKey(params.Boost,params.Params)
+            native[cause][key]=(native[cause][key] or 0)+1
+        end
+    end
+    for _,group in pairs(entity.BoostsContainer and entity.BoostsContainer.Boosts or {}) do
+        for _,handle in pairs(group.Boosts) do include(handle) end
+    end
+    -- A false conditional bonus is still installed. Include its native handle
+    -- even when it does not currently contribute to the active boost container.
+    for _,row in pairs(entity.BoostConditionalState and entity.BoostConditionalState.States or {}) do include(row.Boost) end
+    for slot,wanted in pairs(state.boosts or {}) do
+        local submitted=submittedBoosts[id] and submittedBoosts[id][slot]
+        if type(wanted)=='string' and wanted~='' and submitted~=wanted then
+            local statements=boostStatements(wanted)
+            if statements then
+                local have=native['ESC_'..slot] or {};local missing={}
+                for _,statement in ipairs(statements) do
+                    if (have[statement.key] or 0)>0 then have[statement.key]=have[statement.key]-1
+                    else missing[#missing+1]=statement.text end
+                end
+                if #missing>0 then
+                    submittedBoost(id,slot,wanted)
+                    -- Partial bundles restore only their absent statements.
+                    -- Existing HP/AC/etc. are never removed or added twice.
+                    Osi.AddBoosts(id,table.concat(missing,';'),'ESC_'..slot,id)
+                end
+            else E.log('Cannot reconcile unsupported saved boost slot '..slot) end
+        end
+    end
 end
 function E.isSword(item)
     if not item then return nil end
@@ -121,7 +191,7 @@ function E.isSword(item)
     end
 end
 function E.sword(id,offhand)
-    if not id then return nil end
+    if not E.character(id) then return nil end
     return E.isSword(Osi.GetEquippedItem(id,offhand and 'Melee Offhand Weapon' or 'Melee Main Weapon'))
 end
 -- Technique foundations choose exactly one sword; ordinary attacks retain E.sword's hand.
@@ -131,6 +201,7 @@ function E.preferredSword(id)
     return nil,'qi'
 end
 function E.shield(id)
+    if not E.character(id) then return nil end
     -- GetEquippedShield failure returns a truthy NULL GUID string in the client.
     -- Query the documented Shield slot and validate the actual equipment kind.
     local item=Osi.GetEquippedItem(id,'Shield');if not item then return nil end
@@ -139,7 +210,7 @@ function E.shield(id)
     return entity and entity.Armor and entity.Armor.Shield==true and item or nil
 end
 function E.allowed(id,branch,offensive)
-    if E.shield(id) then return false end
+    if not E.character(id) or E.shield(id) then return false end
     if branch=='taixuan' or branch=='xingge' then
         local armor=Osi.GetEquippedItem(id,'Breast')
         if armor and (Osi.IsEquipmentWithProficiency(armor,'MediumArmor')==1
@@ -181,7 +252,9 @@ end
 function E.damageTransfer(id,amount,damageType,source)
     -- Installed Patch 8 call signature; this retains normal damage/temporary HP/
     -- concentration/death handling instead of treating damage as a HP assignment.
-    Osi.ApplyDamage(id,amount,damageType or 'Force',source or id)
+    -- SE enum userdata stringify to their label; Osiris STRING inputs do not
+    -- perform that conversion themselves. Keep native hit enums unchanged.
+    Osi.ApplyDamage(id,amount,tostring(damageType or 'Force'),source or id)
 end
 function E.hasPassive(id,name) return Osi.HasPassive(id,name)==1 end
 function E.weaponWisdomCauses(item,owner)
@@ -257,19 +330,29 @@ function E.freeOptions(id,target)
     for _,entry in pairs(entity and entity.SpellBook and entity.SpellBook.Spells or {}) do
             local name=E.spellName(entry.Id or entry.SpellId)
             local stat=name and Ext.Stats.Get(name)
-            local properties=stat and stat.SpellProperties
-            local hasDamage=type(properties)=='string' and properties:find('DealDamage',1,true)
-            local unsafe=type(properties)=='string' and (properties:find('CreateSurface',1,true) or properties:find('CreateExplosion',1,true) or properties:find('SpawnExtraProjectiles',1,true))
-            if properties and type(properties)~='string' then pcall(function()
-                for _,functorGroup in pairs(properties) do for _,functor in pairs(functorGroup.Functors or {}) do
-                    local kind=tostring(functor.TypeId)
-                    if kind=='DealDamage' then hasDamage=true end
-                    if kind=='CreateSurface' or kind=='CreateExplosion' or kind=='SpawnExtraProjectiles' then unsafe=true end
-                end end
-            end) end
+            -- Weapon actions also have Level=0. The native IsSpell flag,
+            -- returned as a string list by Stats.Get, identifies a cantrip.
+            local isSpell=false;local flags=stat and stat.SpellFlags
+            if type(flags)=='string' then isSpell=(';'..flags..';'):find(';IsSpell;',1,true)~=nil
+            else for _,flag in pairs(flags or {}) do if flag=='IsSpell' then isSpell=true end end end
+            local hasDamage,unsafe=false,false
+            for _,field in ipairs({'SpellProperties','SpellSuccess','SpellFail'}) do
+                -- Native Fire Bolt/Shocking Grasp place damage in SpellSuccess.
+                local properties=stat and stat[field]
+                if type(properties)=='string' then
+                    hasDamage=hasDamage or properties:find('DealDamage',1,true)~=nil
+                    unsafe=unsafe or properties:find('CreateSurface',1,true)~=nil or properties:find('CreateExplosion',1,true)~=nil or properties:find('SpawnExtraProjectiles',1,true)~=nil
+                elseif properties then pcall(function()
+                    for _,functorGroup in pairs(properties) do for _,functor in pairs(functorGroup.Functors or {}) do
+                        local kind=tostring(functor.TypeId)
+                        if kind=='DealDamage' then hasDamage=true end
+                        if kind=='CreateSurface' or kind=='CreateExplosion' or kind=='SpawnExtraProjectiles' then unsafe=true end
+                    end end
+                end) end
+            end
             local amount=stat and stat.AmountOfTargets;local single=amount==nil or amount=='' or tonumber(amount)==1
             local radius=stat and tonumber(stat.TargetRadius)
-            if stat and tonumber(stat.Level)==0 and stat.SpellRoll~='' and hasDamage
+            if stat and isSpell and tonumber(stat.Level)==0 and stat.SpellRoll~='' and hasDamage
                 and (stat.SpellType=='Target' or stat.SpellType=='Projectile') and single and not unsafe
                 and not (E.classSpellKeys or {})[name]
                 and (not radius or E.distance(id,target)<=radius) and not name:find('ESC_FREE_',1,true) then

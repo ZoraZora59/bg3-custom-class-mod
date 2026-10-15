@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="e6402fbd-d2b6-5ed1-81cc-171a0a22c506" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Xingge_Wenlu_Hit_01_Pathfind" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="534d0ce5-9245-59b1-ada2-684ba18281de" />
+                    <attribute id="Type" type="FixedString" value="projectile" />
+                    <attribute id="TrajectoryType" type="uint8" value="2" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

@@ -160,7 +160,7 @@ def improve_polish(data, key, root, dictionary):
     else:
         old=[c for c in root.findall('./trackgroups/trackgroup/track/component')
             if c.get('class')=='Model' and tx.NATIVE_SWORD['guid'] in b.mesh(c)]
-        assert len(old)==6
+        assert len(old)==tx.PROFILES[key]['count']
         # Keep the original group allocation order of the compiled candidate.
         for index,previous in enumerate(old):
             for group in root.find('trackgroups'):
@@ -170,13 +170,13 @@ def improve_polish(data, key, root, dictionary):
                 b.append(root,b.steel,f'Taiqing orbit steel sword {index}',4.2),
                 b.append(root,b.core,f'Taiqing orbit cyan blade core {index}',4.2))
             low,high=tx.STEEL_SWORD_BOUNDS
-            b.constant(steel,fx.MODEL_SCALE,(.34/(high[0]-low[0]),.14/(high[1]-low[1]),1.9/(high[2]-low[2])))
+            b.constant(steel,fx.MODEL_SCALE,(.52/(high[0]-low[0]),.20/(high[1]-low[1]),2.4/(high[2]-low[2])))
             b.constant(core,fx.MODEL_SCALE,(.21/.3824824,.11/.3824274,1.5/10.000001))
             for c in (steel,core):
                 b.constant(c,tx.MODEL_ROTATION,(90,0,0))
-                b.position(c,(0,high[2]*1.9/(high[2]-low[2]) if c is steel else .18,0))
+                b.position(c,(0,high[2]*2.4/(high[2]-low[2]) if c is steel else .18,0))
                 b.copy_curve(previous,c,tx.MODEL_OFFSET)
-                b.ramp(c,tx.MODEL_ALPHA,([(0,0),(.2/4.2,.7),(3.8/4.2,.7),(1,0)],))
+                b.ramp(c,tx.MODEL_ALPHA,([(0,0),(.2/4.2,.85),(3.8/4.2,.85),(1,0)],))
         ring=next(c for c in root.findall('./trackgroups/trackgroup/track/component')
             if c.get('class')=='Model' and tx.NATIVE_RING in b.mesh(c))
         b.constant(ring,fx.MODEL_SCALE,(6,.12,6));b.position(ring,(0,.45,0))
@@ -184,7 +184,7 @@ def improve_polish(data, key, root, dictionary):
         b.constant(ring,tx.MODEL_BRIGHTNESS,(1.5,))
         b.origins.append(b.domain_perimeter(data,root))
         b.remove(root,[])
-        detail=dict(orbit_steel_core_count=6,native_ring_scale=(6,.12,6),ring_height=.45,
+        detail=dict(orbit_steel_core_count=len(old),native_ring_scale=(6,.12,6),ring_height=.45,
             native_sword_visual=tx.LONGSWORD,original_sword_world_aabb_preserved=False,
             original_orbit_alpha_and_timing_preserved=False,orbit_and_status_timing_preserved=True,
             ring_y_range=(.33,.57),ring_alpha_hold=.75,native_particle_perimeter_count=1)

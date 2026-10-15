@@ -4,7 +4,7 @@ local R,E=ESC.Rules,ESC.Engine
 local spec=Ext.Json.Parse(Ext.IO.LoadFile('Mods/EasternSwordCultivator_6560ea02-fe1e-5fdb-8631-b41a2e53af90/ScriptExtender/Lua/GeneratedSpec.json','data'))
 E.resource,E.classes=spec.resource,spec.classes
 local Rain=Ext.Require('TaixuanRainVfx.lua').New(E,spec.taixuanWorldRainVfx)
-local CastVfx=Ext.Require('TianqingCastVfx.lua').New(E,spec.tianqingVfx)
+local CastVfx=Ext.Require('TianqingCastVfx.lua').New(E,spec.tianqingVfx,spec.schoolPolishVfx)
 local Runtime={}
 local keys,aliases={},spec.aliases or {}
 for key,row in pairs(spec.spells) do keys[row.stat]=key end
@@ -14,15 +14,21 @@ local helpers={internal_taiqing_pulse='Target_ESC_TaiqingPulse',internal_blood_p
     internal_resonance='Target_ESC_Resonance',internal_aftershock='Target_ESC_Aftershock',
     internal_tiandi_stage='Target_ESC_TiandiStage',internal_tiandi_stage_nocontrol='Target_ESC_TiandiStage_NoControl',internal_tianbeng_main='Target_ESC_TianbengMain',
     internal_chengfeng_burst='Target_ESC_ChengfengBurst',internal_huifeng_control='Target_ESC_HuifengControl',
-    internal_liuguang_stage='Target_ESC_LiuguangStage',internal_tianbeng_cone='Target_ESC_TianbengCone'}
+    internal_liuguang_stage='Target_ESC_LiuguangStage',internal_tianbeng_cone='Target_ESC_TianbengCone',
+    internal_yixiantian_hit='Target_ESC_YixiantianHit'}
 for key,spell in pairs(helpers) do keys[spell]=key end
 E.classSpellKeys=keys
 local basicSwordAttacks={Target_MainHandAttack=true,Target_OffHandAttack=true,
     Projectile_MainHandAttack=true,Projectile_OffHandAttack=true,
     Target_OffhandAttack=true,Projectile_OffhandAttack=true}
 local watched,casts,contexts,pendingHelpers,stages={}, {}, {}, {}, {}
+local retiredFailures,retiredFailureOrder={},{}
+local syncFollowupBoostAliases
 local tiandiDispatch
+local Line={}
 local auraTargets,sequence,timerGeneration={},0,0
+local pendingSessionLoad=0
+local auraVisualTargets={}
 local pendingDomainTurnPulses={}
 local domainStatuses={taixuan_taiqing='ESC_SWORD_DOMAIN',xueyan_xuehai='ESC_BLOOD_ROBE',
     tianqing_tianjian='ESC_TIANQING_AFTERSHOCK',xingge_fengyu='ESC_DAMAGE_SHARE',xingge_zhangjian='ESC_TEAM_RESONANCE'}
@@ -34,6 +40,35 @@ local pendingAvatarRefreshes={}
 local pendingWeaponWisdom={}
 local tianqingTimerHandles={}
 local healingContexts={}
+local nativeHeals,nativeHealOrder,pendingWindHealing={},{},{}
+local function nativeHealKey(source,target,action)
+    if not source or not target or type(action)~='number' or action<=0 then return nil end
+    return source..':'..target..':'..tostring(action)
+end
+local function healingInterference(target,exceptKey)
+    target=E.uuid(E.entity(target))
+    for key,receipt in pairs(nativeHeals) do
+        if key~=exceptKey and receipt.target==target then receipt.ambiguous=true end
+    end
+end
+-- Direct scripted healing already applies HealingMultiplier in Engine.heal.
+-- It must not turn a waiting native heal's later net HP into false support.
+Runtime.NotifyHealingInterference=healingInterference
+local function rememberNativeHeal(source,target,action,spell)
+    local key=nativeHealKey(source,target,action);if not key then return nil end
+    healingInterference(target,key)
+    local old=nativeHeals[key]
+    if old then return old end
+    local receipt={key=key,source=source,target=target,action=action,spell=spell,before=E.hp(target),maximum=E.maxHp(target)}
+    nativeHeals[key]=receipt;nativeHealOrder[#nativeHealOrder+1]=receipt
+    -- No timer or per-tick scan. Keep only a bounded set of unconsumed native
+    -- actions; session reload clears it and native HEAL consumes each receipt.
+    if #nativeHealOrder>128 then
+        local expired=table.remove(nativeHealOrder,1)
+        if nativeHeals[expired.key]==expired then nativeHeals[expired.key]=nil end
+    end
+    return receipt
+end
 local diagnostics={enabled=false,events={}}
 local function trace(phase,row)
     if not diagnostics.enabled or #diagnostics.events>=1000 then return end
@@ -50,17 +85,124 @@ local critical={HOLD_PERSON=true,HOLD_MONSTER=true,STUNNED=true,PARALYZED=true,S
 local groups={SG_Restrained=true,SG_Prone=true,SG_Stunned=true,SG_Paralyzed=true,SG_Sleeping=true,
     SG_Frightened=true,SG_Charmed=true,SG_Dominated=true,SG_Blinded=true,SG_Silenced=true}
 Ext.Vars.RegisterUserVariable('ESC_State',{Server=true,Client=false,Persistent=true})
+-- A death receipt belongs to that victim's current life, not to an ever-growing
+-- list on every blood cultivator. Resurrection retires it without any polling.
+Ext.Vars.RegisterUserVariable('ESC_BloodKillReceipts',{Server=true,Client=false,Persistent=true})
+local function migrateKills(owner,s)
+    if not next(s.kills or {}) then return false end
+    for target in pairs(s.kills) do
+        local entity=E.entity(target)
+        if entity and E.character(target) and (not E.alive(target) or E.hp(target)<=0) then
+            local receipts=entity.Vars.ESC_BloodKillReceipts or {}
+            if not receipts[owner] then receipts[owner]=true;entity.Vars.ESC_BloodKillReceipts=receipts end
+        end
+    end
+    s.kills={}
+    return true
+end
+local function retainedState(id,s)
+    if E.class(id)>0 then return true end
+    if not E.character(id) or not s then return false end
+    for _,key in ipairs({'marks','protections','debuffs','domains','chains'}) do
+        if next(s[key] or {}) then return true end
+    end
+    for _,value in pairs(s.boosts or {}) do if value and value~='' then return true end end
+    return s.guard~=nil or (s.shield or 0)>0
+end
+local function needsPeriodic(id,s)
+    if E.class(id)>0 then return true end
+    if not E.character(id) or not s then return false end
+    for _,key in ipairs({'marks','protections','debuffs','domains','chains'}) do
+        if next(s[key] or {}) then return true end
+    end
+    return false
+end
 local function state(id)
     local entity=E.entity(id)
     if not entity then return nil end
+    id=E.uuid(entity) or id
     local s=entity.Vars.ESC_State
-    if not s then s={turn=0,frenzy=0,shield=0,damageMode='Necrotic',qiSword=false,boosts={},domains={},kills={},marks={},protections={}} end
-    s.turn=s.turn or 0;s.frenzy=s.frenzy or 0;s.shield=s.shield or 0;s.damageMode=s.damageMode or 'Necrotic'
-    s.marks=s.marks or {};s.protections=s.protections or {};s.domains=s.domains or {};s.kills=s.kills or {};s.boosts=s.boosts or {};s.chains=s.chains or {};s.debuffs=s.debuffs or {}
-    entity.Vars.ESC_State=s;watched[id]=true
+    local created=s==nil;s=s or {qiSword=false}
+    local changed=created
+    for key,value in pairs({turn=0,frenzy=0,shield=0,damageMode='Necrotic'}) do
+        if s[key]==nil then s[key]=value;changed=true end
+    end
+    for _,key in ipairs({'marks','protections','domains','kills','boosts','chains','debuffs'}) do
+        if s[key]==nil then s[key]={};changed=true end
+    end
+    if migrateKills(id,s) then changed=true end
+    if retainedState(id,s) then
+        watched[id]=needsPeriodic(id,s) or nil
+        if changed then entity.Vars.ESC_State=s end
+    end
+    -- Ordinary damage/turn callbacks still get neutral rule defaults, but merely
+    -- reading them must not attach persistent state or enroll unrelated actors.
     return s
 end
-local function save(id,s) local entity=E.entity(id);if entity then entity.Vars.ESC_State=s end end
+local function retireEmptyState(id,s)
+    local entity=E.entity(id);if not entity then return end
+    id=E.uuid(entity) or id
+    if retainedState(id,s) then watched[id]=needsPeriodic(id,s) or nil;return end
+    watched[id]=nil
+    if entity.Vars.ESC_State~=nil then entity.Vars.ESC_State=nil end
+end
+local function save(id,s)
+    local entity=E.entity(id);if not entity then return end
+    id=E.uuid(entity) or id
+    if retainedState(id,s) then watched[id]=needsPeriodic(id,s) or nil;entity.Vars.ESC_State=s
+    else retireEmptyState(id,s) end
+end
+-- Preserve the explicit public State accessor used by integrations and console
+-- tooling to attach a real state before editing it. Internal reads stay neutral.
+local function explicitState(id)
+    local s=state(id);local entity=s and E.entity(id)
+    if entity and syncFollowupBoostAliases then syncFollowupBoostAliases(id) end
+    if entity and entity.Vars.ESC_State==nil then entity.Vars.ESC_State=s end
+    if entity then watched[E.uuid(entity) or id]=true end
+    return s
+end
+-- Resolve through the entity: story names and ECS UUIDs are aliases, not two
+-- actors. Keep this local to party mechanics; unrelated persisted maps retain
+-- their existing keys and clocks.
+local function actorId(id) return E.uuid(E.entity(id)) or id end
+local function watchedActors()
+    local actors={}
+    for id in pairs(watched) do
+        local uuid=E.uuid(E.entity(id));if uuid then actors[uuid]=true end
+    end
+    return actors
+end
+local function actorUses(used)
+    local canonical={}
+    for id,value in pairs(used or {}) do
+        if value then canonical[actorId(id)]=value end
+    end
+    return canonical
+end
+local function markKeys(s,kind,owner)
+    local found={};local prefix=kind..':'
+    for key in pairs(s.marks) do
+        if key:sub(1,#prefix)==prefix and E.sameEntity(key:sub(#prefix+1),owner) then found[#found+1]=key end
+    end
+    return found
+end
+local function followupBoost(owner)
+    return "IF(HasStatus('ESC_FOLLOWUP',context.Target,'"..owner.."')):RollBonus(Attack,2)"
+end
+syncFollowupBoostAliases=function(id)
+    local s=state(id);local stale,owners={},{}
+    for slot,boost in pairs(s.boosts) do
+        if slot:sub(1,9)=='followup_' and boost~='' then
+            local old=slot:sub(10);local owner=E.uuid(E.entity(old))
+            if E.sameEntity(old,id) then stale[#stale+1]=slot
+            elseif owner and old~=owner then stale[#stale+1]=slot;owners[owner]=true end
+        end
+    end
+    -- Old self slots must disappear; only allies retain a canonical bonus.
+    -- Other old save slots can otherwise stack with that slot on recast.
+    for _,slot in ipairs(stale) do E.setBoosts(id,slot,'') end
+    for owner in pairs(owners) do E.setBoosts(id,'followup_'..owner,followupBoost(owner)) end
+end
 -- The engine status is the sole duration clock, both in and out of combat.
 -- Persisted turn counters remain a snapshot only; they must not revive expired DR.
 local guardValues={{rank=1,ac=2,reduction=.2},{rank=2,ac=3,reduction=.3,dice='4d8',attack=2},
@@ -80,7 +222,7 @@ local function offensiveKey(key)
     return row and row.base and row.base~='' or key=='internal_taiqing_pulse' or key=='internal_blood_pulse'
         or key=='internal_counter2' or key=='internal_counter3' or key=='internal_resonance'
         or key=='internal_aftershock' or key=='internal_tiandi_stage' or key=='internal_tiandi_stage_nocontrol' or key=='internal_tianbeng_main'
-        or key=='internal_chengfeng_burst' or key=='internal_liuguang_stage' or key=='internal_tianbeng_cone'
+        or key=='internal_chengfeng_burst' or key=='internal_liuguang_stage' or key=='internal_tianbeng_cone' or key=='internal_yixiantian_hit'
 end
 local function validDomain(id,key)
     local s=state(id);local d=s and s.domains[key]
@@ -95,8 +237,22 @@ local function endDomain(id,key)
     if pending then pending[key]=nil end
 end
 local function activeMark(target,kind,owner)
-    local s=state(target);local mark=s and s.marks[kind..':'..owner];local source=state(owner)
-    return mark and source and source.turn<mark.expires and mark or nil
+    if not E.character(target) then return nil end
+    owner=actorId(owner)
+    local s,source=state(target),state(owner);if not s or not source then return nil end
+    local mark,used,oldKeys=nil,{},markKeys(s,kind,owner)
+    -- Preserve pre-upgrade names and their consumed allowances. Merging active
+    -- aliases neither restarts the duration nor grants another response.
+    for _,key in ipairs(oldKeys) do
+        local entry=s.marks[key]
+        if source.turn<entry.expires then
+            if not mark or entry.expires>mark.expires then mark=entry end
+            for id,value in pairs(actorUses(entry.used)) do used[id]=value end
+        end
+    end
+    for _,key in ipairs(oldKeys) do s.marks[key]=nil end
+    if mark then mark.used=used;s.marks[kind..':'..owner]=mark end
+    save(target,s);return mark
 end
 local function isControlled(status)
     if type(status)~='string' or status=='' then return false end
@@ -159,13 +315,20 @@ local function rescue(id,token,peer)
     clearControls(id,id);E.status(id,'ESC_CONTROL_RESISTANCE',2,id);updateRescue(id);return true
 end
 local function sendCooperation(id)
+    id=actorId(id)
     local request=cooperationRequests[id] and cooperationRequests[id][1]
-    if Ext.ServerNet then
-        Ext.ServerNet.PostMessageToClient(id,'ESC_CooperationState',Ext.Json.Stringify(request and {
+    -- An assigned companion can have no active ServerCharacter.UserID, which
+    -- makes PostMessageToClient reject it. Resolve its current controller via
+    -- the same native query used to authenticate the later choice; never cache
+    -- a volatile user ID or substitute the host for an unassigned character.
+    local user=Osi.GetReservedUserID(id)
+    if Ext.ServerNet and type(user)=='number' and user~=-65536 and user~=0xffff0000 then
+        Ext.ServerNet.PostMessageToUser(user,'ESC_CooperationState',Ext.Json.Stringify(request and {
             id=id,available=true,token=request.token,options=E.freeOptions(id,request.target)} or {id=id,available=false}))
     end
 end
 local function requestCooperation(id,owner,target,action)
+    id,owner,target=actorId(id),actorId(owner),actorId(target)
     local options=E.freeOptions(id,target);if #options==0 then return false end
     sequence=sequence+1
     cooperationRequests[id]=cooperationRequests[id] or {}
@@ -174,6 +337,7 @@ local function requestCooperation(id,owner,target,action)
     return true
 end
 local function chooseCooperation(id,token,spell,peer)
+    id=actorId(id)
     local queue=cooperationRequests[id];local request=queue and queue[1]
     if not request or request.token~=token or type(peer)~='number' then return false end
     if Osi.GetReservedUserID(id)~=((peer & 0xffff0000) | 0x0001) then return false end
@@ -237,6 +401,20 @@ local function controlBoost(id,bonus,advantage)
         result[#result+1]=gate..'RollBonus(SavingThrow,'..bonus..')'..(advantage and ';'..gate..'Advantage(AllSavingThrows)' or '')
     end
     return result
+end
+local function syncReceivedControlResistance(id)
+    -- A party member need not have the sword class to receive Fuchen's native
+    -- saving-throw boosts. The native status, including its expiry, is authority.
+    local s=state(id);if not s then return end
+    local wanted={}
+    if E.hasStatus(id,'ESC_CONTROL_RESISTANCE') then
+        for i,value in ipairs(controlBoost(id,2,false)) do
+            local slot='control_save_'..i;wanted[slot]=true;E.setBoosts(id,slot,value)
+        end
+    end
+    for slot in pairs(s.boosts) do
+        if slot:find('control_save_',1,true)==1 and not wanted[slot] then E.setBoosts(id,slot,'') end
+    end
 end
 local function weaponWisdom(id,s,allowed)
     local wanted,checked={},{};local owner=E.uuid(E.entity(id)) or id;local cause='ESC_WEAPON_WISDOM_'..owner
@@ -417,9 +595,18 @@ local function migrateSkillMenu(id,level,branch)
         end
     end
 end
+local function syncChengfengBoosts(id,active,movement)
+    -- Different lifetimes need distinct native SourceIDs. Replacing the old
+    -- compound slot removes IgnoreLeaveAttackRange too; deferred removal can
+    -- then erase the same-source replacement after its AddBoosts request.
+    -- Retire that legacy source once, without reusing it for either new slot.
+    E.setBoosts(id,'chengfeng','')
+    E.setBoosts(id,'chengfeng_oa',active and 'IgnoreLeaveAttackRange()' or '')
+    E.setBoosts(id,'chengfeng_movement',movement and 'ActionResource(Movement,6,0)' or '')
+end
 local function refresh(id)
     local level,branch=E.class(id)
-    if level==0 and not watched[id] then return end
+    if level==0 and not watched[actorId(id)] then return end
     local s=syncGuard(id,false);if not s then return end
     -- Existing saves cannot retain the retired manual qi-sword mode.
     s.qiSword=false;save(id,s);E.removeStatus(id,'ESC_QI_MODE',id)
@@ -427,9 +614,15 @@ local function refresh(id)
     if level==0 then
         removeKnownSpell(id,'Shout_ESC_qi_sword',0)
         weaponWisdom(id,s,false)
-        for slot in pairs(s.boosts) do if slot~='aura' then E.setBoosts(id,slot,'') end end
+        -- Received party support is reconciled by updateAuras, independently of
+        -- the beneficiary's class. A normal companion turn must not remove it.
+        for slot in pairs(s.boosts) do
+            if slot~='aura' and slot~='chengfeng' and slot~='chengfeng_oa' and slot~='chengfeng_movement'
+                and slot:find('control_save_',1,true)~=1 then E.setBoosts(id,slot,'') end
+        end
+        syncReceivedControlResistance(id)
         s=state(id);s.frenzy=0;s.shield=0;s.domains={};s.guard=nil;s.chains={};save(id,s)
-        for _,status in ipairs({'ESC_MAIN_SWORD','ESC_OFFHAND_SWORD','ESC_ARMOR_BLOCKED','ESC_COUNTER_READY','ESC_COUNTER_RANK2','ESC_COUNTER_RANK3','ESC_EXTRA_ATTACK','ESC_IN_FLIGHT','ESC_CHAIN_LIANCHENG','ESC_CHAIN_WUSHENG'}) do E.removeStatus(id,status,id) end
+        for _,status in ipairs({'ESC_MAIN_SWORD','ESC_OFFHAND_SWORD','ESC_ARMOR_BLOCKED','ESC_COUNTER_READY','ESC_COUNTER_RANK2','ESC_COUNTER_RANK3','ESC_EXTRA_ATTACK','ESC_IN_FLIGHT','ESC_CHAIN_LIANCHENG','ESC_CHAIN_WUSHENG','ESC_VFX_SWORD_DOMAIN','ESC_VFX_BLOOD_DOMAIN'}) do E.removeStatus(id,status,id) end
         return
     end
     migrateSkillMenu(id,level,branch)
@@ -494,6 +687,16 @@ local function helper(id,key,target,meta)
     pendingHelpers[id]=pendingHelpers[id] or {}
     local pending={key=key,spell=spell,target=target,meta=meta}
     pendingHelpers[id][#pendingHelpers[id]+1]=pending
+    if meta.lineRoot then
+        local previous=Line.dispatch;Line.dispatch={id=id,spell=spell,pending=pending}
+        local ok,message=pcall(E.useSpell,id,spell,target)
+        Line.dispatch=previous
+        if not ok then
+            E.log('One-line native dispatch failed: '..tostring(message))
+            Line.cancel(casts[meta.lineRoot]);return false
+        end
+        return true
+    end
     if not meta.tiandiToken then E.useSpell(id,spell,target);return true end
     -- A target-less failure can be raised inside UseSpell. Keep that exact
     -- request, including across nested helper calls; never guess queue order.
@@ -512,12 +715,32 @@ local function helper(id,key,target,meta)
     end
     return true
 end
-local function cooperation(id,target)
-    if E.friend(id,target) then E.restore(id,R.cooperation(E.class(id)));return true end
+local function cooperation(c,target)
+    if E.friend(c.id,target) then
+        c.supportReward=(c.supportReward or 0)+R.cooperation(E.class(c.id));return true
+    end
     return false
 end
+local function settleSupportReward(c)
+    local amount=c.supportReward or 0;if amount<=0 then return end
+    c.supportReward=nil
+    local id,generation=actorId(c.id),pendingSessionLoad
+    -- Native CastedSpell precedes UseCosts payment (observed on both H26
+    -- domain casts). The next engine Tick has the paid amount. Keep earned
+    -- support attached to this action; never infer it from another resource
+    -- change or carry native resource userdata across the event boundary.
+    Ext.OnNextTick(function()
+        if generation~=pendingSessionLoad or c.failed or c.invalid or not E.entity(id) then return end
+        E.restore(id,amount)
+    end)
+end
 local function recipients(owner,range,includeSelf)
-    return E.nearby(owner,range,function(a,b) return includeSelf and a==b or E.friend(a,b) end)
+    return E.nearby(owner,range,function(a,b)
+        -- Story callbacks may use Name_GUID while nearby actors use ECS GUIDs.
+        -- Self inclusion must not depend on the native party relation to self.
+        if E.sameEntity(a,b) then return includeSelf end
+        return E.friend(a,b)
+    end)
 end
 local function statusOwner(id,name)
     local entity=E.entity(id)
@@ -538,6 +761,58 @@ end
 local domainVisuals={
     {status='ESC_VFX_BLOOD_DOMAIN',key='xueyan_xuehai',branch='xueyan'},
     {status='ESC_VFX_SWORD_DOMAIN',key='taixuan_taiqing',branch='taixuan'}}
+local partyDomainVisuals={
+    {status='ESC_VFX_DAMAGE_SHARE',key='xingge_fengyu',record='xingge_fengyu_status',includeSelf=false},
+    {status='ESC_VFX_TEAM_RESONANCE',key='xingge_zhangjian',record='xingge_zhangjian_status',includeSelf=true}}
+local function schoolVisualRecord(key)
+    local vfx=spec.schoolPolishVfx
+    local row=vfx and vfx.enabled and vfx.records and vfx.records[key]
+    return row and type(row.effect)=='string' and row.effect~='' and row or nil
+end
+local function playSchoolVisual(target,key)
+    local row=schoolVisualRecord(key)
+    if row and E.entity(target) then
+        -- Same installed story-header overload used by XueyanEchoVfx: an
+        -- actual entity, effect resource, attachment bone and scale.
+        pcall(Osi.PlayEffect,target,row.effect,'Dummy_Root',1)
+    end
+end
+local function visualActorAlive(id)
+    return E.alive(id) and E.hp(id)>0 and not E.hasStatus(id,'DYING')
+end
+local function syncPartyDomainVisuals(desired)
+    -- A union of beneficiaries makes overlapping owners one visual, without
+    -- refreshing the native status on every aura tick or touching aura boosts.
+    -- Reconcile one entity once. A watched Name_GUID alias must not remove a
+    -- visual that the same entity's desired ECS GUID just requested.
+    local candidates,canonicalDesired={},{}
+    local function candidate(id)
+        local uuid=E.uuid(E.entity(id))
+        if uuid then candidates[uuid]=true end
+        return uuid
+    end
+    for id in pairs(watched) do candidate(id) end
+    for id in pairs(auraVisualTargets) do candidate(id) end
+    for id,statuses in pairs(desired) do
+        local uuid=candidate(id)
+        if uuid then
+            canonicalDesired[uuid]=canonicalDesired[uuid] or {}
+            for status,wanted in pairs(statuses) do
+                if wanted then canonicalDesired[uuid][status]=true end
+            end
+        end
+    end
+    for id in pairs(candidates) do
+        if E.entity(id) then
+            for _,visual in ipairs(partyDomainVisuals) do
+                if canonicalDesired[id] and canonicalDesired[id][visual.status] then
+                    if not E.hasStatus(id,visual.status) then E.status(id,visual.status,-1,id) end
+                elseif E.hasStatus(id,visual.status) then E.removeStatus(id,visual.status,id) end
+            end
+        end
+    end
+    auraVisualTargets=canonicalDesired
+end
 local function syncDomainVisual(owner,level,branch,visual)
     -- Native Blood Robe also represents siphon shields; native Sword Domain
     -- can remain after death clears domains. Only the persisted, valid domain
@@ -552,12 +827,28 @@ local function syncDomainVisual(owner,level,branch,visual)
 end
 local function updateAuras()
     for id in pairs(watched) do
-        if not E.entity(id) then watched[id]=nil;auraTargets[id]=nil;rescueRequests[id]=nil end
+        local entity=E.entity(id);local uuid=E.uuid(entity)
+        if not entity then watched[id]=nil;auraTargets[id]=nil;rescueRequests[id]=nil
+        elseif uuid and uuid~=id then watched[id]=nil;watched[uuid]=true
+        elseif not needsPeriodic(id,entity.Vars.ESC_State) then retireEmptyState(id,entity.Vars.ESC_State) end
     end
-    local rows,expiredProtectionStatuses={},{}
-    for owner in pairs(watched) do
+    local rows,expiredProtectionStatuses,visualRows={},{},{}
+    local actors=watchedActors()
+    for owner in pairs(actors) do
         local level,branch=E.class(owner)
         for _,visual in ipairs(domainVisuals) do syncDomainVisual(owner,level,branch,visual) end
+        if level>0 and branch=='xingge' and visualActorAlive(owner) and E.allowed(owner,branch,false) then
+            for _,visual in ipairs(partyDomainVisuals) do
+                if schoolVisualRecord(visual.record) and Ext.Stats.Get(visual.status,nil,false)
+                    and validDomain(owner,visual.key) then
+                    for _,target in ipairs(recipients(owner,6,visual.includeSelf)) do
+                        if visualActorAlive(target) then
+                            visualRows[target]=visualRows[target] or {};visualRows[target][visual.status]=true
+                        end
+                    end
+                end
+            end
+        end
         if level>0 and E.alive(owner) then
             if branch=='xingge' and E.allowed(owner,branch,false) then
                 local party=recipients(owner,3,false)
@@ -569,19 +860,30 @@ local function updateAuras()
                     end
                 end
             end
-            for _,target in ipairs(recipients(owner,6,true)) do
-                if validDomain(owner,'taixuan_taiqing') then rows[target]=rows[target] or {};rows[target].domain=true end
-                if validDomain(owner,'xingge_zhangjian') then rows[target]=rows[target] or {};rows[target].team=true end
+            local swordDomain=validDomain(owner,'taixuan_taiqing')
+            local teamDomain=validDomain(owner,'xingge_zhangjian')
+            if swordDomain or teamDomain then
+                for _,target in ipairs(recipients(owner,6,true)) do
+                    rows[target]=rows[target] or {}
+                    if swordDomain then rows[target].domain=true end
+                    if teamDomain then rows[target].team=true end
+                end
             end
-            if validDomain(owner,'taixuan_taiqing') then
+            if swordDomain then
                 for _,target in ipairs(E.nearby(owner,6,E.enemy)) do rows[target]=rows[target] or {};rows[target].hostileDomain=true end
             end
         end
     end
-    for id in pairs(watched) do
-        local s=state(id);local dr=0
+    for id in pairs(actors) do
+        local s=state(id);local dr=0;local changed=false
+        local chengfeng,chengfengMovement=false,false
         local protectionOwner,protectionAction=statusOwner(id,'ESC_XINGGE_PROTECTION')
-        for target in pairs(s.kills) do if E.entity(target) and E.alive(target) then s.kills[target]=nil end end
+        for key,mark in pairs(s.marks) do
+            local owner=key:match('^[^:]+:(.+)$')
+            local source=owner and E.entity(owner)
+            local ownerState=source and state(owner)
+            if not ownerState or ownerState.turn>=(mark.expires or 0) then s.marks[key]=nil;changed=true end
+        end
         for key,p in pairs(s.protections) do
             local owner=state(p.owner)
             if not owner or not E.alive(p.owner) or (p.kind=='huifeng' and not E.hasStatus(id,'ESC_XINGGE_PROTECTION'))
@@ -589,17 +891,29 @@ local function updateAuras()
                 or (p.kind=='huifeng' and protectionAction and p.action and protectionAction~=p.action)
                 or owner.turn>=p.expires then
                 s.protections[key]=nil
-                if p.kind=='chengfeng' then E.setBoosts(id,'chengfeng','') end
+                changed=true
                 if p.kind=='huifeng' and E.sameEntity(protectionOwner,p.owner) and (not protectionAction or not p.action or protectionAction==p.action)
                     and E.hasStatus(id,'ESC_XINGGE_PROTECTION') then
                     expiredProtectionStatuses[#expiredProtectionStatuses+1]={target=id,owner=p.owner,action=p.action}
                 end
-            else dr=math.max(dr,p.reduction) end
+            else
+                dr=math.max(dr,p.reduction)
+                if p.kind=='chengfeng' then
+                    chengfeng=true
+                    -- Old saved records retain their original single deadline.
+                    if owner.turn<(p.movementExpires or p.expires) then chengfengMovement=true end
+                end
+            end
+        end
+        -- Resolve all owners before changing the shared recipient slots: expiry
+        -- of one cast cannot remove another owner's still-active support.
+        if chengfeng or s.boosts.chengfeng or s.boosts.chengfeng_oa or s.boosts.chengfeng_movement then
+            syncChengfengBoosts(id,chengfeng,chengfengMovement)
         end
         if dr>0 then rows[id]=rows[id] or {};rows[id].protectionDR=dr end
         for key,debuff in pairs(s.debuffs) do
             local owner=state(debuff.owner)
-            if not owner or owner.turn>=debuff.expires then s.debuffs[key]=nil
+            if not owner or owner.turn>=debuff.expires then s.debuffs[key]=nil;changed=true
             else
                 rows[id]=rows[id] or {};local row=rows[id]
                 row.breakAC=math.max(row.breakAC or 0,math.abs(debuff.ac or 0))
@@ -607,7 +921,8 @@ local function updateAuras()
                 row.slow=row.slow or debuff.slow
             end
         end
-        save(id,s)
+        if changed then save(id,s) else retireEmptyState(id,s) end
+        syncFollowupBoostAliases(id)
     end
     for _,protection in ipairs(expiredProtectionStatuses) do
         local owner,action=statusOwner(protection.target,'ESC_XINGGE_PROTECTION')
@@ -615,7 +930,8 @@ local function updateAuras()
             E.removeStatus(protection.target,'ESC_XINGGE_PROTECTION',protection.owner)
         end
     end
-    for target in pairs(auraTargets) do if not rows[target] then E.setBoosts(target,'aura','') end end
+    syncPartyDomainVisuals(visualRows)
+    for target in pairs(auraTargets) do if not rows[actorId(target)] then E.setBoosts(target,'aura','') end end
     auraTargets=rows
     for target,aura in pairs(rows) do
         local boosts={}
@@ -747,9 +1063,40 @@ local function playYixiantianBeam(c,phase)
         start=c.startPosition,selected=c.position,finish={p[1]+dx/length*30,p[2],p[3]+dz/length*30},yaw=yaw})
     return true
 end
-local function cancelYixiantianBeamOwner(id)
+local function playNifengLine(c,phase)
+    local config=spec.nifengLineVfx
+    if not c or c.key~='tianqing_nifeng' or not config or not config.enabled
+        or not c.alias or c.alias.internal or not c.alias.hand or c.level==0 or c.invalid
+        or c.nifengLineAttempted or c.nifengLineCancelled then return false end
+    if type(c.action)~='number' or c.action<=0 or c.action%1~=0 then return false end
+    -- A real MissedBy may follow CastSpellFailed. Only that native evidence
+    -- permits this visual; never clear c.failed or execute gameplay completion.
+    if c.failed and phase~='MissedBy' then return false end
+    if type(config.effect)~='string' or config.effect==''
+        or not finitePosition(c.startPosition) or not finitePosition(c.areaCenter) then return false end
+    local okOwner,alive=pcall(function() return E.entity(c.id) and E.alive(c.id) end)
+    if not okOwner or not alive then return false end
+    -- areaCenter is the first explicit UsingSpellAtPosition snapshot. Target
+    -- callbacks and later actor movement cannot turn this whole-cast sword line.
+    local p,q=c.startPosition,c.areaCenter
+    local dx,dz=q[1]-p[1],q[3]-p[3];local length=math.sqrt(dx*dx+dz*dz)
+    if length<1e-6 or length~=length or length==math.huge then return false end
+    local yaw=(-math.deg(math.atan(dx,-dz)))%360
+    local height=config.heightOffset or .8
+    if type(height)~='number' or height~=height or math.abs(height)==math.huge then return false end
+    c.nifengLineAttempted=true
+    local ok,message=pcall(Osi.PlayEffectAtPositionAndRotation,config.effect,p[1],p[2]+height,p[3],yaw,1)
+    if not ok then E.log('Nifeng line visual call failed: '..tostring(message));return false end
+    trace('NifengLine',{source=c.id,action=c.action,spell=c.spell,trigger=phase,effect=config.effect,
+        start=c.startPosition,selected=q,finish={p[1]+dx/length*12,p[2],p[3]+dz/length*12},yaw=yaw})
+    return true
+end
+local function cancelWorldSwordLineOwner(id)
     for _,c in pairs(casts) do
-        if c.key=='taixuan_yixiantian' and E.sameEntity(c.id,id) then c.yixiantianBeamCancelled=true end
+        if E.sameEntity(c.id,id) then
+            if c.key=='taixuan_yixiantian' then c.yixiantianBeamCancelled=true;Line.cancel(c)
+            elseif c.key=='tianqing_nifeng' then c.nifengLineCancelled=true end
+        end
     end
 end
 local function tianqingRecord(key)
@@ -941,7 +1288,7 @@ local function startTiandi(c)
 end
 local function bindPendingHelper(c,target)
     if c.helperMetaBound then return end
-    local dispatch=tiandiDispatch
+    local dispatch=c.key=='internal_yixiantian_hit' and Line.dispatch or tiandiDispatch
     if dispatch and E.sameEntity(dispatch.id,c.id) and dispatch.spell==c.spell
         and (not dispatch.pending.action or dispatch.pending.action==c.action)
         and (not target or E.sameEntity(target,dispatch.pending.target)) then
@@ -955,7 +1302,24 @@ local function bindPendingHelper(c,target)
     end
     -- A target-less event outside our native call cannot identify one of
     -- several outstanding stages. Wait for a real target or explicit failure.
-    if isTiandiHelper(c.key) and not target then return end
+    if (isTiandiHelper(c.key) or c.key=='internal_yixiantian_hit') and not target then return end
+    if c.key=='internal_yixiantian_hit' then
+        local found,foundQueue,foundIndex
+        for owner,queue in pairs(pendingHelpers) do
+            if E.sameEntity(owner,c.id) then
+                for i,pending in ipairs(queue) do
+                    if pending.key==c.key and E.sameEntity(target,pending.target) then
+                        if found then return end -- ambiguous overlapping roots: do not guess
+                        found,foundQueue,foundIndex=pending,queue,i
+                    end
+                end
+            end
+        end
+        if found then
+            table.remove(foundQueue,foundIndex);found.action=c.action;c.meta=found.meta;c.helperMetaBound=true
+        end
+        return
+    end
     local function take(queue)
         for i,pending in ipairs(queue or {}) do
             if pending.key==c.key and (not target or not pending.target or E.sameEntity(target,pending.target)) then
@@ -980,8 +1344,96 @@ local function bindTiandiFlight(c)
         flight.action=c.action;flight.spell=c.spell;save(c.id,s)
     end
 end
+function Line.cancel(root)
+    if not root or root.key~='taixuan_yixiantian' then return end
+    root.lineCancelled=true;root.lineFlight=nil
+    for owner,queue in pairs(pendingHelpers) do
+        if E.sameEntity(owner,root.id) then
+            for i=#queue,1,-1 do if queue[i].meta.lineRoot==root.action then table.remove(queue,i) end end
+        end
+    end
+end
+function Line.parent(c,bind)
+    local root=c and c.meta and c.meta.lineRoot and casts[c.meta.lineRoot]
+    local flight=root and root.lineFlight
+    if not root or root.key~='taixuan_yixiantian' or root.lineCancelled or root.failed
+        or root.yixiantianBeamCancelled or root.lineGeneration~=timerGeneration
+        or not E.sameEntity(root.id,c.id) or not c.helperMetaBound or not flight
+        or not E.sameEntity(flight.target,c.target) or not E.sameEntity(flight.target,c.meta.lineTarget)
+        or flight.action and flight.action~=c.action then return nil end
+    if bind then flight.action=c.action;c.damageOptions=root.damageOptions;c.alias.hand=root.alias.hand end
+    return root
+end
+function Line.advance(root)
+    if casts[root.action]~=root or root.lineCancelled or root.failed or root.yixiantianBeamCancelled
+        or root.lineGeneration~=timerGeneration or root.lineFlight or not E.alive(root.id)
+        or not E.allowed(root.id,root.branch,true) then return end
+    local target=root.lineTargets[root.lineIndex]
+    while target and (not E.alive(target) or not E.enemy(root.id,target) or Osi.IsOnStage(target)~=1) do
+        root.lineIndex=root.lineIndex+1;target=root.lineTargets[root.lineIndex]
+    end
+    if not target then root.lineDone=true;Line.settle(root);return end
+    root.lineIndex=root.lineIndex+1;root.lineFlight={target=target}
+    helper(root.id,'internal_yixiantian_hit',target,{lineRoot=root.action,lineTarget=target,hand=root.alias.hand})
+end
+function Line.complete(c,failed)
+    local root=Line.parent(c,true)
+    if not root then return end
+    if failed then Line.settle(root);Line.cancel(root);return end
+    -- Casted may precede native damage. The final native HitMarker supplies
+    -- completion of the whole Target functor list, not a guessed time delay.
+    if not c.finished or not c.lineHitSeen or c.lineCompleted then return end
+    c.lineCompleted=true;root.lineFlight=nil
+    Ext.OnNextTick(function() Line.advance(root) end)
+end
+function Line.start(c)
+    if c.key~='taixuan_yixiantian' or not c.finished or c.lineStarted or c.failed or c.invalid
+        or c.yixiantianBeamCancelled or c.level==0 or not finitePosition(c.startPosition)
+        or not finitePosition(c.position) or not E.alive(c.id) then return end
+    local p,q=c.startPosition,c.position
+    local dx,dz=q[1]-p[1],q[3]-p[3];local length=math.sqrt(dx*dx+dz*dz)
+    if length<1e-6 then return end
+    c.lineStarted=true;c.lineGeneration=timerGeneration;c.lineIndex=1;c.lineHits={};c.lineTargets={};c.lineOrder={}
+    local finish={p[1]+dx/length*30,q[2],p[3]+dz/length*30};local targets={}
+    for _,target in ipairs(E.nearby(c.id,30,E.enemy)) do
+        local inside,t=R.inLine(E.position(target),p,finish,2)
+        if inside then targets[#targets+1]={id=target,t=t} end
+    end
+    table.sort(targets,function(a,b) return a.t<b.t or a.t==b.t and a.id<b.id end)
+    local rank=0
+    for _,target in ipairs(targets) do
+        c.lineTargets[#c.lineTargets+1]=target.id
+        if not E.forceImmune(target.id) then c.lineOrder[target.id]=rank;rank=rank+1 end
+    end
+    playYixiantianBeam(c,'NativeTargetDispatch')
+    Line.advance(c)
+end
+local function failureKey(id,action) return actorId(id)..':'..tostring(action) end
+local function rememberRetiredFailure(c)
+    local key=failureKey(c.id,c.action)
+    if retiredFailures[key] then return end
+    retiredFailures[key]=true;retiredFailureOrder[#retiredFailureOrder+1]=key
+    -- Retain only lightweight recent rejection receipts, never cast/VFX/target
+    -- graphs. The 30s context window still permits late native helper binding.
+    if #retiredFailureOrder>512 then retiredFailures[table.remove(retiredFailureOrder,1)]=nil end
+end
+local function scheduleCastRetirement(c)
+    if c.retirementScheduled then return end
+    c.retirementScheduled=true
+    Ext.Timer.WaitFor(30000,function()
+        if casts[c.action]~=c then return end
+        if c.failed then rememberRetiredFailure(c) end
+        Line.cancel(c);casts[c.action]=nil
+        local owner=actorId(c.id)
+        for target in pairs(c.targets or {}) do stages[owner..':'..tostring(c.action)..':'..actorId(target)]=nil end
+    end)
+end
 local function beginCast(id,spell,action,target,position)
     local name=E.spellName(spell);local key=keyFor(name);local c=casts[action]
+    if retiredFailures[failureKey(id,action)] then
+        return {id=id,key=key,spell=name,action=action,alias={internal=true},meta={},targets={},
+            rewards={},firstHits={},failed=true,tiandiAbandoned=true,taixuanRainCancelled=true}
+    end
     if c and E.sameEntity(c.id,id) then
         if c.tiandiAbandoned then return c end
         c.target=target or c.target;c.position=position and copyPosition(position) or c.position
@@ -992,10 +1444,12 @@ local function beginCast(id,spell,action,target,position)
         -- Immediate native helpers can deliver CastedSpell first.
         -- Bind their metadata when their actual target arrives; never guess a
         -- target from queue order during the target-less completion callback.
-        if target and (c.key=='internal_taiqing_pulse' or isTiandiHelper(c.key)) then
+        if target and (c.key=='internal_taiqing_pulse' or c.key=='internal_resonance' or c.key=='internal_yixiantian_hit' or isTiandiHelper(c.key)) then
             bindPendingHelper(c,target);bindTiandiFlight(c)
+            if c.key=='internal_yixiantian_hit' then Line.parent(c,true);Line.complete(c,c.failed) end
             if c.finished or c.failed then finishTiandiHelper(c,c.failed) end
         end
+        if position then Line.start(c) end
         return c
     end
     if E.class(id)>0 then refresh(id);scopedBoosts(id,'cast_snapshot_',0,0);E.setBoosts(id,'cast_weapon_accuracy','') end
@@ -1016,6 +1470,7 @@ local function beginCast(id,spell,action,target,position)
     local sourceState=c.level>0 and state(id) or nil;local aura=auraTargets[E.uuid(E.entity(id)) or id] or {}
     c.damageOptions={domain=aura.domain,team=aura.team,charge=sourceState and sourceState.chargeUntil and sourceState.chargeUntil>sourceState.turn,
         descent=c.level>0 and validDomain(id,'tianqing_tianjian')~=nil}
+    if c.key=='internal_yixiantian_hit' then Line.parent(c,true) end
     local row=spec.spells[c.alias.parent or key]
     if row and sourceState and (row.base=='W' or row.base=='WQ') then
         local modifier=E.swordAttribute(id,c.alias.hand=='off' or c.alias.offhand)
@@ -1072,7 +1527,24 @@ local function retireUnboundTiandiFailure(c)
     end)
 end
 local function failedCast(id,spell,action)
+    for key,receipt in pairs(nativeHeals) do if receipt.action==action then nativeHeals[key]=nil end end
     local c=casts[action]
+    if keyFor(E.spellName(spell))=='internal_yixiantian_hit' and not (c and c.meta.lineRoot) then
+        local dispatch=Line.dispatch
+        if dispatch and E.sameEntity(dispatch.id,id) and dispatch.spell==E.spellName(spell)
+            and (not dispatch.pending.action or dispatch.pending.action==action) then
+            c=beginCast(id,spell,action,dispatch.pending.target)
+        else
+            -- An unbound asynchronous failure cannot safely identify a target.
+            for _,root in pairs(casts) do
+                if E.sameEntity(root.id,id) and root.lineFlight then
+                    -- Earlier native targets already hit; preserve their one
+                    -- reward/echo pass without advancing the failed queue.
+                    Line.settle(root);Line.cancel(root)
+                end
+            end
+        end
+    end
     if isTiandiHelper(keyFor(E.spellName(spell))) and not (c and c.meta.tiandiToken) then
         local dispatch=tiandiDispatch
         local exact=dispatch and E.sameEntity(dispatch.id,id) and dispatch.spell==E.spellName(spell)
@@ -1081,6 +1553,9 @@ local function failedCast(id,spell,action)
     end
     if c then
         c.failed=true;Rain.Cancel(c);CastVfx.Cancel(c);c.yixiantianBeamCancelled=true
+        scheduleCastRetirement(c)
+        if c.key=='internal_yixiantian_hit' then Line.complete(c,true)
+        elseif c.key=='taixuan_yixiantian' then Line.cancel(c) end
         finishTiandiHelper(c,true)
         if isTiandiHelper(c.key) then retireUnboundTiandiFailure(c) end
         if c.tianqingToken then cancelTiandi(id,c.tianqingToken)
@@ -1096,9 +1571,9 @@ local function castEffect(c)
     if not key or level==0 or c.invalid then return end
     local s=state(id)
     if key=='tiaoxi' or key=='tianqing_xushi' then E.restore(id,R.breath(level,key=='tianqing_xushi' and 'tianqing' or branch,true,E.combat(id)))
-    elseif key=='taixuan_guiyuan' or key=='tianqing_nixi' or key=='xueyan_huichao' or key=='xingge_xiangfu' then
-        if target==id or key=='xingge_xiangfu' and E.friend(id,target) and E.distance(id,target)<=18 then
-            local actual=E.heal(target,E.maxHp(target)*R.healing(level,branch));if actual>0 then cooperation(id,target) end
+    elseif key=='taixuan_guiyuan' or key=='tianqing_nixi' or key=='xueyan_huichao' then
+        if target==id then
+            E.heal(target,E.maxHp(target)*R.healing(level,branch))
         end
     elseif key=='qi_sword' then
         s.qiSword=false;save(id,s);E.removeStatus(id,'ESC_QI_MODE',id)
@@ -1109,10 +1584,10 @@ local function castEffect(c)
         local hp,frenzy=R.bloodCost(E.hp(id),E.maxHp(id),s.frenzy);if hp then Osi.SetHitpoints(id,hp,'Guaranteed');setFrenzy(id,frenzy) end
     elseif key=='control_release' or key=='xingge_fuchen' then
         if target==id or E.friend(id,target) and E.distance(id,target)<=18 then
-            local removed=clearControls(target,id);E.status(target,'ESC_CONTROL_RESISTANCE',2,id);if removed then cooperation(id,target) end
+            local removed=clearControls(target,id);E.status(target,'ESC_CONTROL_RESISTANCE',2,id);if removed then cooperation(c,target) end
         end
     elseif key=='taixuan_liuguang' then
-        if c.target and E.entity(target) and E.enemy(id,target) then
+        if c.target and E.entity(target) and (E.enemy(id,target) or Osi.IsItem(target)==1) then
             for _=1,3 do helper(id,'internal_liuguang_stage',target,{parentAction=c.action,hand=c.alias.hand}) end
         end
     elseif key=='tianqing_tianbeng' then
@@ -1137,7 +1612,7 @@ local function castEffect(c)
     elseif key=='xingge_huifeng' then
         if target==id or E.friend(id,target) and E.distance(id,target)<=18 then
             local t=state(target);t.protections['huifeng:'..id]={owner=id,kind='huifeng',action=c.action,expires=s.turn+2,reduction=.20};save(target,t)
-            cooperation(id,target);updateAuras()
+            cooperation(c,target);updateAuras()
             for _,enemy in ipairs(E.nearby(target,3,function(_,other) return E.enemy(id,other) end)) do helper(id,'internal_huifeng_control',enemy,{parentAction=c.action}) end
         end
     elseif key=='tianqing_tianfeng' then s.chargeUntil=s.turn+2;save(id,s)
@@ -1146,11 +1621,11 @@ local function castEffect(c)
         startDomain(id,key);pulse(id,key)
     elseif key=='xingge_fengyu' or key=='xingge_zhangjian' then
         startDomain(id,key)
-        if key=='xingge_fengyu' then for _,ally in ipairs(recipients(id,6,false)) do cooperation(id,ally) end end
+        if key=='xingge_fengyu' then for _,ally in ipairs(recipients(id,6,false)) do cooperation(c,ally) end end
     elseif key=='xingge_chengfeng' then
         if target==id or E.friend(id,target) then
-            E.setBoosts(target,'chengfeng','IgnoreLeaveAttackRange();ActionResource(Movement,6,0)')
-            local t=state(target);t.protections['chengfeng:'..id]={owner=id,kind='chengfeng',expires=s.turn+1,reduction=0};save(target,t);cooperation(id,target)
+            local t=state(target);t.protections['chengfeng:'..id]={owner=id,kind='chengfeng',movementExpires=s.turn+1,expires=s.turn+2,reduction=0};save(target,t)
+            syncChengfengBoosts(target,true,true);cooperation(c,target)
             for _,enemy in ipairs(E.nearby(target,3,function(_,other) return E.enemy(id,other) end)) do helper(id,'internal_chengfeng_burst',enemy,{parentAction=c.action,hand=c.alias.hand}) end
         end
     elseif key=='xingge_tongzhou' then
@@ -1177,7 +1652,7 @@ local function reductionFactor(target)
         if validDomain(target,'tianqing_tianjian') then factor=factor*.75 end
         if validDomain(target,'xingge_fengyu') then factor=factor*.70 end
     end
-    local aura=auraTargets[target]
+    local aura=auraTargets[actorId(target)]
     if aura then factor=factor*(1-(aura.sideReduction or 0))*(1-(aura.protectionDR or 0)) end
     return factor
 end
@@ -1185,23 +1660,33 @@ local function transferDamage(target,amount,parts,source)
     if amount<=0 then return end
     local context={target=target,source=source,transfer=true,eligible=false,total=0,emitted=0,factor=reductionFactor(target)}
     local previous=pendingTransfer;pendingTransfer=context
-    local total=0
-    for _,part in ipairs(parts or {}) do total=total+math.max(0,part.Amount) end
-    local remaining=amount
-    local count=parts and #parts or 0
-    if count==0 then E.damageTransfer(target,amount,'Force',source)
-    else
-        for i,part in ipairs(parts) do
-            local value=i==count and remaining or total>0 and math.floor(amount*math.max(0,part.Amount)/total) or 0
-            remaining=remaining-value
-            if value>0 then E.damageTransfer(target,value,part.DamageType,source) end
+    local ok,err=pcall(function()
+        local total=0
+        for _,part in ipairs(parts or {}) do total=total+math.max(0,part.Amount) end
+        local remaining=amount
+        local count=parts and #parts or 0
+        if count==0 then E.damageTransfer(target,amount,'Force',source)
+        else
+            for i,part in ipairs(parts) do
+                local value=i==count and remaining or total>0 and math.floor(amount*math.max(0,part.Amount)/total) or 0
+                remaining=remaining-value
+                if value>0 then E.damageTransfer(target,value,part.DamageType,source) end
+            end
         end
-    end
+    end)
+    -- A rejected native call must not classify unrelated later hits as shares.
+    -- Preserve the original error; no success receipt or replay after failure.
     pendingTransfer=previous
+    if not ok then error(err,0) end
+    -- One transfer can contain several native damage types. The visible
+    -- receipt belongs to the receiving protector once, after the whole event.
+    playSchoolVisual(target,'xingge_fengyu_transfer')
 end
 local function defense(target,damage,bypass,transfer,parts,stage)
-    local level,branch=E.class(target);local s=state(target);if not s then return damage,damage end
-    if not bypass then
+    -- Destructible items keep the native damage/rounding path, but have no
+    -- character equipment, class shields or party damage-sharing state.
+    local level,branch=E.class(target);local s=E.character(target) and state(target)
+    if s and not bypass then
         local other={}
         if E.allowed(target,branch,false) then
             if s.guard and E.hasStatus(target,'ESC_COUNTER_READY') then other[#other+1]=s.guard.reduction end
@@ -1211,7 +1696,7 @@ local function defense(target,damage,bypass,transfer,parts,stage)
             damage=damage*(1-R.baseReduction(level,branch,s.frenzy))
             for _,dr in ipairs(other) do damage=damage*(1-dr) end
         end
-        local aura=auraTargets[target]
+        local aura=auraTargets[actorId(target)]
         if aura then damage=damage*(1-(aura.sideReduction or 0))*(1-(aura.protectionDR or 0)) end
     end
     if stage then
@@ -1219,12 +1704,13 @@ local function defense(target,damage,bypass,transfer,parts,stage)
         local cumulative=math.floor(stage.defenseFloat+1e-9)
         damage=cumulative-stage.defenseEmitted;stage.defenseEmitted=cumulative
     else damage=math.floor(math.max(0,damage)+1e-9) end
+    if not s then return damage,damage end
     local credited=damage;damage,s.shield=R.shieldAbsorb(damage,s.shield);save(target,s)
     if not transfer then
         local protectors={}
-        for owner in pairs(watched) do
+        for owner in pairs(watchedActors()) do
             local domain=validDomain(owner,'xingge_fengyu')
-            if domain and E.friend(owner,target) and E.distance(owner,target)<=6 then
+            if domain and not E.sameEntity(owner,target) and E.friend(owner,target) and E.distance(owner,target)<=6 then
                 protectors[#protectors+1]={owner=owner,percent=E.class(owner)>=10 and .45 or .40,sequence=domain.sequence or 0}
             end
         end
@@ -1241,15 +1727,17 @@ local function defense(target,damage,bypass,transfer,parts,stage)
     return damage,credited
 end
 local function multiplier(context)
+    if not E.character(context.source) then return 1 end
     local s=state(context.source);if not s or (not context.eligible and not context.direct) then return 1 end
     local own=context.eligible
     -- Immediate helpers may deal damage before a cast callback creates their context.
     local c=casts[context.action];local alias=c and c.alias or aliases[E.spellName(context.spell)] or {}
     local row=spec.spells[alias.parent or context.key];local snapshot=c and c.snapshot
-    local aura=auraTargets[context.source] or {};local followup=false
+    local aura=auraTargets[actorId(context.source)] or {};local followup=false
     local options=c and c.damageOptions or {domain=aura.domain,team=aura.team,
         charge=s.chargeUntil and s.chargeUntil>s.turn,descent=validDomain(context.source,'tianqing_tianjian')~=nil}
-    for owner in pairs(watched) do if E.friend(owner,context.source) and activeMark(context.target,'followup',owner) then followup=true;break end end
+    for owner in pairs(watchedActors()) do if not E.sameEntity(owner,context.source) and E.friend(owner,context.source)
+        and activeMark(context.target,'followup',owner) then followup=true;break end end
     return R.damageMultiplier({level=context.level,held=own and context.branch=='xueyan' and (snapshot and snapshot.held or s.frenzy) or 0,
         spent=own and snapshot and snapshot.spent or 0,weakpoint=own and activeMark(context.target,'weakpoint',context.source)~=nil,
         domain=options.domain,team=options.team,followup=followup,
@@ -1295,8 +1783,16 @@ local function beforeDamage(evt,context)
     for _,pair in ipairs(hit.DamageList) do total=total+math.max(0,pair.Amount) end
     local outgoing=total*multiplier(context)
     local stage=context.eligible and ensureStage(context)
-    if context.key=='taixuan_yixiantian' then
+    if context.key=='tianqing_nifeng' then
         local c=casts[context.action]
+        if c and E.sameEntity(c.id,context.source) then playNifengLine(c,'BeforeDealDamage') end
+    end
+    local lineChild=context.key=='internal_yixiantian_hit'
+    local lineRoot=lineChild and Line.parent(casts[context.action],true) or nil
+    if lineChild and not lineRoot then outgoing=0 end
+    if context.key=='taixuan_yixiantian' or lineChild then
+        local c=lineChild and lineRoot or casts[context.action]
+        if lineChild and not lineRoot then c=nil end
         if c then playYixiantianBeam(c,'BeforeDealDamage') end
         if c and c.position and c.startPosition then
             if not c.lineOrder then
@@ -1314,7 +1810,7 @@ local function beforeDamage(evt,context)
                     if not target.immune then c.lineOrder[target.id]=rank;rank=rank+1 end
                 end
             end
-            if E.forceImmune(context.target) then outgoing=0
+            if E.forceImmune(context.target) or lineChild and c.lineOrder[context.target]==nil then outgoing=0
             else
                 local raw=hit.Damage and hit.Damage.TotalDamage or total
                 if context.functorUuid then
@@ -1342,7 +1838,7 @@ local function beforeDamage(evt,context)
     end
     -- TQ ultimate ally/neutral quarter damage is defined natively before saves;
     -- multiplying it here again would incorrectly reduce it to one sixteenth.
-    local final,credited=defense(context.target,outgoing,context.key=='taixuan_yixiantian',context.transfer,hit.DamageList,stage)
+    local final,credited=defense(context.target,outgoing,context.key=='taixuan_yixiantian' or lineRoot~=nil,context.transfer,hit.DamageList,stage)
     context.final,context.credited,context.reduced=final,credited,final<outgoing
     trace('BeforeDealDamage',{source=context.source,target=context.target,action=context.action,spell=context.spell,
         hp=E.hp(context.target),temporaryHp=E.tempHp(context.target),nativeTotal=total,outgoing=outgoing,final=final,credited=credited})
@@ -1382,9 +1878,14 @@ local function afterDamage(evt,context)
     if not context.key and not context.eligible then flushStage(context.source,context.action,context.target) end
 end
 local function mark(target,kind,owner)
+    if not E.character(target) then return end
+    owner=actorId(owner)
     local s=state(target);local source=state(owner);if not s or not source then return end
+    -- A real recast resets every alias of this owner's old mark together.
+    for _,key in ipairs(markKeys(s,kind,owner)) do s.marks[key]=nil end
     s.marks[kind..':'..owner]=kind=='followup' and R.recastFollowup(source.turn) or {expires=source.turn+3,used={}}
     save(target,s);E.status(target,kind=='followup' and 'ESC_FOLLOWUP' or 'ESC_WEAKPOINT',3,owner)
+    if kind=='followup' then playSchoolVisual(target,'xingge_wenlu_mark') end
     if kind=='weakpoint' then
         local condition="IF(HasStatus('ESC_WEAKPOINT',context.Target,context.Source))"
         local boosts={condition..':RollBonus(Attack,2)'}
@@ -1394,26 +1895,47 @@ local function mark(target,kind,owner)
         E.setBoosts(owner,'weakpoint',table.concat(boosts,';'))
     else
         for _,ally in ipairs(recipients(owner,1000,false)) do
-            E.setBoosts(ally,'followup_'..owner,"IF(HasStatus('ESC_FOLLOWUP',context.Target,'"..owner.."')):RollBonus(Attack,2)")
+            syncFollowupBoostAliases(ally)
+            E.setBoosts(ally,'followup_'..owner,followupBoost(owner))
         end
     end
 end
 local function resonance(c,target)
     if c.key=='internal_resonance' or c.meta.resonance then return end
-    for owner in pairs(watched) do
+    local source=actorId(c.id);target=actorId(target)
+    for owner in pairs(watchedActors()) do
         local domain=validDomain(owner,'xingge_zhangjian')
-        if domain and (c.id==owner or E.friend(owner,c.id)) and E.distance(owner,c.id)<=6
-            and E.allowed(owner,'xingge',true) and not domain.used[c.id] then
-            domain.used[c.id]=true;local s=state(owner);s.domains.xingge_zhangjian=domain;save(owner,s)
-            local victims={target}
-            for other in pairs(c.targets) do if other~=target and E.enemy(owner,other) and E.distance(target,other)<=3 then victims[#victims+1]=other end end
-            for _,victim in ipairs(victims) do helper(owner,'internal_resonance',victim,{resonance=true,rewardToken=tostring(c.action)..':'..c.id}) end
+        if domain then domain.used=actorUses(domain.used) end
+        if domain and E.enemy(owner,target) and (source==owner or E.friend(owner,source)) and E.distance(owner,source)<=6
+            and E.allowed(owner,'xingge',true) and not domain.used[source] then
+            domain.used[source]=true;local s=state(owner);s.domains.xingge_zhangjian=domain;save(owner,s)
+            local victims,seen={target},{[target]=true}
+            for other in pairs(c.targets) do
+                other=actorId(other)
+                if not seen[other] and E.enemy(owner,other) and E.distance(target,other)<=3 then
+                    victims[#victims+1]=other;seen[other]=true
+                end
+            end
+            for _,victim in ipairs(victims) do helper(owner,'internal_resonance',victim,{resonance=true,rewardToken=tostring(c.action)..':'..source}) end
         end
     end
 end
 local function hit(source,target,action)
+    source,target=actorId(source),actorId(target)
     flushStage(source,action,target)
     local c=casts[action];if not c or c.tiandiAbandoned then return end
+    if c.key=='internal_yixiantian_hit' then
+        bindPendingHelper(c,target)
+        local root=Line.parent(c,true)
+        if root then
+            root.targets[target]=true;root.lineHits[target]=true;c.lineHitSeen=true
+            Line.complete(c,false)
+        end
+        return
+    end
+    -- Immediate resonance helpers can complete before their target callback.
+    -- A real hit supplies the same target boundary if its marker arrives first.
+    if c.key=='internal_resonance' then bindPendingHelper(c,target) end
     if c.key~='tianqing_tianjian' then CastVfx.Impact(c) end
     if c.meta.tiandiToken and c.key=='internal_tiandi_stage' then
         local entry,s=tiandiEntry(source,c.meta.tiandiToken)
@@ -1421,24 +1943,41 @@ local function hit(source,target,action)
         if ledger then ledger.controlAttempted=true;save(source,s) end
     end
     c.targets[target]=true
+    -- Item hits still settle damage and contact visuals above. They cannot
+    -- acquire character marks or consume/reward an ally's coordinated hit.
+    if not E.character(target) then return end
     if not c.firstHits[target] then
         c.firstHits[target]=true
         if c.key=='taixuan_zhaoxi' then mark(target,'weakpoint',source) elseif c.key=='xingge_wenlu' then mark(target,'followup',source) end
     end
     local rewards={}
-    for owner in pairs(watched) do
+    for owner in pairs(watchedActors()) do
         local followup=E.friend(owner,source) and activeMark(target,'followup',owner)
-        if followup and R.followup(followup,source) then local s=state(target);s.marks['followup:'..owner]=followup;save(target,s);rewards[owner]=true end
+        if followup and R.followup(followup,source) then
+            local s=state(target);s.marks['followup:'..owner]=followup;save(target,s);rewards[owner]=true
+            playSchoolVisual(target,'xingge_wenlu_mark')
+        end
     end
-    if c.meta.cooperator then rewards[c.meta.cooperator]=true end
+    if c.meta.cooperator then rewards[actorId(c.meta.cooperator)]=true end
+    c.rewards=actorUses(c.rewards)
     for owner in pairs(rewards) do if not c.rewards[owner] then E.restore(owner,R.cooperation(E.class(owner)));c.rewards[owner]=true end end
     if c.key=='internal_resonance' then
         local s=state(source);s.resonanceRewards=s.resonanceRewards or {}
-        if R.once(s.resonanceRewards,c.meta.rewardToken or tostring(action)) then E.restore(source,R.cooperation(E.class(source))) end
+        -- Every victim in one echo shares its root token. An unbound helper is
+        -- not evidence of a separate reward and must not mint one per action.
+        if c.meta.rewardToken and R.once(s.resonanceRewards,c.meta.rewardToken) then E.restore(source,R.cooperation(E.class(source))) end
         save(source,s)
     elseif not c.resonanceScheduled then
         c.resonanceScheduled=true
-        Ext.Timer.WaitFor(1,function() resonance(c,c.target and c.targets[c.target] and c.target or target) end)
+        Ext.Timer.WaitFor(1,function() resonance(c,c.target and c.targets[c.target] and E.enemy(c.id,c.target) and c.target or target) end)
+    end
+end
+function Line.settle(root)
+    -- All native targets are present before the root's single reward/echo pass.
+    if root.lineSettled then return end
+    root.lineSettled=true
+    for _,target in ipairs(root.lineTargets) do
+        if root.lineHits[target] then hit(root.id,target,root.action) end
     end
 end
 local function controlFailed(target,marker,source,action)
@@ -1474,8 +2013,11 @@ local function controlFailed(target,marker,source,action)
 end
 local function finishCast(id,spell,action)
     local c=casts[action] or beginCast(id,spell,action,id)
-    if c.finished or c.failed then return end;c.finished=true;updateAttackFocus(c);castEffect(c);Rain.Finish(c);CastVfx.Finish(c)
+    if c.finished or c.failed then return end;c.finished=true;updateAttackFocus(c);castEffect(c);settleSupportReward(c);Rain.Finish(c);CastVfx.Finish(c)
     playYixiantianBeam(c,'CastedSpellFallback')
+    Line.start(c)
+    if c.key=='internal_yixiantian_hit' then Line.complete(c,false) end
+    playNifengLine(c,'CastedSpellFallback')
     finishTiandiHelper(c,false)
     if c.key=='tianqing_tiandi' then startTiandi(c)
     elseif c.alias.hand and not c.alias.internal and not CastVfx.Enabled(c) then
@@ -1502,11 +2044,11 @@ local function finishCast(id,spell,action)
     -- Native OnCast passives grant continuation charges only after an actual
     -- ActionPoint payment. Native UseCosts consumes subsequent charges.
     -- Projectile callbacks can be later than CastedSpell. Do not discard their snapshot.
-    Ext.Timer.WaitFor(30000,function() if casts[action]==c then casts[action]=nil end end)
+    scheduleCastRetirement(c)
 end
 local function turnStarted(id)
     for ally,queue in pairs(cooperationRequests) do
-        for i=#queue,1,-1 do if queue[i].owner==id then table.remove(queue,i) end end
+        for i=#queue,1,-1 do if E.sameEntity(queue[i].owner,id) then table.remove(queue,i) end end
         sendCooperation(ally)
     end
     -- Session refresh uses UUIDs; Osiris can later watch the same owner as
@@ -1519,6 +2061,7 @@ local function turnStarted(id)
             if validDomain(owner,'tianqing_tianjian') and E.enemy(owner,id) and E.distance(owner,id)<=6 then helper(owner,'internal_aftershock',id) end
         end
     end
+    if E.class(id)==0 and not watched[actorId(id)] then return end
     local s=state(id);if not s then return end
     s.turn=s.turn+1;s.autoReleased=false;s.resonanceRewards={}
     for key,domain in pairs(s.domains) do if not R.tickDuration(domain,s.turn) then s.domains[key]=nil else domain.used={} end end
@@ -1537,9 +2080,14 @@ local function turnStarted(id)
 end
 local function killed(target,source,action)
     local level,branch=E.class(source);local c=casts[action]
-    if branch~='xueyan' or not c or not E.allowed(source,branch,false) or not (offensiveKey(c.key) or c.swordDamage) or not E.enemy(source,target) then return end
-    local s=state(source)
-    if R.once(s.kills,target) then save(source,s);local heal,yuan,frenzy=R.killReward(level,E.maxHp(source));E.heal(source,heal);E.restore(source,yuan);addFrenzy(source,frenzy) end
+    if branch~='xueyan' or not c or c.failed or not E.allowed(source,branch,false) or not (offensiveKey(c.key) or c.swordDamage) or not E.enemy(source,target) then return end
+    state(source) -- Migrate an old save's historical ledger before any new reward.
+    local victim=E.entity(target);if not victim then return end
+    local receipts=victim.Vars.ESC_BloodKillReceipts or {}
+    if R.once(receipts,actorId(source)) then
+        victim.Vars.ESC_BloodKillReceipts=receipts
+        local heal,yuan,frenzy=R.killReward(level,E.maxHp(source));E.heal(source,heal);E.restore(source,yuan);addFrenzy(source,frenzy)
+    end
 end
 local function statusAttempt(id,status,source,action)
     trace('StatusAttempt',{target=id,status=status,source=source,action=action,alreadyApplied=E.hasStatus(id,status)})
@@ -1573,6 +2121,11 @@ local function decay()
 end
 local function refreshClassActors(resetTransient)
     for _,entity in ipairs(Ext.Entity.GetAllEntitiesWithComponent('Classes')) do local id=E.uuid(entity);if id then
+        -- Save-loaded beneficiaries may have no sword class and have not been
+        -- watched this session. Reconcile their persisted visual statuses too.
+        for _,visual in ipairs(partyDomainVisuals) do
+            if E.hasStatus(id,visual.status) then auraVisualTargets[id]=true end
+        end
         refresh(id)
         if resetTransient and E.class(id)>0 then
             scopedBoosts(id,'cast_snapshot_',0,0);E.setBoosts(id,'cast_weapon_accuracy','')
@@ -1594,11 +2147,13 @@ local function refreshNewAvatar(avatar)
     end)
 end
 local function sessionLoaded()
+    nativeHeals={};nativeHealOrder={};pendingWindHealing={};healingContexts={}
     CastVfx.Reset()
-    for _,c in pairs(casts) do Rain.Cancel(c);c.yixiantianBeamCancelled=true end
+    for _,c in pairs(casts) do Rain.Cancel(c);Line.cancel(c);c.yixiantianBeamCancelled=true;c.nifengLineCancelled=true;c.xiangfuActualHealConfirmed=nil end
     rescueRequests={};cooperationRequests={};pendingAvatarRefreshes={};pendingWeaponWisdom={}
     pendingDomainTurnPulses={}
     tiandiDispatch=nil
+    Line.dispatch=nil
     tianqingTimerHandles={}
     -- Persistent timer payloads resume unfinished steps. Do not restart a
     -- saved cast or replay a sword which was already emitted before saving.
@@ -1621,7 +2176,29 @@ local function sessionLoaded()
     for _,entity in ipairs(Ext.Entity.GetAllEntitiesWithComponent('Classes')) do
         local id=E.uuid(entity);if id then repairSavedBonusTechnique(id) end
     end
+    -- Include saved beneficiaries without a sword class. Seed old aura targets
+    -- so the normal range/expiry reconciliation can discard obsolete bonuses
+    -- before restoring the remaining native boosts from persisted descriptions.
+    local boostActors={}
+    for _,entity in ipairs(Ext.Entity.GetAllEntitiesWithComponent('Health')) do
+        local id=E.uuid(entity);local s=entity.Vars.ESC_State
+        if id and (s or E.hasStatus(id,'ESC_CONTROL_RESISTANCE')) and not boostActors[id] then
+            s=s or state(id)
+            boostActors[id]=true;watched[id]=true
+            for slot,value in pairs(s.boosts or {}) do
+                if slot=='aura' and value~='' then auraTargets[id]=auraTargets[id] or {} end
+                if slot=='auto_release' or slot=='cast_weapon_accuracy' or slot:find('cast_snapshot_',1,true)==1 then
+                    E.setBoosts(id,slot,'')
+                end
+            end
+            if E.class(id)==0 then syncReceivedControlResistance(id) end
+            -- Static conditional beneficiary boosts no longer need a polling
+            -- watch. Normalize old saved owner aliases once during restoration.
+            syncFollowupBoostAliases(id)
+        end
+    end
     updateAuras()
+    for id in pairs(boostActors) do E.restoreBoosts(id) end
     for _,entity in pairs(Ext.Entity.GetAllEntitiesWithComponent('Classes')) do
         local id=E.uuid(entity);local s=entity.Vars.ESC_State
         for token,entry in pairs(s and s.tianqingStages or {}) do
@@ -1672,6 +2249,7 @@ local function sessionLoaded()
     E.log('Server bridge loaded; native/UI/game verification is required for engine contracts.')
 end
 Ext.Events.DealDamage:Subscribe(function(evt)
+    healingInterference(evt.Target)
     local source,target=E.uuid(E.entity(evt.Caster)),E.uuid(E.entity(evt.Target))
     local spell=E.spellName(evt.SpellId) or evt.Hit and evt.Hit.SpellId;local key=keyFor(spell);local level,branch=E.class(source)
     local status=evt.Hit and evt.Hit.StatusId
@@ -1689,11 +2267,11 @@ Ext.Events.DealDamage:Subscribe(function(evt)
     -- Immediate Target helpers may deal damage and send hit/save markers before
     -- UsingSpell. Bind the actual target here so control and queue completion
     -- share the same native action, regardless of callback order.
-    if source and target and isTiandiHelper(key) then beginCast(source,spell,evt.StoryActionId,target) end
+    if source and target and (isTiandiHelper(key) or key=='internal_yixiantian_hit') then beginCast(source,spell,evt.StoryActionId,target) end
     local c=casts[evt.StoryActionId];if c and eligible then c.swordDamage=true end
     if c and not transferred and (status==nil or status=='') and c.key~='tianqing_tianjian' then CastVfx.Impact(c) end
     local functorUuid
-    if key=='taixuan_yixiantian' and evt.Functor then
+    if (key=='taixuan_yixiantian' or key=='internal_yixiantian_hit') and evt.Functor then
         local value=tostring(evt.Functor.FunctorUuid or '')
         if value~='' and value~='00000000-0000-0000-0000-000000000000' then functorUuid=value end
     end
@@ -1726,7 +2304,7 @@ local function functorRecipient(params)
     if not params then return nil end
     -- Params is a tagged variant. Missing proxy properties throw in BG3SE, so
     -- only read fields declared for this concrete FunctorContextType.
-    local field=functorRecipientField[params.Type]
+    local field=functorRecipientField[params.Type] or functorRecipientField[tostring(params.Type)]
     if not field then return nil end
     local ref=params[field]
     if not ref then return nil end
@@ -1737,6 +2315,29 @@ local function functorRecipient(params)
     end
     local ok,entity=pcall(E.entity,handle)
     return ok and E.uuid(entity) or nil
+end
+local function healingProperty(params,name,mask)
+    local flags=params and params.PropertyContext
+    if type(flags)=='number' then return (flags & mask)~=0 end
+    return flags and flags[name]==true
+end
+local function completedNativeSupport(params,target)
+    if not target or not healingProperty(params,'HEAL',262144) then return end
+    local source=functorEntityUuid(params.Caster)
+    local key=nativeHealKey(source,target,params.StoryActionId)
+    local receipt=key and nativeHeals[key];local c=casts[params.StoryActionId]
+    if not receipt or receipt.rewardChecked or receipt.ambiguous or not c
+        or c.key~='xingge_xiangfu' or c.failed or c.invalid
+        or not E.sameEntity(source,c.id) or not E.sameEntity(target,c.target)
+        or E.spellName(params.SpellId)~='Target_ESC_xingge_xiangfu' then return end
+    receipt.rewardChecked=true
+    -- H28 real OnHeal is after the HP write; its TotalHealDone is the rolled
+    -- amount (4 even at HP12/12). InitialHPPercentage is rounded, so retain
+    -- exact HP for 123/124 as well. Never sample at UsingSpell or next tick.
+    local hit=params.Hit
+    if hit and (tonumber(hit.TotalHealDone) or 0)>0 and E.hp(target)>receipt.before then
+        c.xiangfuActualHealConfirmed=true
+    end
 end
 Ext.Events.ExecuteFunctor:Subscribe(function(evt)
     local context={}
@@ -1763,7 +2364,20 @@ Ext.Events.ExecuteFunctor:Subscribe(function(evt)
     for _,functor in pairs(evt.Functor and evt.Functor.FunctorList or {}) do
         if tostring(functor.TypeId)=='RegainHitPoints' and not tostring(functor.HealingType):find('Regeneration',1,true) then context.healing=true end
     end
-    if context.healing and target then context.target=target;context.before=E.hp(target) end
+    if params and (tostring(params.Type)=='AttackTarget' or params.Type==1) then
+        for _,functor in pairs(evt.Functor and evt.Functor.FunctorList or {}) do
+            if tostring(functor.TypeId)=='ApplyStatus' and functor.StatusId=='ESC_XIANGFU_HEALED' then
+                completedNativeSupport(params,target)
+            end
+        end
+    end
+    if context.healing and target then
+        context.target=target;context.before=E.hp(target)
+        if params and (tostring(params.Type)=='AttackTarget' or params.Type==1)
+            and (healingProperty(params,'TARGET',1) or healingProperty(params,'CAST',4) or healingProperty(params,'AOE',2)) then
+            context.native=rememberNativeHeal(functorEntityUuid(params.Caster),target,params.StoryActionId,E.spellName(params.SpellId))
+        end
+    end
     healingContexts[#healingContexts+1]=context
 end)
 Ext.Events.AfterExecuteFunctor:Subscribe(function(evt)
@@ -1778,20 +2392,75 @@ Ext.Events.AfterExecuteFunctor:Subscribe(function(evt)
             startDomain(landing.id,'tianqing_tianjian')
         end
     end
-    if not context or not context.target then return end
+    if not context or not context.target or context.native then return end
     local gained=E.hp(context.target)-context.before
     local mult=Runtime.HealingMultiplier(context.target)
     if gained>0 and mult>1 then E.heal(context.target,gained*(mult-1),true) end
+end)
+local function queueNativeHealingBonus(target,amount)
+    local pending=pendingWindHealing[target]
+    if pending then pending.amount=pending.amount+amount;return end
+    pending={amount=amount,generation=timerGeneration};pendingWindHealing[target]=pending
+    -- Settlement was already proved by the native receipt. Coalesce earned
+    -- bonuses at the event-loop boundary: multiple asynchronous SetHitpoints
+    -- calls in one frame would otherwise overwrite each other's absolute HP.
+    Ext.OnNextTick(function()
+        if pending.generation~=timerGeneration or pendingWindHealing[target]~=pending then return end
+        pendingWindHealing[target]=nil
+        if E.entity(target) and E.alive(target) then E.heal(target,pending.amount,true) end
+    end)
+end
+-- Official ServerStatusApplyEvent + EsvStatusHeal fields; H28 action75/81/86
+-- establishes this callback follows native HP settlement with source/action.
+-- No status userdata is retained and no native HEAL fields are overwritten.
+Ext.Entity.OnCreate('ServerStatusApplyEvent',function(_,_,component)
+    if component.StatusId~='HEAL' then return end
+    local target=E.uuid(E.entity(component.Target));if not target then return end
+    local entity=E.entity(target);local character=entity and entity.ServerCharacter
+    local status=character and character:GetStatus('HEAL')
+    if not status or not status.Started then return end
+    local source=E.uuid(E.entity(status.StatusSource))
+    local key=nativeHealKey(source,target,status.StoryActionID)
+    local receipt=key and nativeHeals[key]
+    if not receipt then healingInterference(target);return end
+    nativeHeals[key]=nil -- Consume before E.heal can create any nested work.
+    local amount=tonumber(status.HealAmount) or 0
+    local mult=Runtime.HealingMultiplier(target)
+    -- Both native and Lua domains must still be active at actual settlement.
+    -- Scripted SetHitpoints has no pending Regain receipt and cannot recurse.
+    if not receipt.ambiguous and amount>0 and mult>1 and E.hasStatus(target,'ESC_DAMAGE_SHARE') then
+        local extra=math.ceil(amount*mult)-amount
+        if extra>0 and E.hp(target)<E.maxHp(target) then queueNativeHealingBonus(target,extra) end
+    end
 end)
 Ext.Osiris.RegisterListener('UsingSpell',5,'before',function(id,spell,kind,element,action) local c=beginCast(id,spell,action);CastVfx.Begin(c) end)
 Ext.Osiris.RegisterListener('UsingSpellOnTarget',6,'before',function(id,target,spell,kind,element,action) local c=beginCast(id,spell,action,target);Rain.Capture(c,target);CastVfx.Begin(c) end)
 Ext.Osiris.RegisterListener('UsingSpellAtPosition',8,'before',function(id,x,y,z,spell,kind,element,action) local c=beginCast(id,spell,action,nil,{x,y,z});CastVfx.Begin(c) end)
 Ext.Osiris.RegisterListener('CastedSpell',5,'after',function(id,spell,kind,element,action) finishCast(id,spell,action) end)
 Ext.Osiris.RegisterListener('CastSpellFailed',5,'after',function(id,spell,kind,element,action) failedCast(id,spell,action) end)
+-- Official MissedBy(Defender,AttackerOwner,Attacker,StoryActionID).
+-- Match the direct caster and its existing action; no new cast or failure replay.
+Ext.Osiris.RegisterListener('MissedBy',4,'after',function(target,owner,attacker,action)
+    local c=casts[action]
+    if c and E.sameEntity(c.id,owner) and E.sameEntity(c.id,attacker) then playNifengLine(c,'MissedBy') end
+end)
 Ext.Osiris.RegisterListener('StatusApplied',4,'after',function(id,status,source,action)
     trace('StatusApplied',{target=id,status=status,source=source,action=action})
     if Osi.IsItem(id)==1 then local owner=Osi.GetOwner(id);if owner and E.class(owner)>0 then refresh(owner) end end
     if status=='ESC_COUNTER_READY' then syncGuard(id,true);refresh(id)
+    elseif status=='ESC_XIANGFU_HEALED' then
+        -- A positive native marker also fires at full HP. Require the exact
+        -- same-action OnHeal receipt above, then match original identities.
+        -- Resource settlement remains after native cast cost deduction.
+        local c=casts[action];local level,branch=E.class(source)
+        if c and c.key=='xingge_xiangfu' and c.xiangfuActualHealConfirmed and not c.failed and not c.invalid and not c.xiangfuRewarded
+            and source and E.sameEntity(source,c.id) and E.sameEntity(id,c.target)
+            and level>0 and branch=='xingge' and E.allowed(source,branch,false)
+            and not E.sameEntity(source,id) and E.friend(source,id) and E.distance(source,id)<=18 then
+            c.xiangfuRewarded=true
+            cooperation(c,id)
+            if c.finished then settleSupportReward(c) end
+        end
     elseif status=='ESC_HIT_MARKER' then hit(source,id,action)
     elseif status=='ESC_TIANDI_TARGET' then
         local c=casts[action]
@@ -1808,7 +2477,8 @@ Ext.Osiris.RegisterListener('StatusApplied',4,'after',function(id,status,source,
             end
         end
     elseif status:find('ESC_SAVEFAIL_',1,true)==1 then controlFailed(id,status,source,action)
-    elseif status=='DOWNED' or status=='DYING' or status=='DEAD' then cancelYixiantianBeamOwner(id);Rain.CancelOwner(casts,id);CastVfx.CancelOwner(id);cancelTiandi(id);local s=state(id);if s then s.shield=0;s.domains={};save(id,s);clearContinuous(id);setFrenzy(id,0);updateAuras() end end
+    elseif (status=='DOWNED' or status=='DYING' or status=='DEAD') and E.character(id) then cancelWorldSwordLineOwner(id);Rain.CancelOwner(casts,id);CastVfx.CancelOwner(id);cancelTiandi(id);local s=state(id);if s then s.shield=0;s.domains={};save(id,s);clearContinuous(id);setFrenzy(id,0);updateAuras() end end
+    if status=='ESC_CONTROL_RESISTANCE' and E.class(id)==0 then syncReceivedControlResistance(id) end
     if E.class(id)>0 then
         if status=='ESC_CONTROL_RESISTANCE' then refresh(id) end
         updateRescue(id)
@@ -1819,6 +2489,14 @@ Ext.Osiris.RegisterListener('StatusRemoved',4,'after',function(id,status,source,
         -- A delayed removal from an old application must not end a recast.
         -- Clearing only the domain leaves Blood Robe's siphon shield intact.
         endDomain(id,domainKeys[status]);updateAuras()
+    elseif (status=='ESC_FOLLOWUP' or status=='ESC_WEAKPOINT') and not E.hasStatus(id,status) then
+        local entity=E.entity(id);local s=entity and entity.Vars.ESC_State
+        local prefix=status=='ESC_FOLLOWUP' and 'followup:' or 'weakpoint:'
+        local changed=false
+        for key in pairs(s and s.marks or {}) do
+            if key:sub(1,#prefix)==prefix then s.marks[key]=nil;changed=true end
+        end
+        if changed then save(id,s) end
     elseif status=='ESC_COUNTER_READY' and not E.hasStatus(id,status) then
         local s=state(id);if s then s.guard=nil;save(id,s) end
         -- Leave rank markers on their native clock: an old Ready removal
@@ -1836,16 +2514,23 @@ Ext.Osiris.RegisterListener('StatusRemoved',4,'after',function(id,status,source,
         end
     end
     if Osi.IsItem(id)==1 then local owner=Osi.GetOwner(id);if owner and E.class(owner)>0 then refresh(owner) end end
-    if status=='ESC_CONTROL_RESISTANCE' and E.class(id)>0 then refresh(id) end
+    if status=='ESC_CONTROL_RESISTANCE' then
+        if E.class(id)>0 then refresh(id) else syncReceivedControlResistance(id) end
+    end
 end)
 Ext.Osiris.RegisterListener('StatusAttempt',4,'before',statusAttempt)
 Ext.Osiris.RegisterListener('KilledBy',4,'after',function(target,owner,attacker,action) killed(target,owner,action) end)
+-- Installed Patch 8 story_header.div: Resurrected((CHARACTER)_Character).
+Ext.Osiris.RegisterListener('Resurrected',1,'after',function(id)
+    local entity=E.entity(id)
+    if entity and entity.Vars.ESC_BloodKillReceipts~=nil then entity.Vars.ESC_BloodKillReceipts=nil end
+end)
 Ext.Osiris.RegisterListener('AttackedBy',7,'after',function(target,owner,attacker,damageType,amount,cause,action)
     local c=casts[action]
     if c and not c.key and c.directDamage then hit(owner,target,action) end
 end)
 Ext.Osiris.RegisterListener('TurnStarted',1,'after',turnStarted)
-Ext.Osiris.RegisterListener('LeftCombat',2,'after',function(id,combat) cancelYixiantianBeamOwner(id);Rain.CancelOwner(casts,id);CastVfx.CancelOwner(id);cancelTiandi(id);if E.class(id)>0 then clearContinuous(id) end end)
+Ext.Osiris.RegisterListener('LeftCombat',2,'after',function(id,combat) cancelWorldSwordLineOwner(id);Rain.CancelOwner(casts,id);CastVfx.CancelOwner(id);cancelTiandi(id);if E.class(id)>0 then clearContinuous(id) end end)
 Ext.Osiris.RegisterListener('LeveledUp',1,'after',refresh)
 Ext.Osiris.RegisterListener('RespecCompleted',1,'after',function(id) refresh(id);updateAuras() end)
 Ext.Osiris.RegisterListener('Equipped',2,'after',function(item,id) refresh(id);updateAuras() end)
@@ -1854,7 +2539,6 @@ Ext.Osiris.RegisterListener('Unequipped',2,'after',function(item,id) refresh(id)
 -- equipment events. Discover the finalized actors when gameplay is ready.
 Ext.Osiris.RegisterListener('LevelGameplayReady',2,'after',function() refreshClassActors(false) end)
 Ext.Osiris.RegisterListener('UserAvatarCreated',3,'after',function(user,avatar,guardian) refreshNewAvatar(avatar) end)
-local pendingSessionLoad=0
 Ext.Events.SessionLoaded:Subscribe(function()
     -- SessionLoaded can run while Osiris is restricted. Reacquire actors on the
     -- next engine tick; do not carry scoped entity userdata across that boundary.
@@ -1869,7 +2553,8 @@ Ext.Events.NetMessage:Subscribe(function(evt)
         elseif type(data.spell)=='string' then chooseCooperation(data.id,data.token,data.spell,evt.UserID) end
     end
 end)
-Runtime.Refresh,Runtime.State,Runtime.BeginCast,Runtime.FinishCast=refresh,state,beginCast,finishCast
+Runtime.Refresh,Runtime.State,Runtime.BeginCast,Runtime.FinishCast=refresh,explicitState,beginCast,finishCast
+Runtime.TrackState=retireEmptyState
 Runtime.Hit,Runtime.BeforeDamage,Runtime.AfterDamage,Runtime.TurnStarted=hit,beforeDamage,afterDamage,turnStarted
 Runtime.UpdateAuras,Runtime.Decay,Runtime.StatusAttempt,Runtime.SessionLoaded=updateAuras,decay,statusAttempt,sessionLoaded
 Runtime.CounterEligible,Runtime.Counter,Runtime.FlushStage,Runtime.Defense=counterEligible,counter,flushStage,defense
@@ -1887,4 +2572,4 @@ Runtime.HealingMultiplier=function(id)
     if validDomain(id,'xingge_fengyu') then return E.class(id)>=10 and 1.75 or 1.50 end
     return 1
 end
-ESC.Runtime,ESC.Refresh,ESC.State=Runtime,refresh,state
+ESC.Runtime,ESC.Refresh,ESC.State=Runtime,refresh,explicitState

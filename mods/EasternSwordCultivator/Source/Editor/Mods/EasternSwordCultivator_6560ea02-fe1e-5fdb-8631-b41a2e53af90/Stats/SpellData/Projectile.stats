@@ -24,7 +24,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -88,13 +88,13 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.RangedSpellAttack)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(2d8,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(3d8,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(4d8,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand);ApplyStatus(ESC_WEAKPOINT,100,3)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(2d8,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(3d8,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(4d8,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand);IF(Character() and Enemy()):ApplyStatus(ESC_WEAKPOINT,100,3)" />
         <field name="SpellFail" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(LevelMapValue(ESC_ZhaoxiDamage),Force)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -157,13 +157,13 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.RangedSpellAttack)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(2d8,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(3d8,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(4d8,Force,Magical);ApplyStatus(ESC_WEAKPOINT,100,3);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(2d8,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(3d8,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(4d8,Force,Magical);IF(Character() and Enemy()):ApplyStatus(ESC_WEAKPOINT,100,3);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="SpellFail" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -232,7 +232,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -635,7 +635,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -704,7 +704,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -773,7 +773,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -842,7 +842,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -911,7 +911,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -980,7 +980,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1049,7 +1049,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1118,7 +1118,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1187,7 +1187,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1256,7 +1256,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1325,7 +1325,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1394,7 +1394,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1463,7 +1463,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1532,7 +1532,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1601,7 +1601,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1670,7 +1670,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1739,7 +1739,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1808,7 +1808,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1877,7 +1877,7 @@
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence;IsLinkedSpellContainer" />
@@ -1939,13 +1939,13 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.RangedSpellAttack)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(1d4,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(1d6,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(2d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand);ApplyStatus(ESC_FOLLOWUP,100,3)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(1d4,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(1d6,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(2d6,Force,Magical);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand);IF(Character() and Enemy()):ApplyStatus(ESC_FOLLOWUP,100,3)" />
         <field name="SpellFail" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType);DealDamage(LevelMapValue(ESC_WenluDamage),Force)" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -1989,7 +1989,7 @@
         <field name="CastSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="VocalComponentSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="Trajectories" type="StringTableFieldDefinition" value="6455ee4a-0949-5814-bc15-262399c79f1e,3342115c-ff33-55fd-85f8-82ae2b3b055e" />
+        <field name="Trajectories" type="StringTableFieldDefinition" value="534d0ce5-9245-59b1-ada2-684ba18281de,e6402fbd-d2b6-5ed1-81cc-171a0a22c506" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2009,13 +2009,13 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.RangedSpellAttack)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(1d4,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(1d6,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(2d6,Force,Magical);ApplyStatus(ESC_FOLLOWUP,100,3);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);IF(not HasPassive('ESC_P_Level5',context.Source)):DealDamage(1d4,Force,Magical);IF(HasPassive('ESC_P_Level5',context.Source) and not HasPassive('ESC_P_Level10',context.Source)):DealDamage(1d6,Force,Magical);IF(HasPassive('ESC_P_Level10',context.Source)):DealDamage(2d6,Force,Magical);IF(Character() and Enemy()):ApplyStatus(ESC_FOLLOWUP,100,3);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="SpellFail" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -2059,7 +2059,7 @@
         <field name="SpellEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="VocalComponentSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="Trajectories" type="StringTableFieldDefinition" value="6455ee4a-0949-5814-bc15-262399c79f1e,3342115c-ff33-55fd-85f8-82ae2b3b055e" />
+        <field name="Trajectories" type="StringTableFieldDefinition" value="534d0ce5-9245-59b1-ada2-684ba18281de,e6402fbd-d2b6-5ed1-81cc-171a0a22c506" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2113,7 +2113,7 @@
         <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="a09de2c8-ec46-4c27-a502-bc92cf293fe5,,;9583ecee-cf6c-4735-86db-7ebf1df15eae,366693ee-d97f-4294-a4dd-a2145ddc4e6a,9f2d32b9-529a-4b75-b3df-6e1ae1395280;de006e3f-70fb-4eb7-a98d-d845d15b20e8,479ee5da-2967-41e1-b7d1-a94e864a5f25,79323098-edb3-4993-ba50-9b5f705e9878;50696db7-d931-4734-915d-32d038ba99a5,b5cb923d-0c08-4c20-89a9-44b9bf98c6cb,6282d127-0c06-4365-9d53-6f32ef350127;244b53cb-dc0f-4932-afd0-ab19c6df1b34,,;c36ed247-2272-492b-99c2-2ca10b014670,ecbf9949-3b33-432c-b735-e47aaed0924a,e71a7c08-fdc1-4a0b-9a90-1c793c58553c;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,," />
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="9b55a45f-1859-4f55-8fd4-44a27d3fcba1" />
-        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="f573afc5-f018-4a87-a3a9-d1c0fe4e5b0d" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="62c1aaba-7b59-5dd9-b597-8cd1f8fb590e" />
         <field name="PrepareSound" type="StringTableFieldDefinition" value="Action_Prepare_Bard_Flourish" />
         <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="Action_Loop_Bard_Flourish" />
         <field name="CastSound" type="StringTableFieldDefinition" value="Action_Cast_Bard_DefensiveFlourishMelee" />
@@ -2129,7 +2129,7 @@
         <field name="SpellEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="VocalComponentSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="Trajectories" type="StringTableFieldDefinition" value="6455ee4a-0949-5814-bc15-262399c79f1e,3342115c-ff33-55fd-85f8-82ae2b3b055e" />
+        <field name="Trajectories" type="StringTableFieldDefinition" value="4648efeb-1df7-5c5b-8ddd-9afda84439f1,3516bed4-e106-5c14-8423-44cb8c00aac3" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -2144,7 +2144,7 @@
         <field name="SpellFail" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('ESC_CHAIN_LIANCHENG',context.Source)" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;IsHarmful;IgnoreSilence" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
@@ -2206,7 +2206,7 @@
         <field name="SpellFail" type="StringTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="24" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="RequirementConditions" type="StringTableFieldDefinition" value="HasStatus('ESC_CHAIN_WUSHENG',context.Source)" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;IsHarmful;IgnoreSilence" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />

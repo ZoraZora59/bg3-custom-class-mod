@@ -416,13 +416,13 @@
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="Attack(AttackType.RangedSpellAttack)" />
-        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(12d8,Force,Magical);TARGET:IF(Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_LIETIAN,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(12d8,Force,Magical);TARGET:IF(Character() and Enemy() and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_LIETIAN,100,0);ApplyStatus(ESC_HIT_MARKER,100,0);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand)" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="ConcentrationSpellID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="Requirements" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
         <field name="CycleConditions" type="StringTableFieldDefinition" value="Enemy() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;RangeIgnoreVerticalThreshold;IsHarmful;IgnoreSilence" />
@@ -709,8 +709,8 @@
         <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Healing" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalNonDamage" />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="7cfd4d2e-6ddc-5a8d-9b58-b6056c57d7c9" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -764,8 +764,8 @@
         <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Healing" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalNonDamage" />
-        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="7cfd4d2e-6ddc-5a8d-9b58-b6056c57d7c9" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -891,7 +891,7 @@
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="1ca9cb5c-ff4e-5ae7-aa15-8e88ad366c2e" />
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -959,7 +959,7 @@
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="4e3eb776-03d1-53f5-bdfe-3196dbd34c3a" />
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1027,7 +1027,7 @@
         <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
         <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="f4c000d1-2527-55d9-86e4-550120e1316a" />
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1058,7 +1058,7 @@
         <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XINGGE_XIANGFU,100,0)" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="ApplyStatus(ESC_CAST_XINGGE_XIANGFU,100,0);IF(Self() or (Party() and not IsSummon())):RegainHitPoints((Target.MaxHP*LevelMapValue(ESC_XiangfuHealing)+99)/100,Guaranteed)" />
         <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1091,6 +1091,11 @@
         <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
         <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Healing" />
         <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalNonDamage" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="5439d603-e28b-5f61-a0da-f79364007432" />
       </fields>
     </stat_object>
     <stat_object is_substat="false">
@@ -1387,7 +1392,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="6b3aad3b-7ccb-5d88-8eb9-b79de2649c42" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="e78657ee-c90d-5367-9fcd-879f65440a45" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1450,6 +1455,66 @@
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="56be48fe-b34b-51c8-a977-b9eb5bc89f6e" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+      </fields>
+    </stat_object>
+    <stat_object is_substat="false">
+      <fields>
+        <field name="UUID" type="IdTableFieldDefinition" value="982630f7-67f4-512a-a5fc-c68798d821d7" />
+        <field name="Name" type="NameTableFieldDefinition" value="ESC_YixiantianHit" />
+        <field name="Using" type="BaseClassTableFieldDefinition" value="c7e3f94b-b631-4ed8-a464-2cee8f69e1f0" />
+        <field name="Level" type="IntegerTableFieldDefinition" value="0" />
+        <field name="UseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Cooldown" type="EnumerationTableFieldDefinition" enumeration_type_name="CooldownType" value="" clear_inherited_value="true" />
+        <field name="SpellRoll" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellSuccess" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellProperties" type="StringTableFieldDefinition" value="IF(HasStatus('ESC_MAIN_SWORD',context.Source)):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):DealDamage(OffhandMeleeWeapon,OffhandMeleeWeaponDamageType,Magical);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source) or HasStatus('ESC_OFFHAND_SWORD',context.Source))):DealDamage(2d6+WisdomModifier,Force,Magical);DealDamage(36d8,Force,Magical);IF(HasStatus('ESC_MAIN_SWORD',context.Source)):ExecuteWeaponFunctors(MainHand);IF(not (HasStatus('ESC_MAIN_SWORD',context.Source)) and HasStatus('ESC_OFFHAND_SWORD',context.Source)):ExecuteWeaponFunctors(OffHand);ApplyStatus(ESC_HIT_MARKER,100,0)" />
+        <field name="TargetRadius" type="StringTableFieldDefinition" value="30" />
+        <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;IsHarmful;IgnoreSilence;IgnoreVisionBlock;ImmediateCast" />
+        <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_yixiantian" />
+        <field name="DisplayName" type="TranslatedStringTableFieldDefinition" handle="h5286b825g48fcg5b68g8438g34b70efb997c" version="1" />
+        <field name="TargetEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
+        <field name="TargetSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellAnimation" type="CastAnimationsTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="CastTextEvent" type="StringTableFieldDefinition" value="Cast" />
+        <field name="PrepareEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="CastEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="PrepareSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="PrepareLoopSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="CastSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="VocalComponentSound" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="Description" type="TranslatedStringTableFieldDefinition" clear_inherited_value="true" />
+        <field name="DescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ExtraDescription" type="TranslatedStringTableFieldDefinition" clear_inherited_value="true" />
+        <field name="ExtraDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ShortDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipDamageList" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipStatusApply" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipOnMiss" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipOnSave" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipPermanentWarnings" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescription" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipUpcastDescriptionParams" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="CombatAIOverrideSpell" type="StatReferenceTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="DualWieldingUseCosts" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="DualWieldingSpellAnimation" type="CastAnimationsTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="AlternativeCastTextEvents" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="SpellContainerID" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="ContainerSpells" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="TooltipAttackSave" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
+        <field name="DamageType" type="EnumerationTableFieldDefinition" enumeration_type_name="Damage Type" value="None" />
+        <field name="VerbalIntent" type="EnumerationTableFieldDefinition" enumeration_type_name="VerbalIntent" value="Damage" />
+        <field name="HitAnimationType" type="EnumerationTableFieldDefinition" enumeration_type_name="HitAnimationType" value="MagicalDamage_External" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
@@ -1647,7 +1712,7 @@
         <field name="SpellProperties" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="SpellFail" type="StringTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="TargetRadius" type="StringTableFieldDefinition" value="18" />
-        <field name="TargetConditions" type="StringTableFieldDefinition" value="Character() and Enemy() and not Dead()" />
+        <field name="TargetConditions" type="StringTableFieldDefinition" value="(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()" />
         <field name="SpellFlags" type="EnumerationListTableFieldDefinition" enumeration_type_name="SpellFlagList" value="IsSpell;IsHarmful;IgnoreSilence;ImmediateCast" />
         <field name="AmountOfTargets" type="StringTableFieldDefinition" value="1" />
         <field name="Icon" type="StringTableFieldDefinition" value="ESC_skill_taixuan_liuguang" />
@@ -1866,7 +1931,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="6b3aad3b-7ccb-5d88-8eb9-b79de2649c42" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="90b9d15d-3047-5595-b56e-e40fa402579f" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
@@ -1926,7 +1991,7 @@
         <field name="TargetHitEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="TargetGroundEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PositionEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
-        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="6b3aad3b-7ccb-5d88-8eb9-b79de2649c42" />
+        <field name="HitEffect" type="GuidObjectTableFieldDefinition" value="90b9d15d-3047-5595-b56e-e40fa402579f" />
         <field name="ImpactEffect" type="GuidObjectTableFieldDefinition" clear_inherited_value="true" value="" />
         <field name="PreviewEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />
         <field name="BeamEffect" type="GuidObjectTableFieldDefinition" value="" clear_inherited_value="true" />

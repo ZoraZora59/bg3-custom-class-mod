@@ -6,7 +6,7 @@ import importlib.util
 import json
 from pathlib import Path
 
-from school_visual_polish import EDITOR, SUBDIRECTORY, authoring_modules, effect_name, profiles
+from school_visual_polish import EDITOR, SUBDIRECTORY, authoring_modules, author_profile, effect_name, profiles
 from sword_cultivator_spec import MOD, guid
 
 REPO = Path(__file__).resolve().parents[1]
@@ -23,11 +23,11 @@ def main():
     spec.loader.exec_module(fx)
     dictionary = fx.PropertyDictionary(args.data)
     records = []
+    planned = profiles()
     for module in authoring_modules():
-        for key, profile in module.PROFILES.items():
-            root, origins, details = module.author(args.data, key, dictionary)
-            from sword_glow import apply as apply_glow
-            details.update(apply_glow(root, dictionary, key.split('_')[0]))
+        for key in module.PROFILES:
+            profile = planned[key]
+            root, origins, details = author_profile(module, args.data, key, dictionary)
             root.set('id', guid('vfx/polish/editor/' + key))
             path = SOURCE / EDITOR / (effect_name(key) + '.lsefx')
             fx.write(path, root)

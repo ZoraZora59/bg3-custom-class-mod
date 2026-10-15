@@ -38,6 +38,16 @@ class DocumentedResistanceFlags:
         raise AttributeError('Undocumented bitfield property: '+key)
 
 
+class DocumentedDamageType:
+    """SE enums are userdata whose tostring is the label (API.md:291-309)."""
+    __slots__ = ('label',)
+
+    def __init__(self, label):
+        self.label = label
+
+    def __str__(self):
+        return self.label
+
 
 class Bridge(unittest.TestCase):
     def setUp(self):
@@ -95,7 +105,8 @@ class Bridge(unittest.TestCase):
 
     def cooperation_packet(self,id):
         packets=[self.F.jsonPackets[call.args[3]] for call in self.F.calls.values()
-                 if call.name=='PostMessageToClient' and call.args[1]==id and call.args[2]=='ESC_CooperationState']
+                 if call.name in ('PostMessageToClient','PostMessageToUser')
+                 and call.args[2]=='ESC_CooperationState' and self.F.jsonPackets[call.args[3]].id==id]
         return packets[-1]
 
     def cooperation_intent(self,id,token,spell,peer=0x10000):
@@ -110,19 +121,64 @@ class Bridge(unittest.TestCase):
 
     def install_client(self):
         self.lua.execute('''Ext.IMGUI={};Fixture.windows={}
+            function Ext.IMGUI.GetViewportSize() return {1920,1080} end
+            function Fixture.renderWindow(window)
+                -- Native ImGui keeps old ini dimensions unless auto-fit is
+                -- requested. This reproduces the observed H28 68x70 window.
+                local content={640,50+#window._children*42}
+                local size=window._requestedSize or window.LastSize
+                if window.AlwaysAutoResize then size=content
+                else size={size[1]==0 and content[1] or size[1],size[2]==0 and content[2] or size[2]} end
+                window.LastSize=size;window._requestedSize=false
+                if window._requestedPos then
+                    local pos=window._requestedPos;local pivot=window._requestedPivot
+                    window.LastPosition={pos[1]-size[1]*pivot[1],pos[2]-size[2]*pivot[2]}
+                    window._requestedPos=false
+                end
+            end
             function Ext.IMGUI.NewWindow(name)
-                local window={name=name,buttons={}}
-                function window:RemoveAllChildren() self.buttons={};self.text=nil end
-                function window:AddText(text) self.text=text end
+                -- Match the exposed SE Lua API, not unbound C++ methods.
+                -- Children is a snapshot; RemoveChild destroys the child.
+                local window={name=name,buttons={},_children={},text=false,button=false,
+                    Visible=true,Open=true,collapsed=true,focusRequests=0,removed=0,
+                    NoSavedSettings=false,AlwaysAutoResize=false,NoCollapse=false,
+                    LastSize={68,70},LastPosition={60,60},_requestedSize=false,_requestedPos=false}
+                setmetatable(window,{__index=function(self,key)
+                    if key=='Children' then
+                        local copy={};for _,child in ipairs(self._children)do copy[#copy+1]=child end;return copy
+                    end
+                    error('Property does not exist: Window::'..tostring(key))
+                end})
+                function window:RemoveChild(child)
+                    for i,value in ipairs(self._children)do if value==child then
+                        table.remove(self._children,i);child.destroyed=true;self.removed=self.removed+1
+                        for j,button in ipairs(self.buttons)do if button==child then table.remove(self.buttons,j);break end end
+                        return true
+                    end end
+                    return false
+                end
+                function window:SetCollapsed(value) self.collapsed=value end
+                function window:SetFocus() self.focusRequests=self.focusRequests+1 end
+                function window:SetSize(value,condition)
+                    assert(condition=='Always');self._requestedSize=value
+                end
+                function window:SetPos(value,condition,pivot)
+                    assert(condition=='Always');self._requestedPos=value;self._requestedPivot=pivot
+                end
+                function window:AddText(text)
+                    self.text=text;local child={text=text,destroyed=false};self._children[#self._children+1]=child;return child
+                end
                 function window:AddButton(text)
-                    self.button={text=text};self.buttons[#self.buttons+1]=self.button;return self.button
+                    self.button={text=text,destroyed=false};self.buttons[#self.buttons+1]=self.button
+                    self._children[#self._children+1]=self.button;return self.button
                 end
                 Fixture.windows[#Fixture.windows+1]=window;return window
             end''')
         self.lua.execute(SNAPSHOT['BootstrapClient.lua'].decode('utf-8'))
 
-    def native_damage(self,source,target,parts,spell=None,action=1,status=None):
-        hit=self.table(dict(DamageList=[dict(Amount=p,DamageType='Force') for p in parts],TotalDamageDone=sum(parts),SpellId=spell,StatusId=status))
+    def native_damage(self,source,target,parts,spell=None,action=1,status=None,damage_types=None):
+        hit=self.table(dict(DamageList=[dict(Amount=p,DamageType=damage_types[i] if damage_types else 'Force')
+                                      for i,p in enumerate(parts)],TotalDamageDone=sum(parts),SpellId=spell,StatusId=status))
         # This fixture represents one logical native functor, shared across victims.
         event=self.table(dict(Caster=source,Target=target,StoryActionId=action,Hit=hit,
                               Functor=dict(FunctorUuid='11111111-1111-1111-1111-111111111111')))
@@ -487,10 +543,10 @@ class Bridge(unittest.TestCase):
         self.lua.execute("ESC.Runtime.HealingMultiplier=function(id) return id=='healed' and 1.5 or 1 end")
         functors=self.table(dict(FunctorList=[dict(TypeId='RegainHitPoints',HealingType='Living')]))
         for values in (
-            dict(Type='AttackTarget',Target=42,Caster=1),
+            dict(Type='AttackTarget',Target=42,Caster=1,StoryActionId=0,SpellId=dict(Prototype='Target_HealingWord'),PropertyContext=dict(TARGET=True)),
             dict(Type='Target',Source=42),
             dict(Type='Source',Source=42),
-            dict(Type=1,Target=42,Caster=1),
+            dict(Type=1,Target=42,Caster=1,StoryActionId=0,SpellId=dict(Prototype='Target_HealingWord'),PropertyContext=dict(TARGET=True)),
         ):
             healed._hp=30
             event=self.table(dict(Functor=functors))
@@ -886,7 +942,7 @@ class Bridge(unittest.TestCase):
         packet=self.cooperation_ready()
         ally=self.F.entities['ally']
         ally.SpellBook=self.table(dict(Spells=[dict(Id='Projectile_FireBolt')]))
-        self.F.stats['Projectile_FireBolt']=self.table(dict(Level=0,SpellType='Projectile',SpellRoll='Attack(AttackType.RangedSpellAttack)',
+        self.F.stats['Projectile_FireBolt']=self.table(dict(Level=0,SpellType='Projectile',SpellFlags=['IsSpell'],SpellRoll='Attack(AttackType.RangedSpellAttack)',
             SpellProperties='DealDamage(1d10,Fire)',AmountOfTargets=1,TargetRadius=18,UseCosts='ActionPoint:1',Cooldown='OncePerTurn'))
         # Refresh current native choices through a second queued request, consume first by decline.
         self.cast('sword','xingge_tongzhou','enemy',action=202)
@@ -913,13 +969,82 @@ class Bridge(unittest.TestCase):
         self.F.event('NetMessage',self.table(dict(Channel='ESC_CooperationState',Payload=self.lua.globals().Ext.Json.Stringify(revoke))))
         self.assertFalse(window.Visible)
 
+    def test_cooperation_client_refresh_destroys_old_choices_and_reopens_window(self):
+        self.install_client()
+        def deliver(token,options,available=True):
+            packet=self.table(dict(id='ally',available=available,token=token,
+                options=[dict(spell=spell,label=label) for spell,label in options]))
+            self.F.event('NetMessage',self.table(dict(Channel='ESC_CooperationState',
+                Payload=self.lua.globals().Ext.Json.Stringify(packet))))
+        deliver(10,[('Target_MainHandAttack','普通武器攻击'),('Projectile_FireBolt','火焰箭')])
+        window=self.F.windows[1]
+        old_children=list(window.Children.values())
+        self.assertEqual(len(old_children),4)  # prompt, two choices, decline
+        self.assertTrue(window.Visible and window.Open)
+        self.assertFalse(window.collapsed)
+        self.assertEqual(window.focusRequests,1)
+        # A later request must replace all controls, even after a user collapses
+        # or closes the window. Old controls cannot remain clickable natively.
+        window.collapsed=True;window.Open=False
+        deliver(11,[('Target_MainHandAttack','普通武器攻击')])
+        self.assertEqual(len(self.F.windows),1)
+        self.assertEqual(window.removed,4)
+        self.assertTrue(all(child.destroyed for child in old_children))
+        self.assertEqual(len(window.Children),3)
+        self.assertEqual(len(window.buttons),2)
+        self.assertTrue(window.Visible and window.Open)
+        self.assertFalse(window.collapsed)
+        self.assertEqual(window.focusRequests,2)
+        window.buttons[2].OnClick()
+        call=next(call for call in reversed(list(self.F.calls.values())) if call.name=='PostMessageToServer')
+        intent=self.F.jsonPackets[call.args[2]]
+        self.assertEqual((intent.id,intent.token,intent.spell),('ally',11,'decline'))
+        deliver(11,[],available=False)
+        self.assertFalse(window.Visible)
+        deliver(12,[('Projectile_FireBolt','火焰箭')])
+        self.assertTrue(window.Visible)
+        self.assertEqual(len(window.Children),3)
+        self.assertEqual(window.focusRequests,3)
+        self.F.event('SessionLoaded',self.table({}))
+        self.assertFalse(window.Visible)
+
+    def test_cooperation_client_recovers_saved_tiny_size_without_changing_user_ini(self):
+        self.install_client()
+        packet=self.table(dict(id='ally',available=True,token=17,
+            options=[dict(spell='Target_MainHandAttack',label='普通武器攻击'),
+                     dict(spell='Projectile_FireBolt',label='火焰箭')]))
+        def deliver():
+            self.F.event('NetMessage',self.table(dict(Channel='ESC_CooperationState',
+                Payload=self.lua.globals().Ext.Json.Stringify(packet))))
+        deliver()
+        window=self.F.windows[1]
+        self.F.renderWindow(window)
+        self.assertGreaterEqual(window.LastSize[1],480)
+        self.assertGreater(window.LastSize[2],150)
+        self.assertGreaterEqual(window.LastPosition[1],0)
+        self.assertGreaterEqual(window.LastPosition[2],0)
+        self.assertLessEqual(window.LastPosition[1]+window.LastSize[1],1920)
+        self.assertLessEqual(window.LastPosition[2]+window.LastSize[2],1080)
+        self.assertTrue(window.NoSavedSettings and window.AlwaysAutoResize and window.NoCollapse)
+        # Repeat after the same live window was shrunk/offscreen; the next real
+        # request restores a usable dialog while keeping the correct token.
+        window.LastSize=self.table([68,70]);window.LastPosition=self.table([-2000,-2000])
+        packet.token=18;deliver();self.F.renderWindow(window)
+        self.assertGreaterEqual(window.LastSize[1],480)
+        self.assertGreaterEqual(window.LastPosition[1],0)
+        window.buttons[1].OnClick()
+        call=next(call for call in reversed(list(self.F.calls.values())) if call.name=='PostMessageToServer')
+        intent=self.F.jsonPackets[call.args[2]]
+        self.assertEqual((intent.id,intent.token,intent.spell),('ally',18,'Target_MainHandAttack'))
+        self.assertEqual(self.F.callCount('SaveFile'),0)
+
     def test_cooperation_rejects_forged_unknown_multitarget_control_and_expired_choice(self):
         packet=self.cooperation_ready()
         self.cooperation_intent('ally',packet.token+1,'Target_MainHandAttack')
         self.cooperation_intent('ally',packet.token,'Target_MainHandAttack',peer=0x20000)
         self.cooperation_intent('ally',packet.token,'Unknown')
         ally=self.F.entities['ally'];ally.SpellBook=self.table(dict(Spells=[dict(Id='Unsafe')]))
-        self.F.stats['Unsafe']=self.table(dict(Level=0,SpellType='Projectile',SpellRoll='Attack(AttackType.RangedSpellAttack)',
+        self.F.stats['Unsafe']=self.table(dict(Level=0,SpellType='Projectile',SpellFlags=['IsSpell'],SpellRoll='Attack(AttackType.RangedSpellAttack)',
             SpellProperties='DealDamage(1d10,Fire)',AmountOfTargets=2,TargetRadius=18))
         self.cooperation_intent('ally',packet.token,'Unsafe')
         self.lua.globals().Osi.ApplyStatus('ally','STUNNED',12,1,'enemy')
@@ -942,13 +1067,42 @@ class Bridge(unittest.TestCase):
             ('Explosion','DealDamage(1d10,Fire);CreateExplosion(TEST)',18),
             ('Extra','DealDamage(1d10,Fire);SpawnExtraProjectiles(1)',18),('Short','DealDamage(1d10,Fire)',3),
             ('Valid','DealDamage(1d10,Fire)',18)):
-            self.F.stats[name]=self.table(dict(Level=0,SpellType='Projectile',SpellRoll='Attack(AttackType.RangedSpellAttack)',
+            self.F.stats[name]=self.table(dict(Level=0,SpellType='Projectile',SpellFlags=['IsSpell'],SpellRoll='Attack(AttackType.RangedSpellAttack)',
                 SpellProperties=props,AmountOfTargets=1,TargetRadius=radius))
         # Our native techniques use Level=0 for engine routing; that must never
         # turn a known 10-yuan class technique into a free cantrip option.
-        self.F.stats[technical]=self.table(dict(Level=0,SpellType='Projectile',SpellRoll='Attack(AttackType.RangedSpellAttack)',
+        self.F.stats[technical]=self.table(dict(Level=0,SpellType='Projectile',SpellFlags=['IsSpell'],SpellRoll='Attack(AttackType.RangedSpellAttack)',
             SpellProperties='DealDamage(4d8,Force)',AmountOfTargets=1,TargetRadius=18,UseCosts='ActionPoint:1;ESC_SwordYuan:10'))
         self.assertEqual([option.spell for option in self.E.freeOptions('ally','enemy').values()],['Valid'])
+
+    def test_cooperation_native_flags_reject_weapon_actions_but_keep_success_damage_cantrips(self):
+        self.actor('ally',0,None,100,100,'players',0)
+        self.actor('enemy',0,None,100,100,'enemies',2)
+        self.F.entities['ally']._equipped['Melee Offhand Weapon']='offhand'
+        names=['Target_Dip','Projectile_HamstringShot','Target_PommelStrike','Target_Lacerate',
+            'Projectile_FireBolt','Target_ShockingGrasp','UnsafeSuccess','UnsafeFail']
+        self.F.entities['ally'].SpellBook=self.table(dict(Spells=[dict(Id=name) for name in names]))
+        # These real weapon actions are level zero too; only native IsSpell
+        # distinguishes them from cantrips. Dip even has GROUND damage functors.
+        for name in names[:4]:
+            self.F.stats[name]=self.table(dict(Level=0,SpellType='Target',SpellRoll='Attack(AttackType.MeleeWeaponAttack)',
+                SpellFlags=['IsHarmful','IsDefaultWeaponAction'],SpellProperties='DealDamage(MainMeleeWeapon,Slashing)',
+                AmountOfTargets=1,TargetRadius=3))
+        for name in names[4:]:
+            self.F.stats[name]=self.table(dict(Level=0,SpellType='Projectile' if name=='Projectile_FireBolt' else 'Target',
+                SpellRoll='Attack(AttackType.RangedSpellAttack)',SpellFlags=['HasSomaticComponent','IsSpell','IsHarmful'],
+                SpellProperties=[dict(TextKey='GROUND',Functors=[dict(TypeId='SurfaceChange')])],
+                SpellSuccess=[dict(TextKey='TARGET',Functors=[dict(TypeId='DealDamage')])],
+                AmountOfTargets=1,TargetRadius=18))
+        # Structured success/failure branches must receive the same existing
+        # area-effect exclusions as SpellProperties.
+        self.F.stats['UnsafeSuccess'].SpellSuccess[1].Functors[2]=self.table(dict(TypeId='CreateExplosion'))
+        self.F.stats['UnsafeFail'].SpellFail=self.table([dict(TextKey='TARGET',Functors=[dict(TypeId='SpawnExtraProjectiles')])])
+        self.assertEqual({option.spell for option in self.E.freeOptions('ally','enemy').values()},
+            {'Target_MainHandAttack','Target_OffhandAttack','Projectile_FireBolt','Target_ShockingGrasp'})
+        for name in names[:4]:
+            self.assertFalse(self.E.freeAttack('ally','enemy',name))
+        self.assertEqual(self.F.callCount('UseSpell'),0)
 
     def test_cooperation_rechecks_actual_party_enemy_alive_and_malformed_messages(self):
         for change in ('party','enemy','owner_dead','target_dead','blocked'):
@@ -1084,7 +1238,8 @@ class Bridge(unittest.TestCase):
         self.actor('ally',0,None,100,100,'players',0)
         self.cast('protector','xingge_fengyu')
         self.F.clearCalls()
-        parts=self.table([dict(Amount=4,DamageType='Fire'),dict(Amount=4,DamageType='Cold')])
+        parts=self.table([dict(Amount=4,DamageType=DocumentedDamageType('Fire')),
+                          dict(Amount=4,DamageType=DocumentedDamageType('Cold'))])
         result=self.ESC.Runtime.Defense('ally',8,False,False,parts)
         self.assertEqual(result[0],5) # floor(8*.45)=3 transferred.
         calls=[call for call in self.F.calls.values() if call.name=='ApplyDamage']
@@ -1092,6 +1247,64 @@ class Bridge(unittest.TestCase):
                          [('protector',1,'Fire','ally'),('protector',2,'Cold','ally')])
         self.assertEqual(self.F.entities['protector']._hp,98) # floor((1+2)*.7)=2, not floor(.7)+floor(1.4)=1.
         self.assertEqual(self.F.callCount('SetHitpoints'),0)
+
+    def test_native_damage_type_userdata_is_normalized_only_at_osiris_boundary(self):
+        self.actor('receiver',0,None,100,100)
+        enum=DocumentedDamageType('Slashing')
+        self.assertEqual(self.lua.eval('type')(enum),'userdata')
+        self.assertEqual(self.lua.eval('tostring')(enum),'Slashing')
+        with self.assertRaisesRegex(Exception,'String expected'):
+            self.lua.globals().Osi.ApplyDamage('receiver',1,enum,'receiver')
+        for damage_type in (enum,'Cold',None):
+            self.E.damageTransfer('receiver',1,damage_type,'receiver')
+        calls=[c for c in self.F.calls.values() if c.name=='ApplyDamage']
+        self.assertEqual([c.args[3] for c in calls],['Slashing','Cold','Force'])
+        self.assertEqual(self.F.entities['receiver']._hp,97)
+
+    def test_real_enum_incoming_attack_shares_once_and_does_not_change_original_type(self):
+        self.actor('protector',12,'xingge',124,124,'players',3.1)
+        self.actor('ally',0,None,20,20,'players',0)
+        self.actor('enemy',0,None,100,100,'enemies',1)
+        self.cast('protector','xingge_fengyu',action=250)
+        self.F.transferHooks=True;self.F.transferAction=251;self.F.clearCalls()
+        enum=DocumentedDamageType('Slashing')
+        hit=self.native_damage('enemy','ally',[9],spell='Target_MainHandAttack',action=251,damage_types=[enum])
+        self.assertEqual(hit.TotalDamageDone,5)
+        self.assertIs(hit.DamageList[1].DamageType,enum)
+        self.assertEqual((self.F.entities['ally']._hp,self.F.entities['protector']._hp),(15,122))
+        calls=[c for c in self.F.calls.values() if c.name=='ApplyDamage']
+        self.assertEqual([(c.args[1],c.args[2],c.args[3],c.args[4]) for c in calls],
+                         [('protector',4,'Slashing','enemy')])
+        self.assertEqual(self.F.callCount('SetHitpoints'),0)
+
+    def test_failed_native_transfer_restores_context_before_next_normal_attack(self):
+        self.actor('protector',12,'xingge',124,124,'players',3.1)
+        self.actor('ally',0,None,20,20,'players',0)
+        self.actor('enemy',0,None,100,100,'enemies',1)
+        self.cast('protector','xingge_fengyu',action=250)
+        self.F.clearCalls()
+        self.lua.execute("""
+            Fixture.nativeApplyDamage=Osi.ApplyDamage
+            function Osi.ApplyDamage(...) error('simulated native rejection') end
+        """)
+        hit=self.table(dict(DamageList=[dict(Amount=9,DamageType='Slashing')],TotalDamageDone=9,
+                            SpellId='Target_MainHandAttack'))
+        event=self.table(dict(Caster='enemy',Target='ally',StoryActionId=251,Hit=hit));event.Hit=hit
+        self.F.event('DealDamage',event)
+        with self.assertRaisesRegex(Exception,'simulated native rejection'):
+            self.F.event('BeforeDealDamage',self.table(dict(Hit=hit)))
+        # SE logs a failed subscriber and completes the original native hit.
+        # Do not hide the error, fabricate a successful share, or replay it.
+        self.assertEqual(hit.TotalDamageDone,9)
+        self.F.entities['ally']._hp-=hit.TotalDamageDone
+        event.Result=self.table(dict(Hit=hit));self.F.event('DealtDamage',event)
+        self.assertEqual(self.F.entities['protector']._hp,124)
+        self.assertEqual(self.F.callCount('PlayEffect'),0)
+        self.lua.execute('Osi.ApplyDamage=Fixture.nativeApplyDamage')
+        next_hit=self.native_damage('enemy','ally',[9],spell='Target_MainHandAttack',action=252)
+        self.assertEqual(next_hit.TotalDamageDone,5)
+        self.assertEqual((self.F.entities['ally']._hp,self.F.entities['protector']._hp),(6,122))
+        self.assertEqual(self.F.callCount('ApplyDamage'),1)
 
     def test_incoming_two_functors_round_class_reduction_once_per_stage(self):
         self.actor('attacker',12,'taixuan',100,100,'enemies',2)
@@ -1205,6 +1418,7 @@ class Bridge(unittest.TestCase):
                 self.F.clearCalls()
                 self.ESC.Runtime.BeginCast('sword',spell,195,'friend')
                 self.F.emit('CastedSpell','sword',spell,'Target','',195)
+                self.F.runNextTick()  # Support rewards settle after native UseCosts.
                 calls=[call for call in self.F.calls.values() if call.name=='UseSpell']
                 self.assertEqual({(call.args[1],call.args[2],call.args[3]) for call in calls},
                                  {('sword',helper,'nearfriend'),('sword',helper,'boundary')})

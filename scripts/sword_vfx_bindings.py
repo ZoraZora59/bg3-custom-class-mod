@@ -67,6 +67,7 @@ if sum(map(len, FAMILY_KEYS.values())) != len(KEY_FAMILIES):
 # Internal native damage/control stages are not additional player skills.
 # Map their visual origin explicitly rather than inferring it from damage type.
 INTERNAL_KEYS = {
+    'YixiantianHit': 'taixuan_yixiantian',
     'TianjianImpact': 'tianqing_tianjian',
     'TaiqingPulse': 'taixuan_taiqing',
     'BloodPulse': 'xueyan_xuehai',

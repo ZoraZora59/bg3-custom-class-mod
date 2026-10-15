@@ -1,4 +1,5 @@
 Ext.Vars.RegisterUserVariable('ESC_State',{Server=true,Client=false,Persistent=true})
+Ext.Vars.RegisterUserVariable('ESC_BloodKillReceipts',{Server=true,Client=false,Persistent=true})
 -- A native incapacitation state can block hotbar spell execution. This independent
 -- client affordance sends an intent; costs, ownership and eligibility stay server-side.
 local windows={}
@@ -12,9 +13,17 @@ Ext.Events.NetMessage:Subscribe(function(evt)
     if not Ext.IMGUI or not Ext.IMGUI.NewWindow then Ext.Utils.Print('[ESC] ImGui unavailable; cooperation choice cannot be shown.');return end
     if not entry then
         entry={window=Ext.IMGUI.NewWindow('东方剑修 · 同舟破浪###ESC_Cooperation_'..data.id)}
+        -- A previous empty dialog can persist a 68x70 ini size. This transient
+        -- choice must fit its controls and must not reuse that saved geometry.
+        entry.window.NoSavedSettings=true
+        entry.window.AlwaysAutoResize=true
+        entry.window.NoCollapse=true
         cooperationWindows[data.id]=entry
     end
-    entry.window:RemoveAllChildren();entry.token=data.token
+    -- Children is a native snapshot; RemoveChild is exposed to Lua and destroys
+    -- each old control. The C++ RemoveAllChildren method is not a Lua binding.
+    for _,child in ipairs(entry.window.Children) do entry.window:RemoveChild(child) end
+    entry.token=data.token
     entry.window:AddText('选择这次免费的普通武器攻击或单体伤害戏法。')
     for index,option in ipairs(data.options or {}) do
         local spell=option.spell
@@ -28,6 +37,10 @@ Ext.Events.NetMessage:Subscribe(function(evt)
         Ext.ClientNet.PostMessageToServer('ESC_CooperationIntent',Ext.Json.Stringify({id=data.id,token=entry.token,spell='decline'}))
     end
     entry.window.Visible=true;entry.window.Open=true
+    local viewport=Ext.IMGUI.GetViewportSize()
+    entry.window:SetSize({0,0},'Always')
+    entry.window:SetPos({viewport[1]*.5,viewport[2]*.5},'Always',{.5,.5})
+    entry.window:SetCollapsed(false);entry.window:SetFocus()
 end)
 Ext.Events.NetMessage:Subscribe(function(evt)
     if evt.Channel~='ESC_ControlRescueState' then return end

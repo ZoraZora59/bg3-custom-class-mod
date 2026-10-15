@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="0" />
+    <region id="Templates">
+        <node id="Templates">
+            <children>
+                <node id="GameObjects">
+                    <attribute id="LevelName" type="FixedString" value="" />
+                    <attribute id="MapKey" type="FixedString" value="536fec0d-9d6f-5f71-ab6c-5c0cb0659eb0" />
+                    <attribute id="Name" type="LSString" value="VFX_ESC_Polish_Xingge_Chengfeng_Hit_01_Projectile" />
+                    <attribute id="ParentTemplateId" type="FixedString" value="6455ee4a-0949-5814-bc15-262399c79f1e" />
+                    <attribute id="Type" type="FixedString" value="projectile" />
+                    <attribute id="TrajectoryType" type="uint8" value="0" />
+                    <attribute id="ImpactFX" type="FixedString" value="VFX_ESC_Polish_Xingge_Chengfeng_Hit_01" />
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

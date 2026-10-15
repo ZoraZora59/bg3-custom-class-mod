@@ -65,7 +65,7 @@
   },
   {
     "file": "Stats/SpellData/Target.stats",
-    "rows": 35
+    "rows": 36
   },
   {
     "file": "Stats/SpellData/Zone.stats",
@@ -73,7 +73,7 @@
   },
   {
     "file": "Stats/StatusData/Status_BOOST.stats",
-    "rows": 127
+    "rows": 131
   },
   {
     "file": "Stats/Equipment/Equipment.stats",

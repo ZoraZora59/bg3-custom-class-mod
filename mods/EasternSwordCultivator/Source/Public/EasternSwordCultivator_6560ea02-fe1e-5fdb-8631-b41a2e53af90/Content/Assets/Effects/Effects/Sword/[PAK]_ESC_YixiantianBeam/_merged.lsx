@@ -29,10 +29,10 @@
                                     <attribute id="Object" type="FixedString" value="6b0b871d-ad6d-5110-8baf-fff29e7b3052" />
                                 </node>
                                 <node id="DependentResource">
-                                    <attribute id="Object" type="FixedString" value="d47d8582-d572-5f74-ac13-aac6e64dadb9" />
+                                    <attribute id="Object" type="FixedString" value="be899f71-a986-5ac2-912b-54d03ccfc844" />
                                 </node>
                                 <node id="DependentResource">
-                                    <attribute id="Object" type="FixedString" value="ea791f26-bad6-5e91-9e84-bf23068cd391" />
+                                    <attribute id="Object" type="FixedString" value="e401adc9-5e25-5f6f-9696-ba241a7073bb" />
                                 </node>
                             </children>
                         </node>

@@ -1,0 +1,29 @@
+{
+    "compiler":  "AllSpark.EffectCompiler.Compiler.Compile",
+    "binary_wrapper":  "LSLib 1.20.4 Divine convert-resource",
+    "records":  [
+                    {
+                        "effect_name":  "VFX_ESC_Tianqing_Nifeng_LongBlade_01",
+                        "source_sha256":  "7296dd927dabae73e86305e48ec8f0ca9c09e8f2899f3800840fc19ea0a99642",
+                        "compiled_sha256":  "9823cae548075b9e8e3530b7925a9b95279b913ec4629e86e38378cc372a3519",
+                        "compiled_xml_sha256":  "b97848f4fdcc920f32ec85a0056e4eba6059f12a6ed0639dc09c64b0693f577b",
+                        "packaging_xml_sha256":  "54e7fd32b0e96f87dfa371a3ddbfd6b850ad975e9843648b05515c26f5706552",
+                        "roundtrip_xml_sha256":  "862436fbf6572e82f589a568b3c8032104b9a0689b7921939f620682e54fce58",
+                        "compiled_xml":  "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\full-skill-acceptance-20261013\\nifeng-line-candidate\\compile-plan\\native-serialized\\VFX_ESC_Tianqing_Nifeng_LongBlade_01.compiled.lsx",
+                        "packaging_xml":  "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\full-skill-acceptance-20261013\\nifeng-line-candidate\\compile-plan\\native-serialized\\VFX_ESC_Tianqing_Nifeng_LongBlade_01.binary-input.lsx",
+                        "compiled_binary":  "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\full-skill-acceptance-20261013\\nifeng-line-candidate\\compile-plan\\native-serialized\\VFX_ESC_Tianqing_Nifeng_LongBlade_01.lsfx",
+                        "roundtrip_xml":  "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\full-skill-acceptance-20261013\\nifeng-line-candidate\\compile-plan\\native-serialized\\VFX_ESC_Tianqing_Nifeng_LongBlade_01.roundtrip.lsx",
+                        "component_count":  3,
+                        "resource_dependencies":  [
+                                                      "0693861d-00aa-5524-9096-0a0513375fea",
+                                                      "479b3cdb-3a70-57ac-8a38-04724daed595"
+                                                  ],
+                        "binary_version":  7,
+                        "normalizeTopLevelNodeIds":  true,
+                        "semantic_roundtrip_verified":  true,
+                        "native_compile_evidence":  "C:\\Users\\Zora\\Documents\\ChatGPT\\博德之门3 mod\\bg3-custom-class-mod\\build\\full-skill-acceptance-20261013\\nifeng-line-candidate\\compile-plan\\native-probe\\output\\VFX_ESC_Tianqing_Nifeng_LongBlade_01\\VFX_ESC_Tianqing_Nifeng_LongBlade_01.compile-evidence.json",
+                        "native_compile_evidence_sha256":  "0f8ffb0c39adcdfeff20bfff67431b892388bb33aa0b4ea943b6ae769b5388a2"
+                    }
+                ],
+    "native_visual_hearing_acceptance":  "pending"
+}

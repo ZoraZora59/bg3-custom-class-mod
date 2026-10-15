@@ -93,6 +93,12 @@ for row in SPELLS.values():
         row['legacy_base'] = row['base']
         row['base'] = 'AUTO'
 
+# Directly selected sword strikes can also attack environmental items. Keep
+# automatic domains, support, rushes and area victim selection character-only.
+for key in ('yujian', 'taixuan_zhaoxi', 'taixuan_liuguang', 'tianqing_lietian',
+            'xueyan_luexue', 'xueyan_liancheng', 'xueyan_wusheng', 'xingge_wenlu'):
+    SPELLS[key]['targetItems'] = True
+
 
 PASSIVES = {
     'sword_heart': (1, 'common'), 'basic_defense': (1, 'common'),

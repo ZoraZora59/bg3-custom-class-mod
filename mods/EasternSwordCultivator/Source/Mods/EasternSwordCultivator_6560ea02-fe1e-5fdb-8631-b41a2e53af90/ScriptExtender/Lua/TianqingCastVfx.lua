@@ -13,10 +13,16 @@ local function point(value)
     return result
 end
 local function effect(value) return type(value)=='string' and value~='' end
-function Vfx.New(E,config)
+function Vfx.New(E,config,schoolPolish)
     local self={};local active={};local generation=0
+    local function attached(r) return r and r.lifecycle=='attached-until-casted' end
     local function row(c)
         if not c or not c.alias or c.alias.internal or not c.alias.hand then return nil end
+        if c.key=='tianqing_tianfeng' then
+            local r=schoolPolish and schoolPolish.enabled and schoolPolish.records
+                and schoolPolish.records.tianqing_tianfeng_cast
+            return r and attached(r) and r.skill==c.key and r.binding=='cast' and effect(r.effect) and r or nil
+        end
         local r=config and config.enabled and config.timing and config.timing[c.key]
         return r and effect(r.prepareEffect) and effect(r.impactEffect) and r or nil
     end
@@ -73,6 +79,16 @@ function Vfx.New(E,config)
     end
     local function start(c,entry)
         if entry.closed or entry.started or entry.generation~=generation or c.failed or c.invalid or not alive(c) then return end
+        if attached(row(c)) then
+            if c.finished then return end
+            entry.started=true
+            -- One root-attached handle for the whole Rush, including zero
+            -- movement. Native damage callbacks must not end this loop.
+            local ok,handle=pcall(Osi.PlayLoopEffect,c.id,row(c).effect,'Dummy_Root',1)
+            if ok and handle and handle~=0 then entry.handles[#entry.handles+1]=handle
+            else report('attached cast effect did not return a handle') end
+            return
+        end
         local positions=anchors(c)
         if not positions then return end
         entry.started=true;entry.anchors=positions
@@ -87,6 +103,7 @@ function Vfx.New(E,config)
     end
     function self.Enabled(c) return row(c)~=nil end
     function self.Begin(c)
+        if c and c.finished and attached(row(c)) then return end
         local entry=entryFor(c)
         if not entry or entry.closed or entry.started or entry.startTimer or c.failed or c.invalid then return end
         -- Collect the same callback batch before choosing an AOE center. An
@@ -104,6 +121,7 @@ function Vfx.New(E,config)
         end
     end
     function self.Impact(c,actualPosition)
+        if attached(row(c)) then return false end
         local entry=entryFor(c)
         if not entry or entry.closed or entry.impacted or entry.generation~=generation
             or c.failed or c.invalid or not alive(c) then return false end

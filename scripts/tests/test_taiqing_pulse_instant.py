@@ -32,7 +32,7 @@ AUTO_HELPERS = {
     'Target_ESC_BloodPulse': ('2d6', 30, '77fc4b3d-4263-5503-8642-6ab0b3b7cad0'),
     'Target_ESC_Counter2': ('4d8', 18, 'b197b270-77a7-58a1-8a49-19d73183eabd'),
     'Target_ESC_Counter3': ('6d8', 18, 'daa31a1d-7d8a-5ddf-b33c-f23f130c7a79'),
-    'Target_ESC_Resonance': ('2d6', 30, '6b3aad3b-7ccb-5d88-8eb9-b79de2649c42'),
+    'Target_ESC_Resonance': ('2d6', 30, 'e78657ee-c90d-5367-9fcd-879f65440a45'),
 }
 
 

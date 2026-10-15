@@ -8,6 +8,7 @@ from pathlib import Path
 import importlib.util
 import re, unittest
 from unittest.mock import patch
+import xml.etree.ElementTree as ET
 import test_esc_bridge as bridge
 
 stats={}
@@ -31,6 +32,8 @@ for filename,text in generated_files.items():
             generated_spells[name]=dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',chunk,re.M))
 generated_statuses={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',chunk,re.M))
     for name,chunk in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',generated_files['Status_BOOST.txt'],re.S)}
+generated_interrupts={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',chunk,re.M))
+    for name,chunk in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',generated_files['Interrupt.txt'],re.S)}
 
 class GuardLifecycle(unittest.TestCase):
     # Do not inherit the unrelated baseline cases into this focused suite.
@@ -51,6 +54,117 @@ class GuardLifecycle(unittest.TestCase):
     table=bridge.Bridge.table
     actor=bridge.Bridge.actor
     cast=bridge.Bridge.cast
+    def counter_offer(self,rank,**changes):
+        """Evaluate the real condition with explicit native predicate inputs.
+
+        This is a condition contract, not an emulation of OnCastHit dispatch.
+        H32 native A/B establishes why an attack without a DealDamage functor
+        must still qualify; the fixture never invents that functor for a miss.
+        """
+        event=dict(attackType='MeleeWeaponAttack',hasDamageFunctor=False,lastAttack=True,
+                   spell='Target_MainHandAttack',source='enemy',target='sword',distance=1.3,
+                   ready=True,activeRank=rank,item=False,disabled=False,shield=False,armor='')
+        event.update(changes)
+        sword=self.actor(level=12,branch='taixuan')
+        self.actor('enemy',level=0,party='enemy',x=event['distance'])
+        self.actor('ally',level=0)
+        sword._passives=self.table({'ESC_P_Branch_taixuan':True})
+        sword._equipped.Shield='shield' if event['shield'] else None
+        if event['armor']:
+            armor=self.actor('armor',level=0);armor._proficiencies=self.table({event['armor']:True})
+            sword._equipped.Breast='armor'
+        for name,on in [('ESC_COUNTER_READY',event['ready']),
+                        ('ESC_COUNTER_RANK2',event['activeRank']==2),('ESC_COUNTER_RANK3',event['activeRank']==3),
+                        ('SG_Incapacitated',event['disabled'])]:
+            if on:sword.StatusContainer.Statuses[name]=self.table({'StatusId':name})
+        self.lua.globals().CounterEvent=self.table(event)
+        self.lua.globals().CounterEngine=self.E
+        self.lua.execute("""
+            context={Observer='sword',Source=CounterEvent.source,Target=CounterEvent.target,ObserverPosition='sword'}
+            StatsFunctorType={DealDamage='DealDamage'}
+            function Self(first,second)return CounterEngine.sameEntity(first,second)end
+            function Enemy(first,second)return CounterEngine.enemy(first,second)end
+            function DistanceToEntityGreaterThan(limit,position,target)return CounterEvent.distance>limit end
+            function IsAttack()
+                -- Shipped Mods/Shared/Scripts/thoth/helpers/CommonConditions.khn
+                -- 174-196: IsMeleeAttack OR IsRangedAttack, each with four types.
+                local types={MeleeWeaponAttack=true,RangedWeaponAttack=true,MeleeSpellAttack=true,RangedSpellAttack=true,
+                             MeleeUnarmedAttack=true,RangedUnarmedAttack=true,MeleeOffHandWeaponAttack=true,RangedOffHandWeaponAttack=true}
+                return types[CounterEvent.attackType] or false
+            end
+            function HasFunctor(kind)return kind=='DealDamage' and CounterEvent.hasDamageFunctor end
+            function HasLastAttackTriggered()return CounterEvent.lastAttack end
+            function AnyEntityIsItem()return CounterEvent.item end
+            function HasAnyStatus(names,statusGroups,statusTypes,id)
+                -- Shipped CommonConditions.khn IsCrowdControlled passes the entity
+                -- fourth; treating argument two as an entity hid a bad call.
+                assert(type(names)=='table' and type(statusGroups)=='table' and type(statusTypes)=='table',
+                       'HasAnyStatus requires three list arguments before the entity')
+                assert(type(id)=='string','HasAnyStatus requires an explicit fourth-argument entity')
+                for _,name in ipairs(names)do if HasStatus(name,id)then return true end end
+                return false
+            end
+            function SpellId(name)return CounterEvent.spell==name end
+        """)
+        return {surface:bool(self.lua.eval(entries['Interrupt_ESC_Counter'+str(rank)]['Conditions']))
+                for surface,entries in [('generated',generated_interrupts),('packaged',stats)]}
+    def test_counter_missed_attack_needs_no_executed_damage_functor(self):
+        # Native action77: Miss/Dodge + LastAttack, no damage; B action84 only
+        # removed the functor gate and offered Counter3. Cover both ranks and
+        # attack classes without requiring the incoming attack to have hit.
+        for rank in (2,3):
+            for attack in ('MeleeWeaponAttack','RangedWeaponAttack','MeleeSpellAttack','RangedSpellAttack',
+                           'MeleeUnarmedAttack','RangedUnarmedAttack','MeleeOffHandWeaponAttack','RangedOffHandWeaponAttack'):
+                with self.subTest(rank=rank,attack=attack):
+                    self.assertEqual(self.counter_offer(rank,attackType=attack),{'generated':True,'packaged':True})
+    def test_counter_status_filter_uses_native_four_argument_signature(self):
+        for rank in (2,3):
+            with self.subTest(rank=rank):
+                self.assertEqual(self.counter_offer(rank),{'generated':True,'packaged':True})
+                self.assertEqual(self.counter_offer(rank,disabled=True),{'generated':False,'packaged':False})
+                # The old two-argument production call must fail this boundary,
+                # rather than being accepted by a fixture tailored to the bug.
+                ok,message=self.lua.eval("pcall(function()return HasAnyStatus({'SG_Incapacitated','SG_Polymorph'},context.Observer)end)")
+                self.assertFalse(ok)
+                self.assertIn('three list arguments',message)
+    def test_counter_preserves_direct_damage_but_rejects_heal_and_status_only(self):
+        # GDD explicitly retains direct caster damage without an attack roll.
+        # IsAttack alone would regress that path; no attack/no damage must not
+        # become a reaction merely because an OnCastHit context exists.
+        for rank in (2,3):
+            for kind in ('MeleeWeaponAttack','RangedSpellAttack','None'):
+                with self.subTest(rank=rank,damage=kind):
+                    self.assertEqual(self.counter_offer(rank,attackType=kind,hasDamageFunctor=True),{'generated':True,'packaged':True})
+            for spell in ('Target_HealingWord','Target_HoldPerson'):
+                with self.subTest(rank=rank,non_damage=spell):
+                    self.assertEqual(self.counter_offer(rank,attackType='None',spell=spell),{'generated':False,'packaged':False})
+    def test_counter_attack_gate_keeps_target_status_equipment_and_final_stage_guards(self):
+        blocked=({'lastAttack':False},{'target':'ally'},{'source':'ally'},{'distance':18.01},
+                 {'item':True},{'disabled':True},{'ready':False},{'activeRank':1},
+                 {'shield':True},{'armor':'MediumArmor'},{'armor':'HeavyArmor'})
+        for rank in (2,3):
+            for change in blocked:
+                with self.subTest(rank=rank,blocked=change):
+                    self.assertEqual(self.counter_offer(rank,hasDamageFunctor=True,**change),{'generated':False,'packaged':False})
+            self.assertEqual(self.counter_offer(rank,distance=18),{'generated':True,'packaged':True})
+    def test_counter_attack_fallback_cannot_recurse_through_counter_variants(self):
+        for rank in (2,3):
+            for spell in ('Target_ESC_Counter2','Target_ESC_Counter3','Target_ESC_Counter2_Off','Target_ESC_Counter3_Off'):
+                with self.subTest(rank=rank,spell=spell):
+                    self.assertEqual(self.counter_offer(rank,spell=spell,hasDamageFunctor=True),{'generated':False,'packaged':False})
+    def test_counter_interrupt_conditions_match_generator_public_and_editor(self):
+        editor=bridge.LUA.parents[3]/'Editor'/'Mods'/bridge.FOLDER/'Stats/Stats/Interrupt.stats'
+        entries={}
+        for obj in ET.parse(editor).findall('.//stat_object'):
+            fields={field.get('name'):field.get('value') for field in obj.findall('./fields/field')}
+            entries[fields['Name']]=fields
+        for rank in (2,3):
+            name='Interrupt_ESC_Counter'+str(rank)
+            self.assertEqual(generated_interrupts[name],stats[name])
+            self.assertEqual(entries[name]['Conditions'],stats[name]['Conditions'])
+            self.assertEqual(stats[name]['Cost'],'')
+            self.assertEqual(stats[name]['InterruptDefaultValue'],'Enabled;Ask')
+            self.assertEqual(stats[name]['Properties'],f'UseSpell(SWAP,Target_ESC_Counter{rank},true,true,true)')
     def native_status(self,id,name,source=None):
         source=source or id
         self.lua.globals().Osi.ApplyStatus(id,name,12,1,source)

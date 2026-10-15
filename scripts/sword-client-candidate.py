@@ -4,6 +4,8 @@ Only the UUID-named installed PAK, its existing modsettings row, temporary SE
 settings, and the dedicated ESC_Test_01 save directories are owned here. Other
 PAKs, load-order entries and campaign saves are never written. A candidate may
 have a lower version than the published package: this is a reversible test.
+Replacing an active candidate preserves every live save and records the exact
+previous candidate/state as its rollback target. Debug logging is opt-out.
 """
 from __future__ import annotations
 
@@ -142,7 +144,7 @@ def package_metadata(package, destination):
     return attrs(nodes[0])
 
 
-def settings_metadata(data):
+def settings_row(data):
     rows = []
     for node in ET.fromstring(data).findall(".//node[@id='ModuleShortDesc']"):
         if any(a.get('id') == 'UUID' and (a.get('value') or '').casefold() == UUID
@@ -150,7 +152,19 @@ def settings_metadata(data):
             rows.append(node)
     if len(rows) != 1:
         fail('Expected exactly one enabled ESC modsettings row; no load-order reconstruction is allowed.')
-    return attrs(rows[0])
+    return rows[0]
+
+
+def settings_metadata(data):
+    return attrs(settings_row(data))
+
+
+def settings_row_signature(data):
+    """Ignore XML formatting while retaining every attribute and child of our row."""
+    def signature(node):
+        return (node.tag, tuple(sorted(node.attrib.items())), (node.text or '').strip(),
+                tuple(signature(child) for child in node))
+    return signature(settings_row(data))
 
 
 def candidate_settings(data, metadata):
@@ -233,17 +247,50 @@ def assert_equal_snapshot(expected, actual, label):
         fail(label + ' changed; refusing to overwrite the prepared snapshot.')
 
 
-def save_manifest(path, manifest):
+def candidate_state(path, status):
+    return {'schema': 1, 'manifest': str(path), 'active': status not in ('prepared', 'restored'),
+            'status': status}
+
+
+def save_manifest(path, manifest, update_pointer=True):
     write_json(path, manifest)
-    write_json(BASE / 'state.json', {'schema': 1, 'manifest': str(path),
-                                    'active': manifest['status'] not in ('prepared', 'restored'),
-                                    'status': manifest['status']})
+    if update_pointer:
+        write_json(BASE / 'state.json', candidate_state(path, manifest['status']))
 
 
-def prepare(candidate, expected_sha, expected_version=None):
+def live_candidate_hashes(manifest):
+    return {'pak': manifest['candidate']['sha256'],
+            'settings': manifest['prepared']['settings']['sha256'],
+            'se': manifest['prepared']['se']['sha256']}
+
+
+def prepare(candidate, expected_sha, expected_version=None, *, no_debug=False, replace_active=False):
     ready()
     pointer = BASE / 'state.json'
-    if pointer.is_file() and read_json(pointer).get('active'):
+    active = read_json(pointer) if pointer.is_file() else {}
+    parent_path = parent = parent_state_sha = parent_manifest_sha = accepted_settings_sha = None
+    if replace_active:
+        if active.get('active') is not True or active.get('status') != 'applied':
+            fail('Replace-active requires the currently active applied candidate.')
+        parent_state_sha = digest(pointer)
+        parent_path, parent = load_manifest(active['manifest'])
+        parent_manifest_sha = digest(parent_path)
+        if parent['status'] != 'applied' or active != candidate_state(parent_path, 'applied'):
+            fail('Replace-active requires the exact applied candidate state.')
+        verify_backups(parent_path, parent)
+        for key, expected in live_candidate_hashes(parent).items():
+            if key == 'settings':
+                continue
+            if file_sha(parent['records'][key]['target']) != expected:
+                fail('Active candidate live file differs from its manifest: ' + key)
+        current_settings = SETTINGS.read_bytes()
+        if settings_metadata(current_settings) != parent['candidate']['metadata']:
+            fail('Active candidate ESC settings metadata differs from its manifest.')
+        parent_settings = Path(parent['prepared']['settings']['path']).read_bytes()
+        if settings_row_signature(current_settings) != settings_row_signature(parent_settings):
+            fail('Active candidate ESC settings row changed outside its known metadata.')
+        accepted_settings_sha = hashlib.sha256(current_settings).hexdigest()
+    elif active.get('active'):
         fail('A candidate environment is active; restore its recorded manifest first.')
     candidate = Path(candidate).resolve(strict=True)
     if not SHA.fullmatch(expected_sha) or digest(candidate) != expected_sha.lower():
@@ -253,6 +300,8 @@ def prepare(candidate, expected_sha, expected_version=None):
     if not PACKAGE.is_file() or not SETTINGS.is_file():
         fail('The official installed ESC PAK and existing modsettings are required.')
     before_files = {'pak': file_sha(PACKAGE), 'settings': file_sha(SETTINGS), 'se': file_sha(SESETTINGS)}
+    if replace_active and before_files['settings'] != accepted_settings_sha:
+        fail('Active candidate settings changed before the replacement snapshot.')
     before_tests = test_snapshot()
     if not before_tests:
         fail('No dedicated ESC_Test_01 save directories exist to back up.')
@@ -273,6 +322,17 @@ def prepare(candidate, expected_sha, expected_version=None):
                 fail('Original-file backup verification failed: ' + key)
         records[key] = {'target': str(target.resolve()), 'backup': str(backup),
                         'existed': existed, 'sha256': before_files[key]}
+    supersedes = None
+    if replace_active:
+        state_backup = run / 'candidate-state.before.json'
+        parent_backup = run / 'parent-manifest.before.json'
+        shutil.copy2(pointer, state_backup)
+        shutil.copy2(parent_path, parent_backup)
+        if digest(state_backup) != parent_state_sha or digest(parent_backup) != parent_manifest_sha:
+            fail('Active candidate state/manifest backup verification failed.')
+        supersedes = {'manifest': str(parent_path), 'manifest_sha256': parent_manifest_sha,
+                      'manifest_backup': str(parent_backup), 'state_backup': str(state_backup),
+                      'state_sha256': parent_state_sha, 'accepted_settings_sha256': accepted_settings_sha}
     for directory in test_directories():
         destination = run / 'test-saves.before' / directory.name
         shutil.copytree(directory, destination)
@@ -288,8 +348,10 @@ def prepare(candidate, expected_sha, expected_version=None):
     se = read_json(run / 'se.before') if records['se']['existed'] else {}
     if not isinstance(se, dict):
         fail('ScriptExtenderSettings must be a JSON object.')
-    se.update(EnableLogging=True, LogRuntime=True, LogFailedCompile=True, EnableLuaDebugger=True,
-              CreateConsole=False, LogDirectory=str(run / 'client-logs'))
+    se.update(EnableLogging=not no_debug, LogRuntime=not no_debug,
+              LogFailedCompile=not no_debug, EnableLuaDebugger=not no_debug)
+    if not no_debug:
+        se.update(CreateConsole=False, LogDirectory=str(run / 'client-logs'))
     prepared_se = run / 'se.candidate'
     write_json(prepared_se, se)
     assert_equal_snapshot(before_files, {'pak': file_sha(PACKAGE), 'settings': file_sha(SETTINGS),
@@ -298,6 +360,7 @@ def prepare(candidate, expected_sha, expected_version=None):
     assert_equal_snapshot(before_other, unrelated_snapshot(), 'Unrelated files during Prepare')
     manifest = {'schema': 1, 'operation': 'esc-temporary-client-candidate', 'status': 'prepared',
                 'created_at': now(), 'module_uuid': UUID, 'records': records,
+                'debug_enabled': not no_debug,
                 'candidate': {'path': str(frozen), 'sha256': expected_sha.lower(), 'metadata': candidate_meta,
                               'version': version(candidate_meta['Version64'])},
                 'official_metadata': official_meta, 'official_version': version(official_meta['Version64']),
@@ -308,7 +371,13 @@ def prepare(candidate, expected_sha, expected_version=None):
                          'Only the exact UUID PAK, six values in its existing settings row, SE settings, and '
                          'ESC_Test_01 dedicated saves are owned. Other PAKs/order rows/campaign saves are never written.'}
     path = run / 'manifest.json'
-    save_manifest(path, manifest)
+    if supersedes:
+        manifest['supersedes'] = supersedes
+        manifest['scope'] += ' Replaces the exact active candidate; all live saves remain untouched, including during restore.'
+        verify_supersedes(path, manifest)
+        if digest(pointer) != parent_state_sha:
+            fail('Active candidate state changed during Prepare.')
+    save_manifest(path, manifest, update_pointer=not replace_active)
     return path, manifest
 
 
@@ -332,10 +401,61 @@ def load_manifest(path):
         if Path(name).name != name or not TEST_NAME.match(name):
             fail('Manifest contains a non-dedicated save path.')
         inside(path.parent / 'test-saves.before' / name, path.parent)
+    if 'supersedes' in manifest:
+        previous = manifest['supersedes']
+        previous_path = inside(previous['manifest'], BASE)
+        if (previous_path == path or previous_path.name != 'manifest.json' or
+                previous_path.parent.parent != BASE.resolve() or not previous_path.parent.name.startswith('run-')):
+            fail('Superseded manifest path is invalid.')
+        for key, filename in (('manifest_backup', 'parent-manifest.before.json'),
+                              ('state_backup', 'candidate-state.before.json')):
+            if Path(previous[key]).resolve() != path.parent / filename:
+                fail('Superseded candidate backup path is invalid: ' + key)
+        if not all(SHA.fullmatch(previous[key]) for key in ('manifest_sha256', 'state_sha256')):
+            fail('Superseded candidate hashes are invalid.')
+        if 'accepted_settings_sha256' in previous and not SHA.fullmatch(previous['accepted_settings_sha256']):
+            fail('Superseded candidate accepted settings hash is invalid.')
     return path, manifest
 
 
-def verify_backups(path, manifest, include_candidate=True):
+def verify_supersedes(path, manifest, seen=None):
+    previous = manifest.get('supersedes')
+    if not previous:
+        return
+    for key in ('manifest', 'manifest_backup'):
+        if file_sha(previous[key]) != previous['manifest_sha256']:
+            fail('Superseded candidate manifest changed.')
+    if file_sha(previous['state_backup']) != previous['state_sha256']:
+        fail('Superseded candidate state backup changed.')
+    parent_path, parent = load_manifest(previous['manifest'])
+    if parent['status'] != 'applied' or read_json(previous['state_backup']) != candidate_state(parent_path, 'applied'):
+        fail('Superseded candidate was not the exact active applied environment.')
+    for key, expected in live_candidate_hashes(parent).items():
+        if key == 'settings':
+            expected = previous.get('accepted_settings_sha256', expected)
+        if manifest['records'][key]['sha256'] != expected or not manifest['records'][key]['existed']:
+            fail('Replacement rollback file differs from the superseded candidate: ' + key)
+    settings_backup = manifest['records']['settings']['backup']
+    if file_sha(settings_backup) != manifest['records']['settings']['sha256']:
+        fail('Replacement baseline settings backup changed.')
+    baseline_settings = Path(settings_backup).read_bytes()
+    if settings_metadata(baseline_settings) != parent['candidate']['metadata']:
+        fail('Replacement baseline ESC settings metadata differs from the superseded candidate.')
+    parent_settings = Path(parent['prepared']['settings']['path']).read_bytes()
+    if settings_row_signature(baseline_settings) != settings_row_signature(parent_settings):
+        fail('Replacement baseline ESC settings row differs from the superseded candidate.')
+    if manifest['official_metadata'] != parent['candidate']['metadata']:
+        fail('Replacement baseline metadata differs from the superseded candidate.')
+    verify_backups(parent_path, parent, seen=seen)
+
+
+def verify_backups(path, manifest, include_candidate=True, seen=None):
+    seen = set() if seen is None else seen
+    resolved = Path(path).resolve()
+    if resolved in seen:
+        fail('Candidate rollback chain contains a cycle.')
+    seen.add(resolved)
+    verify_supersedes(path, manifest, seen=seen)
     for key, record in manifest['records'].items():
         if record['existed'] and file_sha(record['backup']) != record['sha256']:
             fail('Original backup SHA256 differs: ' + key)
@@ -352,6 +472,26 @@ def verify_backups(path, manifest, include_candidate=True):
                 fail('Prepared configuration changed: ' + key)
         if settings_metadata(Path(manifest['prepared']['settings']['path']).read_bytes()) != manifest['candidate']['metadata']:
             fail('Prepared candidate metadata changed.')
+
+
+def check_replacement_pointer(path, manifest, require_parent=False):
+    previous = manifest['supersedes']
+    pointer = BASE / 'state.json'
+    current = file_sha(pointer)
+    if current == previous['state_sha256']:
+        return current
+    if not require_parent and pointer.is_file() and read_json(pointer) in [
+            candidate_state(path, status) for status in
+            ('applying', 'applied', 'restoring', 'apply-recovery-required', 'restore-recovery-required')]:
+        return current
+    fail('Active candidate state changed; refusing replacement or rollback.')
+
+
+def restore_replacement_pointer(path, manifest):
+    current = check_replacement_pointer(path, manifest)
+    previous = manifest['supersedes']
+    if current != previous['state_sha256']:
+        replace_known(previous['state_backup'], BASE / 'state.json', current, previous['state_sha256'])
 
 
 def replace_known(source, target, expected_current, expected_source):
@@ -404,11 +544,14 @@ def apply(path):
     assert_equal_snapshot(manifest['test_saves'], test_snapshot(), 'Dedicated saves after Prepare')
     assert_equal_snapshot(manifest['unrelated'], unrelated_snapshot(), 'Unrelated files after Prepare')
     pointer = BASE / 'state.json'
-    if pointer.is_file() and read_json(pointer).get('active'):
+    replacing = 'supersedes' in manifest
+    if replacing:
+        check_replacement_pointer(path, manifest, require_parent=True)
+    elif pointer.is_file() and read_json(pointer).get('active'):
         fail('Another candidate environment is active.')
     manifest.update(status='applying', apply_started_at=now())
-    save_manifest(path, manifest)  # Recovery ownership recorded before any live write.
     try:
+        save_manifest(path, manifest)  # Recovery ownership recorded before any live write.
         replace_known(manifest['candidate']['path'], PACKAGE, manifest['records']['pak']['sha256'], manifest['candidate']['sha256'])
         for key, target in (('settings', SETTINGS), ('se', SESETTINGS)):
             replace_known(manifest['prepared'][key]['path'], target, manifest['records'][key]['sha256'], manifest['prepared'][key]['sha256'])
@@ -420,10 +563,12 @@ def apply(path):
         manifest['apply_error'] = str(exc)
         try:
             restore_files(manifest)
+            if replacing:
+                restore_replacement_pointer(path, manifest)
             manifest['status'] = 'prepared'
         except BaseException as rollback:
             manifest.update(status='apply-recovery-required', recovery_error=str(rollback))
-        save_manifest(path, manifest)
+        save_manifest(path, manifest, update_pointer=not replacing)
         raise
     return path, manifest
 
@@ -443,6 +588,25 @@ def restore(path):
     for key, record in manifest['records'].items():
         if file_sha(record['target']) not in (record['sha256'], allowed[key]):
             fail('Refusing restore of an unknown live file SHA: ' + key)
+    if 'supersedes' in manifest:
+        check_replacement_pointer(path, manifest)
+        before_tests = test_snapshot()
+        manifest.update(status='restoring', restore_started_at=now())
+        try:
+            save_manifest(path, manifest)
+            restore_files(manifest)
+            assert_equal_snapshot(before_tests, test_snapshot(), 'Dedicated saves during replacement Restore')
+            assert_equal_snapshot(before_other, unrelated_snapshot(), 'Unrelated files during replacement Restore')
+            restore_replacement_pointer(path, manifest)
+            manifest.update(status='restored', restored_at=now(), saves_unchanged_by_restore=True,
+                            unrelated_unchanged_by_restore=True,
+                            unrelated_matches_prepare=before_other == manifest['unrelated'])
+            save_manifest(path, manifest, update_pointer=False)
+        except BaseException as exc:
+            manifest.update(status='restore-recovery-required', restore_error=str(exc))
+            save_manifest(path, manifest, update_pointer=False)
+            raise
+        return path, manifest
     current_tests = test_directories()
     retired = inside(path.parent / ('test-saves.retired-' + datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')), path.parent)
     manifest.update(status='restoring', restore_started_at=now(), retired_test_saves=str(retired))
@@ -492,6 +656,8 @@ def summary(path, manifest):
             'official_version': manifest['official_version'], 'candidate_version': manifest['candidate']['version'],
             'candidate_sha256': manifest['candidate']['sha256'], 'test_save_directories': len(manifest['test_saves']),
             'other_paks': len(manifest['unrelated']['paks']),
+            'debug_enabled': manifest.get('debug_enabled', True),
+            'supersedes_manifest': manifest.get('supersedes', {}).get('manifest'),
             'publication': 'none', 'visual_gameplay_result': 'not-determined-by-installer'}
 
 
@@ -502,6 +668,10 @@ def main():
     prepare_parser.add_argument('--candidate', type=Path, required=True)
     prepare_parser.add_argument('--expected-sha', required=True)
     prepare_parser.add_argument('--expected-version')
+    prepare_parser.add_argument('--no-debug', action='store_true',
+                                help='Disable logging and the Lua debugger, preserving all other SE settings.')
+    prepare_parser.add_argument('--replace-active', action='store_true',
+                                help='Replace the exact active candidate and preserve every live save.')
     for action in ('apply', 'restore', 'status'):
         command = commands.add_parser(action)
         command.add_argument('--manifest', type=Path, required=action != 'status')
@@ -510,7 +680,8 @@ def main():
         if args.action == 'status':
             result = status(args.manifest)
         else:
-            path, manifest = (prepare(args.candidate, args.expected_sha, args.expected_version)
+            path, manifest = (prepare(args.candidate, args.expected_sha, args.expected_version,
+                                      no_debug=args.no_debug, replace_active=args.replace_active)
                               if args.action == 'prepare' else globals()[args.action](args.manifest))
             result = summary(path, manifest)
         print(json.dumps(result, ensure_ascii=False))

@@ -175,6 +175,12 @@ class HelperParentAttribution(unittest.TestCase):
                 parent = bridge.SPEC['spells'][alias['parent']]
                 branch = alias['parent'].split('_')[0]
                 self.F.entities['sword'].Classes.Classes[1].SubClassUUID = bridge.SPEC['classes'][branch]
+                if alias.get('key') == 'internal_yixiantian_hit':
+                    # This child requires an actual parent dispatch. A loose
+                    # native packet is deliberately rejected by its binding guard.
+                    root = parent['stat']
+                    self.F.emit('UsingSpellAtPosition', 'sword', 30, 0, 0, root, 'Zone', '', 10000+i)
+                    self.F.emit('CastedSpell', 'sword', root, 'Zone', '', 10000+i)
                 expected = 23 if 6 <= parent['level'] <= 9 and parent['cost'] == 10 else 20
                 self.assertEqual(self.packet_sequence(spell, 700+i, [20]), [expected])
 

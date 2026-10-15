@@ -1,6 +1,6 @@
 -- Test-only BG3 boundary. Production Engine.lua and Runtime.lua run unchanged.
 -- This fixture deliberately does not emulate BG3's native attack/status engine.
-Fixture = {entities={},listeners={},events={},timers={},nextTicks={},calls={},stats={},listenerSignatures={},jsonPackets={},jsonCounter=0}
+Fixture = {entities={},listeners={},events={},entityEvents={},timers={},nextTicks={},calls={},stats={},listenerSignatures={},jsonPackets={},jsonCounter=0}
 local F=Fixture
 -- Shared shield fixture is actual equipment, not merely a string in a slot.
 F.entities.shield={_isItem=true,_boosts={},_proficiencies={Shields=true},Armor={Shield=true}}
@@ -66,6 +66,13 @@ function F.actor(id,level,branch,hp,maxHp,party,x)
     return entity
 end
 Ext={Entity={},Vars={},Json={},IO={},Stats={},Timer={},Utils={},Osiris={},ServerNet={},ClientNet={}}
+function Ext.Entity.OnCreate(name,callback)
+    F.entityEvents[name]=F.entityEvents[name] or {};table.insert(F.entityEvents[name],callback)
+    return #F.entityEvents[name]
+end
+function F.entityCreated(name,component)
+    for _,callback in ipairs(F.entityEvents[name] or {})do callback(nil,name,component)end
+end
 function Ext.Entity.Get(id) return type(id)=='table' and id or F.entities[id] end
 function Ext.Entity.GetAllEntitiesWithComponent(component)
     local result={}
@@ -86,6 +93,7 @@ function Ext.Json.Stringify(value)
     F.jsonPackets[key]=value;return key
 end
 function Ext.ServerNet.PostMessageToClient(id,channel,payload) record('PostMessageToClient',id,channel,payload) end
+function Ext.ServerNet.PostMessageToUser(user,channel,payload) record('PostMessageToUser',user,channel,payload) end
 function Ext.ClientNet.PostMessageToServer(channel,payload) record('PostMessageToServer',channel,payload) end
 function Ext.IO.LoadFile(...) return '{}' end
 function Ext.IO.SaveFile(path,data) record('SaveFile',path,data);return true end
@@ -119,6 +127,9 @@ function Osi.SetHitpoints(id,value,mode)
     record('SetHitpoints',id,value,mode);F.entities[id]._hp=value
 end
 function Osi.ApplyDamage(id,amount,damageType,source)
+    -- Native Osiris STRING arguments reject SE enum userdata rather than
+    -- applying Lua's tostring implicitly (H25 live transfer failure).
+    assert(type(damageType)=='string','ApplyDamage DamageType: String expected, got '..type(damageType))
     record('ApplyDamage',id,amount,damageType,source)
     local hit={DamageList={{Amount=amount,DamageType=damageType}},TotalDamageDone=amount}
     local event={Caster=source,Target=id,StoryActionId=F.transferAction or 0,Hit=hit}
@@ -235,6 +246,52 @@ function F.callCount(name)
 end
 function F.clearCalls() F.calls={} end
 
+-- Native OnHeal passive boundary. Actual recovered HP is an input from the
+-- simulated engine, independent of Runtime. H28 paired action84/86 proves
+-- Regain callbacks precede HP settlement; native OnHeal follows settlement,
+-- retains rolled TotalHealDone even for full HP, then emits ECS HEAL/Osiris.
+function F.nativeHeal(id,spell,target,action,requested,blocked)
+    local params={Type='AttackTarget',Caster=id,Target=target,StoryActionId=action,
+        SpellId={Prototype=spell},PropertyContext=F.nativeHealContext or {TARGET=true}}
+    local evt={Params=params,Functor={FunctorList={{TypeId='RegainHitPoints',HealingType='Guaranteed'}}},
+        Hit={Hit={TotalHealDone=0,StoryActionId=action}}}
+    for _,callback in ipairs(F.events.ExecuteFunctor or {})do callback(evt)end
+    for _,callback in ipairs(F.events.AfterExecuteFunctor or {})do callback(evt)end
+    if F.beforeNativeHeal then local fn=F.beforeNativeHeal;F.beforeNativeHeal=nil;fn()end
+    local before=Osi.GetHitpoints(target)
+    local actual=not blocked and before>0 and math.max(0,math.min(requested,Osi.GetMaxHitpoints(target)-before)) or 0
+    F.entities[target]._hp=before+actual
+    local passive=F.stats.ESC_P_xingge_cooperation
+    local level,branch=ESC.Engine.class(id)
+    local marker
+    if passive and passive.StatsFunctorContext=='OnHeal' and level>0 and branch=='xingge' then
+        local env={HealDoneGreaterThan=function(n)return (not blocked and requested or 0)>n end,
+            SpellId=function(name)return name==spell end,
+            Self=function()return ESC.Engine.sameEntity(id,target)end,
+            Party=function()return Osi.IsInPartyWith(id,target)==1 end,
+            IsSummon=function()return Osi.IsSummon(target)==1 end}
+        if assert(load('return '..passive.Conditions,'native-onheal-condition','t',env))() then
+            marker=assert(passive.StatsFunctors:match('^ApplyStatus%((ESC_[A-Z0-9_]+),100,0%)$'))
+            assert(F.stats[marker] and F.stats[marker].StatusType=='BOOST')
+            local onheal={Params={Type='AttackTarget',Caster=id,Target=target,StoryActionId=action,SpellId={Prototype=spell},
+                PropertyContext={HEAL=true},Hit={TotalHealDone=requested},
+                Attack={InitialHPPercentage=math.ceil(before*100/Osi.GetMaxHitpoints(target)),TotalHealDone=requested}},
+                Functor={FunctorList={{TypeId='ApplyStatus',StatusId=marker}}},Hit={Hit={TotalHealDone=requested}}}
+            for _,callback in ipairs(F.events.ExecuteFunctor or {})do callback(onheal)end
+            for _,callback in ipairs(F.events.AfterExecuteFunctor or {})do callback(onheal)end
+        end
+    end
+    if not blocked then
+        local entity=F.entities[target]
+        entity._nativeHealStatus={Started=true,HealAmount=requested,TargetHealth=0,StoryActionID=action,StatusSource=id}
+        entity.ServerCharacter={GetStatus=function(_,name)return name=='HEAL' and entity._nativeHealStatus or nil end}
+        F.entityCreated('ServerStatusApplyEvent',{Target=target,StatusId='HEAL',Status=tostring(action)..':'..target})
+        entity._nativeHealStatus=nil
+    end
+    if marker then F.emit('StatusApplied',target,marker,id,action)end
+    return actual
+end
+
 -- Focused native boundary for guard/protection status functors. Deliberately
 -- does not emulate attack rolls, status timing or native boost evaluation.
 -- The recipient selector follows native Shared/Shout_HealingRadiance's
@@ -244,6 +301,16 @@ function F.clearCalls() F.calls={} end
 function F.statusFunctors(id,spell,target,action)
     local properties=F.stats[spell] and F.stats[spell].SpellProperties or ''
     for functor in properties:gmatch('[^;]+') do
+        if functor=='IF(Self() or (Party() and not IsSummon())):RegainHitPoints((Target.MaxHP*LevelMapValue(ESC_XiangfuHealing)+99)/100,Guaranteed)'
+            and (id==target or Osi.IsInPartyWith(id,target)==1 and Osi.IsSummon(target)==0) then
+            -- Independent native result boundary, not Engine.heal/SetHitpoints.
+            -- Positive integer division follows shipped WholenessOfBody's
+            -- (ClassLevel(Monk)+1)/2 ceiling convention, here denominator 100.
+            local recipient=target or id
+            local level=ESC.Engine.class(id)
+            local amount=math.floor((Osi.GetMaxHitpoints(recipient)*(level<4 and 15 or 30)+99)/100)
+            F.nativeHeal(id,spell,recipient,action,amount)
+        end
         if functor:find('ESC_COUNTER_',1,true) or functor:find('ESC_XINGGE_PROTECTION',1,true) then
             assert(not functor:find('SELF:',1,true),'Unsupported SELF: prefix; use the native SELF argument')
             local condition=functor:match('IF%((.*)%):')

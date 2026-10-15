@@ -20,6 +20,7 @@ from sword_vfx_resources import generate_resources as generate_vfx_resources
 from tianqing_vfx_resources import generate_resources as generate_tianqing_vfx_resources
 from taixuan_world_rain import generate_resources as generate_taixuan_world_rain_resources
 from yixiantian_vfx import generate_resources as generate_yixiantian_resources
+from nifeng_vfx import generate_resources as generate_nifeng_resources
 from xueyan_echo_visual_polish import generate_resources as generate_xueyan_echo_resources
 from school_visual_polish import (generate_resources as generate_school_polish_resources,
                                  set_enabled as set_school_polish, spell_bindings as school_spell_bindings,
@@ -62,11 +63,15 @@ AUTOMATIC_TARGET_STAGES = frozenset({
     'Target_ESC_TiandiStage_NoControl',
     'Target_ESC_TiandiStage_NoControl_Off',
     'Target_ESC_TiandiStage_Off',
+    'Target_ESC_YixiantianHit',
 })
 PLAYER_TEXT = json.loads((REPO / 'scripts/sword_player_text.json').read_text(encoding='utf-8'))
 AUTO_MAIN = "HasStatus('ESC_MAIN_SWORD',context.Source)"
 AUTO_OFF = "HasStatus('ESC_OFFHAND_SWORD',context.Source)"
 SWORD_PROFICIENCIES = 'Longswords|Shortswords|Greatswords|Rapiers|Scimitars'
+# Native AdvancedProjectileWeaponAction admits Character or Item; Throw supplies
+# the IsEquipped condition. Preserve our existing hostile-character restriction.
+DIRECT_SWORD_TARGETS = '(Character() and Enemy() or Item() and not IsEquipped()) and not Self() and not Dead()'
 
 
 def sword_condition(hand):
@@ -75,12 +80,12 @@ def sword_condition(hand):
     return f"IsWeaponOfProficiencyGroup('{SWORD_PROFICIENCIES}', GetItemInEquipmentSlot(EquipmentSlot.{slot}, context.Source))"
 
 
-def equipment_condition():
+def equipment_condition(subject='context.Source'):
     # Native Bladesong helpers; only Taixuan and Xingge forbid medium/heavy armor.
-    return ("not HasShieldEquipped(context.Source) and "
-            "((not HasPassive('ESC_P_Branch_taixuan',context.Source) and "
-            "not HasPassive('ESC_P_Branch_xingge',context.Source)) or "
-            "(not HasHeavyArmor(context.Source) and not HasMediumArmor(context.Source)))")
+    return (f"not HasShieldEquipped({subject}) and "
+            f"((not HasPassive('ESC_P_Branch_taixuan',{subject}) and "
+            f"not HasPassive('ESC_P_Branch_xingge',{subject})) or "
+            f"(not HasHeavyArmor({subject}) and not HasMediumArmor({subject})))")
 
 
 def unified_basis(branch, divisor=1, condition='', hand='auto', fallback_type=None):
@@ -205,7 +210,13 @@ def entry(name, typ, values, using=None):
         if events:
             values = dict(values)
             values['RequirementEvents'] = ';'.join(dict.fromkeys(events))
-        values = present_spell(name, values, using)
+        if name=='Zone_ESC_taixuan_yixiantian':
+            # Preserve the public attack's existing animation/presentation even
+            # though its damage functors now execute in the native Target child.
+            presentation_damage=unified_basis('taixuan')+';DealDamage(36d8,Force,Magical);'+unified_weapon_functors()
+            values=present_spell(name,{**values,'SpellProperties':presentation_damage},using)
+        else:
+            values = present_spell(name, values, using)
         if tianqing_vfx['enabled'] and any(token in name for token in (
                 '_ESC_tianqing_wanjun', '_ESC_tianqing_lietian', '_ESC_tianqing_bafang',
                 '_ESC_tianqing_tiandi', '_ESC_TianjianImpact', '_ESC_TiandiStage')):
@@ -217,6 +228,14 @@ def entry(name, typ, values, using=None):
         # New per-target contacts are deliberately small. The existing spatial
         # coordinator still owns every whole falling sword and its timing.
         values.update(school_spell_bindings(name, values))
+        if name=='Zone_ESC_taixuan_yixiantian':
+            values['SpellProperties']=''
+        if name=='Target_ESC_YixiantianHit':
+            # The public root owns the one world beam; automatic victims have
+            # no separately inherited spell/impact visuals or sound.
+            for field in ('PrepareEffect','CastEffect','HitEffect','TargetEffect','TargetHitEffect',
+                          'TargetGroundEffect','PositionEffect','ImpactEffect','TargetSound'):
+                values[field]=''
         spell_values[name] = dict(values)
     elif typ == 'StatusData':
         values = {**values, **school_status_bindings(name)}
@@ -283,24 +302,37 @@ def opportunity_statuses():
     return [f'ESC_EXTRA_ATTACK_{index}' for index in range(count)]
 
 
-def continuous_cast_fields(spells):
+def continuous_grant_functors(gate, subject='context.Source', target='SELF,'):
+    xingge = f"HasPassive('ESC_P_Branch_xingge',{subject})"
+    advanced = f"HasPassive('ESC_P_Level10',{subject})"
+    # Keep reset/grant/application in native Stats, including the opening turn.
+    return ';'.join([
+        f'IF({gate}):UseActionResource({target}ESC_SwordOpportunity,100%,0)',
+        f'IF({gate} and {xingge}):RestoreResource({target}ESC_SwordOpportunity,1,0)',
+        f'IF({gate} and not {xingge} and not {advanced}):RestoreResource({target}ESC_SwordOpportunity,2,0)',
+        f'IF({gate} and not {xingge} and {advanced}):RestoreResource({target}ESC_SwordOpportunity,3,0)',
+        f'IF({gate}):ApplyStatus({target}ESC_EXTRA_ATTACK,100,1)',
+    ])
+
+
+def continuous_cast_fields(spells, opening_resume=False):
     eligible = ' or '.join(f"SpellId('{sid}')" for sid in spells)
-    xingge = "HasPassive('ESC_P_Branch_xingge',context.Source)"
-    advanced = "HasPassive('ESC_P_Level10',context.Source)"
-    # Vanilla ExtraAttack uses OnCast plus the modified ActionPoint cost.
-    # The separate pool keeps spell attacks, domains and recovery in this
-    # class's action without extending other classes' weapon-attack checks.
-    return dict(StatsFunctorContext='OnCast',
-                Conditions=f"({eligible}) and HasUseCosts('ActionPoint',true) and TurnBased(context.Source) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and ({equipment_condition()})",
-                # Never resources lose maximum capacity when spent in engine;
-                # RestoreResource cannot grow that capacity back. A renewable
-                # pool must also discard any rest balance before a paid action
-                # grants exactly the class/branch's remaining sword strikes.
-                StatsFunctors='UseActionResource(SELF,ESC_SwordOpportunity,100%,0);'
-                              f'IF({xingge}):RestoreResource(SELF,ESC_SwordOpportunity,1,0);'
-                              f'IF(not {xingge} and not {advanced}):RestoreResource(SELF,ESC_SwordOpportunity,2,0);'
-                              f'IF(not {xingge} and {advanced}):RestoreResource(SELF,ESC_SwordOpportunity,3,0);'
-                              'ApplyStatus(SELF,ESC_EXTRA_ATTACK,100,1)')
+    on_cast = 'context.HasContextFlag(StatsFunctorContext.OnCast)'
+    on_removed = 'context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)'
+    condition = f"{on_cast} and ({eligible}) and HasUseCosts('ActionPoint',true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and ({equipment_condition()})"
+    functors = continuous_grant_functors(f'{on_cast} and TurnBased(context.Source)')
+    # CombatStartAttack remembers an out-of-turn paid attack with a StartTurn
+    # status; ExtraAttack resumes on its removal. Our own marker also covers
+    # sword spell attacks without granting strikes after unrelated cantrips.
+    functors += f';IF({on_cast} and not TurnBased(context.Source)):ApplyStatus(SELF,ESC_INITIAL_SWORD_ATTACK,100,1)'
+    if opening_resume:
+        # Only the main passive receives this branch, never every cast shard.
+        # StatusRemoved targets the holder, unlike OnCast's source actor.
+        # A removal from an old instance must not consume a live replacement.
+        condition = f"({condition}) or ({on_removed} and StatusId('ESC_INITIAL_SWORD_ATTACK') and TurnBased() and not Dead() and HasPassive('ESC_P_Level5',context.Target) and not HasStatus('ESC_INITIAL_SWORD_ATTACK',context.Target) and not HasStatus('ESC_EXTRA_ATTACK',context.Target) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Target) and ({equipment_condition('context.Target')}))"
+        functors += ';' + continuous_grant_functors(on_removed, 'context.Target', '')
+    return dict(StatsFunctorContext='OnCast;OnStatusRemoved' if opening_resume else 'OnCast',
+                Conditions=condition, StatsFunctors=functors)
 
 
 def continuous_variant_boost(spells):
@@ -579,8 +611,15 @@ def generate_passives():
                           BoostContext='OnEquip;OnCreate')
         if key == 'xueyan_unhindered':
             values['Boosts'] = 'IgnoreLeaveAttackRange()'
+        if key == 'xingge_cooperation':
+            # Shipped DiscipleOfLife uses OnHeal + HealDoneGreaterThan(0).
+            # Carry the completed heal's action/source to Runtime with a hidden
+            # marker; AfterExecuteFunctor runs before native HP settlement.
+            values.update(StatsFunctorContext='OnHeal',
+                          Conditions="HealDoneGreaterThan(0) and SpellId('Target_ESC_xingge_xiangfu') and not Self() and Party() and not IsSummon()",
+                          StatsFunctors='ApplyStatus(ESC_XIANGFU_HEALED,100,0)')
         if key == 'continuous_strikes':
-            values.update(continuous_cast_fields(continuous_cast_groups()[0][1]))
+            values.update(continuous_cast_fields(continuous_cast_groups()[0][1], opening_resume=True))
         text += entry('ESC_P_' + key, 'PassiveData', values)
     for name, spells in continuous_cast_groups()[1:]:
         text += entry(name, 'PassiveData', dict(Properties='IsHidden', **continuous_cast_fields(spells)))
@@ -640,6 +679,8 @@ def generate_spells():
         elif spec['kind'] in ('attack', 'chain_attack', 'cooperate', 'cone_attack', 'dash_attack', 'area_attack', 'area_save', 'self_area_save', 'leap_area_save', 'piercing_line'):
             if key=='sword_strike': base='Target_MainHandAttack'
             values['TargetConditions'] = 'Character() and Enemy() and not Dead()'
+            if spec.get('targetItems'):
+                values['TargetConditions'] = DIRECT_SWORD_TARGETS
             values['SpellFlags'] += ';IsHarmful'
             # Engine rolls each segment; Lua handles damage accounting and special boundaries.
             dtype = 'Necrotic' if spec['branch'] == 'xueyan' else 'Force'
@@ -697,7 +738,8 @@ def generate_spells():
                 # Native CreateExplosion runs Tianjian victims in AOE context,
                 # including a lone victim. Preserve its independent Strength save.
                 control_context='TARGET:AOE:' if key=='tianqing_tianjian' else 'TARGET:'
-                failed=f";{control_context}IF(Enemy() and not SavingThrow(Ability.{control['ability']},SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_{key.upper()},100,0)"
+                victim_condition = 'Character() and Enemy()' if spec.get('targetItems') else 'Enemy()'
+                failed=f";{control_context}IF({victim_condition} and not SavingThrow(Ability.{control['ability']},SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_{key.upper()},100,0)"
                 if key=='tianqing_tiandi': failed=failed.replace('Enemy() and','Enemy() and not HasStatus(\'ESC_TIANDI_FIRSTHIT\') and')
                 values['SpellSuccess']+=failed
                 if key=='tianqing_tiandi': values['SpellSuccess']+=';ApplyStatus(ESC_TIANDI_FIRSTHIT,100,1)'
@@ -716,12 +758,12 @@ def generate_spells():
             if typ=='Rush':
                 values.update(HitRadius=spec['radius']/2,MovementSpeed=40000,Requirements='!Immobile',RequirementConditions='',AIFlags='',WeaponTypes='')
             if typ == 'Zone':
-                values.update(Shape='Cone' if spec['kind'] == 'cone_attack' else 'Line', Range=spec['range'],
-                              Base=spec['radius'] or 12, Angle=90 if key == 'tianqing_tianbeng' else 60,
+                values.update(Shape='Cone' if spec['kind'] == 'cone_attack' else 'Square', Range=spec['range'],
+                              Base=spec['radius'] or 12, Angle=(90 if key == 'tianqing_tianbeng' else 60) if spec['kind']=='cone_attack' else 0,
                               SurfaceType='Sentinel', SurfaceLifetime=0)
             # This status is an engine-confirmed hit marker, including fully absorbed hits.
             if key in ('taixuan_zhaoxi', 'xingge_wenlu'):
-                values['SpellSuccess'] += ';ApplyStatus(ESC_' + ('WEAKPOINT' if key.startswith('taixuan') else 'FOLLOWUP') + ',100,3)'
+                values['SpellSuccess'] += ';IF(Character() and Enemy()):ApplyStatus(ESC_' + ('WEAKPOINT' if key.startswith('taixuan') else 'FOLLOWUP') + ',100,3)'
             values['SpellSuccess'] += ';ApplyStatus(ESC_HIT_MARKER,100,0)'
             if spec['base']=='AUTO':
                 weapon_functor=';'+unified_weapon_functors()
@@ -729,7 +771,9 @@ def generate_spells():
                 if 'save' in spec['kind']: values['SpellFail']+=weapon_functor
             if key == 'taixuan_yixiantian':
                 damage=unified_basis('taixuan')+';DealDamage(36d8,Force,Magical);'+unified_weapon_functors()
-                values.update(SpellRoll='', SpellSuccess='', SpellProperties=damage, TooltipDamageList=damage,
+                # The public Zone owns the native UI/cost/preview. Its successful
+                # cast dispatches native Target hits; closed-door delivery needs client QA.
+                values.update(SpellRoll='', SpellSuccess='', SpellProperties='', TooltipDamageList=damage,
                               SpellFlags=values['SpellFlags'] + ';IgnoreVisionBlock')
             if key == 'tianqing_tiandi' and tianqing_vfx['enabled']:
                 # One paid cast fixes the target set. All three real attacks
@@ -743,6 +787,12 @@ def generate_spells():
                 values.update(TargetConditions='Self()', TargetRadius=0)
             # Callback marker spell has a real status, not a damaging placeholder.
             values['SpellProperties'] = f'ApplyStatus(ESC_CAST_{key.upper()},100,0)'
+        if key=='xingge_xiangfu':
+            # Native healing keeps the original caster/action in its result;
+            # SetHitpoints queues a source-less update and cannot report it.
+            # Like native WholenessOfBody's (ClassLevel(Monk)+1)/2, add the
+            # denominator minus one to retain the existing round-up rule.
+            values['SpellProperties']+=';IF(Self() or (Party() and not IsSummon())):RegainHitPoints((Target.MaxHP*LevelMapValue(ESC_XiangfuHealing)+99)/100,Guaranteed)'
         # Apply guard before CastedSpell: native AC and the status clock also
         # function in Toolkit without the Script Extender bridge.
         guard_rank={'qi_guard':1,'taixuan_qinghui':2,'taixuan_xinghe':3}.get(key)
@@ -793,13 +843,13 @@ def generate_spells():
             values['TooltipDamageList']=''
         if key in ('taixuan_zhaoxi','tianqing_nifeng','xueyan_luexue','xingge_wenlu'):
             # The paid root executes directly. Only bonus-action economy stays separate.
-            if key=='tianqing_nifeng': values.update(Shape='Line',Range=12,TargetRadius=12,Base=2,Angle=60)
+            if key=='tianqing_nifeng': values.update(Shape='Square',Range=12,TargetRadius=12,Base=2,Angle=0)
             bonus=('Zone' if key=='tianqing_nifeng' else 'Projectile')+'_ESC_'+key+'_RangedOff_Bonus'
             bv=dict(values,UseCosts='BonusActionPoint:1',SpellContainerID='',ContainerSpells='')
             bv['RequirementConditions']=equipment_condition()+' and '+sword_condition('Main')+' and '+sword_condition('Off')
             bv['SpellSuccess']=damage_expression(forced_hand='off')+';ApplyStatus(ESC_HIT_MARKER,100,0);'+unified_weapon_functors('off')
             if key in ('taixuan_zhaoxi','xingge_wenlu'):
-                bv['SpellSuccess']+=';ApplyStatus(ESC_'+('WEAKPOINT' if key=='taixuan_zhaoxi' else 'FOLLOWUP')+',100,3)'
+                bv['SpellSuccess']+=';IF(Character() and Enemy()):ApplyStatus(ESC_'+('WEAKPOINT' if key=='taixuan_zhaoxi' else 'FOLLOWUP')+',100,3)'
             if key in HIT_CONTROLS: bv['SpellSuccess']+=failed
             bv['DisplayName']=handle('spell/'+key+'/bonus/unified',name+' · 副手追加')+';1'
             bv['Description']=handle('spell/'+key+'/bonus/unified/description','用副手剑追加一次远程飞剑攻击，触发'+name+'的效果。需要双持剑；不获得连贯出剑。')+';1'
@@ -859,6 +909,16 @@ def generate_spells():
             # Domain attacks retain the level-10 regular-skill damage bonus,
             # including native ImmediateCast damage before cast callbacks.
             aliases[sid]['parent']=parent_key
+    line_damage=unified_basis('taixuan')+';DealDamage(36d8,Force,Magical);'+unified_weapon_functors()+';ApplyStatus(ESC_HIT_MARKER,100,0)'
+    files['Target']+=entry('Target_ESC_YixiantianHit','SpellData',dict(
+        SpellType='Target',Level=0,UseCosts='',Cooldown='',SpellRoll='',SpellSuccess='',SpellFail='',
+        SpellProperties=line_damage,TargetRadius=30,AmountOfTargets=1,
+        TargetConditions='Character() and Enemy() and not Dead()',
+        SpellFlags='IsSpell;IsHarmful;IgnoreSilence;IgnoreVisionBlock;ImmediateCast',
+        Icon=icon('skill_taixuan_yixiantian'),
+        DisplayName=handle('spell/taixuan_yixiantian',assets['skill_taixuan_yixiantian']['name'])+';1',
+        TargetEffect='',HitEffect='',TargetHitEffect='',TargetGroundEffect='',PositionEffect='',ImpactEffect='',TargetSound=''),'Target_HealingWord')
+    aliases['Target_ESC_YixiantianHit']=dict(key='internal_yixiantian_hit',internal=True,parent='taixuan_yixiantian',hand='auto')
     tiandi_damage="IF(Enemy()):DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);IF(Enemy()):DealDamage(14d8,Force,Magical);IF(not Enemy()):DealDamage((MainMeleeWeapon)/4,MainMeleeWeaponDamageType,Magical);IF(not Enemy()):DealDamage((14d8)/4,Force,Magical)"
     tiandi_control=";TARGET:IF(Enemy() and not HasStatus('ESC_TIANDI_FIRSTHIT') and not SavingThrow(Ability.Strength,SourceSpellDC())):ApplyStatus(ESC_SAVEFAIL_TIANQING_TIANDI,100,0);ApplyStatus(ESC_TIANDI_FIRSTHIT,100,1);ExecuteWeaponFunctors(MainHand)"
     if tianqing_vfx['enabled']:
@@ -885,7 +945,7 @@ def generate_spells():
             success=stage_damage
             if hand=='Off':
                 success=success.replace('MainMeleeWeaponDamageType','OffhandMeleeWeaponDamageType').replace('MainMeleeWeapon','OffhandMeleeWeapon').replace('ExecuteWeaponFunctors(MainHand)','ExecuteWeaponFunctors(OffHand)')
-            files['Target']+=entry(stage,'SpellData',dict(SpellType='Target',UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.RangedSpellAttack)',SpellSuccess=success,SpellProperties='',SpellFail='',TargetRadius=18,TargetConditions='Character() and Enemy() and not Dead()',SpellFlags='IsSpell;IsHarmful;IgnoreSilence',AmountOfTargets=1,Icon=icon('skill_'+parent),DisplayName=handle('spell/'+parent,assets['skill_'+parent]['name'])+';1'),'Target_HealingWord')
+            files['Target']+=entry(stage,'SpellData',dict(SpellType='Target',UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.RangedSpellAttack)',SpellSuccess=success,SpellProperties='',SpellFail='',TargetRadius=18,TargetConditions=DIRECT_SWORD_TARGETS if SPELLS[parent].get('targetItems') else 'Character() and Enemy() and not Dead()',SpellFlags='IsSpell;IsHarmful;IgnoreSilence',AmountOfTargets=1,Icon=icon('skill_'+parent),DisplayName=handle('spell/'+parent,assets['skill_'+parent]['name'])+';1'),'Target_HealingWord')
             aliases[stage]=dict(key=key,internal=True,parent=parent,hand=hand.lower() if weapon else 'auto')
     for suffix,damage_key,roll,damage,fail in [
         ('ChengfengBurst','xingge_chengfeng','not SavingThrow(Ability.Dexterity,SourceSpellDC())','DealDamage(MainMeleeWeapon,MainMeleeWeaponDamageType,Magical);DealDamage(8d6,Force,Magical)','DealDamage((MainMeleeWeapon)/2,MainMeleeWeaponDamageType,Magical);DealDamage((8d6)/2,Force,Magical)'),
@@ -919,6 +979,8 @@ def generate_spells():
             continuation_text=PLAYER_TEXT['ui_descriptions'][chain+'_continuation_description']
             v=dict(SpellType=typ,UseCosts='',Cooldown='',SpellRoll='Attack(AttackType.MeleeSpellAttack)' if melee else 'Attack(AttackType.RangedSpellAttack)',SpellSuccess=damage+';ApplyStatus(ESC_HIT_MARKER,100,0)',SpellFail='',SpellProperties='',TargetRadius=3 if melee else (18 if chain=='liancheng' else 24),TargetConditions='Character() and Enemy() and not Dead()',RequirementConditions=f"HasStatus('ESC_CHAIN_{chain.upper()}',context.Source)",SpellFlags='IsSpell;IsHarmful;IgnoreSilence',AmountOfTargets=1,Icon=icon('skill_'+key),DisplayName=handle('spell/chain/'+chain+str(melee),assets['skill_'+key]['name']+' · 续剑'+('近战' if melee else '御剑'))+';1',Description=handle('spell/chain/'+chain+str(melee)+'/description',continuation_text)+';1')
             apply_spell_tooltip(key, {**SPELLS[key], 'segments': 1, 'continuation': True}, v, '/continuation')
+            if SPELLS[key].get('targetItems'):
+                v['TargetConditions'] = DIRECT_SWORD_TARGETS
             files[typ]=files.get(typ,'')+entry(sid,'SpellData',v,'Target_HealingWord' if melee else 'Projectile_MagicMissile');aliases[sid]=dict(key=key,chain=chain,continuation=True,hand='auto')
     for sid,key,resource,status,range_ in [('Projectile_ESC_FlightMove','internal_flight_move','ESC_FlightMovement','ESC_IN_FLIGHT',24),('Projectile_ESC_ChainMove','internal_chain_move','ESC_ChainMovement','ESC_CHAIN_LIANCHENG',6)]:
         v=dict(SpellType='Projectile',UseCosts=resource+':Distance',Cooldown='',TargetRadius=range_,AddRangeFromAbility='',TargetConditions="not Surface('SurfaceChasm')",RequirementConditions=f"HasStatus('{status}',context.Source)",SpellProperties='',SpellSuccess='',SpellFail='',SpellRoll='',AmountOfTargets=1,Icon=icon('skill_sword_flight' if key=='internal_flight_move' else 'skill_xueyan_liancheng'),DisplayName=handle('spell/move/'+key,'御剑飞移' if key=='internal_flight_move' else '连城移步')+';1',SpellFlags='IsJump;RangeIgnoreVerticalThreshold;CannotTargetCharacter;CannotTargetItems;NoAOEDamageOnLand;IgnoreSilence')
@@ -932,7 +994,8 @@ def generate_statuses():
     text = ''
     # Visual domain lifecycles are independent of existing mechanism markers
     # and the blood-robe siphon shield; Runtime follows the actual domain clock.
-    for name in ('ESC_VFX_SWORD_DOMAIN', 'ESC_VFX_BLOOD_DOMAIN'):
+    for name in ('ESC_VFX_SWORD_DOMAIN', 'ESC_VFX_BLOOD_DOMAIN',
+                 'ESC_VFX_DAMAGE_SHARE', 'ESC_VFX_TEAM_RESONANCE'):
         text += entry(name, 'StatusData', dict(
             StatusType='BOOST', StackId=name,
             StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead'))
@@ -960,7 +1023,7 @@ def generate_statuses():
             **({'Boosts':guard_ac,'StatusEffect':guard_status_effect()} if key=='counter_ready' else {})))
     for key in HIT_CONTROLS:
         text+=entry('ESC_SAVEFAIL_'+key.upper(),'StatusData',dict(StatusType='BOOST',StackId='ESC_SAVEFAIL_'+key.upper(),StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead',**({'OnApplyFunctors':f'Force({HIT_CONTROLS[key]["push"]})'} if HIT_CONTROLS[key].get('push') else {})))
-    for name in ['HIT_MARKER', 'CHAIN', 'GUARD', 'BASELINE', 'WEAPON_WISDOM']:
+    for name in ['HIT_MARKER', 'XIANGFU_HEALED', 'CHAIN', 'GUARD', 'BASELINE', 'WEAPON_WISDOM']:
         text += entry('ESC_' + name, 'StatusData', dict(StatusType='BOOST', StackId='ESC_' + name,
             StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead'))
     for number in range(1,16):
@@ -984,6 +1047,11 @@ def generate_statuses():
                   RemoveEvents='OnSpellCast',RemoveConditions="not HasActionResource('ESC_SwordOpportunity',1,0,false,false,context.Target)",
                   OnApplyFunctors=';'.join(f'ApplyStatus({group},100,-1)' for group in groups),
                   OnRemoveFunctors=';'.join(f'RemoveStatus({group})' for group in opportunity_statuses())))
+    # Same hidden one-turn StartTurn clock as native INITIAL_ATTACK_TECHNICAL.
+    # No resource functor on the marker itself; only the main passive resumes.
+    text += entry('ESC_INITIAL_SWORD_ATTACK','StatusData',dict(StatusType='BOOST',
+                  StackId='ESC_INITIAL_SWORD_ATTACK',TickType='StartTurn',
+                  StatusPropertyFlags='DisableOverhead;DisableCombatlog;DisablePortraitIndicator'))
     for group in opportunity_statuses()[len(groups):]:
         text += entry(group,'StatusData',dict(StatusType='BOOST',StackId=group,StatusPropertyFlags='DisableCombatlog;DisablePortraitIndicator;DisableOverhead'))
     for name,boosts in [
@@ -999,8 +1067,11 @@ def generate_statuses():
     write(PUBLIC / 'Stats/Generated/Data/Status_BOOST.txt', text)
     interrupts=''
     counter_gate=equipment_condition().replace('context.Source','context.Observer')
+    # H32 native missed attacks failed the damage-functor gate. Like the
+    # shipped TAD_Charm interrupt, accept IsAttack() independently of damage.
+    # Keep caster-directed, non-attack damage spells allowed by the GDD too.
     for rank in (2,3):
-        interrupts+=entry(f'Interrupt_ESC_Counter{rank}','InterruptData',dict(DisplayName=handle('counter/'+str(rank),'清辉反击' if rank==2 else '星河反击')+';1',Description=handle('counter/'+str(rank)+'/description','攻击落空或被剑气护体化解时，可用剑气反击18米内的攻击者。反击不消耗动作、反应或剑元。')+';1',Icon=icon('skill_taixuan_qinghui' if rank==2 else 'skill_taixuan_xinghe'),InterruptContext='OnCastHit',InterruptContextScope='Self',Container='YesNoDecision',Conditions=f"HasStatus('ESC_COUNTER_RANK{rank}',context.Observer) and HasStatus('ESC_COUNTER_READY',context.Observer) and ({counter_gate}) and Self(context.Target,context.Observer) and not DistanceToEntityGreaterThan(18,context.ObserverPosition,context.Source) and Enemy(context.Source,context.Observer) and HasFunctor(StatsFunctorType.DealDamage) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({{'SG_Incapacitated','SG_Polymorph'}},context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3') and not SpellId('Target_ESC_Counter2_Off') and not SpellId('Target_ESC_Counter3_Off')",Properties=f'UseSpell(SWAP,Target_ESC_Counter{rank},true,true,true)',Cost='',Stack='ESC_Counter',InterruptDefaultValue='Enabled;Ask',EnableContext='OnStatusApplied;OnStatusRemoved'))
+        interrupts+=entry(f'Interrupt_ESC_Counter{rank}','InterruptData',dict(DisplayName=handle('counter/'+str(rank),'清辉反击' if rank==2 else '星河反击')+';1',Description=handle('counter/'+str(rank)+'/description','攻击落空或被剑气护体化解时，可用剑气反击18米内的攻击者。反击不消耗动作、反应或剑元。')+';1',Icon=icon('skill_taixuan_qinghui' if rank==2 else 'skill_taixuan_xinghe'),InterruptContext='OnCastHit',InterruptContextScope='Self',Container='YesNoDecision',Conditions=f"HasStatus('ESC_COUNTER_RANK{rank}',context.Observer) and HasStatus('ESC_COUNTER_READY',context.Observer) and ({counter_gate}) and Self(context.Target,context.Observer) and not DistanceToEntityGreaterThan(18,context.ObserverPosition,context.Source) and Enemy(context.Source,context.Observer) and (IsAttack() or HasFunctor(StatsFunctorType.DealDamage)) and HasLastAttackTriggered() and not AnyEntityIsItem() and not HasAnyStatus({{'SG_Incapacitated','SG_Polymorph'}}, {{}}, {{}}, context.Observer) and not SpellId('Target_ESC_Counter2') and not SpellId('Target_ESC_Counter3') and not SpellId('Target_ESC_Counter2_Off') and not SpellId('Target_ESC_Counter3_Off')",Properties=f'UseSpell(SWAP,Target_ESC_Counter{rank},true,true,true)',Cost='',Stack='ESC_Counter',InterruptDefaultValue='Enabled;Ask',EnableContext='OnStatusApplied;OnStatusRemoved'))
     write(PUBLIC/'Stats/Generated/Data/Interrupt.txt',interrupts)
 
 
@@ -1269,6 +1340,7 @@ def main():
     set_enabled_phases(enabled)
     taixuan_world_rain_vfx = generate_taixuan_world_rain_resources(SOURCE)
     yixiantian_vfx = generate_yixiantian_resources(SOURCE)
+    nifeng_line_vfx = generate_nifeng_resources(SOURCE)
     global tianqing_vfx
     tianqing_vfx = generate_tianqing_vfx_resources(SOURCE)
     global school_polish_vfx
@@ -1304,6 +1376,7 @@ def main():
                 tianqingVfx=tianqing_vfx,
                 taixuanWorldRainVfx=taixuan_world_rain_vfx,
                 yixiantianVfx=yixiantian_vfx,
+                nifengLineVfx=nifeng_line_vfx,
                 schoolPolishVfx=school_polish_vfx,
                 xueyanEchoVfx=xueyan_echo_vfx,
                 publishHandle=PUBLISH_HANDLE, capacities=CAPACITIES,

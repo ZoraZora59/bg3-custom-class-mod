@@ -62,10 +62,14 @@ PROFILES = {
         slash_scale=1.15, slash_life=.38, mist_scale=.32, mist_alpha=.72, sword_count=1),
     'xueyan_nixue_cast': _profile('xueyan_nixue', 'cast', '逆血狂澜·放卷',
         'Eight short blood blades spread once toward the six-metre boundary and fold inward.',
-        sword_count=8, radius=5.5, motion='out_return', mist_scale=.23, mist_alpha=.58),
+        sword_count=8, radius=5.5, motion='out_return', mist_scale=.23, mist_alpha=.58,
+        sword_model_scale=(.8, .65, 1.05), sword_seconds=1.0,
+        sword_alpha_keys=((0, 0), (.09, .94), (.40, .90),
+                          (.65, .80), (.90, 0), (1, 0))),
     'xueyan_xuehai_cast': _profile('xueyan_xuehai', 'cast', '血海噬灵·开域',
         'A low circle of blood blades opens once; no per-victim domain replay.',
-        sword_count=8, radius=5.6, motion='out', mist_scale=.18, mist_alpha=.42),
+        sword_count=8, radius=5.6, motion='out', mist_scale=.18, mist_alpha=.42,
+        crimson_blade_light=False, sword_model_scale=(1.4, 1.0, .68)),
     'xueyan_xuehai_hit': _profile('xueyan_xuehai', 'impact', '血海噬灵·噬灵斩',
         'A small local blood cut for each actual BloodPulse hit.',
         slash_scale=.65, slash_life=.42, mist_scale=.25, mist_alpha=.6, sword_count=0),
@@ -75,7 +79,8 @@ PROFILES = {
         boundary_alpha=.45, boundary_brightness=.8),
     'xueyan_ranxue_cast': _profile('xueyan_ranxue', 'cast', '燃血入狂·内聚',
         'Four short blood blades and wisps pull inward, then extinguish.',
-        sword_count=4, radius=1.4, motion='in', mist_scale=.24, mist_alpha=.65),
+        sword_count=4, radius=1.4, motion='in', mist_scale=.24, mist_alpha=.65,
+        crimson_blade_light=False, sword_model_scale=(1.4, 1.0, .68)),
     'xueyan_huichao_cast': _profile('xueyan_huichao', 'cast', '回潮·回卷',
         'Six crimson wisps and luminous blood threads converge into the chest, hold briefly and fade for both costs.',
         sword_count=0, radius=2.1, motion='in', mist_scale=.42, mist_alpha=.88,
@@ -241,28 +246,26 @@ def _swords(root, data, key, dictionary, profile, *, hit=False):
     template = next(t for t in source.findall('./trackgroups/trackgroup/track')
                     if t.find('component').get('class') == 'Model')
     group = _group(root, 'Short blood sword accents')
-    # The weapon mesh is a metal surface; Model Color only tints it (XCD).
-    # Brightness cannot turn that material into emissive. Give each actual blade
-    # one independent native unlit emissive Directional_Flare accent instead of
-    # claiming the physical weapon material now emits light.
+    # Preserve the optional native flare for existing profiles. Selected casts
+    # use the actual luminous sword supplied by the SwordGlow postpass alone.
     core_origin = data / fx.PIERCE
     native_core = ET.parse(core_origin).getroot()
     core_template = next(t for t in native_core.findall('./trackgroups/trackgroup/track')
                          if t.find('component') is not None
                          and t.find('component').get('instancename') == CRIMSON_CORE_INSTANCE)
-    cores = _group(root, 'Crimson blade light')
+    cores = _group(root, 'Crimson blade light') if profile.get('crimson_blade_light', True) else None
     for index in range(profile['sword_count']):
         track, model = _clone(template, key, 'Short blood sword', index)
-        seconds = .32 if hit else .72
+        seconds = .32 if hit else profile.get('sword_seconds', .72)
         fx.timing(model, 0, seconds)
         _scalar(dictionary, model, fx.POSITION, '0,0,0')
-        _constant(dictionary, model, fx.MODEL_SCALE, (.8, .8, 1.1) if hit else (.5, .5, .68))
+        _constant(dictionary, model, fx.MODEL_SCALE, (.8, .8, 1.1) if hit else profile.get('sword_model_scale', (.5, .5, .68)))
         fx.recolor(dictionary, model, fx.MODEL_COLOR, BLADE if hit else DEEP_RED)
         _constant(dictionary, model, MODEL_BRIGHTNESS, (2.5,))
         _constant(dictionary, model, 'e5ece95a-a162-4a49-b029-cbc701fb00e4', (0, 0, 0))
         _constant(dictionary, model, 'c57b1310-2df9-4339-bdf8-a97475e121ff', (0, 0, 0))
         fx.replace_ramp(dictionary, model, MODEL_ALPHA, (
-            [(0, 0), (.09, .94), (.35, .8), (.72, 0), (1, 0)],
+            profile.get('sword_alpha_keys', [(0, 0), (.09, .94), (.35, .8), (.72, 0), (1, 0)]),
         ))
         if hit:
             _constant(dictionary, model, MODEL_ROTATION, (0, 0, 25 if key.endswith('wusheng_hit') else -12))
@@ -289,6 +292,8 @@ def _swords(root, data, key, dictionary, profile, *, hit=False):
             yaw = -math.degrees(angle) + (90 if motion == 'in' else -90)
             _constant(dictionary, model, MODEL_ROTATION, (0, yaw, 0))
         group.append(track)
+        if cores is None:
+            continue
         light_track, light = _clone(core_template, key, 'Crimson blade light', index)
         fx.timing(light, 0, .1)
         _blood_particle_color(dictionary, light)
@@ -316,7 +321,7 @@ def _swords(root, data, key, dictionary, profile, *, hit=False):
              for frame in channel.findall('./keyframes/keyframe')]
             for channel in movement.findall('./data/datum/rampchanneldata/rampchannel')))
         cores.append(light_track)
-    return [origin, core_origin]
+    return [origin, core_origin] if cores is not None else [origin]
 
 
 def _domain_boundary(root, data, key, dictionary, profile, duration):

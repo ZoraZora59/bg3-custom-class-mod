@@ -35,9 +35,12 @@ class ClientCandidate(unittest.TestCase):
             path.parent.mkdir(parents=True, exist_ok=True)
         self.official = b'published package v12'
         self.candidate = b'candidate package v10'
+        self.replacement = b'updated candidate package v10'
         environment.PACKAGE.write_bytes(self.official)
         self.source = self.root / 'frozen-candidate.pak'
         self.source.write_bytes(self.candidate)
+        self.replacement_source = self.root / 'updated-candidate.pak'
+        self.replacement_source.write_bytes(self.replacement)
         self.other_pak = environment.PACKAGE.parent / 'other.pak'
         self.other_pak.write_bytes(b'other mod stays unchanged')
         environment.DWRITE.write_bytes(b'installed extender stays unchanged')
@@ -70,11 +73,21 @@ class ClientCandidate(unittest.TestCase):
         self.similar_dir.mkdir()
         (self.similar_dir / 'other.lsv').write_bytes(b'not the dedicated character')
         def metadata(package, destination):
-            return dict(self.candidate_meta if Path(package).read_bytes() == self.candidate else self.official_meta)
+            return dict(self.candidate_meta if Path(package).read_bytes() in
+                        (self.candidate, self.replacement) else self.official_meta)
         environment.package_metadata = metadata
 
     def prepare(self):
         return environment.prepare(self.source, environment.digest(self.source), '1.0.0.10')
+
+    def prepare_replacement(self):
+        return environment.prepare(self.replacement_source, environment.digest(self.replacement_source),
+                                   '1.0.0.10', no_debug=True, replace_active=True)
+
+    def activate(self):
+        path, _ = self.prepare()
+        environment.apply(path)
+        return path, path.read_bytes(), (environment.BASE / 'state.json').read_bytes()
 
     def assert_originals(self):
         self.assertEqual(environment.PACKAGE.read_bytes(), self.official)
@@ -221,6 +234,341 @@ class ClientCandidate(unittest.TestCase):
         self.assertFalse(restored['unrelated_matches_prepare'])
         self.assertTrue(restored['unrelated_unchanged_by_restore'])
         self.assertEqual(environment.PACKAGE.read_bytes(), self.official)
+
+    def test_no_debug_disables_four_flags_preserves_other_settings_and_exact_restore(self):
+        self.se = (b'{"EnableLogging":true,"LogRuntime":true,"LogFailedCompile":true,'
+                   b'"EnableLuaDebugger":true,"CreateConsole":true,"LogDirectory":"original-logs",'
+                   b'"LogCompile":true,"OtherSetting":17}\r\n')
+        environment.SESETTINGS.write_bytes(self.se)
+        path, manifest = environment.prepare(self.source, environment.digest(self.source), no_debug=True)
+        self.assertFalse(manifest['debug_enabled'])
+        self.assert_originals()
+        environment.apply(path)
+        se = environment.read_json(environment.SESETTINGS)
+        for name in ('EnableLogging', 'LogRuntime', 'LogFailedCompile', 'EnableLuaDebugger'):
+            self.assertIs(se[name], False)
+        self.assertIs(se['CreateConsole'], True)
+        self.assertIs(se['LogCompile'], True)
+        self.assertEqual(se['LogDirectory'], 'original-logs')
+        self.assertEqual(se['OtherSetting'], 17)
+        environment.restore(path)
+        self.assert_originals()
+
+    def test_default_debug_mode_keeps_existing_diagnostic_behavior(self):
+        _, manifest = self.prepare()
+        se = environment.read_json(manifest['prepared']['se']['path'])
+        self.assertTrue(manifest['debug_enabled'])
+        for name in ('EnableLogging', 'LogRuntime', 'LogFailedCompile', 'EnableLuaDebugger'):
+            self.assertIs(se[name], True)
+        self.assertIs(se['CreateConsole'], False)
+        self.assertTrue(se['LogDirectory'].endswith('client-logs'))
+
+    def test_cli_accepts_no_debug_and_replace_active(self):
+        old_path, old_manifest, old_state = self.activate()
+        args = ['sword-client-candidate.py', 'prepare', '--candidate', str(self.replacement_source),
+                '--expected-sha', environment.digest(self.replacement_source),
+                '--expected-version', '1.0.0.10', '--no-debug', '--replace-active']
+        with patch('sys.argv', args), patch('builtins.print') as output:
+            self.assertEqual(environment.main(), 0)
+        result = json.loads(output.call_args.args[0])
+        self.assertFalse(result['debug_enabled'])
+        self.assertEqual(result['supersedes_manifest'], str(old_path))
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+
+    def test_replacement_prepare_apply_restore_preserves_progress_and_parent_chain(self):
+        old_path, old_manifest, old_state = self.activate()
+        old_se = environment.SESETTINGS.read_bytes()
+        old_settings = environment.SETTINGS.read_bytes()
+        (self.test_dir / 'AutoSave_0.lsv').write_bytes(b'current dedicated progress')
+        current_tests = environment.test_snapshot()
+        current_other = environment.unrelated_snapshot()
+        path, manifest = self.prepare_replacement()
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        self.assertEqual(manifest['supersedes']['manifest_sha256'], environment.digest(old_path))
+        self.assertEqual(Path(manifest['records']['pak']['backup']).read_bytes(), self.candidate)
+        environment.apply(path)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.replacement)
+        self.assertFalse(environment.read_json(environment.SESETTINGS)['EnableLuaDebugger'])
+        self.assertEqual(environment.test_snapshot(), current_tests)
+        self.assertEqual(environment.unrelated_snapshot(), current_other)
+        (self.test_dir / 'AutoSave_0.lsv').write_bytes(b'newer dedicated progress')
+        new_dir = environment.SAVES / 'ESC_Test_01-new-progress'
+        new_dir.mkdir()
+        (new_dir / 'progress.lsv').write_bytes(b'new dedicated save after update')
+        (self.campaign_dir / 'other.lsv').write_bytes(b'new campaign progress')
+        newer_tests = environment.test_snapshot()
+        newer_other = environment.unrelated_snapshot()
+        _, restored = environment.restore(path)
+        self.assertTrue(restored['saves_unchanged_by_restore'])
+        self.assertNotIn('retired_test_saves', restored)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SETTINGS.read_bytes(), old_settings)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual(environment.test_snapshot(), newer_tests)
+        self.assertEqual(environment.unrelated_snapshot(), newer_other)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        environment.verify_backups(old_path, environment.read_json(old_path))
+
+    def test_replace_active_requires_applied_environment_and_owned_live_files(self):
+        with self.assertRaisesRegex(RuntimeError, 'currently active applied'):
+            self.prepare_replacement()
+        self.assert_originals()
+        old_path, old_manifest, old_state = self.activate()
+        environment.SESETTINGS.write_bytes(b'{"outside_edit":true}')
+        with self.assertRaisesRegex(RuntimeError, 'live file differs.*se'):
+            self.prepare_replacement()
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+
+    def test_replacement_apply_failure_restores_old_files_pointer_and_can_retry(self):
+        old_path, old_manifest, old_state = self.activate()
+        old_se = environment.SESETTINGS.read_bytes()
+        path, _ = self.prepare_replacement()
+        current_tests = environment.test_snapshot()
+        replace = environment.os.replace
+        def fail_se(source, target):
+            if Path(target) == environment.SESETTINGS:
+                raise OSError('simulated locked SE config')
+            return replace(source, target)
+        with patch.object(environment.os, 'replace', side_effect=fail_se):
+            with self.assertRaisesRegex(OSError, 'locked SE config'):
+                environment.apply(path)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual(environment.test_snapshot(), current_tests)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual(environment.read_json(path)['status'], 'prepared')
+        environment.apply(path)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.replacement)
+
+    def test_replacement_apply_state_publication_failure_rolls_back(self):
+        old_path, old_manifest, old_state = self.activate()
+        old_se = environment.SESETTINGS.read_bytes()
+        path, _ = self.prepare_replacement()
+        replace = environment.os.replace
+        failed = False
+        def fail_applied_state(source, target):
+            nonlocal failed
+            if Path(target) == environment.BASE / 'state.json' and not failed:
+                pending = environment.read_json(source)
+                if pending == environment.candidate_state(path, 'applied'):
+                    failed = True
+                    raise OSError('simulated applied pointer failure')
+            return replace(source, target)
+        with patch.object(environment.os, 'replace', side_effect=fail_applied_state):
+            with self.assertRaisesRegex(OSError, 'applied pointer failure'):
+                environment.apply(path)
+        self.assertTrue(failed)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        self.assertEqual(environment.read_json(path)['status'], 'prepared')
+
+    def test_replacement_restore_recovers_interrupted_partial_apply_without_save_writes(self):
+        _, _, old_state = self.activate()
+        old_se = environment.SESETTINGS.read_bytes()
+        path, manifest = self.prepare_replacement()
+        manifest['status'] = 'applying'
+        environment.save_manifest(path, manifest)
+        environment.replace_known(manifest['candidate']['path'], environment.PACKAGE,
+                                  manifest['records']['pak']['sha256'], manifest['candidate']['sha256'])
+        (self.test_dir / 'AutoSave_0.lsv').write_bytes(b'keep interrupted transaction progress')
+        current_tests = environment.test_snapshot()
+        environment.restore(path)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual(environment.test_snapshot(), current_tests)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+
+    def test_replacement_restore_failure_keeps_recoverable_pointer_and_retries(self):
+        _, _, old_state = self.activate()
+        old_se = environment.SESETTINGS.read_bytes()
+        path, _ = self.prepare_replacement()
+        environment.apply(path)
+        current_tests = environment.test_snapshot()
+        replace = environment.os.replace
+        def fail_se(source, target):
+            if Path(target) == environment.SESETTINGS:
+                raise OSError('simulated restore SE failure')
+            return replace(source, target)
+        with patch.object(environment.os, 'replace', side_effect=fail_se):
+            with self.assertRaisesRegex(OSError, 'restore SE failure'):
+                environment.restore(path)
+        self.assertEqual(environment.read_json(path)['status'], 'restore-recovery-required')
+        self.assertEqual(environment.read_json(environment.BASE / 'state.json')['manifest'], str(path))
+        self.assertEqual(environment.test_snapshot(), current_tests)
+        environment.restore(path)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        self.assertEqual(environment.test_snapshot(), current_tests)
+
+    def test_replacement_refuses_stale_parent_state_before_any_live_write(self):
+        self.activate()
+        path, _ = self.prepare_replacement()
+        pointer = environment.BASE / 'state.json'
+        state = environment.read_json(pointer) | {'external_edit': True}
+        environment.write_json(pointer, state)
+        old_se = environment.SESETTINGS.read_bytes()
+        with self.assertRaisesRegex(RuntimeError, 'Active candidate state changed'):
+            environment.apply(path)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual(environment.read_json(pointer), state)
+
+    def test_replacement_refuses_tampered_parent_and_prepared_settings(self):
+        old_path, _, _ = self.activate()
+        path, manifest = self.prepare_replacement()
+        parent_bytes = old_path.read_bytes()
+        old_path.write_bytes(parent_bytes + b' ')
+        with self.assertRaisesRegex(RuntimeError, 'Superseded candidate manifest changed'):
+            environment.apply(path)
+        old_path.write_bytes(parent_bytes)
+        Path(manifest['prepared']['se']['path']).write_bytes(b'{"EnableLuaDebugger":true}')
+        with self.assertRaisesRegex(RuntimeError, 'Prepared configuration changed: se'):
+            environment.apply(path)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+
+    def test_replacement_rollback_pointer_failure_can_recover_without_save_changes(self):
+        _, _, old_state = self.activate()
+        old_se = environment.SESETTINGS.read_bytes()
+        path, _ = self.prepare_replacement()
+        current_tests = environment.test_snapshot()
+        replace = environment.os.replace
+        def fail_se_and_parent_pointer(source, target):
+            if Path(target) == environment.SESETTINGS:
+                raise OSError('simulated apply SE failure')
+            if Path(target) == environment.BASE / 'state.json' and Path(source).read_bytes() == old_state:
+                raise OSError('simulated parent pointer failure')
+            return replace(source, target)
+        with patch.object(environment.os, 'replace', side_effect=fail_se_and_parent_pointer):
+            with self.assertRaisesRegex(OSError, 'apply SE failure'):
+                environment.apply(path)
+        self.assertEqual(environment.read_json(path)['status'], 'apply-recovery-required')
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), old_se)
+        self.assertEqual(environment.read_json(environment.BASE / 'state.json')['manifest'], str(path))
+        environment.restore(path)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        self.assertEqual(environment.test_snapshot(), current_tests)
+
+    def test_replacement_restore_refuses_foreign_pointer_before_any_live_write(self):
+        self.activate()
+        path, _ = self.prepare_replacement()
+        environment.apply(path)
+        pointer = environment.BASE / 'state.json'
+        foreign = environment.read_json(pointer) | {'external_edit': True}
+        environment.write_json(pointer, foreign)
+        current_tests = environment.test_snapshot()
+        current_se = environment.SESETTINGS.read_bytes()
+        with self.assertRaisesRegex(RuntimeError, 'Active candidate state changed'):
+            environment.restore(path)
+        self.assertEqual(environment.read_json(pointer), foreign)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.replacement)
+        self.assertEqual(environment.SESETTINGS.read_bytes(), current_se)
+        self.assertEqual(environment.test_snapshot(), current_tests)
+
+    def test_two_prepared_replacements_cannot_overwrite_each_other(self):
+        self.activate()
+        first_path, _ = self.prepare_replacement()
+        second_path, _ = self.prepare_replacement()
+        environment.apply(first_path)
+        with self.assertRaisesRegex(RuntimeError, 'Installed file changed|Active candidate state changed'):
+            environment.apply(second_path)
+        self.assertEqual(environment.read_json(environment.BASE / 'state.json')['manifest'], str(first_path))
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.replacement)
+
+    def test_replacement_chain_can_restore_each_parent_and_original(self):
+        old_path, old_manifest, old_state = self.activate()
+        first_path, _ = self.prepare_replacement()
+        environment.apply(first_path)
+        first_manifest = first_path.read_bytes()
+        first_state = (environment.BASE / 'state.json').read_bytes()
+        second_path, _ = self.prepare_replacement()
+        environment.apply(second_path)
+        environment.restore(second_path)
+        self.assertEqual(first_path.read_bytes(), first_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), first_state)
+        environment.restore(first_path)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        environment.restore(old_path)
+        self.assert_originals()
+
+    def test_replacement_preserves_new_other_mod_rows_as_byte_exact_settings_baseline(self):
+        old_path, old_manifest, old_state = self.activate()
+        parent_settings_sha = environment.read_json(old_path)['prepared']['settings']['sha256']
+        extra_row = (b'<node id="ModuleShortDesc"><attribute id="UUID" value="new-other-mod"/>'
+                     b'<attribute id="Name" value="New Other Mod &amp; Spaces"/></node>\r\n')
+        current_settings = environment.SETTINGS.read_bytes().replace(self.suffix, extra_row + self.suffix)
+        environment.SETTINGS.write_bytes(current_settings)
+        current_sha = environment.digest(environment.SETTINGS)
+        self.assertNotEqual(current_sha, parent_settings_sha)
+        path, manifest = self.prepare_replacement()
+        self.assertEqual(manifest['supersedes']['accepted_settings_sha256'], current_sha)
+        self.assertEqual(manifest['records']['settings']['sha256'], current_sha)
+        self.assertEqual(Path(manifest['records']['settings']['backup']).read_bytes(), current_settings)
+        self.assertEqual(Path(manifest['prepared']['settings']['path']).read_bytes(), current_settings)
+        self.assertEqual(environment.SETTINGS.read_bytes(), current_settings)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        environment.apply(path)
+        self.assertEqual(environment.SETTINGS.read_bytes(), current_settings)
+        environment.restore(path)
+        self.assertEqual(environment.SETTINGS.read_bytes(), current_settings)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+        # The legacy manifest cannot silently erase additions accepted by the replacement.
+        with self.assertRaisesRegex(RuntimeError, 'unknown live file SHA: settings'):
+            environment.restore(old_path)
+        self.assertEqual(environment.SETTINGS.read_bytes(), current_settings)
+
+    def test_replacement_refuses_esc_metadata_changes_even_when_other_rows_change(self):
+        old_path, old_manifest, old_state = self.activate()
+        changed = environment.SETTINGS.read_bytes().replace(
+            b'value="36028797018963978"', b'value="36028797018963979"')
+        environment.SETTINGS.write_bytes(changed)
+        with self.assertRaisesRegex(RuntimeError, 'ESC settings metadata differs'):
+            self.prepare_replacement()
+        self.assertEqual(environment.SETTINGS.read_bytes(), changed)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+        self.assertEqual(old_path.read_bytes(), old_manifest)
+        self.assertEqual((environment.BASE / 'state.json').read_bytes(), old_state)
+
+    def test_replacement_refuses_unknown_esc_row_changes_with_same_six_values(self):
+        self.activate()
+        changed = environment.SETTINGS.read_bytes().replace(
+            b'<attribute id="MD5" type="LSString"', b'<attribute id="MD5" type="FixedString"', 1)
+        environment.SETTINGS.write_bytes(changed)
+        self.assertEqual(environment.settings_metadata(changed), self.candidate_meta)
+        with self.assertRaisesRegex(RuntimeError, 'ESC settings row changed'):
+            self.prepare_replacement()
+        self.assertEqual(environment.SETTINGS.read_bytes(), changed)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
+
+    def test_replacement_rechecks_accepted_settings_hash_and_backup(self):
+        self.activate()
+        current = environment.SETTINGS.read_bytes() + b'\r\n<!-- other settings edit -->\r\n'
+        environment.SETTINGS.write_bytes(current)
+        path, manifest = self.prepare_replacement()
+        manifest['supersedes']['accepted_settings_sha256'] = '0' * 64
+        environment.write_json(path, manifest)
+        with self.assertRaisesRegex(RuntimeError, 'rollback file differs.*settings'):
+            environment.apply(path)
+        manifest['supersedes']['accepted_settings_sha256'] = manifest['records']['settings']['sha256']
+        environment.write_json(path, manifest)
+        Path(manifest['records']['settings']['backup']).write_bytes(current + b' ')
+        with self.assertRaisesRegex(RuntimeError, 'baseline settings backup changed'):
+            environment.apply(path)
+        self.assertEqual(environment.SETTINGS.read_bytes(), current)
+        self.assertEqual(environment.PACKAGE.read_bytes(), self.candidate)
 
 
 if __name__ == '__main__':

@@ -98,8 +98,8 @@ PROFILES = {
         '共同护体的绕剑之外，青白双弧与极淡护壳提供更强返照读点。',
         count=0, wisps=2, radius=1.4, height=1.05, shell_alpha=.07, rgb=WHITE),
     'taixuan_taiqing_status': _profile('taixuan_taiqing', 'status', '太清：六米剑域',
-        '六柄低亮气剑沿六米随身边界环行，周期攻击之间保持稀疏。',
-        count=6, wisps=1, radius=6.0, height=.3, shell_alpha=0, rgb=CYAN),
+        '十二柄清晰青白飞剑沿六米随身边界等距环行，持续标明剑域。',
+        count=12, wisps=1, radius=6.0, height=.3, shell_alpha=0, rgb=CYAN),
 }
 
 
@@ -393,8 +393,9 @@ def _native_motifs(data, key, root, dictionary):
     if key.endswith('_cast') or key.endswith('_status'):
         swords = [c for c in root.findall('./trackgroups/trackgroup/track/component[@class="Model"]')
                   if LONGSWORD in _native_prop(c, fx.MESH).find('data/datum').get('value', '')]
-        _native_upgrade_swords(swords, 6)
-        detail.update(native_sword_count=6, original_sword_world_aabb_preserved=True,
+        count = PROFILES[key]['count']
+        _native_upgrade_swords(swords, count)
+        detail.update(native_sword_count=count, original_sword_world_aabb_preserved=True,
                       original_orbit_alpha_and_timing_preserved=True)
     if key.endswith('_hit') or key.endswith('_status'):
         template, origin = _native_sword_template(data, dictionary)

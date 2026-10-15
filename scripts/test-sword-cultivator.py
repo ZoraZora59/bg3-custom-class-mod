@@ -328,10 +328,44 @@ class GeneratedDataTest(unittest.TestCase):
             self.assertTrue(stats[spell]['ExtraDescriptionParams'],spell)
         self.assertEqual(stats['Projectile_ESC_ChainMove']['TargetRadius'],'6')
 
+    def test_native_zone_shapes_follow_supported_selector_contract(self):
+        # Native Shared/SharedDev Spell_Zone definitions use Cone or Square.
+        # LightningBolt (Range 30/Base 2) and Sunbeam use Square without Angle.
+        # Keep this recorded native contract portable; no extracted-game files
+        # are required to run CI. Shape is only FixedString in Modifiers.txt,
+        # so a syntactically accepted value such as Line needs this check.
+        supported={'Cone','Square'}
+        def unsupported(rows):
+            return {name:row.get('Shape') for name,row in rows.items()
+                if row.get('Shape') not in supported}
+        self.assertEqual(unsupported({'cone':{'Shape':'Cone'},'line':{'Shape':'Square'}}),{})
+        self.assertEqual(unsupported({'invalid':{'Shape':'Line'}}),{'invalid':'Line'})
+        text=(SOURCE/'Public'/FOLDER/'Stats/Generated/Data/Spell_Zone.txt').read_text(encoding='utf-8')
+        stats={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
+            for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        zones={name:row for name,row in stats.items() if row.get('SpellType')=='Zone'}
+        self.assertTrue(zones,'No generated Zone spells were checked')
+        self.assertEqual(unsupported(zones),{},'Unsupported native Zone selector')
+        for name in ('Zone_ESC_taixuan_yixiantian','Zone_ESC_tianqing_nifeng',
+                'Zone_ESC_tianqing_nifeng_RangedOff_Bonus'):
+            with self.subTest(spell=name):
+                self.assertEqual(zones[name]['Shape'],'Square')
+                self.assertEqual(float(zones[name].get('Angle',0)),0)
+
     def test_native_spell_inheritance_cannot_add_offhand_costs_healing_text_or_foreign_container_children(self):
         text='\n'.join(path.read_text(encoding='utf-8') for path in (SOURCE/'Public'/FOLDER/'Stats/Generated/Data').glob('Spell_*.txt'))
         stats={name:dict(re.findall(r'^data "([^"]+)" "([^"]*)"$',body,re.M))
             for name,body in re.findall(r'new entry "([^"]+)"\n(.*?)(?=new entry |\Z)',text,re.S)}
+        # Selector geometry must retain the confirmed design dimensions for both
+        # paid roots and the independently generated Nifeng offhand entry.
+        for key in ('taixuan_yixiantian','tianqing_nifeng'):
+            names=['Zone_ESC_'+key]
+            if key=='tianqing_nifeng': names.append('Zone_ESC_'+key+'_RangedOff_Bonus')
+            for name in names:
+                row=stats[name]
+                self.assertEqual(float(row['Range']),SPELLS[key]['range'],name)
+                self.assertEqual(float(row['Base']),SPELLS[key]['radius'],name)
+                self.assertEqual(float(row.get('FrontOffset',0)),0,name)
         damage_targets=save_spells=0;containers=set()
         for name,row in stats.items():
             # Explicit empty overrides are required: omitting these fields
@@ -1021,12 +1055,24 @@ if __name__=='__main__':
             REPO/'docs/20-eastern-sword-cultivator-gdd.md',REPO/'docs/21-player-facing-skill-text-draft.md',
             REPO/'scripts/tests/esc_engine_fixture.lua',REPO/'scripts/tests/test_esc_bridge.py',
             REPO/'scripts/tests/test_esc_continuous_strikes.py',
+            REPO/'scripts/tests/test_esc_yixiantian_helpers.py',
             REPO/'scripts/tests/test_esc_guard_lifecycle.py',REPO/'scripts/tests/test_guard_vfx_binding.py',
             REPO/'scripts/tests/test_toolkit_log_analyzer.py',REPO/'scripts/analyze-sword-toolkit-log.py',
             REPO/'scripts/sword_player_text.json'])
         source_paths.extend((REPO/'scripts').glob('*visual*polish*.py'))
         source_paths.extend((REPO/'scripts/tests').glob('test_*visual*polish*.py'))
+        source_paths.extend([REPO/'scripts/sword_glow.py',REPO/'scripts/world_beam_materials.py',
+            REPO/'scripts/sword_visible_blade.py',
+            REPO/'scripts/yixiantian_vfx.py',REPO/'scripts/nifeng_vfx.py',
+            REPO/'scripts/xingge_support_v2.py',REPO/'scripts/nixue_v2.py',
+            REPO/'scripts/tests/test_yixiantian_world_beam.py',REPO/'scripts/tests/test_nifeng_world_line.py'])
         source_paths.append(REPO/'scripts/tests/test_esc_school_visual_lifecycle.py')
+        source_paths.append(REPO/'scripts/tests/test_esc_xingge_visual_events.py')
+        source_paths.append(REPO/'scripts/tests/test_esc_support_reward_timing.py')
+        source_paths.append(REPO/'scripts/tests/test_esc_cooperation_routing.py')
+        source_paths.append(REPO/'scripts/tests/test_esc_healing_reward.py')
+        source_paths.extend([REPO/'scripts/tests/test_esc_persistent_boost_restore.py',
+            REPO/'scripts/tests/esc_native_boost_fixture.lua'])
         source_paths.extend([REPO/'scripts/sword_projectile_readability.py',
             REPO/'scripts/tests/test_esc_auto_focus.py',
             REPO/'scripts/tests/test_taixuan_native_event_order.py',
@@ -1037,6 +1083,11 @@ if __name__=='__main__':
             REPO/'scripts/tests/test_esc_bloodsea_turn_start_delay.py',
             REPO/'scripts/tests/test_esc_auto_sword.py',
             REPO/'scripts/tests/test_esc_shield_equipment.py'])
+        source_paths.extend([REPO/'scripts/tests/test_esc_item_targets.py',
+            REPO/'scripts/tests/test_esc_item_target_runtime.py'])
+        source_paths.extend([REPO/'scripts/tests/test_esc_runtime_performance.py',
+            REPO/'scripts/sword-client-candidate.py',
+            REPO/'scripts/tests/test_sword_client_candidate.py'])
         return {str(p.relative_to(REPO)):hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else 'missing'
             for p in source_paths}
     hashes=source_hashes()

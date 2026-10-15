@@ -12070,7 +12070,7 @@
         <id value="83" />
       </ids>
       <track name="Short blood sword 1" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="805b1e22-107d-59e3-9c0d-6dffc5bf1f31">
+        <component class="Model" start="0" end="1" instancename="805b1e22-107d-59e3-9c0d-6dffc5bf1f31">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -12079,7 +12079,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -12093,20 +12093,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -12158,7 +12158,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-0.246479510742,0.00426396612249,3.49453614843e-09" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-0.418552874881,0.00546399724552,9.78470119527e-09" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -12396,8 +12396,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -12531,7 +12532,7 @@
         </component>
       </track>
       <track name="Short blood sword 2" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="302386ff-9811-5cf9-83ce-9e596034841f">
+        <component class="Model" start="0" end="1" instancename="302386ff-9811-5cf9-83ce-9e596034841f">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -12540,7 +12541,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -12554,20 +12555,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -12619,7 +12620,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-0.17428733594,0.00426396612249,-0.174287330998" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-0.295961583033,0.00546399724552,-0.295961569196" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -12857,8 +12858,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -12992,7 +12994,7 @@
         </component>
       </track>
       <track name="Short blood sword 3" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="1fa20058-1273-56d6-8eac-0b75bf200cd7">
+        <component class="Model" start="0" end="1" instancename="1fa20058-1273-56d6-8eac-0b75bf200cd7">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -13001,7 +13003,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -13015,20 +13017,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -13080,7 +13082,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-3.49453616352e-09,0.00426396612249,-0.246479510742" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-9.7847012209e-09,0.00546399724552,-0.418552874881" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -13318,8 +13320,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -13453,7 +13456,7 @@
         </component>
       </track>
       <track name="Short blood sword 4" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="05b755c8-b594-50cf-8678-aa7f69d7c664">
+        <component class="Model" start="0" end="1" instancename="05b755c8-b594-50cf-8678-aa7f69d7c664">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -13462,7 +13465,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -13476,20 +13479,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -13541,7 +13544,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0.174287330998,0.00426396612249,-0.17428733594" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0.295961569196,0.00546399724552,-0.295961583033" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -13779,8 +13782,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -13914,7 +13918,7 @@
         </component>
       </track>
       <track name="Short blood sword 5" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="0e481b04-22d0-5b2d-bb6e-d54d90e89ae3">
+        <component class="Model" start="0" end="1" instancename="0e481b04-22d0-5b2d-bb6e-d54d90e89ae3">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -13923,7 +13927,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -13937,20 +13941,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -14002,7 +14006,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0.246479510742,0.00426396612249,-3.49453617862e-09" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0.418552874881,0.00546399724552,-9.78470123723e-09" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -14240,8 +14244,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -14375,7 +14380,7 @@
         </component>
       </track>
       <track name="Short blood sword 6" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="3a5631e8-0aeb-53eb-b5fa-133feaba35b6">
+        <component class="Model" start="0" end="1" instancename="3a5631e8-0aeb-53eb-b5fa-133feaba35b6">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -14384,7 +14389,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -14398,20 +14403,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -14463,7 +14468,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0.17428733594,0.00426396612249,0.174287330998" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0.295961583033,0.00546399724552,0.295961569196" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -14701,8 +14706,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -14836,7 +14842,7 @@
         </component>
       </track>
       <track name="Short blood sword 7" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="fdcac51c-9cf8-558b-817b-c3db3d0d06ac">
+        <component class="Model" start="0" end="1" instancename="fdcac51c-9cf8-558b-817b-c3db3d0d06ac">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -14845,7 +14851,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -14859,20 +14865,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -14924,7 +14930,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="3.49453619371e-09,0.00426396612249,0.246479510742" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="9.78470127215e-09,0.00546399724552,0.418552874881" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -15162,8 +15168,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -15297,7 +15304,7 @@
         </component>
       </track>
       <track name="Short blood sword 8" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.72" instancename="746c2f01-fdde-5cb8-8600-d94268ec987e">
+        <component class="Model" start="0" end="1" instancename="746c2f01-fdde-5cb8-8600-d94268ec987e">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -15306,7 +15313,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.72" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,1" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -15320,20 +15327,20 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="85d71589-284d-41c9-86df-8013ec9f6f4e" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.349453614" />
-                        <keyframe time="1" value="0.349453614" />
+                        <keyframe time="0" value="0.97847011785" />
+                        <keyframe time="1" value="0.97847011785" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5e94baa5-e33b-4680-9c73-2a620b90e8a6" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.526034478" />
-                        <keyframe time="1" value="0.526034478" />
+                        <keyframe time="0" value="0.850938126003" />
+                        <keyframe time="1" value="0.850938126003" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="6baff810-2d28-492c-abfb-5a728c9fb357" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.850776058" />
-                        <keyframe time="1" value="0.850776058" />
+                        <keyframe time="0" value="1.70155211671" />
+                        <keyframe time="1" value="1.70155211671" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -15385,7 +15392,7 @@
             </property>
             <property id="47a42cb9-3508-427e-8a09-8d8cc74771b7">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-0.174287330998,0.00426396612249,0.17428733594" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="-0.295961569196,0.00546399724552,0.295961583033" />
               </data>
             </property>
             <property id="37b047c1-8fb7-4e7c-9319-58db9da44e77">
@@ -15623,8 +15630,9 @@
                       <keyframes>
                         <keyframe time="0" value="0" />
                         <keyframe time="0.09" value="0.94" />
-                        <keyframe time="0.35" value="0.8" />
-                        <keyframe time="0.72" value="0" />
+                        <keyframe time="0.4" value="0.9" />
+                        <keyframe time="0.65" value="0.8" />
+                        <keyframe time="0.9" value="0" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -15853,14 +15861,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -17346,14 +17354,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -18839,14 +18847,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -20332,14 +20340,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -21825,14 +21833,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -23318,14 +23326,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -24811,14 +24819,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>
@@ -26304,14 +26312,14 @@
                   <rampchanneldata>
                     <rampchannel type="Linear" id="352fac77-0097-47ec-908c-7c0d334fc161" selected="True">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                     <rampchannel type="Linear" id="5d1a5586-f360-4f08-a609-e649c8731a38" selected="False">
                       <keyframes>
-                        <keyframe time="0" value="0.72" />
-                        <keyframe time="1" value="0.72" />
+                        <keyframe time="0" value="1" />
+                        <keyframe time="1" value="1" />
                       </keyframes>
                     </rampchannel>
                   </rampchanneldata>

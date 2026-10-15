@@ -13,6 +13,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / 'scripts'))
 import school_visual_polish as polish
 from sword_cultivator_spec import FOLDER
+from sword_spell_presentation import EFFECT_FIELDS, SOUND_FIELDS, SELF_UTILITY, present_spell
 SOURCE = REPO / 'mods/EasternSwordCultivator/Source'
 
 
@@ -89,6 +90,73 @@ class SchoolPolishBindingSafety(unittest.TestCase):
         self.assertEqual(polish.status_bindings('ESC_SWORD_DOMAIN', sword), {})
         self.assertEqual(polish.status_bindings('ESC_VFX_SWORD_DOMAIN', sword), {'StatusEffect': 'taixuan_taiqing_status'})
 
+    def test_xingge_assistance_attaches_to_selected_target_without_caster_burst(self):
+        for skill in ('huifeng', 'fuchen', 'chengfeng', 'xiangfu'):
+            key = 'xingge_' + skill
+            records = {'target': sample(key, 'target')}
+            result = polish.spell_bindings('Target_ESC_' + key,
+                dict(SpellType='Target', SpellProperties='ApplyStatus(ESC_CAST_' + key.upper() + ',100,0)'), records)
+            self.assertEqual(result['TargetEffect'], key + '_target')
+            self.assertEqual(result['CastEffect'], '')
+            self.assertEqual(result['PrepareEffect'], '')
+            self.assertFalse(any(k in result for k in ('SpellProperties', 'UseCosts', 'SpellAnimation', 'SpellFlags')))
+        editor, _ = polish._mei('xingge_xiangfu_target', {'binding': 'target'})
+        self.assertEqual(editor[0].get('TargetBone'), 'Dummy_Root')
+        self.assertEqual(editor[0].get('BindTargetTo'), 'TargetEntity')
+        self.assertEqual(editor[0].get('DetachTarget'), 'false')
+        self.assertNotIn('StartTextKey', editor[0].attrib)
+
+    def test_xingge_event_cues_and_domain_markers_cannot_play_on_generic_cast(self):
+        for key in ('xingge_wenlu', 'xingge_fengyu'):
+            records = {'event': sample(key, 'target')}
+            self.assertEqual(polish.spell_bindings('Target_ESC_' + key,
+                dict(SpellType='Target'), records), {})
+        for mechanism, visual, key in (
+            ('ESC_DAMAGE_SHARE', 'ESC_VFX_DAMAGE_SHARE', 'xingge_fengyu'),
+            ('ESC_TEAM_RESONANCE', 'ESC_VFX_TEAM_RESONANCE', 'xingge_zhangjian')):
+            records = {'node': sample(key, 'status')}
+            self.assertEqual(polish.status_bindings(mechanism, records), {})
+            self.assertEqual(polish.status_bindings(visual, records), {'StatusEffect': key + '_status'})
+
+    def test_xingge_domains_replace_action_surge_visuals_with_recipient_status_only(self):
+        for key, visual, cost in (
+            ('xingge_fengyu', 'ESC_VFX_DAMAGE_SHARE', 10),
+            ('xingge_zhangjian', 'ESC_VFX_TEAM_RESONANCE', 20)):
+            with self.subTest(skill=key):
+                name = 'Shout_ESC_' + key
+                records = {'node': sample(key, 'status')}
+                # Match entry(): native presentation first, polish override last.
+                native = present_spell(name, dict(SpellType='Shout', TargetConditions='Self()',
+                    SpellProperties='ApplyStatus(ESC_CAST_' + key.upper() + ',100,0)',
+                    UseCosts='ActionPoint:1;ESC_SwordYuan:' + str(cost)), 'Shout_SecondWind')
+                self.assertEqual(native['PrepareEffect'], SELF_UTILITY['PrepareEffect'])
+                self.assertEqual(native['CastEffect'], SELF_UTILITY['CastEffect'])
+                binding = polish.spell_bindings(name, native, records)
+                applied = {**native, **binding}
+                self.assertEqual({field: applied[field] for field in EFFECT_FIELDS},
+                                 {field: '' for field in EFFECT_FIELDS})
+                self.assertEqual({field: value for field, value in applied.items() if field not in EFFECT_FIELDS},
+                                 {field: value for field, value in native.items() if field not in EFFECT_FIELDS})
+                self.assertEqual(applied['SpellAnimation'], SELF_UTILITY['SpellAnimation'])
+                self.assertEqual({field: applied[field] for field in SOUND_FIELDS},
+                                 {field: native[field] for field in SOUND_FIELDS})
+                self.assertEqual(polish.status_bindings(visual, records), {'StatusEffect': key + '_status'})
+                self.assertEqual(polish.spell_bindings(name, native, {}), {})
+
+    def test_xingge_domain_cleanup_keeps_other_schools_and_real_resonance_hit(self):
+        for key in ('taixuan_taiqing', 'xueyan_xuehai'):
+            with self.subTest(skill=key):
+                records = {'node': sample(key, 'status')}
+                native = present_spell('Shout_ESC_' + key, dict(SpellType='Shout'), 'Shout_SecondWind')
+                self.assertEqual(polish.spell_bindings('Shout_ESC_' + key, native, records), {})
+        records = {'node': sample('xingge_zhangjian', 'status'),
+                   'hit': sample('xingge_zhangjian', 'hit')}
+        helper = polish.spell_bindings('Target_ESC_Resonance',
+            dict(SpellType='Target', SpellSuccess='DealDamage(2d6,Force)'), records)
+        self.assertEqual(helper['HitEffect'], 'xingge_zhangjian_hit')
+        self.assertEqual(helper['CastEffect'], '')
+        self.assertNotIn('SpellAnimation', helper)
+
     def test_invalid_compile_receipt_cannot_write_or_enable_bindings(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory)
@@ -111,6 +179,8 @@ class SchoolPolishBindingSafety(unittest.TestCase):
             self.assertEqual(polish.digest(SOURCE / editor), proof[polish.effect_name(key)]['source_sha256'])
             self.assertEqual(polish.digest(SOURCE / binary), proof[polish.effect_name(key)]['compiled_sha256'])
         rows = stats()
+        self.assertEqual(rows['ESC_IN_FLIGHT']['StatusEffect'],
+                         polish.mei_guid('common_sword_flight_status'))
         self.assertNotIn('StatusEffect', rows['ESC_BLOOD_ROBE'])
         self.assertEqual(rows['ESC_VFX_BLOOD_DOMAIN']['StatusEffect'], polish.mei_guid('xueyan_xuehai_status'))
         self.assertNotIn('StatusEffect', rows['ESC_SWORD_DOMAIN'])

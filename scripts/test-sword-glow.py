@@ -55,9 +55,40 @@ class SwordGlowTests(unittest.TestCase):
     def test_owned_resources_are_distinct_and_cover_all_palettes(self):
         ids={glow.visual_id(s,shape)for s in glow.PALETTES for shape in ('sword','circle')}
         self.assertEqual(len(ids),10)
-        self.assertEqual(ids,set(glow.dependencies()))
         self.assertNotIn(glow.SWORD,ids)
         self.assertNotIn(glow.CIRCLE,ids)
+        halo=glow.support_halo_visual_id()
+        self.assertEqual(halo,'2d653cbd-1a81-59c1-a999-7b2dfde68f50')
+        self.assertNotIn(halo,ids|{glow.SWORD,glow.CIRCLE})
+        expected={glow.visual_id(s,shape):(glow.material_id(s,shape),)
+                  for s in glow.PALETTES for shape in ('sword','circle')}
+        expected[halo]=(glow.material_id('xingge','circle'),)
+        self.assertEqual(glow.dependencies(),expected)
+
+        # Check the emitted bank too: an in-memory dependency alone cannot
+        # establish that the new halo and its existing soft material resolve.
+        base=glow.TEMPLATES.parents[2]/f'mods/EasternSwordCultivator/Source/Public/{glow.FOLDER}/Content/Assets/Effects'
+        def attr(node,key):return node.find(f'./attribute[@id="{key}"]').get('value')
+        def bank(folder,kind):
+            nodes=ET.parse(base/folder/'[PAK]_ESC_SwordGlow/_merged.lsx').findall(
+                f'./region[@id="{kind}Bank"]/node/children/node[@id="Resource"]')
+            result={attr(n,'ID'):n for n in nodes}
+            self.assertEqual(len(nodes),len(result),'Duplicate owned resource ID')
+            return result
+        visuals=bank('Models','Visual');materials=bank('Materials','Material')
+        self.assertEqual(set(visuals),ids|{halo})
+        for visual,dependency in expected.items():
+            with self.subTest(visual=visual):
+                objects=visuals[visual].findall('./children/node[@id="Objects"]')
+                self.assertTrue(objects)
+                self.assertEqual({attr(o,'MaterialID')for o in objects},set(dependency))
+                self.assertTrue(set(dependency)<=set(materials))
+        original=ET.parse(glow.TEMPLATES).find('Sword/node')
+        self.assertEqual(attr(visuals[halo],'Name'),'ESC_Xingge_Support_SwordHalo')
+        for key in ('SourceFile','Template','BoundsMin','BoundsMax'):
+            self.assertEqual(attr(visuals[halo],key),attr(original,key))
+        def lods(node):return [(attr(o,'LOD'),attr(o,'ObjectID'))for o in node.findall('./children/node[@id="Objects"]')]
+        self.assertEqual(lods(visuals[halo]),lods(original))
 
 
 if __name__=='__main__':unittest.main(verbosity=2)

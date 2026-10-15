@@ -1,6 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <effect version="0.0" effectversion="1.0.0" id="0905a398-14ba-5a50-8dda-656267136d8c">
-  <phases />
+  <phases>
+    <object class="" classid="00000000-0000-0000-0000-000000000000" assembly="">
+      <data id="9ee07c10-2db9-52ce-b2c4-f976058b2816" duration="0.1" playcount="1" definitionid="fc34bad5-e4a8-4855-bdd1-ece88d327719" />
+    </object>
+    <object class="" classid="00000000-0000-0000-0000-000000000000" assembly="">
+      <data id="bc158196-076e-5160-826d-f35facd50916" duration="0.1" playcount="-1" definitionid="2d6a16c1-4632-4f7f-8097-4717dc65d7bd" />
+    </object>
+    <object class="" classid="00000000-0000-0000-0000-000000000000" assembly="">
+      <data id="85df127c-d6bb-5398-82c6-0d9091cc38e5" duration="0.3" playcount="1" definitionid="fc8e9f77-827a-433f-a58d-ad1007605399" />
+    </object>
+  </phases>
   <colors />
   <trackgroups>
     <trackgroup name="Whole falling effect bounds">
@@ -8,7 +18,7 @@
         <id value="1" />
       </ids>
       <track name="Ground fall bounds 1" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="BoundingSphere" start="0" end="0.85" instancename="fecb411b-1df1-5910-b034-aa89e48eeeb5">
+        <component class="BoundingSphere" start="0" end="0.5" instancename="fecb411b-1df1-5910-b034-aa89e48eeeb5">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -17,7 +27,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.85" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.5" />
               </data>
             </property>
             <property id="c1115291-39d1-43a2-8259-31c2ef4dbd93">
@@ -49,7 +59,7 @@
         <id value="2" />
       </ids>
       <track name="Tianfeng forward greatsword" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.85" instancename="780ab7f8-4099-5ab8-adbb-f3c03c127bec">
+        <component class="Model" start="0" end="0.5" instancename="780ab7f8-4099-5ab8-adbb-f3c03c127bec">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -58,7 +68,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.85" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.5" />
               </data>
             </property>
             <property id="5c2711b8-7165-4ef0-8496-5d901268d9d9">
@@ -207,8 +217,8 @@
                     <rampchannel type="Linear" id="abb3483f-3e08-4e5e-be32-ebbdf1f6a11b" selected="True">
                       <keyframes>
                         <keyframe time="0" value="0" />
-                        <keyframe time="0.0411764706" value="1" />
-                        <keyframe time="0.647058824" value="1" />
+                        <keyframe time="0.07" value="1" />
+                        <keyframe time="0.4" value="1" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -512,7 +522,7 @@
         <id value="3" />
       </ids>
       <track name="Tianfeng side stream 1" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.65" instancename="e8052054-7d6a-5d46-9480-7b04c199e4ac">
+        <component class="Model" start="0" end="0.5" instancename="e8052054-7d6a-5d46-9480-7b04c199e4ac">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -521,7 +531,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.65" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.5" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -605,8 +615,8 @@
                     <rampchannel type="Linear" id="abb3483f-3e08-4e5e-be32-ebbdf1f6a11b" selected="True">
                       <keyframes>
                         <keyframe time="0" value="0" />
-                        <keyframe time="0.0923076923" value="0.18" />
-                        <keyframe time="0.615384615" value="0.18" />
+                        <keyframe time="0.12" value="0.18" />
+                        <keyframe time="0.4" value="0.18" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>
@@ -968,7 +978,7 @@
         </component>
       </track>
       <track name="Tianfeng side stream 2" muted="False" locked="False" mutestateoverride="Unmuted">
-        <component class="Model" start="0" end="0.65" instancename="b1bcac27-8f80-5b20-9cdb-85727b438f18">
+        <component class="Model" start="0" end="0.5" instancename="b1bcac27-8f80-5b20-9cdb-85727b438f18">
           <properties>
             <property id="ef1d7d1e-02b6-4548-80d9-5ef2fbcda237">
               <data>
@@ -977,7 +987,7 @@
             </property>
             <property id="035b5248-d0ca-44b7-853f-3acb84110e67">
               <data>
-                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.65" />
+                <datum platform="00000000-0000-0000-0000-000000000000" lod="00000000-0000-0000-0000-000000000000" value="0,0.5" />
               </data>
             </property>
             <property id="15864e49-e811-41aa-9f27-f2ca410a13cf">
@@ -1061,8 +1071,8 @@
                     <rampchannel type="Linear" id="abb3483f-3e08-4e5e-be32-ebbdf1f6a11b" selected="True">
                       <keyframes>
                         <keyframe time="0" value="0" />
-                        <keyframe time="0.0923076923" value="0.18" />
-                        <keyframe time="0.615384615" value="0.18" />
+                        <keyframe time="0.12" value="0.18" />
+                        <keyframe time="0.4" value="0.18" />
                         <keyframe time="1" value="0" />
                       </keyframes>
                     </rampchannel>

@@ -143,4 +143,93 @@ class CastVisual(unittest.TestCase):
         self.assertEqual(self.calls('PlayLoopEffectAtPosition'),[])
         self.assertEqual(len(self.calls('PlayEffectAtPosition')),1)
 
+class AttachedCastVisual(unittest.TestCase):
+    """Exercise the optional module input before Runtime's one-line wiring.
+
+    Existing CastVisual cases above still run the production Runtime listeners.
+    This boundary proves handles/lifecycle, not native bone orientation.
+    """
+    def setUp(self):
+        self.h=CastVisual();self.h.setUp()
+        self.lua,self.F=self.h.lua,self.h.F
+        self.lua.execute("""
+        function Osi.PlayLoopEffect(...)
+            assert(select('#',...)==4,'PlayLoopEffect: four inputs, one return')
+            local F=Fixture;F.nextFx=F.nextFx+1;local h=F.nextFx
+            F.calls[#F.calls+1]={name='PlayLoopEffect',args={...},at=F.now,handle=h}
+            if F.noFxHandle then return nil end
+            F.fx[h]={...};return h
+        end
+        """)
+        self.record=dict(skill='tianqing_tianfeng',binding='cast',
+                         lifecycle='attached-until-casted',effect='attached-sword')
+        self.school=self.h.h.table(dict(enabled=True,records={'tianqing_tianfeng_cast':self.record}))
+        module=self.lua.execute((native.LUA/'TianqingCastVfx.lua').read_text(encoding='utf-8'))
+        self.vfx=module.New(self.lua.globals().ESC.Engine,
+                           self.lua.globals().GeneratedSpec.tianqingVfx,self.school)
+
+    def calls(self,name):return self.h.calls(name)
+
+    def cast(self,action=100,owner='sword'):
+        spell=self.h.h.spell('tianqing_tianfeng')
+        return self.lua.globals().ESC.Runtime.BeginCast(owner,spell,action,'enemy0')
+
+    def test_adjacent_and_moving_casts_keep_one_owner_handle_past_all_contacts(self):
+        for hit_ms,moved_x in ((924,0),(992,4.387)):
+            with self.subTest(hit_ms=hit_ms):
+                self.setUp();c=self.cast();self.vfx.Begin(c);self.vfx.Begin(c);self.F.advance(1)
+                self.F.entities['sword'].Transform.Transform.Translate=self.h.h.table([moved_x,0,0])
+                self.F.advance(hit_ms)
+                self.assertFalse(self.vfx.Impact(c));self.assertFalse(self.vfx.Impact(c))
+                self.assertEqual(len(self.calls('PlayLoopEffect')),1)
+                call,=self.calls('PlayLoopEffect')
+                self.assertEqual(tuple(call.args[i] for i in range(1,5)),('sword','attached-sword','Dummy_Root',1))
+                self.assertEqual(len(list(self.F.fx.values())),1)
+                self.assertEqual(self.calls('PlayLoopEffectAtPosition')+self.calls('PlayEffectAtPosition'),[])
+                self.F.advance(hit_ms+133)
+                c.finished=True;self.vfx.Finish(c);self.vfx.Finish(c);self.F.advance(hit_ms+135)
+                self.assertEqual(len(self.calls('StopLoopEffect')),1)
+                self.assertEqual(len(list(self.F.fx.values())),0)
+                self.assertEqual(self.calls('UseSpell'),[])
+                self.assertEqual(self.F.resource('sword').Amount,50)
+
+    def test_cancel_before_or_after_start_never_replays_and_late_using_stays_closed(self):
+        for advance in (0,1):
+            with self.subTest(advance=advance):
+                self.setUp();c=self.cast();self.vfx.Begin(c);self.F.advance(advance)
+                c.failed=True;self.vfx.Cancel(c);self.vfx.Begin(c);self.vfx.Impact(c);self.F.advance(9000)
+                self.assertEqual(len(self.calls('PlayLoopEffect')),advance)
+                self.assertEqual(len(self.calls('StopLoopEffect')),advance)
+                self.assertEqual(len(list(self.F.fx.values())),0)
+        self.setUp();c=self.cast();c.finished=True;self.vfx.Finish(c);self.vfx.Begin(c);self.F.advance(2)
+        self.assertEqual(self.calls('PlayLoopEffect'),[])
+
+    def test_owner_cancel_reset_and_watchdog_never_stop_a_newer_generation(self):
+        self.F.actor('other',12,'tianqing',100,100,'players',50)
+        a=self.cast();b=self.cast(200,'other')
+        self.vfx.Begin(a);self.vfx.Begin(b);self.F.advance(1)
+        self.vfx.CancelOwner('sword')
+        self.assertEqual(len(list(self.F.fx.values())),1)
+        self.vfx.Reset();self.assertEqual(len(list(self.F.fx.values())),0)
+        c=self.cast(300);self.vfx.Begin(c);self.F.advance(2)
+        self.vfx.Cancel(a);self.vfx.Finish(b)
+        self.assertEqual(len(list(self.F.fx.values())),1)
+        self.F.advance(8002);self.assertEqual(len(list(self.F.fx.values())),0)
+        self.assertEqual(len(self.calls('StopLoopEffect')),3)
+
+    def test_only_explicit_valid_root_opt_in_can_start_and_missing_handles_have_no_fallback(self):
+        for field,value in (('enabled',False),('lifecycle','finite-cast'),('effect',''),('skill','tianqing_wanjun')):
+            with self.subTest(field=field):
+                self.setUp()
+                if field=='enabled':self.school.enabled=value
+                else:self.school.records.tianqing_tianfeng_cast[field]=value
+                c=self.cast();self.vfx.Begin(c);self.F.advance(2)
+                self.assertFalse(self.vfx.Enabled(c));self.assertEqual(self.calls('PlayLoopEffect'),[])
+        self.setUp();c=self.cast();c.alias.internal=True;self.vfx.Begin(c);self.F.advance(1)
+        self.assertEqual(self.calls('PlayLoopEffect'),[])
+        self.setUp();self.F.noFxHandle=True;c=self.cast();self.vfx.Begin(c);self.F.advance(1)
+        c.finished=True;self.vfx.Finish(c);self.F.advance(2)
+        self.assertEqual(self.calls('StopLoopEffect')+self.calls('PlayEffectAtPosition'),[])
+
+
 if __name__=='__main__':unittest.main()
